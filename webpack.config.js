@@ -3,19 +3,13 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const postcssPresetEnv = require('postcss-preset-env');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 
-module.exports = (env, {
-  mode
-}) => {
+module.exports = (env, {mode}) => {
   console.log(mode);
 
   const plugins = [
     new HtmlWebPackPlugin({
       template: './src/index.html',
       filename: './index.html'
-    }),
-    new HtmlWebPackPlugin({
-      template: './src/fuck.html',
-      filename: './fuck.html'
     }),
     new MiniCssExtractPlugin({
       filename: 'style.[contenthash].css'
@@ -47,30 +41,23 @@ module.exports = (env, {
   }
 
   return {
-    output: {
-      filename: '[name].[hash].js'
-    },
-    devServer: {
-      overlay: true,
-      hot: true,
-      contentBase: './src'
-    },
+    output: {filename: '[name].[hash].js'},
+    devServer: {overlay: true, hot: true, contentBase: './client/src'},
     module: {
-      rules: [{
+      rules: [
+        {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: {
-            loader: 'babel-loader'
-          }
+          use: {loader: 'babel-loader'}
         },
         {
           test: /\.html$/,
-          use: [{
-            loader: 'html-srcsets-loader',
-            options: {
-              attrs: [':src', ':srcset']
+          use: [
+            {
+              loader: 'html-srcsets-loader',
+              options: {attrs: [':src', ':srcset']}
             }
-          }]
+          ]
         },
         {
           test: /\.(jpe?g|png|svg|webp)$/,
@@ -86,9 +73,9 @@ module.exports = (env, {
         {
           test: /\.css$/,
           use: [
-            mode === 'production' ?
-            MiniCssExtractPlugin.loader :
-            'style-loader',
+            mode === 'production'
+              ? MiniCssExtractPlugin.loader
+              : 'style-loader',
             'css-loader',
             'resolve-url-loader',
             {

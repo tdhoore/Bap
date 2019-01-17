@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import { Route, NavLink, Switch } from "react-router-dom";
-import { observer } from "mobx-react";
+import React, {Component} from 'react';
+import {Route, NavLink, Switch} from 'react-router-dom';
+import {observer} from 'mobx-react';
 //import RandomGameList from "../components/RandomGameList";
 //import Filter from "../components/Filter";
 //import PlayList from "../components/PlayList";
@@ -42,10 +42,10 @@ class App extends Component {
   }*/
 
   render() {
-    const { store } = this.props;
+    const {store} = this.props;
     return (
       <Switch>
-        <Route path="/" />
+        <Route path='/' />
         <Route component={null} />
       </Switch>
     );
