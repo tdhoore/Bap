@@ -1,17 +1,7 @@
-import {
-  decorate,
-  observable,
-  action,
-  computed,
-  configure
-} from 'mobx';
+import {decorate, observable, action, computed, configure} from 'mobx';
 //import RandomGame from "../models/RandomGame";
 //import PlayListGame from "../models/PlayListGame";
 //import Api from "../api/playList";
-
-configure({
-  enforceActions: true
-});
 
 class Store {
   /*playtime = 0;
@@ -22,13 +12,34 @@ class Store {
 
   constructor() {
     //this.api = new Api();
-
     //normaal van de steam api maar die werkt enkel online
     //this.getFromApi(`../data/allUserGames.json`);
+
+    //per project andere stappen opvragen
+    this.activeProject = 0;
+    this.currentStep = 0;
   }
 
+  handleShowInstruction(e) {
+    const elem = e.currentTarget;
+    //get the id that is needed
+    const stepId = elem.getAttribute(`data-id`);
+
+    //search the data base for the correct image an caption
+
+    //na ophaling plaats deze in de image holder
+
+    //animeer de image in beeld
+
+    //plaats de knop voor volgende op zijn plaats indien nodig
+
+    //plaats de knop voor vorige op zijn plaats indien nodig
+
+    //set self to active step
+  }
 }
 decorate(Store, {
+  handleShowInstruction: action
   /*playtime: observable,
   randomGamesList: observable,
   playList: observable,

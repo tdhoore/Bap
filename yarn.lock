@@ -24,7 +24,10 @@
 "@babel/core@>=7.1.0", "@babel/core@^7.1.2":
   version "7.2.2"
   resolved "https://registry.yarnpkg.com/@babel/core/-/core-7.2.2.tgz#07adba6dde27bb5ad8d8672f15fde3e08184a687"
+<<<<<<< HEAD
   integrity sha512-59vB0RWt09cAct5EIe58+NzGP4TFSD3Bz//2/ELy3ZeTeKF6VTD1AXlH8BGGbCX0PuobZBsIzO7IAI9PH67eKw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/generator" "^7.2.2"
@@ -44,7 +47,10 @@
 "@babel/generator@^7.2.2":
   version "7.2.2"
   resolved "https://registry.yarnpkg.com/@babel/generator/-/generator-7.2.2.tgz#18c816c70962640eab42fe8cae5f3947a5c65ccc"
+<<<<<<< HEAD
   integrity sha512-I4o675J/iS8k+P38dvJ3IBGqObLXyQLTxtrR4u9cSUJOURvafeEWb/pFMOTwtNrmq73mJzyF6ueTbO1BtN0Zeg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/types" "^7.2.2"
     jsesc "^2.5.1"
@@ -141,7 +147,10 @@
 "@babel/helper-module-transforms@^7.1.0":
   version "7.2.2"
   resolved "https://registry.yarnpkg.com/@babel/helper-module-transforms/-/helper-module-transforms-7.2.2.tgz#ab2f8e8d231409f8370c883d20c335190284b963"
+<<<<<<< HEAD
   integrity sha512-YRD7I6Wsv+IHuTPkAmAS4HhY0dkPobgLftHp0cRGZSdrRvmZY8rFvae/GVu3bD00qscuvK3WPHB3YdNpBXUqrA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-module-imports" "^7.0.0"
     "@babel/helper-simple-access" "^7.1.0"
@@ -183,7 +192,10 @@
 "@babel/helper-replace-supers@^7.1.0":
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/@babel/helper-replace-supers/-/helper-replace-supers-7.2.3.tgz#19970020cf22677d62b3a689561dbd9644d8c5e5"
+<<<<<<< HEAD
   integrity sha512-GyieIznGUfPXPWu0yLS6U55Mz67AZD9cUk0BfirOWlPrXlBcan9Gz+vHGz+cPfuoweZSnPzPIm67VtQM0OWZbA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-member-expression-to-functions" "^7.0.0"
     "@babel/helper-optimise-call-expression" "^7.0.0"
@@ -208,7 +220,10 @@
 "@babel/helper-wrap-function@^7.1.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/helper-wrap-function/-/helper-wrap-function-7.2.0.tgz#c4e0012445769e2815b55296ead43a958549f6fa"
+<<<<<<< HEAD
   integrity sha512-o9fP1BZLLSrYlxYEYyl2aS+Flun5gtjTIG8iln+XuEzQTs0PLagAGSXUcqruJwD5fM48jzIEggCKpIfWTcR7pQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-function-name" "^7.1.0"
     "@babel/template" "^7.1.0"
@@ -218,7 +233,10 @@
 "@babel/helpers@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/helpers/-/helpers-7.2.0.tgz#8335f3140f3144270dc63c4732a4f8b0a50b7a21"
+<<<<<<< HEAD
   integrity sha512-Fr07N+ea0dMcMN8nFpuK6dUIT7/ivt9yKQdEEnjVS83tG2pHwPi03gYmk/tyuwONnZ+sY+GFFPlWGgCtW1hF9A==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/template" "^7.1.2"
     "@babel/traverse" "^7.1.5"
@@ -236,12 +254,18 @@
 "@babel/parser@^7.0.0", "@babel/parser@^7.2.2", "@babel/parser@^7.2.3":
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.2.3.tgz#32f5df65744b70888d17872ec106b02434ba1489"
+<<<<<<< HEAD
   integrity sha512-0LyEcVlfCoFmci8mXx8A5oIkpkOgyo8dRHtxBnK9RRBwxO2+JZPNsqtVEZQ7mJFPxnXF9lfmU24mHOPI0qnlkA==
+=======
+>>>>>>> videoPlayer
 
 "@babel/plugin-proposal-async-generator-functions@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-async-generator-functions/-/plugin-proposal-async-generator-functions-7.2.0.tgz#b289b306669dce4ad20b0252889a15768c9d417e"
+<<<<<<< HEAD
   integrity sha512-+Dfo/SCQqrwx48ptLVGLdE39YtWRuKc/Y9I5Fy0P1DDBB9lsAHpjcEJQt+4IifuSOSTLBKJObJqMvaO1pIE8LQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/helper-remap-async-to-generator" "^7.1.0"
@@ -250,7 +274,10 @@
 "@babel/plugin-proposal-json-strings@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-json-strings/-/plugin-proposal-json-strings-7.2.0.tgz#568ecc446c6148ae6b267f02551130891e29f317"
+<<<<<<< HEAD
   integrity sha512-MAFV1CA/YVmYwZG0fBQyXhmj0BHCB5egZHCKWIFVv/XCxAeVGIHfos3SwDck4LvCllENIAg7xMKOG5kH0dzyUg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-json-strings" "^7.2.0"
@@ -258,7 +285,10 @@
 "@babel/plugin-proposal-object-rest-spread@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-object-rest-spread/-/plugin-proposal-object-rest-spread-7.2.0.tgz#88f5fec3e7ad019014c97f7ee3c992f0adbf7fb8"
+<<<<<<< HEAD
   integrity sha512-1L5mWLSvR76XYUQJXkd/EEQgjq8HHRP6lQuZTTg0VA4tTGPpGemmCdAfQIz1rzEuWAm+ecP8PyyEm30jC1eQCg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-object-rest-spread" "^7.2.0"
@@ -266,7 +296,10 @@
 "@babel/plugin-proposal-optional-catch-binding@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-optional-catch-binding/-/plugin-proposal-optional-catch-binding-7.2.0.tgz#135d81edb68a081e55e56ec48541ece8065c38f5"
+<<<<<<< HEAD
   integrity sha512-mgYj3jCcxug6KUcX4OBoOJz3CMrwRfQELPQ5560F70YQUBZB7uac9fqaWamKR1iWUzGiK2t0ygzjTScZnVz75g==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-syntax-optional-catch-binding" "^7.2.0"
@@ -274,7 +307,10 @@
 "@babel/plugin-proposal-unicode-property-regex@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-proposal-unicode-property-regex/-/plugin-proposal-unicode-property-regex-7.2.0.tgz#abe7281fe46c95ddc143a65e5358647792039520"
+<<<<<<< HEAD
   integrity sha512-LvRVYb7kikuOtIoUeWTkOxQEV1kYvL5B6U3iWEGCzPNRus1MzJweFqORTj+0jkxozkTSYNJozPOddxmqdqsRpw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/helper-regex" "^7.0.0"
@@ -283,14 +319,20 @@
 "@babel/plugin-syntax-async-generators@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-async-generators/-/plugin-syntax-async-generators-7.2.0.tgz#69e1f0db34c6f5a0cf7e2b3323bf159a76c8cb7f"
+<<<<<<< HEAD
   integrity sha512-1ZrIRBv2t0GSlcwVoQ6VgSLpLgiN/FVQUzt9znxo7v2Ov4jJrs8RY8tv0wvDmFN3qIdMKWrmMMW6yZ0G19MfGg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-syntax-json-strings@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-json-strings/-/plugin-syntax-json-strings-7.2.0.tgz#72bd13f6ffe1d25938129d2a186b11fd62951470"
+<<<<<<< HEAD
   integrity sha512-5UGYnMSLRE1dqqZwug+1LISpA403HzlSfsg6P9VXU6TBjcSHeNlw4DxDx7LgpF+iKZoOG/+uzqoRHTdcUpiZNg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
@@ -304,28 +346,40 @@
 "@babel/plugin-syntax-object-rest-spread@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-object-rest-spread/-/plugin-syntax-object-rest-spread-7.2.0.tgz#3b7a3e733510c57e820b9142a6579ac8b0dfad2e"
+<<<<<<< HEAD
   integrity sha512-t0JKGgqk2We+9may3t0xDdmneaXmyxq0xieYcKHxIsrJO64n1OiMWNUtc5gQK1PA0NpdCRrtZp4z+IUaKugrSA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-syntax-optional-catch-binding@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-syntax-optional-catch-binding/-/plugin-syntax-optional-catch-binding-7.2.0.tgz#a94013d6eda8908dfe6a477e7f9eda85656ecf5c"
+<<<<<<< HEAD
   integrity sha512-bDe4xKNhb0LI7IvZHiA13kff0KEfaGX/Hv4lMA9+7TEc63hMNvfKo6ZFpXhKuEp+II/q35Gc4NoMeDZyaUbj9w==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-transform-arrow-functions@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-arrow-functions/-/plugin-transform-arrow-functions-7.2.0.tgz#9aeafbe4d6ffc6563bf8f8372091628f00779550"
+<<<<<<< HEAD
   integrity sha512-ER77Cax1+8/8jCB9fo4Ud161OZzWN5qawi4GusDuRLcDbDG+bIGYY20zb2dfAFdTRGzrfq2xZPvF0R64EHnimg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-transform-async-to-generator@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-async-to-generator/-/plugin-transform-async-to-generator-7.2.0.tgz#68b8a438663e88519e65b776f8938f3445b1a2ff"
+<<<<<<< HEAD
   integrity sha512-CEHzg4g5UraReozI9D4fblBYABs7IM6UerAVG7EJVrTLC5keh00aEuLUT+O40+mJCEzaXkYfTCUKIyeDfMOFFQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-module-imports" "^7.0.0"
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -334,14 +388,20 @@
 "@babel/plugin-transform-block-scoped-functions@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-block-scoped-functions/-/plugin-transform-block-scoped-functions-7.2.0.tgz#5d3cc11e8d5ddd752aa64c9148d0db6cb79fd190"
+<<<<<<< HEAD
   integrity sha512-ntQPR6q1/NKuphly49+QiQiTN0O63uOwjdD6dhIjSWBI5xlrbUFh720TIpzBhpnrLfv2tNH/BXvLIab1+BAI0w==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-transform-block-scoping@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-block-scoping/-/plugin-transform-block-scoping-7.2.0.tgz#f17c49d91eedbcdf5dd50597d16f5f2f770132d4"
+<<<<<<< HEAD
   integrity sha512-vDTgf19ZEV6mx35yiPJe4fS02mPQUUcBNwWQSZFXSzTSbsJFQvHt7DqyS3LK8oOWALFOsJ+8bbqBgkirZteD5Q==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     lodash "^4.17.10"
@@ -349,7 +409,10 @@
 "@babel/plugin-transform-classes@^7.2.0":
   version "7.2.2"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-classes/-/plugin-transform-classes-7.2.2.tgz#6c90542f210ee975aa2aa8c8b5af7fa73a126953"
+<<<<<<< HEAD
   integrity sha512-gEZvgTy1VtcDOaQty1l10T3jQmJKlNVxLDCs+3rCVPr6nMkODLELxViq5X9l+rfxbie3XrfrMCYYY6eX3aOcOQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.0.0"
     "@babel/helper-define-map" "^7.1.0"
@@ -363,21 +426,30 @@
 "@babel/plugin-transform-computed-properties@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-computed-properties/-/plugin-transform-computed-properties-7.2.0.tgz#83a7df6a658865b1c8f641d510c6f3af220216da"
+<<<<<<< HEAD
   integrity sha512-kP/drqTxY6Xt3NNpKiMomfgkNn4o7+vKxK2DDKcBG9sHj51vHqMBGy8wbDS/J4lMxnqs153/T3+DmCEAkC5cpA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-transform-destructuring@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-destructuring/-/plugin-transform-destructuring-7.2.0.tgz#e75269b4b7889ec3a332cd0d0c8cff8fed0dc6f3"
+<<<<<<< HEAD
   integrity sha512-coVO2Ayv7g0qdDbrNiadE4bU7lvCd9H539m2gMknyVjjMdwF/iCOM7R+E8PkntoqLkltO0rk+3axhpp/0v68VQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-transform-dotall-regex@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-dotall-regex/-/plugin-transform-dotall-regex-7.2.0.tgz#f0aabb93d120a8ac61e925ea0ba440812dbe0e49"
+<<<<<<< HEAD
   integrity sha512-sKxnyHfizweTgKZf7XsXu/CNupKhzijptfTM+bozonIuyVrLWVUvYjE2bhuSBML8VQeMxq4Mm63Q9qvcvUcciQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/helper-regex" "^7.0.0"
@@ -386,14 +458,20 @@
 "@babel/plugin-transform-duplicate-keys@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-duplicate-keys/-/plugin-transform-duplicate-keys-7.2.0.tgz#d952c4930f312a4dbfff18f0b2914e60c35530b3"
+<<<<<<< HEAD
   integrity sha512-q+yuxW4DsTjNceUiTzK0L+AfQ0zD9rWaTLiUqHA8p0gxx7lu1EylenfzjeIWNkPy6e/0VG/Wjw9uf9LueQwLOw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-transform-exponentiation-operator@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-exponentiation-operator/-/plugin-transform-exponentiation-operator-7.2.0.tgz#a63868289e5b4007f7054d46491af51435766008"
+<<<<<<< HEAD
   integrity sha512-umh4hR6N7mu4Elq9GG8TOu9M0bakvlsREEC+ialrQN6ABS4oDQ69qJv1VtR3uxlKMCQMCvzk7vr17RHKcjx68A==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-builder-binary-assignment-operator-visitor" "^7.1.0"
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -401,14 +479,20 @@
 "@babel/plugin-transform-for-of@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-for-of/-/plugin-transform-for-of-7.2.0.tgz#ab7468befa80f764bb03d3cb5eef8cc998e1cad9"
+<<<<<<< HEAD
   integrity sha512-Kz7Mt0SsV2tQk6jG5bBv5phVbkd0gd27SgYD4hH1aLMJRchM0dzHaXvrWhVZ+WxAlDoAKZ7Uy3jVTW2mKXQ1WQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-transform-function-name@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-function-name/-/plugin-transform-function-name-7.2.0.tgz#f7930362829ff99a3174c39f0afcc024ef59731a"
+<<<<<<< HEAD
   integrity sha512-kWgksow9lHdvBC2Z4mxTsvc7YdY7w/V6B2vy9cTIPtLEE9NhwoWivaxdNM/S37elu5bqlLP/qOY906LukO9lkQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-function-name" "^7.1.0"
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -416,14 +500,20 @@
 "@babel/plugin-transform-literals@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-literals/-/plugin-transform-literals-7.2.0.tgz#690353e81f9267dad4fd8cfd77eafa86aba53ea1"
+<<<<<<< HEAD
   integrity sha512-2ThDhm4lI4oV7fVQ6pNNK+sx+c/GM5/SaML0w/r4ZB7sAneD/piDJtwdKlNckXeyGK7wlwg2E2w33C/Hh+VFCg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-transform-modules-amd@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-amd/-/plugin-transform-modules-amd-7.2.0.tgz#82a9bce45b95441f617a24011dc89d12da7f4ee6"
+<<<<<<< HEAD
   integrity sha512-mK2A8ucqz1qhrdqjS9VMIDfIvvT2thrEsIQzbaTdc5QFzhDjQv2CkJJ5f6BXIkgbmaoax3zBr2RyvV/8zeoUZw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-module-transforms" "^7.1.0"
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -431,7 +521,10 @@
 "@babel/plugin-transform-modules-commonjs@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-commonjs/-/plugin-transform-modules-commonjs-7.2.0.tgz#c4f1933f5991d5145e9cfad1dfd848ea1727f404"
+<<<<<<< HEAD
   integrity sha512-V6y0uaUQrQPXUrmj+hgnks8va2L0zcZymeU7TtWEgdRLNkceafKXEduv7QzgQAE4lT+suwooG9dC7LFhdRAbVQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-module-transforms" "^7.1.0"
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -440,7 +533,10 @@
 "@babel/plugin-transform-modules-systemjs@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-systemjs/-/plugin-transform-modules-systemjs-7.2.0.tgz#912bfe9e5ff982924c81d0937c92d24994bb9068"
+<<<<<<< HEAD
   integrity sha512-aYJwpAhoK9a+1+O625WIjvMY11wkB/ok0WClVwmeo3mCjcNRjt+/8gHWrB5i+00mUju0gWsBkQnPpdvQ7PImmQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-hoist-variables" "^7.0.0"
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -448,7 +544,10 @@
 "@babel/plugin-transform-modules-umd@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-modules-umd/-/plugin-transform-modules-umd-7.2.0.tgz#7678ce75169f0877b8eb2235538c074268dd01ae"
+<<<<<<< HEAD
   integrity sha512-BV3bw6MyUH1iIsGhXlOK6sXhmSarZjtJ/vMiD9dNmpY8QXFFQTj+6v92pcfy1iqa8DeAfJFwoxcrS/TUZda6sw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-module-transforms" "^7.1.0"
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -463,7 +562,10 @@
 "@babel/plugin-transform-object-super@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-object-super/-/plugin-transform-object-super-7.2.0.tgz#b35d4c10f56bab5d650047dad0f1d8e8814b6598"
+<<<<<<< HEAD
   integrity sha512-VMyhPYZISFZAqAPVkiYb7dUe2AsVi2/wCT5+wZdsNO31FojQJa9ns40hzZ6U9f50Jlq4w6qwzdBB2uwqZ00ebg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/helper-replace-supers" "^7.1.0"
@@ -471,7 +573,10 @@
 "@babel/plugin-transform-parameters@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-parameters/-/plugin-transform-parameters-7.2.0.tgz#0d5ad15dc805e2ea866df4dd6682bfe76d1408c2"
+<<<<<<< HEAD
   integrity sha512-kB9+hhUidIgUoBQ0MsxMewhzr8i60nMa2KgeJKQWYrqQpqcBYtnpR+JgkadZVZoaEZ/eKu9mclFaVwhRpLNSzA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-call-delegate" "^7.1.0"
     "@babel/helper-get-function-arity" "^7.0.0"
@@ -519,21 +624,30 @@
 "@babel/plugin-transform-shorthand-properties@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-shorthand-properties/-/plugin-transform-shorthand-properties-7.2.0.tgz#6333aee2f8d6ee7e28615457298934a3b46198f0"
+<<<<<<< HEAD
   integrity sha512-QP4eUM83ha9zmYtpbnyjTLAGKQritA5XW/iG9cjtuOI8s1RuL/3V6a3DeSHfKutJQ+ayUfeZJPcnCYEQzaPQqg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-transform-spread@^7.2.0":
   version "7.2.2"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-spread/-/plugin-transform-spread-7.2.2.tgz#3103a9abe22f742b6d406ecd3cd49b774919b406"
+<<<<<<< HEAD
   integrity sha512-KWfky/58vubwtS0hLqEnrWJjsMGaOeSBn90Ezn5Jeg9Z8KKHmELbP1yGylMlm5N6TPKeY9A2+UaSYLdxahg01w==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-transform-sticky-regex@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-sticky-regex/-/plugin-transform-sticky-regex-7.2.0.tgz#a1e454b5995560a9c1e0d537dfc15061fd2687e1"
+<<<<<<< HEAD
   integrity sha512-KKYCoGaRAf+ckH8gEL3JHUaFVyNHKe3ASNsZ+AlktgHevvxGigoIttrEJb8iKN03Q7Eazlv1s6cx2B2cQ3Jabw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/helper-regex" "^7.0.0"
@@ -541,7 +655,10 @@
 "@babel/plugin-transform-template-literals@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-template-literals/-/plugin-transform-template-literals-7.2.0.tgz#d87ed01b8eaac7a92473f608c97c089de2ba1e5b"
+<<<<<<< HEAD
   integrity sha512-FkPix00J9A/XWXv4VoKJBMeSkyY9x/TqIh76wzcdfl57RJJcf8CehQ08uwfhCDNtRQYtHQKBTwKZDEyjE13Lwg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-annotate-as-pure" "^7.0.0"
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -549,14 +666,20 @@
 "@babel/plugin-transform-typeof-symbol@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-typeof-symbol/-/plugin-transform-typeof-symbol-7.2.0.tgz#117d2bcec2fbf64b4b59d1f9819894682d29f2b2"
+<<<<<<< HEAD
   integrity sha512-2LNhETWYxiYysBtrBTqL8+La0jIoQQnIScUJc74OYvUGRmkskNY4EzLCnjHBzdmb38wqtTaixpo1NctEcvMDZw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
 
 "@babel/plugin-transform-unicode-regex@^7.2.0":
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/@babel/plugin-transform-unicode-regex/-/plugin-transform-unicode-regex-7.2.0.tgz#4eb8db16f972f8abb5062c161b8b115546ade08b"
+<<<<<<< HEAD
   integrity sha512-m48Y0lMhrbXEJnVUaYly29jRXbQ3ksxPrS1Tg8t+MHqzXhtBYAvI51euOBaoAlZLPHsieY9XPVMf80a5x0cPcA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/helper-regex" "^7.0.0"
@@ -565,7 +688,10 @@
 "@babel/preset-env@^7.1.0":
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/@babel/preset-env/-/preset-env-7.2.3.tgz#948c8df4d4609c99c7e0130169f052ea6a7a8933"
+<<<<<<< HEAD
   integrity sha512-AuHzW7a9rbv5WXmvGaPX7wADxFkZIqKlbBh1dmZUQp4iwiPpkE/Qnrji6SC4UQCQzvWY/cpHET29eUhXS9cLPw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/helper-module-imports" "^7.0.0"
     "@babel/helper-plugin-utils" "^7.0.0"
@@ -623,7 +749,10 @@
 "@babel/template@^7.1.0", "@babel/template@^7.1.2", "@babel/template@^7.2.2":
   version "7.2.2"
   resolved "https://registry.yarnpkg.com/@babel/template/-/template-7.2.2.tgz#005b3fdf0ed96e88041330379e0da9a708eb2907"
+<<<<<<< HEAD
   integrity sha512-zRL0IMM02AUDwghf5LMSSDEz7sBCO2YnNmpg3uWTZj/v1rcG2BmQUvaGU8GhU8BvfMh1k2KIAYZ7Ji9KXPUg7g==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/parser" "^7.2.2"
@@ -632,7 +761,10 @@
 "@babel/traverse@^7.0.0", "@babel/traverse@^7.1.0", "@babel/traverse@^7.1.5", "@babel/traverse@^7.2.2", "@babel/traverse@^7.2.3":
   version "7.2.3"
   resolved "https://registry.yarnpkg.com/@babel/traverse/-/traverse-7.2.3.tgz#7ff50cefa9c7c0bd2d81231fdac122f3957748d8"
+<<<<<<< HEAD
   integrity sha512-Z31oUD/fJvEWVR0lNZtfgvVt512ForCTNKYcJBGbPb1QZfve4WGH8Wsy7+Mev33/45fhP/hwQtvgusNdcCMgSw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/code-frame" "^7.0.0"
     "@babel/generator" "^7.2.2"
@@ -647,7 +779,10 @@
 "@babel/types@^7.0.0", "@babel/types@^7.2.0", "@babel/types@^7.2.2":
   version "7.2.2"
   resolved "https://registry.yarnpkg.com/@babel/types/-/types-7.2.2.tgz#44e10fc24e33af524488b716cdaee5360ea8ed1e"
+<<<<<<< HEAD
   integrity sha512-fKCuD6UFUMkR541eDWL+2ih/xFZBXPOg/7EQFeTluMDebfqR4jrpaCjLhkWlQS4hT6nRa2PMEgXKbRB5/H2fpg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     esutils "^2.0.2"
     lodash "^4.17.10"
@@ -717,6 +852,57 @@
   version "3.2.0-22"
   resolved "https://registry.yarnpkg.com/@gerhobbelt/xregexp/-/xregexp-3.2.0-22.tgz#66e6640eb6a5bba78ad9ea8187f6910b53b6c0ea"
   integrity sha512-TRu38Z67VxFSMrBP3z/ORiJVQqp56ulidZirbobtmJnVGBWLdo4GbHtihgIJFGieIZuk+LxmPkK45SY+SQsR3A==
+
+"@gerhobbelt/ast-types@0.10.1-15":
+  version "0.10.1-15"
+  resolved "https://registry.yarnpkg.com/@gerhobbelt/ast-types/-/ast-types-0.10.1-15.tgz#d190cb08d145905cc46a8daae463d15682cebda4"
+
+"@gerhobbelt/ast-types@0.9.13-4":
+  version "0.9.13-4"
+  resolved "https://registry.yarnpkg.com/@gerhobbelt/ast-types/-/ast-types-0.9.13-4.tgz#dbabe35a96bbf172a7d3b4dc9f3bad15394867a0"
+
+"@gerhobbelt/ast-util@0.6.1-4":
+  version "0.6.1-4"
+  resolved "https://registry.yarnpkg.com/@gerhobbelt/ast-util/-/ast-util-0.6.1-4.tgz#a746b4dbea5c4a45ad17abca96b0af0f7937bb8a"
+  dependencies:
+    "@gerhobbelt/ast-types" "0.9.13-4"
+    private "0.1.7"
+
+"@gerhobbelt/esprima@4.0.1-15":
+  version "4.0.1-15"
+  resolved "https://registry.yarnpkg.com/@gerhobbelt/esprima/-/esprima-4.0.1-15.tgz#2d6f0d3d9ad7bf0d5d514eda849528ad790d6769"
+
+"@gerhobbelt/json5@0.5.1-21":
+  version "0.5.1-21"
+  resolved "https://registry.yarnpkg.com/@gerhobbelt/json5/-/json5-0.5.1-21.tgz#be4cca3a8612f207c85a9bd3d834fb330dd58345"
+  dependencies:
+    yargs "10.0.3"
+
+"@gerhobbelt/linewrap@0.2.2-3":
+  version "0.2.2-3"
+  resolved "https://registry.yarnpkg.com/@gerhobbelt/linewrap/-/linewrap-0.2.2-3.tgz#49d5667922ad02bd0a37084fb8f31309a382f829"
+
+"@gerhobbelt/nomnom@1.8.4-24":
+  version "1.8.4-24"
+  resolved "https://registry.yarnpkg.com/@gerhobbelt/nomnom/-/nomnom-1.8.4-24.tgz#d03a5e3093f5f68fb5217b1d1e4d7d67d017bf22"
+  dependencies:
+    "@gerhobbelt/linewrap" "0.2.2-3"
+    chalk "2.1.0"
+    exit "0.1.2"
+
+"@gerhobbelt/recast@0.13.0-24":
+  version "0.13.0-24"
+  resolved "https://registry.yarnpkg.com/@gerhobbelt/recast/-/recast-0.13.0-24.tgz#6ab25ed671710b3ca6224571c2d6d1cfcbaae64e"
+  dependencies:
+    "@gerhobbelt/ast-types" "0.10.1-15"
+    "@gerhobbelt/esprima" "4.0.1-15"
+    core-js "2.5.3"
+    private "0.1.8"
+    source-map "0.6.1"
+
+"@gerhobbelt/xregexp@3.2.0-22":
+  version "3.2.0-22"
+  resolved "https://registry.yarnpkg.com/@gerhobbelt/xregexp/-/xregexp-3.2.0-22.tgz#66e6640eb6a5bba78ad9ea8187f6910b53b6c0ea"
 
 "@mrmlnc/readdir-enhanced@^2.2.1":
   version "2.2.1"
@@ -866,6 +1052,10 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.1.tgz#48fd98c1561fe718b61733daed46ff115b496e18"
   integrity sha512-eqz8c/0kwNi/OEHQfvIuJVLTst3in0e7uTKeuY+WL/zfKn0xVujOTp42bS/vUUokhK5P2BppLd9JXMOMHcgbjA==
 
+"@types/q@^1.5.1":
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.1.tgz#48fd98c1561fe718b61733daed46ff115b496e18"
+
 "@types/range-parser@*":
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/@types/range-parser/-/range-parser-1.2.3.tgz#7ee330ba7caafb98090bece86a5ee44115904c2c"
@@ -882,12 +1072,18 @@
 "@types/unist@*", "@types/unist@^2.0.0":
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/@types/unist/-/unist-2.0.2.tgz#5dc0a7f76809b7518c0df58689cd16a19bd751c6"
+<<<<<<< HEAD
   integrity sha512-iHI60IbyfQilNubmxsq4zqSjdynlmc2Q/QvH9kjzg9+CCYVVzq1O6tc7VBzSygIwnmOt07w80IG6HDQvjv3Liw==
+=======
+>>>>>>> videoPlayer
 
 "@types/vfile-message@*":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/vfile-message/-/vfile-message-1.0.1.tgz#e1e9895cc6b36c462d4244e64e6d0b6eaf65355a"
+<<<<<<< HEAD
   integrity sha512-mlGER3Aqmq7bqR1tTTIVHq8KSAFFRyGbrxuM8C/H82g6k7r2fS+IMEkIu3D7JHzG10NvPdR8DNx0jr0pwpp4dA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@types/node" "*"
     "@types/unist" "*"
@@ -895,7 +1091,10 @@
 "@types/vfile@^3.0.0":
   version "3.0.2"
   resolved "https://registry.yarnpkg.com/@types/vfile/-/vfile-3.0.2.tgz#19c18cd232df11ce6fa6ad80259bc86c366b09b9"
+<<<<<<< HEAD
   integrity sha512-b3nLFGaGkJ9rzOcuXRfHkZMdjsawuDD0ENL9fzTophtBg8FJHSGbH7daXkEpcwy3v7Xol3pAvsmlYyFhR4pqJw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@types/node" "*"
     "@types/unist" "*"
@@ -1100,12 +1299,18 @@ acorn@^5.0.0, acorn@^5.6.2:
 acorn@^6.0.2:
   version "6.0.5"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-6.0.5.tgz#81730c0815f3f3b34d8efa95cb7430965f4d887a"
+<<<<<<< HEAD
   integrity sha512-i33Zgp3XWtmZBMNvCr4azvOFeWVw1Rk6p3hfi3LUDvIFraOMywb1kAtrbi+med14m4Xfpqm3zRZMT+c0FNE7kg==
+=======
+>>>>>>> videoPlayer
 
 adjust-sourcemap-loader@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/adjust-sourcemap-loader/-/adjust-sourcemap-loader-1.2.0.tgz#e33fde95e50db9f2a802e3647e311d2fc5000c69"
+<<<<<<< HEAD
   integrity sha512-958oaHHVEXMvsY7v7cC5gEkNIcoaAVIhZ4mBReYVZJOTP9IgKmzLjIOhTtzpLMu+qriXvLsVjJ155EeInp45IQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     assert "^1.3.0"
     camelcase "^1.2.1"
@@ -1125,7 +1330,10 @@ agent-base@^4.1.0:
 ajv-errors@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/ajv-errors/-/ajv-errors-1.0.1.tgz#f35986aceb91afadec4102fbd85014950cefa64d"
+<<<<<<< HEAD
   integrity sha512-DCRfO/4nQ+89p/RK43i8Ezd41EqdGIU4ld7nGF8OQ14oc/we5rEntLCUa7+jrn3nn83BosfwZA0wb4pon2o8iQ==
+=======
+>>>>>>> videoPlayer
 
 ajv-keywords@^3.1.0:
   version "3.2.0"
@@ -1145,7 +1353,10 @@ ajv@^5.1.0:
 ajv@^6.1.0, ajv@^6.5.3, ajv@^6.5.5, ajv@^6.6.1:
   version "6.7.0"
   resolved "https://registry.yarnpkg.com/ajv/-/ajv-6.7.0.tgz#e3ce7bb372d6577bb1839f1dfdfcbf5ad2948d96"
+<<<<<<< HEAD
   integrity sha512-RZXPviBTtfmtka9n9sy1N5M5b82CbxWIR6HIis4s3WQTXDJamc/0gpCWNGz6EWdWp4DOfjzJfhz/AS9zVPjjWg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     fast-deep-equal "^2.0.1"
     fast-json-stable-stringify "^2.0.0"
@@ -1167,19 +1378,28 @@ ansi-align@^1.0.0:
 ansi-colors@^1.0.1:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-1.1.0.tgz#6374b4dd5d4718ff3ce27a671a3b1cad077132a9"
+<<<<<<< HEAD
   integrity sha512-SFKX67auSNoVR38N3L+nvsPjOE0bybKTYbkf5tRvushrAPQ9V75huw0ZxBkKVeRU9kqH3d6HA4xTckbwZ4ixmA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     ansi-wrap "^0.1.0"
 
 ansi-colors@^3.0.0:
   version "3.2.3"
   resolved "https://registry.yarnpkg.com/ansi-colors/-/ansi-colors-3.2.3.tgz#57d35b8686e851e2cc04c403f1c00203976a1813"
+<<<<<<< HEAD
   integrity sha512-LEHHyuhlPY3TmuUYMh2oz89lTShfvgbmzaBcxve9t/9Wuy7Dwf4yoAKcND7KFT1HAQfqZ12qtc+DUrBMeKF9nw==
+=======
+>>>>>>> videoPlayer
 
 ansi-escapes@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/ansi-escapes/-/ansi-escapes-3.1.0.tgz#f73207bb81207d75fd6c83f125af26eea378ca30"
+<<<<<<< HEAD
   integrity sha512-UgAb8H9D41AQnu/PbWlCofQVcnV4Gs2bBJi9eZPxfU/hgglFh3SMDMENRIqdr7H6XFnXdoknctFByVsCOotTVw==
+=======
+>>>>>>> videoPlayer
 
 ansi-html@0.0.7:
   version "0.0.7"
@@ -1511,7 +1731,10 @@ array-find-index@^1.0.1:
 array-flatten@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/array-flatten/-/array-flatten-1.1.1.tgz#9a5f699051b1e7073328f2a008968b64ea2955d2"
+<<<<<<< HEAD
   integrity sha1-ml9pkFGx5wczKPKgCJaLZOopVdI=
+=======
+>>>>>>> videoPlayer
 
 array-flatten@^2.1.0:
   version "2.1.2"
@@ -1649,7 +1872,10 @@ async-retry@^1.2.1:
 async@^1.5.0, async@^1.5.2:
   version "1.5.2"
   resolved "https://registry.yarnpkg.com/async/-/async-1.5.2.tgz#ec6a61ae56480c0c3cb241c95618e20892f9672a"
+<<<<<<< HEAD
   integrity sha1-7GphrlZIDAw8skHJVhjiCJL5Zyo=
+=======
+>>>>>>> videoPlayer
 
 asynckit@^0.4.0:
   version "0.4.0"
@@ -1664,7 +1890,10 @@ atob@^2.1.1:
 autoprefixer@^9.0.0, autoprefixer@^9.4.2:
   version "9.4.5"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-9.4.5.tgz#a13ccb001e4bc8837f71c3354005b42f02cc03d7"
+<<<<<<< HEAD
   integrity sha512-M602C0ZxzFpJKqD4V6eq2j+K5CkzlhekCrcQupJmAOrPEZjWJyj/wSeo6qRSNoN6M3/9mtLPQqTTrABfReytQg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     browserslist "^4.4.0"
     caniuse-lite "^1.0.30000928"
@@ -1705,7 +1934,10 @@ babel-eslint@^10.0.1:
 babel-loader@^8.0.4:
   version "8.0.5"
   resolved "https://registry.yarnpkg.com/babel-loader/-/babel-loader-8.0.5.tgz#225322d7509c2157655840bba52e46b6c2f2fe33"
+<<<<<<< HEAD
   integrity sha512-NTnHnVRd2JnRqPC0vW+iOQWU5pchDbYXsG2E6DMXEpMfUcQKclF9gmf3G3ZMhzG7IG9ji4coL0cm+FxeWxDpnw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     find-cache-dir "^2.0.0"
     loader-utils "^1.0.2"
@@ -1780,6 +2012,10 @@ big.js@^5.2.2:
   resolved "https://registry.yarnpkg.com/big.js/-/big.js-5.2.2.tgz#65f0af382f578bcdc742bd9c281e9cb2d7768328"
   integrity sha512-vyL2OymJxmarO8gxMr0mhChsO9QGwhynfuu4+MHTAW6czfq9humCB7rKpUjDd9YUiDPU4mzpyupFSvOClAwbmQ==
 
+big.js@^5.2.2:
+  version "5.2.2"
+  resolved "https://registry.yarnpkg.com/big.js/-/big.js-5.2.2.tgz#65f0af382f578bcdc742bd9c281e9cb2d7768328"
+
 bin-build@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/bin-build/-/bin-build-3.0.0.tgz#c5780a25a8a9f966d8244217e6c1f5082a143861"
@@ -1838,10 +2074,17 @@ bindings@^1.3.1:
   resolved "https://registry.yarnpkg.com/bindings/-/bindings-1.3.1.tgz#21fc7c6d67c18516ec5aaa2815b145ff77b26ea5"
   integrity sha512-i47mqjF9UbjxJhxGf+pZ6kSxrnI3wBLlnGI2ArWJ4r0VrvDS7ZYXkprq/pLaBWYq4GM0r4zdHY+NNRqEMU7uew==
 
+bindings@^1.3.1:
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/bindings/-/bindings-1.3.1.tgz#21fc7c6d67c18516ec5aaa2815b145ff77b26ea5"
+
 bl@^1.0.0:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/bl/-/bl-1.2.2.tgz#a160911717103c07410cef63ef51b397c025af9c"
+<<<<<<< HEAD
   integrity sha512-e8tQYnZodmebYDWGH7KMRvtzKXaJHx3BbilrgZCfvyLUYdKpK1t5PSPmpkny/SgiTSCnjfLW7v5rlONXVFkQEA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     readable-stream "^2.3.5"
     safe-buffer "^5.1.1"
@@ -1892,7 +2135,10 @@ boolbase@^1.0.0, boolbase@~1.0.0:
 boxen@^0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/boxen/-/boxen-0.5.1.tgz#5b73d8840eb7f3c8a155cbf69ed3ed68d4720014"
+<<<<<<< HEAD
   integrity sha1-W3PYhA6388ihVcv2ntPtaNRyABQ=
+=======
+>>>>>>> videoPlayer
   dependencies:
     camelcase "^2.1.0"
     chalk "^1.1.1"
@@ -1935,7 +2181,10 @@ brorand@^1.0.1:
 browserify-aes@^1.0.0, browserify-aes@^1.0.4:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/browserify-aes/-/browserify-aes-1.2.0.tgz#326734642f403dabc3003209853bb70ad428ef48"
+<<<<<<< HEAD
   integrity sha512-+7CHXqGuspUn/Sl5aO7Ea0xWGAtETPXNSAjHo48JfLdPWcMng33Xe4znFvQweqc/uzk5zSOI3H52CYnjCfb5hA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     buffer-xor "^1.0.3"
     cipher-base "^1.0.0"
@@ -1966,7 +2215,10 @@ browserify-des@^1.0.0:
 browserify-rsa@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/browserify-rsa/-/browserify-rsa-4.0.1.tgz#21e0abfaf6f2029cf2fafb133567a701d4135524"
+<<<<<<< HEAD
   integrity sha1-IeCr+vbyApzy+vsTNWenAdQTVSQ=
+=======
+>>>>>>> videoPlayer
   dependencies:
     bn.js "^4.1.0"
     randombytes "^2.0.1"
@@ -1994,7 +2246,10 @@ browserify-zlib@^0.2.0:
 browserslist@^4.0.0, browserslist@^4.3.4, browserslist@^4.3.5, browserslist@^4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/browserslist/-/browserslist-4.4.0.tgz#7050d1412cbfc5274aba609ed5e50359ca1a5fdf"
+<<<<<<< HEAD
   integrity sha512-tQkHS8VVxWbrjnNDXgt7/+SuPJ7qDvD0Y2e6bLtoQluR2SPvlmPUcfcU75L1KAalhqULlIFJlJ6BDfnYyJxJsw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     caniuse-lite "^1.0.30000928"
     electron-to-chromium "^1.3.100"
@@ -2046,7 +2301,10 @@ buffer-xor@^1.0.3:
 buffer@^3.0.1:
   version "3.6.0"
   resolved "https://registry.yarnpkg.com/buffer/-/buffer-3.6.0.tgz#a72c936f77b96bf52f5f7e7b467180628551defb"
+<<<<<<< HEAD
   integrity sha1-pyyTb3e5a/UvX357RnGAYoVR3vs=
+=======
+>>>>>>> videoPlayer
   dependencies:
     base64-js "0.0.8"
     ieee754 "^1.1.4"
@@ -2055,7 +2313,10 @@ buffer@^3.0.1:
 buffer@^4.3.0:
   version "4.9.1"
   resolved "https://registry.yarnpkg.com/buffer/-/buffer-4.9.1.tgz#6d1bb601b07a4efced97094132093027c95bc298"
+<<<<<<< HEAD
   integrity sha1-bRu2AbB6TvztlwlBMgkwJ8lbwpg=
+=======
+>>>>>>> videoPlayer
   dependencies:
     base64-js "^1.0.2"
     ieee754 "^1.1.4"
@@ -2086,7 +2347,10 @@ bytes@3.0.0:
 cacache@^11.0.2:
   version "11.3.2"
   resolved "https://registry.yarnpkg.com/cacache/-/cacache-11.3.2.tgz#2d81e308e3d258ca38125b676b98b2ac9ce69bfa"
+<<<<<<< HEAD
   integrity sha512-E0zP4EPGDOaT2chM08Als91eYnf8Z+eH1awwwVsngUmgppfM5jjJ8l3z5vO5p5w/I3LsiXawb1sW0VY65pQABg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     bluebird "^3.5.3"
     chownr "^1.1.1"
@@ -2153,12 +2417,18 @@ caller-path@^2.0.0:
 callsites@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-2.0.0.tgz#06eb84f00eea413da86affefacbffb36093b3c50"
+<<<<<<< HEAD
   integrity sha1-BuuE8A7qQT2oav/vrL/7Ngk7PFA=
+=======
+>>>>>>> videoPlayer
 
 callsites@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/callsites/-/callsites-3.0.0.tgz#fb7eb569b72ad7a45812f93fd9430a3e410b3dd3"
+<<<<<<< HEAD
   integrity sha512-tWnkwu9YEq2uzlBDI4RcLn8jrFvF9AOi8PxDNU3hZZjJcjkcRAq3vCI+vZcg1SuxISDYe86k9VZFwAxDiJGoAw==
+=======
+>>>>>>> videoPlayer
 
 camel-case@3.0.x:
   version "3.0.0"
@@ -2171,7 +2441,10 @@ camel-case@3.0.x:
 camelcase-keys@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/camelcase-keys/-/camelcase-keys-2.1.0.tgz#308beeaffdf28119051efa1d932213c91b8f92e7"
+<<<<<<< HEAD
   integrity sha1-MIvur/3ygRkFHvodkyITyRuPkuc=
+=======
+>>>>>>> videoPlayer
   dependencies:
     camelcase "^2.0.0"
     map-obj "^1.0.0"
@@ -2218,7 +2491,10 @@ caniuse-api@^3.0.0:
 caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000918, caniuse-lite@^1.0.30000928:
   version "1.0.30000929"
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30000929.tgz#7b391b781a9c3097ecc39ea053301aea8ea16317"
+<<<<<<< HEAD
   integrity sha512-n2w1gPQSsYyorSVYqPMqbSaz1w7o9ZC8VhOEGI9T5MfGDzp7sbopQxG6GaQmYsaq13Xfx/mkxJUWC1Dz3oZfzw==
+=======
+>>>>>>> videoPlayer
 
 capture-stack-trace@^1.0.0:
   version "1.0.1"
@@ -2264,10 +2540,24 @@ chalk@2.1.0:
     escape-string-regexp "^1.0.5"
     supports-color "^4.0.0"
 
+<<<<<<< HEAD
 chalk@^1.0.0, chalk@^1.1.1:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
   integrity sha1-qBFcVeSnAv5NFQq9OHKCKn4J/Jg=
+=======
+chalk@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.1.0.tgz#ac5becf14fa21b99c6c92ca7a7d7cfd5b17e743e"
+  dependencies:
+    ansi-styles "^3.1.0"
+    escape-string-regexp "^1.0.5"
+    supports-color "^4.0.0"
+
+chalk@^1.0.0, chalk@^1.1.1, chalk@^1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/chalk/-/chalk-1.1.3.tgz#a8115c55e4a702fe4d150abd3872822a7e09fc98"
+>>>>>>> videoPlayer
   dependencies:
     ansi-styles "^2.2.1"
     escape-string-regexp "^1.0.2"
@@ -2278,7 +2568,10 @@ chalk@^1.0.0, chalk@^1.1.1:
 chalk@^2.0.0, chalk@^2.0.1, chalk@^2.1.0, chalk@^2.3.0, chalk@^2.4.1, chalk@^2.4.2:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
+<<<<<<< HEAD
   integrity sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     ansi-styles "^3.2.1"
     escape-string-regexp "^1.0.5"
@@ -2312,7 +2605,10 @@ chardet@^0.7.0:
 cheerio@0.22.0:
   version "0.22.0"
   resolved "https://registry.yarnpkg.com/cheerio/-/cheerio-0.22.0.tgz#a9baa860a3f9b595a6b81b1a86873121ed3a269e"
+<<<<<<< HEAD
   integrity sha1-qbqoYKP5tZWmuBsahocxIe06Jp4=
+=======
+>>>>>>> videoPlayer
   dependencies:
     css-select "~1.2.0"
     dom-serializer "~0.1.0"
@@ -2334,7 +2630,10 @@ cheerio@0.22.0:
 cheerio@^0.19.0:
   version "0.19.0"
   resolved "https://registry.yarnpkg.com/cheerio/-/cheerio-0.19.0.tgz#772e7015f2ee29965096d71ea4175b75ab354925"
+<<<<<<< HEAD
   integrity sha1-dy5wFfLuKZZQltcepBdbdas1SSU=
+=======
+>>>>>>> videoPlayer
   dependencies:
     css-select "~1.0.0"
     dom-serializer "~0.1.0"
@@ -2432,7 +2731,10 @@ cli@~1.0.0:
 cliui@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/cliui/-/cliui-3.2.0.tgz#120601537a916d29940f934da3b48d585a39213d"
+<<<<<<< HEAD
   integrity sha1-EgYBU3qRbSmUD5NNo7SNWFo5IT0=
+=======
+>>>>>>> videoPlayer
   dependencies:
     string-width "^1.0.1"
     strip-ansi "^3.0.1"
@@ -2494,7 +2796,10 @@ co@^4.6.0:
 coa@~2.0.1:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/coa/-/coa-2.0.2.tgz#43f6c21151b4ef2bf57187db0d73de229e3e7ec3"
+<<<<<<< HEAD
   integrity sha512-q5/jG+YQnSy4nRTV4F7lPepBJZ8qBNJJDBuJdoejDyLXgmL7IEo+Le2JDZudFTFt7mrCqIRaSjws4ygRCTCAXA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@types/q" "^1.5.1"
     chalk "^2.4.1"
@@ -2554,7 +2859,10 @@ color@^3.0.0, color@^3.1.0:
 colors@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/colors/-/colors-1.1.2.tgz#168a4701756b6a7f51a12ce0c97bfa28c084ed63"
+<<<<<<< HEAD
   integrity sha1-FopHAXVran9RoSzgyXv6KMCE7WM=
+=======
+>>>>>>> videoPlayer
 
 combined-stream@^1.0.6, combined-stream@~1.0.5, combined-stream@~1.0.6:
   version "1.0.7"
@@ -2576,7 +2884,10 @@ commander@^2.11.0:
 commander@~2.8.1:
   version "2.8.1"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.8.1.tgz#06be367febfda0c330aa1e2a072d3dc9762425d4"
+<<<<<<< HEAD
   integrity sha1-Br42f+v9oMMwqh4qBy09yXYkJdQ=
+=======
+>>>>>>> videoPlayer
   dependencies:
     graceful-readlink ">= 1.0.0"
 
@@ -2663,7 +2974,10 @@ confusing-browser-globals@^1.0.5:
 connect-history-api-fallback@^1.3.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/connect-history-api-fallback/-/connect-history-api-fallback-1.6.0.tgz#8b32089359308d111115d81cad3fceab888f97bc"
+<<<<<<< HEAD
   integrity sha512-e54B99q/OUoH64zYYRf3HBP5z24G38h5D3qXu23JGRoigpX5Ss4r9ZnDk3g0Z8uQC2x2lPaJ+UlWBc1ZWBWdLg==
+=======
+>>>>>>> videoPlayer
 
 console-browserify@1.1.x, console-browserify@^1.1.0:
   version "1.1.0"
@@ -2704,6 +3018,12 @@ content-disposition@^0.5.2:
   dependencies:
     safe-buffer "5.1.2"
 
+content-disposition@^0.5.2:
+  version "0.5.3"
+  resolved "https://registry.yarnpkg.com/content-disposition/-/content-disposition-0.5.3.tgz#e130caf7e7279087c5616c2007d0485698984fbd"
+  dependencies:
+    safe-buffer "5.1.2"
+
 content-type@~1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/content-type/-/content-type-1.0.4.tgz#e138cc75e040c727b1966fe5e5f8c9aee256fe3b"
@@ -2712,7 +3032,10 @@ content-type@~1.0.4:
 convert-source-map@^0.3.3:
   version "0.3.5"
   resolved "https://registry.yarnpkg.com/convert-source-map/-/convert-source-map-0.3.5.tgz#f1d802950af7dd2631a1febe0596550c86ab3190"
+<<<<<<< HEAD
   integrity sha1-8dgClQr33SYxof6+BZZVDIarMZA=
+=======
+>>>>>>> videoPlayer
 
 convert-source-map@^1.1.0, convert-source-map@^1.5.1:
   version "1.6.0"
@@ -2753,6 +3076,10 @@ core-js@2.5.3:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.3.tgz#8acc38345824f16d8365b7c9b4259168e8ed603e"
   integrity sha1-isw4NFgk8W2DZbfJtCWRaOjtYD4=
 
+core-js@2.5.3:
+  version "2.5.3"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.5.3.tgz#8acc38345824f16d8365b7c9b4259168e8ed603e"
+
 core-js@^2.4.1:
   version "2.6.2"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.2.tgz#267988d7268323b349e20b4588211655f0e83944"
@@ -2761,7 +3088,10 @@ core-js@^2.4.1:
 core-js@^3.0.0-beta.3:
   version "3.0.0-beta.9"
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.0.0-beta.9.tgz#1897789a5ef0ee1190d54777f35f80c38c077633"
+<<<<<<< HEAD
   integrity sha512-OGLbGro2f0s8UXVyu2s9kIW42pcuRoNEqJsmn8a4rAOO9G5A2t96l++rf+4mHNw9GKrbdozZ9G5ieDKOBl68zQ==
+=======
+>>>>>>> videoPlayer
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -2814,7 +3144,10 @@ create-error-class@^3.0.1:
 create-hash@^1.1.0, create-hash@^1.1.2:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/create-hash/-/create-hash-1.2.0.tgz#889078af11a63756bcfb59bd221996be3a9ef196"
+<<<<<<< HEAD
   integrity sha512-z00bCGNHDG8mHAkP7CtT1qVu+bFQUPjYq/4Iv3C3kWjTFV10zIjfSoeqXo9Asws8gwSHDGj/hl2u4OGIjapeCg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     cipher-base "^1.0.1"
     inherits "^2.0.1"
@@ -2825,7 +3158,10 @@ create-hash@^1.1.0, create-hash@^1.1.2:
 create-hmac@^1.1.0, create-hmac@^1.1.2, create-hmac@^1.1.4:
   version "1.1.7"
   resolved "https://registry.yarnpkg.com/create-hmac/-/create-hmac-1.1.7.tgz#69170c78b3ab957147b2b8b04572e47ead2243ff"
+<<<<<<< HEAD
   integrity sha512-MJG9liiZ+ogc4TzUwuvbER1JRdgvUFSB5+VR/g5h82fGaIRWMWddtKBHi7/sVhfjQZ6SehlyhvQYrcYkaUIpLg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     cipher-base "^1.0.3"
     create-hash "^1.1.0"
@@ -2915,10 +3251,19 @@ css-blank-pseudo@^0.1.4:
   dependencies:
     postcss "^7.0.5"
 
+css-blank-pseudo@^0.1.4:
+  version "0.1.4"
+  resolved "https://registry.yarnpkg.com/css-blank-pseudo/-/css-blank-pseudo-0.1.4.tgz#dfdefd3254bf8a82027993674ccf35483bfcb3c5"
+  dependencies:
+    postcss "^7.0.5"
+
 css-color-names@0.0.4, css-color-names@^0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/css-color-names/-/css-color-names-0.0.4.tgz#808adc2e79cf84738069b646cb20ec27beb629e0"
+<<<<<<< HEAD
   integrity sha1-gIrcLnnPhHOAabZGyyDsJ762KeA=
+=======
+>>>>>>> videoPlayer
 
 css-declaration-sorter@^4.0.1:
   version "4.0.1"
@@ -2931,7 +3276,17 @@ css-declaration-sorter@^4.0.1:
 css-has-pseudo@^0.10.0:
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/css-has-pseudo/-/css-has-pseudo-0.10.0.tgz#3c642ab34ca242c59c41a125df9105841f6966ee"
+<<<<<<< HEAD
   integrity sha512-Z8hnfsZu4o/kt+AuFzeGpLVhFOGO9mluyHBaA2bA8aCGTwah5sT3WV/fTHH8UNZUytOIImuGPrl/prlb4oX4qQ==
+=======
+  dependencies:
+    postcss "^7.0.6"
+    postcss-selector-parser "^5.0.0-rc.4"
+
+css-loader@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/css-loader/-/css-loader-1.0.1.tgz#6885bb5233b35ec47b006057da01cc640b6b79fe"
+>>>>>>> videoPlayer
   dependencies:
     postcss "^7.0.6"
     postcss-selector-parser "^5.0.0-rc.4"
@@ -2972,7 +3327,10 @@ css-select-base-adapter@~0.1.0:
 css-select@^1.1.0, css-select@~1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/css-select/-/css-select-1.2.0.tgz#2b3a110539c5355f1cd8d314623e870b121ec858"
+<<<<<<< HEAD
   integrity sha1-KzoRBTnFNV8c2NMUYj6HCxIeyFg=
+=======
+>>>>>>> videoPlayer
   dependencies:
     boolbase "~1.0.0"
     css-what "2.1"
@@ -2992,7 +3350,10 @@ css-select@^2.0.0:
 css-select@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/css-select/-/css-select-1.0.0.tgz#b1121ca51848dd264e2244d058cee254deeb44b0"
+<<<<<<< HEAD
   integrity sha1-sRIcpRhI3SZOIkTQWM7iVN7rRLA=
+=======
+>>>>>>> videoPlayer
   dependencies:
     boolbase "~1.0.0"
     css-what "1.0"
@@ -3037,7 +3398,10 @@ css-url-regex@^1.1.0:
 css-what@1.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/css-what/-/css-what-1.0.0.tgz#d7cc2df45180666f99d2b14462639469e00f736c"
+<<<<<<< HEAD
   integrity sha1-18wt9FGAZm+Z0rFEYmOUaeAPc2w=
+=======
+>>>>>>> videoPlayer
 
 css-what@2.1, css-what@^2.1.2:
   version "2.1.2"
@@ -3057,7 +3421,10 @@ css@^2.0.0, css@^2.1.0, css@^2.2.0, css@^2.2.4:
 cssdb@^4.3.0:
   version "4.3.0"
   resolved "https://registry.yarnpkg.com/cssdb/-/cssdb-4.3.0.tgz#2e1229900616f80c66ff2d568ea2b4f92db1c78c"
+<<<<<<< HEAD
   integrity sha512-VHPES/+c9s+I0ryNj+PXvp84nz+ms843z/efpaEINwP/QfGsINL3gpLp5qjapzDNzNzbXxur8uxKxSXImrg4ag==
+=======
+>>>>>>> videoPlayer
 
 cssesc@^0.1.0:
   version "0.1.0"
@@ -3072,7 +3439,10 @@ cssesc@^2.0.0:
 cssnano-preset-default@^4.0.6:
   version "4.0.6"
   resolved "https://registry.yarnpkg.com/cssnano-preset-default/-/cssnano-preset-default-4.0.6.tgz#92379e2a6db4a91c0ea727f5f556eeac693eab6a"
+<<<<<<< HEAD
   integrity sha512-UPboYbFaJFtDUhJ4fqctThWbbyF4q01/7UhsZbLzp35l+nUxtzh1SifoVlEfyLM3n3Z0htd8B1YlCxy9i+bQvg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     css-declaration-sorter "^4.0.1"
     cssnano-util-raw-cache "^4.0.1"
@@ -3130,7 +3500,10 @@ cssnano-util-same-parent@^4.0.0:
 cssnano@^4.1.0, cssnano@^4.1.5:
   version "4.1.8"
   resolved "https://registry.yarnpkg.com/cssnano/-/cssnano-4.1.8.tgz#8014989679d5fd42491e4499a521dbfb85c95fd1"
+<<<<<<< HEAD
   integrity sha512-5GIY0VzAHORpbKiL3rMXp4w4M1Ki+XlXgEXyuWXVd3h6hlASb+9Vo76dNP56/elLMVBBsUfusCo1q56uW0UWig==
+=======
+>>>>>>> videoPlayer
   dependencies:
     cosmiconfig "^5.0.0"
     cssnano-preset-default "^4.0.6"
@@ -3159,7 +3532,10 @@ cyclist@~0.2.2:
 d@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/d/-/d-1.0.0.tgz#754bb5bfe55451da69a58b94d45f4c5b0462d58f"
+<<<<<<< HEAD
   integrity sha1-dUu1v+VUUdpppYuU1F9MWwRi1Y8=
+=======
+>>>>>>> videoPlayer
   dependencies:
     es5-ext "^0.10.9"
 
@@ -3204,7 +3580,10 @@ debug@^3.1.0, debug@^3.2.5:
 debug@^4.0.0, debug@^4.0.1, debug@^4.1.0:
   version "4.1.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.1.1.tgz#3b72260255109c6b589cee050f1d516139664791"
+<<<<<<< HEAD
   integrity sha512-pYAIzeRo8J6KPEaJ0VWOh5Pzkbw/RetuzehGM7QRRX5he4fPHx2rdKMB256ehJCkX+XRQm16eZLqLNS8RSZXZw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     ms "^2.1.1"
 
@@ -3395,6 +3774,10 @@ detect-file@^1.0.0:
   resolved "https://registry.yarnpkg.com/detect-file/-/detect-file-1.0.0.tgz#f0d66d03672a825cb1b73bdb3fe62310c8e552b7"
   integrity sha1-8NZtA2cqglyxtzvbP+YjEMjlUrc=
 
+detect-file@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/detect-file/-/detect-file-1.0.0.tgz#f0d66d03672a825cb1b73bdb3fe62310c8e552b7"
+
 detect-indent@5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/detect-indent/-/detect-indent-5.0.0.tgz#3871cc0a6a002e8c3e5b3cf7f336264675f06b9d"
@@ -3420,7 +3803,10 @@ dicer@0.3.0:
 diffie-hellman@^5.0.0:
   version "5.0.3"
   resolved "https://registry.yarnpkg.com/diffie-hellman/-/diffie-hellman-5.0.3.tgz#40e8ee98f55a2149607146921c63e1ae5f3d2875"
+<<<<<<< HEAD
   integrity sha512-kqag/Nl+f3GwyK25fhUMYj81BUOrZ9IuJsjIcDE5icNM9FJHAVm3VcUDxdLPoQtTuUylWm6ZIknYJwwaPxsUzg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     bn.js "^4.1.0"
     miller-rabin "^4.0.0"
@@ -3437,7 +3823,10 @@ dir-glob@2.0.0:
 dir-glob@^2.0.0, dir-glob@^2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/dir-glob/-/dir-glob-2.2.1.tgz#ce8413234ffe8452b76b7741c32f116cf2a7b1a7"
+<<<<<<< HEAD
   integrity sha512-UN6X6XwRjllabfRhBdkVSo63uurJ8nSvMGrwl94EYVz6g+exhTV+yVSYk5VC/xl3MBFBTtC0J20uFKce4Brrng==
+=======
+>>>>>>> videoPlayer
   dependencies:
     path-type "^3.0.0"
 
@@ -3464,7 +3853,10 @@ dns-txt@^2.0.2:
 doctrine@1.5.0:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/doctrine/-/doctrine-1.5.0.tgz#379dce730f6166f76cefa4e6707a159b02c5a6fa"
+<<<<<<< HEAD
   integrity sha1-N53Ocw9hZvds76TmcHoVmwLFpvo=
+=======
+>>>>>>> videoPlayer
   dependencies:
     esutils "^2.0.2"
     isarray "^1.0.0"
@@ -3499,12 +3891,18 @@ domain-browser@^1.1.1:
 domelementtype@1, domelementtype@^1.3.0:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-1.3.1.tgz#d048c44b37b0d10a7f2a3d5fee3f4333d790481f"
+<<<<<<< HEAD
   integrity sha512-BSKB+TSpMpFI/HOxCNr1O8aMOTZ8hT3pM3GQ0w/mWRmkhEDSFJkkyzz4XQsBV44BChwGkrDfMyjVD0eA2aFV3w==
+=======
+>>>>>>> videoPlayer
 
 domelementtype@~1.1.1:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/domelementtype/-/domelementtype-1.1.3.tgz#bd28773e2642881aec51544924299c5cd822185b"
+<<<<<<< HEAD
   integrity sha1-vSh3PiZCiBrsUVRJJCmcXNgiGFs=
+=======
+>>>>>>> videoPlayer
 
 domhandler@2.1:
   version "2.1.0"
@@ -3651,7 +4049,10 @@ ee-first@1.1.1:
 electron-to-chromium@^1.3.100:
   version "1.3.103"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.103.tgz#a695777efdbc419cad6cbb0e58458251302cd52f"
+<<<<<<< HEAD
   integrity sha512-tObPqGmY9X8MUM8i3MEimYmbnLLf05/QV5gPlkR8MQ3Uj8G8B2govE1U4cQcBYtv3ymck9Y8cIOu4waoiykMZQ==
+=======
+>>>>>>> videoPlayer
 
 elliptic@^6.0.0:
   version "6.4.1"
@@ -3675,6 +4076,10 @@ emoji-regex@^7.0.1:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
   integrity sha512-CwBLREIQ7LvYFB0WyRvwhq5N5qPhc6PMjD6bYggFlI5YyDgl+0vxq5VHbMOFqLg7hfWzmu8T5Z1QofhmTIhItA==
+
+emoji-regex@^7.0.1:
+  version "7.0.3"
+  resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
 
 emojis-list@^2.0.0:
   version "2.1.0"
@@ -3712,7 +4117,10 @@ enhanced-resolve@^4.1.0:
 entities@1.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.0.0.tgz#b2987aa3821347fcde642b24fdfc9e4fb712bf26"
+<<<<<<< HEAD
   integrity sha1-sph6o4ITR/zeZCsk/fyeT7cSvyY=
+=======
+>>>>>>> videoPlayer
 
 entities@^1.1.1, entities@~1.1.1:
   version "1.1.2"
@@ -3736,7 +4144,10 @@ error-ex@^1.2.0, error-ex@^1.3.1:
 es-abstract@^1.11.0, es-abstract@^1.12.0, es-abstract@^1.5.1, es-abstract@^1.7.0:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/es-abstract/-/es-abstract-1.13.0.tgz#ac86145fdd5099d8dd49558ccba2eaf9b88e24e9"
+<<<<<<< HEAD
   integrity sha512-vDZfg/ykNxQVwup/8E1BZhVzFfBxs9NqMzGcvIJrqg5k2/5Za2bWo40dK2J1pgLngZ7c+Shh8lwYtLGyrwPutg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     es-to-primitive "^1.2.0"
     function-bind "^1.1.1"
@@ -3757,7 +4168,10 @@ es-to-primitive@^1.2.0:
 es5-ext@^0.10.35, es5-ext@^0.10.9, es5-ext@~0.10.14:
   version "0.10.47"
   resolved "https://registry.yarnpkg.com/es5-ext/-/es5-ext-0.10.47.tgz#d24232e1380daad5449a817be19bde9729024a11"
+<<<<<<< HEAD
   integrity sha512-/1TItLfj+TTfWoeRcDn/0FbGV6SNo4R+On2GGVucPU/j3BWnXE2Co8h8CTo4Tu34gFJtnmwS9xiScKs4EjZhdw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     es6-iterator "~2.0.3"
     es6-symbol "~3.1.1"
@@ -3780,7 +4194,10 @@ es6-promise@^4.0.3:
 es6-promisify@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/es6-promisify/-/es6-promisify-5.0.0.tgz#5109d62f3e56ea967c4b63505aef08291c8a5203"
+<<<<<<< HEAD
   integrity sha1-UQnWLz5W6pZ8S2NQWu8IKRyKUgM=
+=======
+>>>>>>> videoPlayer
   dependencies:
     es6-promise "^4.0.3"
 
@@ -3856,7 +4273,10 @@ eslint-plugin-babel@^5.2.1:
 eslint-plugin-flowtype@^3.1.4:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/eslint-plugin-flowtype/-/eslint-plugin-flowtype-3.2.1.tgz#45e032aee54e695dfc41a891e92b7afedfc62c77"
+<<<<<<< HEAD
   integrity sha512-1lymqM8Cawxu5xsS8TaCrLWJYUmUdoG4hCfa7yWOhCf0qZn/CvI8FxqkhdOP6bAosBn5zeYxKe3Q/4rfKN8a+A==
+=======
+>>>>>>> videoPlayer
   dependencies:
     lodash "^4.17.10"
 
@@ -3893,7 +4313,10 @@ eslint-plugin-jsx-a11y@^6.1.2:
 eslint-plugin-react@^7.11.1:
   version "7.12.4"
   resolved "https://registry.yarnpkg.com/eslint-plugin-react/-/eslint-plugin-react-7.12.4.tgz#b1ecf26479d61aee650da612e425c53a99f48c8c"
+<<<<<<< HEAD
   integrity sha512-1puHJkXJY+oS1t467MjbqjvX53uQ05HXwjqDgdbGBqf5j9eeydI54G3KwiJmWciQ0HTBacIKw2jgwSBSH3yfgQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     array-includes "^3.0.3"
     doctrine "^2.1.0"
@@ -3937,7 +4360,10 @@ eslint-visitor-keys@^1.0.0:
 eslint@^5.8.0:
   version "5.12.0"
   resolved "https://registry.yarnpkg.com/eslint/-/eslint-5.12.0.tgz#fab3b908f60c52671fb14e996a450b96c743c859"
+<<<<<<< HEAD
   integrity sha512-LntwyPxtOHrsJdcSwyQKVtHofPHdv+4+mFwEe91r2V13vqpM8yLr7b1sW+Oo/yheOPkWYsYlYJCkzlFAt8KV7g==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/code-frame" "^7.0.0"
     ajv "^6.5.3"
@@ -3980,7 +4406,10 @@ eslint@^5.8.0:
 espree@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/espree/-/espree-5.0.0.tgz#fc7f984b62b36a0f543b13fb9cd7b9f4a7f5b65c"
+<<<<<<< HEAD
   integrity sha512-1MpUfwsdS9MMoN7ZXqAr9e9UKdVHDcvrJpyx7mm1WuQlx/ygErEQBzgi5Nh5qBHIoYweprhtMkTCb9GhcAIcsA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     acorn "^6.0.2"
     acorn-jsx "^5.0.0"
@@ -4033,7 +4462,10 @@ eventemitter3@^3.0.0, eventemitter3@^3.1.0:
 events@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/events/-/events-1.1.1.tgz#9ebdb7635ad099c70dcc4c2a1f5004288e8bd924"
+<<<<<<< HEAD
   integrity sha1-nr23Y1rQmccNzEwqH1AEKI6L2SQ=
+=======
+>>>>>>> videoPlayer
 
 eventsource@^1.0.7:
   version "1.0.7"
@@ -4265,7 +4697,10 @@ extsprintf@^1.2.0:
 fast-deep-equal@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-1.1.0.tgz#c053477817c86b51daa853c81e059b733d023614"
+<<<<<<< HEAD
   integrity sha1-wFNHeBfIa1HaqFPIHgWbcz0CNhQ=
+=======
+>>>>>>> videoPlayer
 
 fast-deep-equal@^2.0.1:
   version "2.0.1"
@@ -4275,7 +4710,10 @@ fast-deep-equal@^2.0.1:
 fast-glob@^2.0.2, fast-glob@^2.2.6:
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-2.2.6.tgz#a5d5b697ec8deda468d85a74035290a025a95295"
+<<<<<<< HEAD
   integrity sha512-0BvMaZc1k9F+MeWWMe8pL6YltFzZYcJsYU7D4JyDA6PAczaXvxqQQ/z+mDF7/4Mw01DeUc+i3CTKajnkANkV4w==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@mrmlnc/readdir-enhanced" "^2.2.1"
     "@nodelib/fs.stat" "^1.1.2"
@@ -4349,7 +4787,10 @@ fd-slicer@~1.1.0:
 fg-loadcss@^2.0.1:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/fg-loadcss/-/fg-loadcss-2.1.0.tgz#b3cbdf2ab5ee82a13ddb26340f10e3ac43fe2233"
+<<<<<<< HEAD
   integrity sha512-HpvR2uRoKvrYAEwimw+k4Fr2NVHYPfld5Lc/f9uy3mKeUTXhS5urL24XA2rqyq5b2i410EXCLir4Uhsb8J1QaQ==
+=======
+>>>>>>> videoPlayer
 
 figgy-pudding@^3.5.1:
   version "3.5.1"
@@ -4397,10 +4838,17 @@ file-type@^10.7.0:
   resolved "https://registry.yarnpkg.com/file-type/-/file-type-10.7.0.tgz#b6a9bf24f1d14ba514ab9087c7864d4da4a7ce76"
   integrity sha512-AbaGtdWYYRaVrv2MwL/65myuRJ9j3e79e7etJ79US18QHuVlzJBcQHUH+HxDUoLtbyWRTUfLzLkGXX3pP9kfZg==
 
+file-type@^10.7.0:
+  version "10.7.0"
+  resolved "https://registry.yarnpkg.com/file-type/-/file-type-10.7.0.tgz#b6a9bf24f1d14ba514ab9087c7864d4da4a7ce76"
+
 file-type@^3.8.0:
   version "3.9.0"
   resolved "https://registry.yarnpkg.com/file-type/-/file-type-3.9.0.tgz#257a078384d1db8087bc449d107d52a52672b9e9"
+<<<<<<< HEAD
   integrity sha1-JXoHg4TR24CHvESdEH1SpSZyuek=
+=======
+>>>>>>> videoPlayer
 
 file-type@^4.2.0:
   version "4.4.0"
@@ -4465,7 +4913,10 @@ filter-css@^0.1.2:
 finalhandler@1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/finalhandler/-/finalhandler-1.1.1.tgz#eebf4ed840079c83f4249038c9d703008301b105"
+<<<<<<< HEAD
   integrity sha512-Y1GUDo39ez4aHAw7MysnUD5JzYX+WaIj8I57kO3aEPT1fFRL4sr7mjei97FgnwhAyyzRYmQZaTHb2+9uZ1dPtg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     debug "2.6.9"
     encodeurl "~1.0.2"
@@ -4517,7 +4968,10 @@ find-versions@^3.0.0:
 findup-sync@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/findup-sync/-/findup-sync-2.0.0.tgz#9326b1488c22d1a6088650a86901b2d9a90a2cbc"
+<<<<<<< HEAD
   integrity sha1-kyaxSIwi0aYIhlCoaQGy2akKLLw=
+=======
+>>>>>>> videoPlayer
   dependencies:
     detect-file "^1.0.0"
     is-glob "^3.1.0"
@@ -4550,7 +5004,10 @@ flush-write-stream@^1.0.0:
 follow-redirects@^1.0.0:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.6.1.tgz#514973c44b5757368bad8bddfe52f81f015c94cb"
+<<<<<<< HEAD
   integrity sha512-t2JCjbzxQpWvbhts3l6SH1DKzSrx8a+SsaVf4h6bG4kOXUuPYS/kg2Lr4gQSb7eemaHqJkOThF1BGyjlUkO1GQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     debug "=3.1.0"
 
@@ -4656,7 +5113,10 @@ fs.realpath@^1.0.0:
 fsevents@^1.2.2:
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-1.2.6.tgz#d3a1864a71876a2eb9b244e3bd8f606eb09568c0"
+<<<<<<< HEAD
   integrity sha512-BalK54tfK0pMC0jQFb2oHn1nz7JNQD/2ex5pBnCHgBi2xG7VV0cAOGy2RS2VbCqUXx5/6obMrMcQTJ8yjcGzbg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     nan "^2.9.2"
     node-pre-gyp "^0.10.0"
@@ -4725,12 +5185,18 @@ get-stdin@^6.0.0:
 get-stream@3.0.0, get-stream@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-3.0.0.tgz#8e943d1358dc37555054ecbe2edb05aa174ede14"
+<<<<<<< HEAD
   integrity sha1-jpQ9E1jcN1VQVOy+LtsFqhdO3hQ=
+=======
+>>>>>>> videoPlayer
 
 get-stream@^2.2.0:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/get-stream/-/get-stream-2.3.1.tgz#5f38f93f346009666ee0150a054167f91bdd95de"
+<<<<<<< HEAD
   integrity sha1-Xzj5PzRgCWZu4BUKBUFn+Rvdld4=
+=======
+>>>>>>> videoPlayer
   dependencies:
     object-assign "^4.0.1"
     pinkie-promise "^2.0.0"
@@ -4801,7 +5267,10 @@ global-modules@^1.0.0:
 global-modules@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/global-modules/-/global-modules-2.0.0.tgz#997605ad2345f27f51539bea26574421215c7780"
+<<<<<<< HEAD
   integrity sha512-NGbfmJBp9x8IxyJSd1P+otYK8vonoJactOogrVfFRIAEY1ukil8RSKDz2Yo7wh1oihl51l/r6W4epkeKJHqL8A==
+=======
+>>>>>>> videoPlayer
   dependencies:
     global-prefix "^3.0.0"
 
@@ -4819,7 +5288,10 @@ global-prefix@^1.0.1:
 global-prefix@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/global-prefix/-/global-prefix-3.0.0.tgz#fc85f73064df69f50421f47f883fe5b913ba9b97"
+<<<<<<< HEAD
   integrity sha512-awConJSVCHVGND6x3tmMaKcQvwXLhjdkmomy2W+Goaui8YPgYgXJZewhg3fWC+DlfqqQuWg8AwqjGTD2nAPVWg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     ini "^1.3.5"
     kind-of "^6.0.2"
@@ -4828,12 +5300,18 @@ global-prefix@^3.0.0:
 globals@^11.1.0, globals@^11.7.0:
   version "11.10.0"
   resolved "https://registry.yarnpkg.com/globals/-/globals-11.10.0.tgz#1e09776dffda5e01816b3bb4077c8b59c24eaa50"
+<<<<<<< HEAD
   integrity sha512-0GZF1RiPKU97IHUO5TORo9w1PwrH/NBPl+fS7oMLdaTRiYmYbwK4NWoZWrAdd0/abG9R2BU+OiwyQpTpE6pdfQ==
+=======
+>>>>>>> videoPlayer
 
 globby@8.0.1:
   version "8.0.1"
   resolved "https://registry.yarnpkg.com/globby/-/globby-8.0.1.tgz#b5ad48b8aa80b35b814fc1281ecc851f1d2b5b50"
+<<<<<<< HEAD
   integrity sha512-oMrYrJERnKBLXNLVTqhm3vPEdJ/b2ZE28xN4YARiix1NOIOBPEpOUnm844K1iu/BkphCaf2WNFwMszv8Soi1pw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     array-union "^1.0.1"
     dir-glob "^2.0.0"
@@ -4846,7 +5324,10 @@ globby@8.0.1:
 globby@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/globby/-/globby-6.1.0.tgz#f5a6d70e8395e21c858fb0489d64df02424d506c"
+<<<<<<< HEAD
   integrity sha1-9abXDoOV4hyFj7BInWTfAkJNUGw=
+=======
+>>>>>>> videoPlayer
   dependencies:
     array-union "^1.0.1"
     glob "^7.0.3"
@@ -4857,7 +5338,10 @@ globby@^6.1.0:
 globby@^8.0.1:
   version "8.0.2"
   resolved "https://registry.yarnpkg.com/globby/-/globby-8.0.2.tgz#5697619ccd95c5275dbb2d6faa42087c1a941d8d"
+<<<<<<< HEAD
   integrity sha512-yTzMmKygLp8RUpG1Ymu2VXPSJQZjNAZPD4ywgYEaG7e4tBJeUQBO8OpXrf1RCNcEs5alsoJYPAMiIHP0cmeC7w==
+=======
+>>>>>>> videoPlayer
   dependencies:
     array-union "^1.0.1"
     dir-glob "2.0.0"
@@ -4870,7 +5354,10 @@ globby@^8.0.1:
 globby@^9.0.0:
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/globby/-/globby-9.0.0.tgz#3800df736dc711266df39b4ce33fe0d481f94c23"
+<<<<<<< HEAD
   integrity sha512-q0qiO/p1w/yJ0hk8V9x1UXlgsXUxlGd0AHUOXZVXBO6aznDtpx7M8D1kBrCAItoPm+4l8r6ATXV1JpjY2SBQOw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     array-union "^1.0.2"
     dir-glob "^2.2.1"
@@ -4895,7 +5382,10 @@ gonzales-pe@^4.2.3:
 got@^5.0.0:
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/got/-/got-5.7.1.tgz#5f81635a61e4a6589f180569ea4e381680a51f35"
+<<<<<<< HEAD
   integrity sha1-X4FjWmHkplifGAVp6k44FoClHzU=
+=======
+>>>>>>> videoPlayer
   dependencies:
     create-error-class "^3.0.1"
     duplexer2 "^0.1.4"
@@ -5031,7 +5521,10 @@ group-args@^0.1.0:
 handle-thing@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/handle-thing/-/handle-thing-2.0.0.tgz#0e039695ff50c93fc288557d696f3c1dc6776754"
+<<<<<<< HEAD
   integrity sha512-d4sze1JNC454Wdo2fkuyzCr6aHcbL6PGGuFAz0Li/NcOm1tCHGnWDRmJP85dh9IhQErTc2svWFEX5xHIOo//kQ==
+=======
+>>>>>>> videoPlayer
 
 har-schema@^2.0.0:
   version "2.0.0"
@@ -5064,7 +5557,10 @@ has-ansi@^2.0.0:
 has-flag@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/has-flag/-/has-flag-2.0.0.tgz#e8207af1cc7b30d446cc70b734b5e8be18f88d51"
+<<<<<<< HEAD
   integrity sha1-6CB68cx7MNRGzHC3NLXovhj4jVE=
+=======
+>>>>>>> videoPlayer
 
 has-flag@^3.0.0:
   version "3.0.0"
@@ -5275,7 +5771,10 @@ html-tags@^2.0.0:
 html-webpack-plugin@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/html-webpack-plugin/-/html-webpack-plugin-3.2.0.tgz#b01abbd723acaaa7b37b6af4492ebda03d9dd37b"
+<<<<<<< HEAD
   integrity sha1-sBq71yOsqqeze2r0SS69oD2d03s=
+=======
+>>>>>>> videoPlayer
   dependencies:
     html-minifier "^3.2.3"
     loader-utils "^0.2.16"
@@ -5288,7 +5787,10 @@ html-webpack-plugin@^3.2.0:
 htmlparser2@3.8.x, htmlparser2@~3.8.1:
   version "3.8.3"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.8.3.tgz#996c28b191516a8be86501a7d79757e5c70c1068"
+<<<<<<< HEAD
   integrity sha1-mWwosZFRaovoZQGn15dX5ccMEGg=
+=======
+>>>>>>> videoPlayer
   dependencies:
     domelementtype "1"
     domhandler "2.3"
@@ -5311,7 +5813,10 @@ htmlparser2@^3.10.0, htmlparser2@^3.9.1:
 htmlparser2@~3.3.0:
   version "3.3.0"
   resolved "https://registry.yarnpkg.com/htmlparser2/-/htmlparser2-3.3.0.tgz#cc70d05a59f6542e43f0e685c982e14c924a9efe"
+<<<<<<< HEAD
   integrity sha1-zHDQWln2VC5D8OaFyYLhTJJKnv4=
+=======
+>>>>>>> videoPlayer
   dependencies:
     domelementtype "1"
     domhandler "2.1"
@@ -5331,7 +5836,10 @@ http-deceiver@^1.2.7:
 http-errors@1.6.3, http-errors@~1.6.2, http-errors@~1.6.3:
   version "1.6.3"
   resolved "https://registry.yarnpkg.com/http-errors/-/http-errors-1.6.3.tgz#8b55680bb4be283a0b5bf4ea2e38580be1d9320d"
+<<<<<<< HEAD
   integrity sha1-i1VoC7S+KDoLW/TqLjhYC+HZMg0=
+=======
+>>>>>>> videoPlayer
   dependencies:
     depd "~1.1.2"
     inherits "2.0.3"
@@ -5357,7 +5865,10 @@ http-parser-js@>=0.4.0:
 http-proxy-middleware@~0.18.0:
   version "0.18.0"
   resolved "https://registry.yarnpkg.com/http-proxy-middleware/-/http-proxy-middleware-0.18.0.tgz#0987e6bb5a5606e5a69168d8f967a87f15dd8aab"
+<<<<<<< HEAD
   integrity sha512-Fs25KVMPAIIcgjMZkVHJoKg9VcXcC1C8yb9JUgeDvVXY0S/zgVIhMb+qVswDIgtJe2DfckMSY2d6TuTEutlk6Q==
+=======
+>>>>>>> videoPlayer
   dependencies:
     http-proxy "^1.16.2"
     is-glob "^4.0.0"
@@ -5453,10 +5964,16 @@ ignore@^5.0.4:
   resolved "https://registry.yarnpkg.com/ignore/-/ignore-5.0.4.tgz#33168af4a21e99b00c5d41cbadb6a6cb49903a45"
   integrity sha512-WLsTMEhsQuXpCiG173+f3aymI43SXa+fB1rSfbzyP4GkPP+ZFVuO0/3sFUGNBtifisPeDcl/uD/Y2NxZ7xFq4g==
 
+<<<<<<< HEAD
 imagemin-pngquant@^7.0.0:
   version "7.0.0"
   resolved "https://registry.yarnpkg.com/imagemin-pngquant/-/imagemin-pngquant-7.0.0.tgz#bbf70d6f3eefc86ef1e79075d6bb67426f583f48"
   integrity sha512-FXBz8lfvI+noraZbNCE0AUDUng/2+Cv5W0F/nUGGjKdzb8AnN1f0JzVxH2aYj7SQxOdYYatvfNbITIZpaFATZg==
+=======
+imagemin-pngquant@^6.0.0:
+  version "6.0.1"
+  resolved "https://registry.yarnpkg.com/imagemin-pngquant/-/imagemin-pngquant-6.0.1.tgz#07b4c80e327ac60ef5246758029b1e8aecd879b9"
+>>>>>>> videoPlayer
   dependencies:
     execa "^1.0.0"
     is-png "^1.0.0"
@@ -5467,7 +5984,10 @@ imagemin-pngquant@^7.0.0:
 imagemin@^6.0.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/imagemin/-/imagemin-6.1.0.tgz#62508b465728fea36c03cdc07d915fe2d8cf9e13"
+<<<<<<< HEAD
   integrity sha512-8ryJBL1CN5uSHpiBMX0rJw79C9F9aJqMnjGnrd/1CafegpNuA81RBAAru/jQQEOWlOJJlpRnlcVFF6wq+Ist0A==
+=======
+>>>>>>> videoPlayer
   dependencies:
     file-type "^10.7.0"
     globby "^8.0.1"
@@ -5499,7 +6019,10 @@ import-fresh@^2.0.0:
 import-fresh@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/import-fresh/-/import-fresh-3.0.0.tgz#a3d897f420cab0e671236897f75bc14b4885c390"
+<<<<<<< HEAD
   integrity sha512-pOnA9tfM3Uwics+SaBLCNyZZZbK+4PTu0OPZtLlMIrv17EdBoC15S9Kn8ckJ9TZTyKb3ywNE5y1yeDxxGA7nTQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     parent-module "^1.0.0"
     resolve-from "^4.0.0"
@@ -5626,12 +6149,18 @@ internal-ip@^3.0.1:
 interpret@^1.1.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.2.0.tgz#d5061a6224be58e8083985f5014d844359576296"
+<<<<<<< HEAD
   integrity sha512-mT34yGKMNceBQUoVn7iCDKDntA7SC6gycMAWzGx1z/CMCTV7b2AAtXlo3nRyHZ1FelRkQbQjprHSYGwzLtkVbw==
+=======
+>>>>>>> videoPlayer
 
 into-stream@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/into-stream/-/into-stream-3.1.0.tgz#96fb0a936c12babd6ff1752a17d05616abd094c6"
+<<<<<<< HEAD
   integrity sha1-lvsKk2wSur1v8XUqF9BWFqvQlMY=
+=======
+>>>>>>> videoPlayer
   dependencies:
     from2 "^2.1.1"
     p-is-promise "^1.1.0"
@@ -5646,7 +6175,10 @@ invariant@^2.2.1, invariant@^2.2.2, invariant@^2.2.4:
 invert-kv@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/invert-kv/-/invert-kv-1.0.0.tgz#104a8e4aaca6d3d8cd157a8ef8bfab2d7a3ffdb6"
+<<<<<<< HEAD
   integrity sha1-EEqOSqym09jNFXqO+L+rLXo//bY=
+=======
+>>>>>>> videoPlayer
 
 invert-kv@^2.0.0:
   version "2.0.0"
@@ -5737,10 +6269,17 @@ is-buffer@^2.0.0:
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-2.0.3.tgz#4ecf3fcf749cbd1e472689e109ac66261a25e725"
   integrity sha512-U15Q7MXTuZlrbymiz95PJpZxu8IlipAp4dtS3wOdgPXx3mqBnslrWU14kxfHB+Py/+2PVKSr37dMAgM2A4uArw==
 
+is-buffer@^2.0.0:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-2.0.3.tgz#4ecf3fcf749cbd1e472689e109ac66261a25e725"
+
 is-builtin-module@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-builtin-module/-/is-builtin-module-1.0.0.tgz#540572d34f7ac3119f8f76c30cbc1b1e037affbe"
+<<<<<<< HEAD
   integrity sha1-VAVy0096wxGfj3bDDLwbHgN6/74=
+=======
+>>>>>>> videoPlayer
   dependencies:
     builtin-modules "^1.0.0"
 
@@ -5883,7 +6422,10 @@ is-number@^3.0.0:
 is-obj@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/is-obj/-/is-obj-1.0.1.tgz#3e4729ac1f5fde025cd7d83a896dab9f4f67db0f"
+<<<<<<< HEAD
   integrity sha1-PkcprB9f3gJc19g6iW2rn09n2w8=
+=======
+>>>>>>> videoPlayer
 
 is-object@^1.0.1:
   version "1.0.1"
@@ -6076,10 +6618,23 @@ jison-gho@^0.6.1-215:
     "@gerhobbelt/recast" "0.13.0-24"
     "@gerhobbelt/xregexp" "3.2.0-22"
 
+jison-gho@^0.6.1-215:
+  version "0.6.1-215"
+  resolved "https://registry.yarnpkg.com/jison-gho/-/jison-gho-0.6.1-215.tgz#932d850b8c7bcb50eb8cb15a2d38cf3757a17b04"
+  dependencies:
+    "@gerhobbelt/ast-util" "0.6.1-4"
+    "@gerhobbelt/json5" "0.5.1-21"
+    "@gerhobbelt/nomnom" "1.8.4-24"
+    "@gerhobbelt/recast" "0.13.0-24"
+    "@gerhobbelt/xregexp" "3.2.0-22"
+
 js-levenshtein@^1.1.3:
   version "1.1.6"
   resolved "https://registry.yarnpkg.com/js-levenshtein/-/js-levenshtein-1.1.6.tgz#c6cee58eb3550372df8deb85fad5ce66ce01d59d"
+<<<<<<< HEAD
   integrity sha512-X2BB11YZtrRqY4EnQcLX5Rh373zbK4alC1FW7D7MBhL2gtcC17cTnr6DmfHZeS0s2rTHjUTMMHfG7gO8SSdw+g==
+=======
+>>>>>>> videoPlayer
 
 "js-tokens@^3.0.0 || ^4.0.0", js-tokens@^4.0.0:
   version "4.0.0"
@@ -6089,7 +6644,10 @@ js-levenshtein@^1.1.3:
 js-yaml@^3.12.0, js-yaml@^3.9.0:
   version "3.12.1"
   resolved "https://registry.yarnpkg.com/js-yaml/-/js-yaml-3.12.1.tgz#295c8632a18a23e054cf5c9d3cecafe678167600"
+<<<<<<< HEAD
   integrity sha512-um46hB9wNOKlwkHgiuyEVAybXBjwFUV0Z/RaHJblRd9DXltue9FTYvzCr9ErQrK9Adz5MU4gHWVaNUfdmrC8qA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     argparse "^1.0.7"
     esprima "^4.0.0"
@@ -6107,7 +6665,10 @@ jsesc@^2.5.1, jsesc@^2.5.2:
 jsesc@~0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/jsesc/-/jsesc-0.5.0.tgz#e7dee66e35d6fc16f710fe91d5cf69f70f08911d"
+<<<<<<< HEAD
   integrity sha1-597mbjXW/Bb3EP6R1c9p9w8IkR0=
+=======
+>>>>>>> videoPlayer
 
 jshint@^2.9.7:
   version "2.9.7"
@@ -6173,12 +6734,18 @@ json3@^3.3.2:
 json5@^0.5.0:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.1.tgz#1eade7acc012034ad84e2396767ead9fa5495821"
+<<<<<<< HEAD
   integrity sha1-Hq3nrMASA0rYTiOWdn6tn6VJWCE=
+=======
+>>>>>>> videoPlayer
 
 json5@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/json5/-/json5-1.0.1.tgz#779fb0018604fa854eacbf6252180d83543e3dbe"
+<<<<<<< HEAD
   integrity sha512-aKS4WQjPenRxiQsC93MNfjx+nbF4PAdYzmd/1JIj8HYzqfbu86beTuNgXDzPknWk0n0uARlyewZo4s++ES36Ow==
+=======
+>>>>>>> videoPlayer
   dependencies:
     minimist "^1.2.0"
 
@@ -6289,7 +6856,10 @@ kind-of@^6.0.0, kind-of@^6.0.2:
 known-css-properties@^0.11.0:
   version "0.11.0"
   resolved "https://registry.yarnpkg.com/known-css-properties/-/known-css-properties-0.11.0.tgz#0da784f115ea77c76b81536d7052e90ee6c86a8a"
+<<<<<<< HEAD
   integrity sha512-bEZlJzXo5V/ApNNa5z375mJC6Nrz4vG43UgcSCrg2OHC+yuB6j0iDSrY7RQ/+PRofFB03wNIIt9iXIVLr4wc7w==
+=======
+>>>>>>> videoPlayer
 
 last-call-webpack-plugin@^3.0.0:
   version "3.0.0"
@@ -6309,7 +6879,10 @@ latest-version@^2.0.0:
 lcid@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
+<<<<<<< HEAD
   integrity sha1-MIrMr6C8SDo4Z7S28rlQYlHRuDU=
+=======
+>>>>>>> videoPlayer
   dependencies:
     invert-kv "^1.0.0"
 
@@ -6336,12 +6909,18 @@ levn@^0.3.0, levn@~0.3.0:
 lightercollective@^0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/lightercollective/-/lightercollective-0.1.0.tgz#70df102c530dcb8d0ccabfe6175a8d00d5f61300"
+<<<<<<< HEAD
   integrity sha512-J9tg5uraYoQKaWbmrzDDexbG6hHnMcWS1qLYgJSWE+mpA3U5OCSeMUhb+K55otgZJ34oFdR0ECvdIb3xuO5JOQ==
+=======
+>>>>>>> videoPlayer
 
 load-json-file@^1.0.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/load-json-file/-/load-json-file-1.1.0.tgz#956905708d58b4bab4c2261b04f59f31c99374c0"
+<<<<<<< HEAD
   integrity sha1-lWkFcI1YtLq0wiYbBPWfMcmTdMA=
+=======
+>>>>>>> videoPlayer
   dependencies:
     graceful-fs "^4.1.2"
     parse-json "^2.2.0"
@@ -6352,7 +6931,10 @@ load-json-file@^1.0.0:
 load-json-file@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/load-json-file/-/load-json-file-2.0.0.tgz#7947e42149af80d696cbf797bcaabcfe1fe29ca8"
+<<<<<<< HEAD
   integrity sha1-eUfkIUmvgNaWy/eXvKq8/h/inKg=
+=======
+>>>>>>> videoPlayer
   dependencies:
     graceful-fs "^4.1.2"
     parse-json "^2.2.0"
@@ -6372,7 +6954,10 @@ load-json-file@^4.0.0:
 loader-runner@^2.3.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/loader-runner/-/loader-runner-2.4.0.tgz#ed47066bfe534d7e84c4c7b9998c2a75607d9357"
+<<<<<<< HEAD
   integrity sha512-Jsmr89RcXGIwivFY21FcRrisYZfvLMTWx5kOLc+JTxtpBOG6xML0vzbc6SEQG2FO9/4Fc3wW4LVcB5DmGflaRw==
+=======
+>>>>>>> videoPlayer
 
 loader-utils@^0.2.16:
   version "0.2.17"
@@ -6384,10 +6969,16 @@ loader-utils@^0.2.16:
     json5 "^0.5.0"
     object-assign "^4.0.1"
 
+<<<<<<< HEAD
 loader-utils@^1.0.2, loader-utils@^1.1.0, loader-utils@^1.2.1:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.2.3.tgz#1ff5dc6911c9f0a062531a4c04b609406108c2c7"
   integrity sha512-fkpz8ejdnEMG3s37wGL07iSBDg99O9D5yflE9RGNH3hRdx9SOwYfnGYdZOUIZitN8E+E2vkq3MUMYMvPYl5ZZA==
+=======
+loader-utils@^1.0.2, loader-utils@^1.1.0:
+  version "1.2.3"
+  resolved "https://registry.yarnpkg.com/loader-utils/-/loader-utils-1.2.3.tgz#1ff5dc6911c9f0a062531a4c04b609406108c2c7"
+>>>>>>> videoPlayer
   dependencies:
     big.js "^5.2.2"
     emojis-list "^2.0.0"
@@ -6665,12 +7256,18 @@ lodash@4.17.10:
 lodash@^2.4.1:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-2.4.2.tgz#fadd834b9683073da179b3eae6d9c0d15053f73e"
+<<<<<<< HEAD
   integrity sha1-+t2DS5aDBz2hebPq5tnA0VBT9z4=
+=======
+>>>>>>> videoPlayer
 
 lodash@^3.2.0:
   version "3.10.1"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-3.10.1.tgz#5bf45e8e49ba4189e17d482789dfd15bd140b7b6"
+<<<<<<< HEAD
   integrity sha1-W/Rejkm6QYnhfUgnid/RW9FAt7Y=
+=======
+>>>>>>> videoPlayer
 
 lodash@^4.11.1, lodash@^4.13.1, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.3, lodash@^4.17.4, lodash@^4.17.5, lodash@~4.17.10:
   version "4.17.11"
@@ -6842,12 +7439,18 @@ mdn-data@~1.1.0:
 media-typer@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/media-typer/-/media-typer-0.3.0.tgz#8710d7af0aa626f8fffa1ce00168545263255748"
+<<<<<<< HEAD
   integrity sha1-hxDXrwqmJvj/+hzgAWhUUmMlV0g=
+=======
+>>>>>>> videoPlayer
 
 mem@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/mem/-/mem-1.1.0.tgz#5edd52b485ca1d900fe64895505399a0dfa45f76"
+<<<<<<< HEAD
   integrity sha1-Xt1StIXKHZAP5kiVUFOZoN+kX3Y=
+=======
+>>>>>>> videoPlayer
   dependencies:
     mimic-fn "^1.0.0"
 
@@ -6886,7 +7489,10 @@ meow@5.0.0, meow@^5.0.0:
 meow@^3.1.0, meow@^3.3.0:
   version "3.7.0"
   resolved "https://registry.yarnpkg.com/meow/-/meow-3.7.0.tgz#72cb668b425228290abbfa856892587308a801fb"
+<<<<<<< HEAD
   integrity sha1-cstmi0JSKCkKu/qFaJJYcwioAfs=
+=======
+>>>>>>> videoPlayer
   dependencies:
     camelcase-keys "^2.0.0"
     decamelize "^1.1.2"
@@ -6966,7 +7572,10 @@ mime@2.0.3:
 mime@2.3.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/mime/-/mime-2.3.1.tgz#b1621c54d63b97c47d3cfe7f7215f7d64517c369"
+<<<<<<< HEAD
   integrity sha512-OEUllcVoydBHGN1z84yfQDimn58pZNNNXgZlHXSboxMlFvgI6MXSWpWKpFRra7H1HxpVhHTkrghfRW49k6yjeg==
+=======
+>>>>>>> videoPlayer
 
 mime@^2.0.3, mime@^2.3.1:
   version "2.4.0"
@@ -7020,17 +7629,26 @@ minimist-options@^3.0.1:
 minimist@0.0.8:
   version "0.0.8"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.8.tgz#857fcabfc3397d2625b8228262e86aa7a011b05d"
+<<<<<<< HEAD
   integrity sha1-hX/Kv8M5fSYluCKCYuhqp6ARsF0=
+=======
+>>>>>>> videoPlayer
 
 minimist@1.1.x:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.1.3.tgz#3bedfd91a92d39016fcfaa1c681e8faa1a1efda8"
+<<<<<<< HEAD
   integrity sha1-O+39kaktOQFvz6ocaB6Pqhoe/ag=
+=======
+>>>>>>> videoPlayer
 
 minimist@^1.1.0, minimist@^1.1.3, minimist@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.0.tgz#a35008b20f41383eec1fb914f4cd5df79a264284"
+<<<<<<< HEAD
   integrity sha1-o1AIsg9BOD7sH7kU9M1d95omQoQ=
+=======
+>>>>>>> videoPlayer
 
 minipass@^2.2.1, minipass@^2.3.4:
   version "2.3.5"
@@ -7043,7 +7661,10 @@ minipass@^2.2.1, minipass@^2.3.4:
 minizlib@^1.1.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/minizlib/-/minizlib-1.2.1.tgz#dd27ea6136243c7c880684e8672bb3a45fd9b614"
+<<<<<<< HEAD
   integrity sha512-7+4oTUOWKg7AuL3vloEWekXY2/D20cevzsrNT2kGWm+39J9hGTCBv8VI5Pm5lXZ/o3/mdR4f8rflAPhnQb8mPA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     minipass "^2.2.1"
 
@@ -7074,7 +7695,10 @@ mixin-deep@^1.2.0:
 mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@~0.5.1:
   version "0.5.1"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.5.1.tgz#30057438eac6cf7f8c4767f38648d6697d75c903"
+<<<<<<< HEAD
   integrity sha1-MAV0OOrGz3+MR2fzhkjWaX11yQM=
+=======
+>>>>>>> videoPlayer
   dependencies:
     minimist "0.0.8"
 
@@ -7134,7 +7758,10 @@ mute-stream@0.0.7:
 nan@2.12.1, nan@^2.12.1, nan@^2.9.2:
   version "2.12.1"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.12.1.tgz#7b1aa193e9aa86057e3c7bbd0ac448e770925552"
+<<<<<<< HEAD
   integrity sha512-JY7V6lRkStKcKTvHO5NVSQRv+RV+FIL5pvDoLiAtSL9pKlC5x9PKQcZDsq7m4FO4d57mkhC6Z+QhAh3Jdk5JFw==
+=======
+>>>>>>> videoPlayer
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -7185,7 +7812,10 @@ neo-async@^2.5.0:
 next-tick@1:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
+<<<<<<< HEAD
   integrity sha1-yobR/ogoFpsBICCOPchCS524NCw=
+=======
+>>>>>>> videoPlayer
 
 nice-try@^1.0.4:
   version "1.0.5"
@@ -7202,7 +7832,10 @@ no-case@^2.2.0:
 node-abi@^2.2.0:
   version "2.5.1"
   resolved "https://registry.yarnpkg.com/node-abi/-/node-abi-2.5.1.tgz#bb17288fc3b2f68fea0ed9897c66979fd754ed47"
+<<<<<<< HEAD
   integrity sha512-oDbFc7vCFx0RWWCweTer3hFm1u+e60N5FtGnmRV6QqvgATGFH/XRR6vqWIeBVosCYCqt6YdIr2L0exLZuEdVcQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     semver "^5.4.1"
 
@@ -7288,14 +7921,20 @@ node-pre-gyp@^0.10.0:
 node-releases@^1.1.3:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-1.1.3.tgz#aad9ce0dcb98129c753f772c0aa01360fb90fbd2"
+<<<<<<< HEAD
   integrity sha512-6VrvH7z6jqqNFY200kdB6HdzkgM96Oaj9v3dqGfgp6mF+cHmU4wyQKZ2/WPDRVoR0Jz9KqbamaBN0ZhdUaysUQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     semver "^5.3.0"
 
 node-status-codes@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/node-status-codes/-/node-status-codes-1.0.0.tgz#5ae5541d024645d32a58fcddc9ceecea7ae3ac2f"
+<<<<<<< HEAD
   integrity sha1-WuVUHQJGRdMqWPzdyc7s6nrjrC8=
+=======
+>>>>>>> videoPlayer
 
 noop-logger@^0.1.1:
   version "0.1.1"
@@ -7372,7 +8011,10 @@ npm-conf@^1.1.0:
 npm-packlist@^1.1.6:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/npm-packlist/-/npm-packlist-1.2.0.tgz#55a60e793e272f00862c7089274439a4cc31fc7f"
+<<<<<<< HEAD
   integrity sha512-7Mni4Z8Xkx0/oegoqlcao/JpPCPEMtUvsmB0q7mgvlMinykJLSRTYuFqoQLYgGY8biuxIeiHO+QNJKbCfljewQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     ignore-walk "^3.0.1"
     npm-bundled "^1.0.1"
@@ -7465,7 +8107,10 @@ object-visit@^1.0.0:
 object.fromentries@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/object.fromentries/-/object.fromentries-2.0.0.tgz#49a543d92151f8277b3ac9600f1e930b189d30ab"
+<<<<<<< HEAD
   integrity sha512-9iLiI6H083uiqUuvzyY6qrlmc/Gz8hLQFOcb/Ri/0xXFkSNS3ctV+CbE6yM2+AnkYfOB3dGjdzC0wrMLIhQICA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     define-properties "^1.1.2"
     es-abstract "^1.11.0"
@@ -7490,7 +8135,10 @@ object.pick@^1.3.0:
 object.values@^1.0.4:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/object.values/-/object.values-1.1.0.tgz#bf6810ef5da3e5325790eaaa2be213ea84624da9"
+<<<<<<< HEAD
   integrity sha512-8mf0nKLAoFX6VlNVdhGj31SVYpaNFtUnuoOXWyFEstsWRgU837AK+JYM0iAxwkSzGRbwn8cbFmgbyxj1j4VbXg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     define-properties "^1.1.3"
     es-abstract "^1.12.0"
@@ -7589,12 +8237,18 @@ os-filter-obj@^2.0.0:
 os-homedir@^1.0.0, os-homedir@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-homedir/-/os-homedir-1.0.2.tgz#ffbc4988336e0e833de0c168c7ef152121aa7fb3"
+<<<<<<< HEAD
   integrity sha1-/7xJiDNuDoM94MFox+8VISGqf7M=
+=======
+>>>>>>> videoPlayer
 
 os-locale@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/os-locale/-/os-locale-2.1.0.tgz#42bc2900a6b5b8bd17376c8e882b65afccf24bf2"
+<<<<<<< HEAD
   integrity sha512-3sslG3zJbEYcaC4YVAvDorjGxc7tv6KVATnLPZONiljsUncvihe9BQoVCEs0RZ1kmf4Hk9OBqlZfJZWI4GanKA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     execa "^0.7.0"
     lcid "^1.0.0"
@@ -7603,7 +8257,10 @@ os-locale@^2.0.0:
 os-locale@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/os-locale/-/os-locale-3.1.0.tgz#a802a6ee17f24c10483ab9935719cef4ed16bf1a"
+<<<<<<< HEAD
   integrity sha512-Z8l3R4wYWM40/52Z+S265okfFj8Kt2cC2MKY+xNi3kFs+XGI7WXu/I309QQQYbRW4ijiZ+yxs9pqEhJh0DqW3Q==
+=======
+>>>>>>> videoPlayer
   dependencies:
     execa "^1.0.0"
     lcid "^2.0.0"
@@ -7612,7 +8269,10 @@ os-locale@^3.0.0:
 os-tmpdir@^1.0.0, os-tmpdir@~1.0.2:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/os-tmpdir/-/os-tmpdir-1.0.2.tgz#bbe67406c79aa85c5cfec766fe5734555dfa1274"
+<<<<<<< HEAD
   integrity sha1-u+Z0BseaqFxc/sdm/lc0VV36EnQ=
+=======
+>>>>>>> videoPlayer
 
 osenv@^0.1.0, osenv@^0.1.4:
   version "0.1.5"
@@ -7643,7 +8303,10 @@ p-cancelable@^0.3.0:
 p-cancelable@^0.4.0:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/p-cancelable/-/p-cancelable-0.4.1.tgz#35f363d67d52081c8d9585e37bcceb7e0bbcb2a0"
+<<<<<<< HEAD
   integrity sha512-HNa1A8LvB1kie7cERyy21VNeHb2CWJJYqyyC2o3klWFfMGlFmWv2Z7sFgZH8ZiaYL95ydToKTFVXgMV/Os0bBQ==
+=======
+>>>>>>> videoPlayer
 
 p-defer@^1.0.0:
   version "1.0.0"
@@ -7672,7 +8335,10 @@ p-finally@^1.0.0:
 p-is-promise@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/p-is-promise/-/p-is-promise-1.1.0.tgz#9c9456989e9f6588017b0434d56097675c3da05e"
+<<<<<<< HEAD
   integrity sha1-nJRWmJ6fZYgBewQ01WCXZ1w9oF4=
+=======
+>>>>>>> videoPlayer
 
 p-limit@^1.1.0:
   version "1.3.0"
@@ -7684,7 +8350,10 @@ p-limit@^1.1.0:
 p-limit@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/p-limit/-/p-limit-2.1.0.tgz#1d5a0d20fb12707c758a655f6bbc4386b5930d68"
+<<<<<<< HEAD
   integrity sha512-NhURkNcrVB+8hNfLuysU8enY5xn2KXphsHBaC2YmRNTZRc7RWusw6apSpdEj3jo4CMb6W9nrF6tTnsJsJeyu6g==
+=======
+>>>>>>> videoPlayer
   dependencies:
     p-try "^2.0.0"
 
@@ -7751,7 +8420,10 @@ p-try@^2.0.0:
 package-json@^2.0.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/package-json/-/package-json-2.4.0.tgz#0d15bd67d1cbbddbb2ca222ff2edb86bcb31a8bb"
+<<<<<<< HEAD
   integrity sha1-DRW9Z9HLvduyyiIv8u24a8sxqLs=
+=======
+>>>>>>> videoPlayer
   dependencies:
     got "^5.0.0"
     registry-auth-token "^3.0.1"
@@ -7761,7 +8433,10 @@ package-json@^2.0.0:
 pako@~1.0.5:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/pako/-/pako-1.0.8.tgz#6844890aab9c635af868ad5fecc62e8acbba3ea4"
+<<<<<<< HEAD
   integrity sha512-6i0HVbUfcKaTv+EG8ZTr75az7GFXcLYk9UyLEg7Notv/Ma+z/UG3TCoz6GiNeOrn1E/e63I0X/Hpw18jHOTUnA==
+=======
+>>>>>>> videoPlayer
 
 parallel-transform@^1.1.0:
   version "1.1.0"
@@ -7782,14 +8457,20 @@ param-case@2.1.x:
 parent-module@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/parent-module/-/parent-module-1.0.0.tgz#df250bdc5391f4a085fb589dad761f5ad6b865b5"
+<<<<<<< HEAD
   integrity sha512-8Mf5juOMmiE4FcmzYc4IaiS9L3+9paz2KOiXzkRviCP6aDmN49Hz6EMWz0lGNp9pX80GvvAuLADtyGfW/Em3TA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     callsites "^3.0.0"
 
 parse-asn1@^5.0.0:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/parse-asn1/-/parse-asn1-5.1.1.tgz#f6bf293818332bd0dab54efb16087724745e6ca8"
+<<<<<<< HEAD
   integrity sha512-KPx7flKXg775zZpnp9SxJlz00gTd4BmJ2yJufSc44gMCRrRQ7NSzAcSJQfifuOLgW6bEi+ftrALtsgALeB2Adw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     asn1.js "^4.0.0"
     browserify-aes "^1.0.0"
@@ -7864,7 +8545,10 @@ path-exists@^3.0.0:
 path-is-absolute@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/path-is-absolute/-/path-is-absolute-1.0.1.tgz#174b9268735534ffbc7ace6bf53a5a9e1b5c5f5f"
+<<<<<<< HEAD
   integrity sha1-F0uSaHNVNP+8es5r9TpanhtcX18=
+=======
+>>>>>>> videoPlayer
 
 path-is-inside@^1.0.1, path-is-inside@^1.0.2:
   version "1.0.2"
@@ -7951,7 +8635,10 @@ performance-now@^2.1.0:
 pify@^2.0.0, pify@^2.2.0, pify@^2.3.0:
   version "2.3.0"
   resolved "https://registry.yarnpkg.com/pify/-/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"
+<<<<<<< HEAD
   integrity sha1-7RQaasBDqEnqWISY59yosVMw6Qw=
+=======
+>>>>>>> videoPlayer
 
 pify@^3.0.0:
   version "3.0.0"
@@ -8031,7 +8718,10 @@ posix-character-classes@^0.1.0:
 postcss-attribute-case-insensitive@^4.0.0:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/postcss-attribute-case-insensitive/-/postcss-attribute-case-insensitive-4.0.1.tgz#b2a721a0d279c2f9103a36331c88981526428cc7"
+<<<<<<< HEAD
   integrity sha512-L2YKB3vF4PetdTIthQVeT+7YiSzMoNMLLYxPXXppOOP7NoazEAy45sh2LvJ8leCQjfBcfkYQs8TtCcQjeZTp8A==
+=======
+>>>>>>> videoPlayer
   dependencies:
     postcss "^7.0.2"
     postcss-selector-parser "^5.0.0"
@@ -8213,7 +8903,10 @@ postcss-gap-properties@^2.0.0:
 postcss-html@^0.36.0:
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/postcss-html/-/postcss-html-0.36.0.tgz#b40913f94eaacc2453fd30a1327ad6ee1f88b204"
+<<<<<<< HEAD
   integrity sha512-HeiOxGcuwID0AFsNAL0ox3mW6MHH5cstWN1Z3Y+n6H+g12ih7LHdYxWwEA/QmrebctLjo79xz9ouK3MroHwOJw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     htmlparser2 "^3.10.0"
 
@@ -8271,7 +8964,10 @@ postcss-initial@^3.0.0:
 postcss-jsx@^0.36.0:
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/postcss-jsx/-/postcss-jsx-0.36.0.tgz#b7685ed3d070a175ef0aa48f83d9015bd772c82d"
+<<<<<<< HEAD
   integrity sha512-/lWOSXSX5jlITCKFkuYU2WLFdrncZmjSVyNpHAunEgirZXLwI8RjU556e3Uz4mv0WVHnJA9d3JWb36lK9Yx99g==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@babel/core" ">=7.1.0"
 
@@ -8287,7 +8983,10 @@ postcss-lab-function@^2.0.1:
 postcss-less@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/postcss-less/-/postcss-less-3.1.1.tgz#87347038bf9cdec9c47722ecf97648bacd171cc3"
+<<<<<<< HEAD
   integrity sha512-yVa0hb03p7xj914Z4qDDA/PGwXYvCEfjJizWVYQvnEQr8SgJ098qejCvbCGk1dDYQpQEGKkvYHQCo66DwTocjg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     postcss "^7.0.3"
 
@@ -8319,7 +9018,10 @@ postcss-logical@^3.0.0:
 postcss-markdown@^0.36.0:
   version "0.36.0"
   resolved "https://registry.yarnpkg.com/postcss-markdown/-/postcss-markdown-0.36.0.tgz#7f22849ae0e3db18820b7b0d5e7833f13a447560"
+<<<<<<< HEAD
   integrity sha512-rl7fs1r/LNSB2bWRhyZ+lM/0bwKv9fhl38/06gF6mKMo/NPnp55+K1dSTosSVjFZc0e1ppBlu+WT91ba0PMBfQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     remark "^10.0.1"
     unist-util-find-all-after "^1.0.2"
@@ -8339,7 +9041,10 @@ postcss-media-query-parser@^0.2.3:
 postcss-merge-longhand@^4.0.10:
   version "4.0.10"
   resolved "https://registry.yarnpkg.com/postcss-merge-longhand/-/postcss-merge-longhand-4.0.10.tgz#c4d63ab57bdc054ab4067ab075d488c8c2978380"
+<<<<<<< HEAD
   integrity sha512-hME10s6CSjm9nlVIcO1ukR7Jr5RisTaaC1y83jWCivpuBtPohA3pZE7cGTIVSYjXvLnXozHTiVOkG4dnnl756g==
+=======
+>>>>>>> videoPlayer
   dependencies:
     css-color-names "0.0.4"
     postcss "^7.0.0"
@@ -8552,7 +9257,10 @@ postcss-place@^4.0.1:
 postcss-preset-env@^6.1.1:
   version "6.5.0"
   resolved "https://registry.yarnpkg.com/postcss-preset-env/-/postcss-preset-env-6.5.0.tgz#a14b8f6e748b2a3a4a02a56f36c390f30073b9e1"
+<<<<<<< HEAD
   integrity sha512-RdsIrYJd9p9AouQoJ8dFP5ksBJEIegA4q4WzJDih8nevz3cZyIP/q1Eaw3pTVpUAu3n7Y32YmvAW3X07mSRGkw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     autoprefixer "^9.4.2"
     browserslist "^4.3.5"
@@ -8630,7 +9338,10 @@ postcss-replace-overflow-wrap@^3.0.0:
 postcss-reporter@^6.0.0:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/postcss-reporter/-/postcss-reporter-6.0.1.tgz#7c055120060a97c8837b4e48215661aafb74245f"
+<<<<<<< HEAD
   integrity sha512-LpmQjfRWyabc+fRygxZjpRxfhRf9u/fdlKf4VHG4TSPbV2XNsuISzYW1KL+1aQzx53CAppa1bKG4APIB/DOXXw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     chalk "^2.4.1"
     lodash "^4.17.11"
@@ -8692,7 +9403,10 @@ postcss-selector-parser@^3.0.0, postcss-selector-parser@^3.1.0:
 postcss-selector-parser@^5.0.0, postcss-selector-parser@^5.0.0-rc.3, postcss-selector-parser@^5.0.0-rc.4:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/postcss-selector-parser/-/postcss-selector-parser-5.0.0.tgz#249044356697b33b64f1a8f7c80922dddee7195c"
+<<<<<<< HEAD
   integrity sha512-w+zLE5Jhg6Liz8+rQOWEAwtwkyqpfnmsinXjXg6cY7YIONZZtgvE0v2O0uhQBs0peNomOJwWRKt6JBfTdTd3OQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     cssesc "^2.0.0"
     indexes-of "^1.0.1"
@@ -8711,7 +9425,10 @@ postcss-svgo@^4.0.1:
 postcss-syntax@^0.36.2:
   version "0.36.2"
   resolved "https://registry.yarnpkg.com/postcss-syntax/-/postcss-syntax-0.36.2.tgz#f08578c7d95834574e5593a82dfbfa8afae3b51c"
+<<<<<<< HEAD
   integrity sha512-nBRg/i7E3SOHWxF3PpF5WnJM/jQ1YpY9000OaVXlAQj6Zp/kIqJxEDWIZ67tAd7NLuk7zqN4yqe9nc0oNAOs1w==
+=======
+>>>>>>> videoPlayer
 
 postcss-unique-selectors@^4.0.1:
   version "4.0.1"
@@ -8730,7 +9447,10 @@ postcss-value-parser@^3.0.0, postcss-value-parser@^3.2.3, postcss-value-parser@^
 postcss-values-parser@^2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/postcss-values-parser/-/postcss-values-parser-2.0.1.tgz#da8b472d901da1e205b47bdc98637b9e9e550e5f"
+<<<<<<< HEAD
   integrity sha512-2tLuBsA6P4rYTNKCXYG/71C7j1pU6pK503suYOmn4xYrQIzW+opD+7FAFNuGSdZC/3Qfy334QbeMu7MEb8gOxg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     flatten "^1.0.2"
     indexes-of "^1.0.1"
@@ -8755,7 +9475,10 @@ postcss@^6.0.14:
 postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.11, postcss@^7.0.2, postcss@^7.0.3, postcss@^7.0.5, postcss@^7.0.6, postcss@^7.0.7:
   version "7.0.13"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-7.0.13.tgz#42bf716413e8f1c786ab71dc6e722b3671b16708"
+<<<<<<< HEAD
   integrity sha512-h8SY6kQTd1wISHWjz+E6cswdhMuyBZRb16pSTv3W4zYZ3/YbyWeJdNUeOXB5IdZqE1U76OUEjjjqsC3z2f3hVg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     chalk "^2.4.2"
     source-map "^0.6.1"
@@ -8809,7 +9532,10 @@ pretty-error@^2.0.2:
 private@0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.7.tgz#68ce5e8a1ef0a23bb570cc28537b5332aba63ef1"
+<<<<<<< HEAD
   integrity sha1-aM5eih7woju1cMwoU3tTMqumPvE=
+=======
+>>>>>>> videoPlayer
 
 private@0.1.8, private@^0.1.6, private@~0.1.5:
   version "0.1.8"
@@ -8829,7 +9555,10 @@ process@^0.11.10:
 progress@^2.0.0:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/progress/-/progress-2.0.3.tgz#7e8cf8d8f5b8f239c1bc68beb4eb78567d572ef8"
+<<<<<<< HEAD
   integrity sha512-7PiHtLll5LdnKIMw100I+8xJXR5gW2QwWYkT6iJva0bXitZKa/XMrSbdmg3r2Xnaidz9Qumd0VPaMrZlF9V9sA==
+=======
+>>>>>>> videoPlayer
 
 promise-inflight@^1.0.1:
   version "1.0.1"
@@ -8901,7 +9630,10 @@ pseudomap@^1.0.2:
 psl@^1.1.24:
   version "1.1.31"
   resolved "https://registry.yarnpkg.com/psl/-/psl-1.1.31.tgz#e9aa86d0101b5b105cbe93ac6b784cd547276184"
+<<<<<<< HEAD
   integrity sha512-/6pt4+C+T+wZUieKR620OpzN/LlnNKuWjy1iFLQ/UG35JqHlR/89MP1d96dUfkf6Dne3TuLQzOYEYshJ+Hx8mw==
+=======
+>>>>>>> videoPlayer
 
 public-encrypt@^4.0.0:
   version "4.0.3"
@@ -8990,7 +9722,10 @@ qs@6.5.2, qs@~6.5.1, qs@~6.5.2:
 query-string@^5.0.1:
   version "5.1.1"
   resolved "https://registry.yarnpkg.com/query-string/-/query-string-5.1.1.tgz#a78c012b71c17e05f2e3fa2319dd330682efb3cb"
+<<<<<<< HEAD
   integrity sha512-gjWOsm2SoGlgLEdAGt7a6slVOk9mGiXmPFMqrEhLQ68rhQuBnpfs3+EmlvqKyxnCo9/PPlF+9MtY02S1aFg+Jw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     decode-uri-component "^0.2.0"
     object-assign "^4.1.0"
@@ -9192,7 +9927,10 @@ read-pkg@^3.0.0:
 "readable-stream@1 || 2", readable-stream@^2.0.0, readable-stream@^2.0.1, readable-stream@^2.0.2, readable-stream@^2.0.4, readable-stream@^2.0.5, readable-stream@^2.0.6, readable-stream@^2.1.5, readable-stream@^2.2.2, readable-stream@^2.3.0, readable-stream@^2.3.3, readable-stream@^2.3.5, readable-stream@^2.3.6, readable-stream@~2.3.6:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-2.3.6.tgz#b11c27d88b8ff1fbe070643cf94b0c79ae1b0aaf"
+<<<<<<< HEAD
   integrity sha512-tQtKA9WIAhBF3+VLAseyMqZeBjW0AHJoxOtYqSUZNJxauErmLbVm2FW1y+J/YA9dUrAC39ITejlZWhVIwawkKw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     core-util-is "~1.0.0"
     inherits "~2.0.3"
@@ -9205,7 +9943,10 @@ read-pkg@^3.0.0:
 readable-stream@1.0:
   version "1.0.34"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-1.0.34.tgz#125820e34bc842d2f2aaafafe4c2916ee32c157c"
+<<<<<<< HEAD
   integrity sha1-Elgg40vIQtLyqq+v5MKRbuMsFXw=
+=======
+>>>>>>> videoPlayer
   dependencies:
     core-util-is "~1.0.0"
     inherits "~2.0.1"
@@ -9215,7 +9956,10 @@ readable-stream@1.0:
 readable-stream@1.1:
   version "1.1.13"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-1.1.13.tgz#f6eef764f514c89e2b9e23146a75ba106756d23e"
+<<<<<<< HEAD
   integrity sha1-9u73ZPUUyJ4rniMUanW6EGdW0j4=
+=======
+>>>>>>> videoPlayer
   dependencies:
     core-util-is "~1.0.0"
     inherits "~2.0.1"
@@ -9225,7 +9969,10 @@ readable-stream@1.1:
 readable-stream@^3.0.6:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/readable-stream/-/readable-stream-3.1.1.tgz#ed6bbc6c5ba58b090039ff18ce670515795aeb06"
+<<<<<<< HEAD
   integrity sha512-DkN66hPyqDhnIQ6Jcsvx9bFjhw214O4poMBcIMgPVpQvNy9a0e0Uhg5SqySyDKAmUlwt8LonTBz1ezOnM8pUdA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     inherits "^2.0.3"
     string_decoder "^1.1.1"
@@ -9303,7 +10050,10 @@ regex-not@^1.0.0, regex-not@^1.0.2:
 regex-parser@^2.2.9:
   version "2.2.10"
   resolved "https://registry.yarnpkg.com/regex-parser/-/regex-parser-2.2.10.tgz#9e66a8f73d89a107616e63b39d4deddfee912b37"
+<<<<<<< HEAD
   integrity sha512-8t6074A68gHfU8Neftl0Le6KTDwfGAj7IyjPIMSfikI2wJUTHDMaIq42bUsfVnj8mhx0R+45rdUXHGpN164avA==
+=======
+>>>>>>> videoPlayer
 
 regexpp@^2.0.1:
   version "2.0.1"
@@ -9322,7 +10072,10 @@ regexpu-core@^1.0.0:
 regexpu-core@^4.1.3, regexpu-core@^4.2.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/regexpu-core/-/regexpu-core-4.4.0.tgz#8d43e0d1266883969720345e70c275ee0aec0d32"
+<<<<<<< HEAD
   integrity sha512-eDDWElbwwI3K0Lo6CqbQbA6FwgtCz4kYTarrri1okfkRLZAqstU+B3voZBCjg8Fl6iq0gXrJG6MvRgLthfvgOA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     regenerate "^1.4.0"
     regenerate-unicode-properties "^7.0.0"
@@ -9349,24 +10102,36 @@ registry-url@^3.0.3:
 regjsgen@^0.2.0:
   version "0.2.0"
   resolved "https://registry.yarnpkg.com/regjsgen/-/regjsgen-0.2.0.tgz#6c016adeac554f75823fe37ac05b92d5a4edb1f7"
+<<<<<<< HEAD
   integrity sha1-bAFq3qxVT3WCP+N6wFuS1aTtsfc=
+=======
+>>>>>>> videoPlayer
 
 regjsgen@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/regjsgen/-/regjsgen-0.5.0.tgz#a7634dc08f89209c2049adda3525711fb97265dd"
+<<<<<<< HEAD
   integrity sha512-RnIrLhrXCX5ow/E5/Mh2O4e/oa1/jW0eaBKTSy3LaCj+M3Bqvm97GWDp2yUtzIs4LEn65zR2yiYGFqb2ApnzDA==
+=======
+>>>>>>> videoPlayer
 
 regjsparser@^0.1.4:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/regjsparser/-/regjsparser-0.1.5.tgz#7ee8f84dc6fa792d3fd0ae228d24bd949ead205c"
+<<<<<<< HEAD
   integrity sha1-fuj4Tcb6eS0/0K4ijSS9lJ6tIFw=
+=======
+>>>>>>> videoPlayer
   dependencies:
     jsesc "~0.5.0"
 
 regjsparser@^0.6.0:
   version "0.6.0"
   resolved "https://registry.yarnpkg.com/regjsparser/-/regjsparser-0.6.0.tgz#f1e6ae8b7da2bae96c99399b868cd6c933a2ba9c"
+<<<<<<< HEAD
   integrity sha512-RQ7YyokLiQBomUJuUG8iGVvkgOLxwyZM8k6d3q5SAXpg4r5TZJZigKFvC6PpD+qQ98bCDC5YelPeA3EucDoNeQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     jsesc "~0.5.0"
 
@@ -9378,7 +10143,10 @@ relateurl@0.2.x:
 remark-parse@^6.0.0:
   version "6.0.3"
   resolved "https://registry.yarnpkg.com/remark-parse/-/remark-parse-6.0.3.tgz#c99131052809da482108413f87b0ee7f52180a3a"
+<<<<<<< HEAD
   integrity sha512-QbDXWN4HfKTUC0hHa4teU463KclLAnwpn/FBn87j9cKYJWWawbiLgMfP2Q4XwhxxuuuOxHlw+pSN0OKuJwyVvg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     collapse-white-space "^1.0.2"
     is-alphabetical "^1.0.0"
@@ -9399,7 +10167,10 @@ remark-parse@^6.0.0:
 remark-stringify@^6.0.0:
   version "6.0.4"
   resolved "https://registry.yarnpkg.com/remark-stringify/-/remark-stringify-6.0.4.tgz#16ac229d4d1593249018663c7bddf28aafc4e088"
+<<<<<<< HEAD
   integrity sha512-eRWGdEPMVudijE/psbIDNcnJLRVx3xhfuEsTDGgH4GsFF91dVhw5nhmnBppafJ7+NWINW6C7ZwWbi30ImJzqWg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     ccount "^1.0.0"
     is-alphanumeric "^1.0.0"
@@ -9419,7 +10190,10 @@ remark-stringify@^6.0.0:
 remark@^10.0.1:
   version "10.0.1"
   resolved "https://registry.yarnpkg.com/remark/-/remark-10.0.1.tgz#3058076dc41781bf505d8978c291485fe47667df"
+<<<<<<< HEAD
   integrity sha512-E6lMuoLIy2TyiokHprMjcWNJ5UxfGQjaMSMhV+f4idM625UjjK4j798+gPs5mfjzDE6vL0oFKVeZM6gZVSVrzQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     remark-parse "^6.0.0"
     remark-stringify "^6.0.0"
@@ -9528,7 +10302,10 @@ require-from-string@^2.0.1:
 require-main-filename@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-1.0.1.tgz#97f717b69d48784f5f526a6c5aa8ffdda055a4d1"
+<<<<<<< HEAD
   integrity sha1-l/cXtp1IeE9fUmpsWqj/3aBVpNE=
+=======
+>>>>>>> videoPlayer
 
 requires-port@^1.0.0:
   version "1.0.0"
@@ -9590,7 +10367,10 @@ resolve-url@^0.2.1:
 resolve@^1.1.7, resolve@^1.3.2, resolve@^1.5.0, resolve@^1.6.0, resolve@^1.8.1, resolve@^1.9.0:
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/resolve/-/resolve-1.9.0.tgz#a14c6fdfa8f92a7df1d996cb7105fa744658ea06"
+<<<<<<< HEAD
   integrity sha512-TZNye00tI67lwYvzxCxHGjwTNlUV70io54/Ed4j6PscB8xVfuBJpRenI/o6dVk0cY0PYTY27AgCoGGxRnYuItQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     path-parse "^1.0.6"
 
@@ -9645,7 +10425,10 @@ rgba-regex@^1.0.0:
 rimraf@^2.2.8, rimraf@^2.5.4, rimraf@^2.6.1, rimraf@^2.6.2, rimraf@~2.6.2:
   version "2.6.3"
   resolved "https://registry.yarnpkg.com/rimraf/-/rimraf-2.6.3.tgz#b2d104fe0d8fb27cf9e0a1cda8262dd3833c6cab"
+<<<<<<< HEAD
   integrity sha512-mwqeW5XsA2qAejG46gYdENaxXjx9onRNCfn7L0duuP4hCuTIi/QO7PDK07KJfp1d+izWPrzEJDcSqBa0OZQriA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     glob "^7.1.3"
 
@@ -9686,7 +10469,10 @@ safe-buffer@5.1.2, safe-buffer@^5.0.1, safe-buffer@^5.1.0, safe-buffer@^5.1.1, s
 safe-regex@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/safe-regex/-/safe-regex-1.1.0.tgz#40a3669f3b077d1e943d44629e157dd48023bf2e"
+<<<<<<< HEAD
   integrity sha1-QKNmnzsHfR6UPURinhV91IAjvy4=
+=======
+>>>>>>> videoPlayer
   dependencies:
     ret "~0.1.10"
 
@@ -9790,7 +10576,10 @@ send@0.16.2:
 serialize-javascript@^1.4.0:
   version "1.6.1"
   resolved "https://registry.yarnpkg.com/serialize-javascript/-/serialize-javascript-1.6.1.tgz#4d1f697ec49429a847ca6f442a2a755126c4d879"
+<<<<<<< HEAD
   integrity sha512-A5MOagrPFga4YaKQSWHryl7AXvbQkEqpw4NNYMTNYUNV51bA8ABHgYFpqKx+YFFrw59xMV1qGH1R4AgoNIVgCw==
+=======
+>>>>>>> videoPlayer
 
 serve-index@^1.7.2:
   version "1.9.1"
@@ -9853,7 +10642,10 @@ setprototypeof@1.1.0:
 sha.js@^2.4.0, sha.js@^2.4.8:
   version "2.4.11"
   resolved "https://registry.yarnpkg.com/sha.js/-/sha.js-2.4.11.tgz#37a5cf0b81ecbc6943de109ba2960d1b26584ae7"
+<<<<<<< HEAD
   integrity sha512-QMEp5B7cftE7APOjk5Y6xgrbWu+WkLVQwk8JNjZ8nKRciZaByEW6MubieAiToS7+dwvrjGhH8jRXz3MVd0AYqQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
@@ -9861,7 +10653,10 @@ sha.js@^2.4.0, sha.js@^2.4.8:
 sharp@^0.21.0:
   version "0.21.2"
   resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.21.2.tgz#5498b9ff5273c9c16ae4d27ac8e4eb4b0fb5ee32"
+<<<<<<< HEAD
   integrity sha512-Gpj8P1eXNHtdMT8XNobkaic5wnienCE46VUNns9umQ9nzATfnIexCofLPPetOdb7JcoRbQc5SjWvXzi7NUoVhA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     bindings "^1.3.1"
     color "^3.1.0"
@@ -10041,7 +10836,10 @@ source-map-resolve@^0.5.0, source-map-resolve@^0.5.2:
 source-map-support@~0.5.6:
   version "0.5.10"
   resolved "https://registry.yarnpkg.com/source-map-support/-/source-map-support-0.5.10.tgz#2214080bc9d51832511ee2bab96e3c2f9353120c"
+<<<<<<< HEAD
   integrity sha512-YfQ3tQFTK/yzlGJuX8pTwa4tifQj4QS2Mj7UegOu8jAz59MqIiMGPXxQhVQiIMNzayuUSF/jEuVnfFF5JqybmQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     buffer-from "^1.0.0"
     source-map "^0.6.0"
@@ -10056,15 +10854,25 @@ source-map@0.6.1, source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, sourc
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
   integrity sha512-UjgapumWlbMhkBgzT7Ykc5YXUT46F0iKu8SGXq0bcwP5dz/h0Plj6enJqjz1Zbq2l5WaqYnrVbwWOWMyF3F47g==
 
+source-map@0.6.1, source-map@^0.6.0, source-map@^0.6.1, source-map@~0.6.0, source-map@~0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.6.1.tgz#74722af32e9614e9c287a8d0bbde48b5e2f1a263"
+
 source-map@^0.5.0, source-map@^0.5.3, source-map@^0.5.6, source-map@^0.5.7, source-map@~0.5.0:
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/source-map/-/source-map-0.5.7.tgz#8a039d2d1021d22d1ea14c80d8ea468ba2ef3fcc"
+<<<<<<< HEAD
   integrity sha1-igOdLRAh0i0eoUyA2OpGi6LvP8w=
+=======
+>>>>>>> videoPlayer
 
 spdx-correct@^3.0.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/spdx-correct/-/spdx-correct-3.1.0.tgz#fb83e504445268f154b074e218c87c003cd31df4"
+<<<<<<< HEAD
   integrity sha512-lr2EZCctC2BNR7j7WzJ2FpDznxky1sjfxvvYEyzxNyb6lZXHODmEoJeFu4JupYlkfha1KZpJyoqiJ7pgA1qq8Q==
+=======
+>>>>>>> videoPlayer
   dependencies:
     spdx-expression-parse "^3.0.0"
     spdx-license-ids "^3.0.0"
@@ -10085,12 +10893,18 @@ spdx-expression-parse@^3.0.0:
 spdx-license-ids@^3.0.0:
   version "3.0.3"
   resolved "https://registry.yarnpkg.com/spdx-license-ids/-/spdx-license-ids-3.0.3.tgz#81c0ce8f21474756148bbb5f3bfc0f36bf15d76e"
+<<<<<<< HEAD
   integrity sha512-uBIcIl3Ih6Phe3XHK1NqboJLdGfwr1UN3k6wSD1dZpmPsIkb8AGNbZYJ1fOBk834+Gxy8rpfDxrS6XLEMZMY2g==
+=======
+>>>>>>> videoPlayer
 
 spdy-transport@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/spdy-transport/-/spdy-transport-3.0.0.tgz#00d4863a6400ad75df93361a1608605e5dcdcf31"
+<<<<<<< HEAD
   integrity sha512-hsLVFE5SjA6TCisWeJXFKniGGOpBgMLmerfO2aCyCU5s7nJ/rpAepqmFifv/GCbSbueEeAJJnmSQ2rKC/g8Fcw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     debug "^4.1.0"
     detect-node "^2.0.4"
@@ -10102,7 +10916,10 @@ spdy-transport@^3.0.0:
 spdy@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/spdy/-/spdy-4.0.0.tgz#81f222b5a743a329aa12cea6a390e60e9b613c52"
+<<<<<<< HEAD
   integrity sha512-ot0oEGT/PGUpzf/6uk4AWLqkq+irlqHXkrdbk51oWONh3bxQmBuljxPNl66zlRRcIJStWq0QkLUCPOPjgjvU0Q==
+=======
+>>>>>>> videoPlayer
   dependencies:
     debug "^4.1.0"
     handle-thing "^2.0.0"
@@ -10139,7 +10956,10 @@ squeak@^1.0.0:
 sshpk@^1.7.0:
   version "1.16.0"
   resolved "https://registry.yarnpkg.com/sshpk/-/sshpk-1.16.0.tgz#1d4963a2fbffe58050aa9084ca20be81741c07de"
+<<<<<<< HEAD
   integrity sha512-Zhev35/y7hRMcID/upReIvRse+I9SVhyVre/KTJSJQWMz3C3+G+HpO7m1wK/yckEtujKZ7dS4hkVxAnmHaIGVQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     asn1 "~0.2.3"
     assert-plus "^1.0.0"
@@ -10189,7 +11009,10 @@ statuses@~1.4.0:
 stream-browserify@^2.0.1:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/stream-browserify/-/stream-browserify-2.0.1.tgz#66266ee5f9bdb9940a4e4514cafb43bb71e5c9db"
+<<<<<<< HEAD
   integrity sha1-ZiZu5fm9uZQKTkUUyvtDu3Hlyds=
+=======
+>>>>>>> videoPlayer
   dependencies:
     inherits "~2.0.1"
     readable-stream "^2.0.2"
@@ -10248,7 +11071,10 @@ string-width@^1.0.1:
 string-width@^3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-3.0.0.tgz#5a1690a57cc78211fffd9bf24bbe24d090604eb1"
+<<<<<<< HEAD
   integrity sha512-rr8CUxBbvOZDUvc5lNIJ+OC1nPVpz+Siw9VBtUjB9b6jZehZLFt0JMCZzShFHIsI8cbhm0EsNIfWJMFV3cu3Ew==
+=======
+>>>>>>> videoPlayer
   dependencies:
     emoji-regex "^7.0.1"
     is-fullwidth-code-point "^2.0.0"
@@ -10264,12 +11090,18 @@ string_decoder@^1.0.0, string_decoder@^1.1.1:
 string_decoder@~0.10.x:
   version "0.10.31"
   resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-0.10.31.tgz#62e203bc41766c6c28c9fc84301dab1c5310fa94"
+<<<<<<< HEAD
   integrity sha1-YuIDvEF2bGwoyfyEMB2rHFMQ+pQ=
+=======
+>>>>>>> videoPlayer
 
 string_decoder@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/string_decoder/-/string_decoder-1.1.1.tgz#9cf1611ba62685d7030ae9e4ba34149c3af03fc8"
+<<<<<<< HEAD
   integrity sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==
+=======
+>>>>>>> videoPlayer
   dependencies:
     safe-buffer "~5.1.0"
 
@@ -10286,7 +11118,10 @@ stringify-entities@^1.0.1:
 strip-ansi@^3.0.0, strip-ansi@^3.0.1:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-3.0.1.tgz#6a385fb8853d952d5ff05d0e8aaf94278dc63dcf"
+<<<<<<< HEAD
   integrity sha1-ajhfuIU9lS1f8F0Oiq+UJ43GPc8=
+=======
+>>>>>>> videoPlayer
   dependencies:
     ansi-regex "^2.0.0"
 
@@ -10326,7 +11161,10 @@ strip-dirs@^2.0.0:
 strip-eof@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/strip-eof/-/strip-eof-1.0.0.tgz#bb43ff5598a6eb05d89b59fcd129c983313606bf"
+<<<<<<< HEAD
   integrity sha1-u0P/VZim6wXYm1n80SnJgzE2Br8=
+=======
+>>>>>>> videoPlayer
 
 strip-indent@^1.0.1:
   version "1.0.1"
@@ -10402,7 +11240,10 @@ stylelint-config-standard@^18.2.0:
 stylelint@^9.7.1:
   version "9.10.0"
   resolved "https://registry.yarnpkg.com/stylelint/-/stylelint-9.10.0.tgz#b3baca5e6d83c4ed7fad393a14fb1173e0361cc2"
+<<<<<<< HEAD
   integrity sha512-LrEnE6JxIxPs+aU19wyrwFrjz1F6YEx9bmC69ky9EQNQwvqwCKksdt5rCFkQfKSWHyubCarn7xuVT7/RojndUw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     autoprefixer "^9.0.0"
     balanced-match "^1.0.0"
@@ -10483,6 +11324,12 @@ supports-color@^4.0.0:
   dependencies:
     has-flag "^2.0.0"
 
+supports-color@^4.0.0:
+  version "4.5.0"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-4.5.0.tgz#be7a0de484dec5c5cddf8b3d59125044912f635b"
+  dependencies:
+    has-flag "^2.0.0"
+
 supports-color@^5.1.0, supports-color@^5.3.0, supports-color@^5.4.0, supports-color@^5.5.0:
   version "5.5.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-5.5.0.tgz#e2e69a44ac8772f78a1ec0b35b689df6530efc8f"
@@ -10494,6 +11341,12 @@ supports-color@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-6.1.0.tgz#0764abc69c63d5ac842dd4867e8d025e880df8f3"
   integrity sha512-qe1jfm1Mg7Nq/NSh6XE24gPXROEVsWHxC1LIx//XNlD9iw7YZQGjZNjYN7xGaEG6iKdA8EtNFW6R0gjnVXp+wQ==
+  dependencies:
+    has-flag "^3.0.0"
+
+supports-color@^6.1.0:
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-6.1.0.tgz#0764abc69c63d5ac842dd4867e8d025e880df8f3"
   dependencies:
     has-flag "^3.0.0"
 
@@ -10530,7 +11383,10 @@ symbol-observable@^1.0.2, symbol-observable@^1.0.4:
 table@^5.0.0, table@^5.0.2:
   version "5.2.1"
   resolved "https://registry.yarnpkg.com/table/-/table-5.2.1.tgz#e78463702b1be9f7131c39860bcfb1b81114c2a1"
+<<<<<<< HEAD
   integrity sha512-qmhNs2GEHNqY5fd2Mo+8N1r2sw/rvTAAvBZTaTx+Y7PHLypqyrxr1MdIu0pLw6Xvl/Gi4ONu/sdceP8vvUjkyA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     ajv "^6.6.1"
     lodash "^4.17.11"
@@ -10602,7 +11458,10 @@ tempy@^0.2.1:
 terser-webpack-plugin@^1.1.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/terser-webpack-plugin/-/terser-webpack-plugin-1.2.1.tgz#7545da9ae5f4f9ae6a0ac961eb46f5e7c845cc26"
+<<<<<<< HEAD
   integrity sha512-GGSt+gbT0oKcMDmPx4SRSfJPE1XaN3kQRWG4ghxKQw9cn5G9x6aCKSsgYdvyM0na9NJ4Drv0RG6jbBByZ5CMjw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     cacache "^11.0.2"
     find-cache-dir "^2.0.0"
@@ -10616,7 +11475,10 @@ terser-webpack-plugin@^1.1.0:
 terser@^3.8.1:
   version "3.14.1"
   resolved "https://registry.yarnpkg.com/terser/-/terser-3.14.1.tgz#cc4764014af570bc79c79742358bd46926018a32"
+<<<<<<< HEAD
   integrity sha512-NSo3E99QDbYSMeJaEk9YW2lTg3qS9V0aKGlb+PlOrei1X02r1wSBHCNX/O+yeTRFSWPKPIGj6MqvvdqV4rnVGw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     commander "~2.17.1"
     source-map "~0.6.1"
@@ -10645,7 +11507,10 @@ through2@^2.0.0, through2@^2.0.3:
 through@^2.3.6, through@~2.3.6:
   version "2.3.8"
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
+<<<<<<< HEAD
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
+=======
+>>>>>>> videoPlayer
 
 thunky@^1.0.2:
   version "1.0.3"
@@ -10734,7 +11599,10 @@ toposort@^1.0.0:
 tough-cookie@~2.3.3:
   version "2.3.4"
   resolved "https://registry.yarnpkg.com/tough-cookie/-/tough-cookie-2.3.4.tgz#ec60cee38ac675063ffc97a5c18970578ee83655"
+<<<<<<< HEAD
   integrity sha512-TZ6TTfI5NtZnuyy/Kecv+CnoROnyXn2DN97LontgQpCwsX2XyLYCC0ENhYkehSOwAp8rTQKc/NUIF7BkQ5rKLA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     punycode "^1.4.1"
 
@@ -10880,7 +11748,10 @@ unicode-property-aliases-ecmascript@^1.0.4:
 unified@^7.0.0:
   version "7.1.0"
   resolved "https://registry.yarnpkg.com/unified/-/unified-7.1.0.tgz#5032f1c1ee3364bd09da12e27fdd4a7553c7be13"
+<<<<<<< HEAD
   integrity sha512-lbk82UOIGuCEsZhPj8rNAkXSDXd6p0QLzIuSsCdxrqnqU56St4eyOB+AlXsVgVeRmetPTYydIuvFfpDIed8mqw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@types/unist" "^2.0.0"
     "@types/vfile" "^3.0.0"
@@ -11006,7 +11877,10 @@ upath@^1.0.5:
 update-notifier@^0.7.0:
   version "0.7.0"
   resolved "https://registry.yarnpkg.com/update-notifier/-/update-notifier-0.7.0.tgz#143c4533383d08908ef70546206395fe1b5abb06"
+<<<<<<< HEAD
   integrity sha1-FDxFMzg9CJCO9wVGIGOV/htauwY=
+=======
+>>>>>>> videoPlayer
   dependencies:
     ansi-align "^1.0.0"
     boxen "^0.5.1"
@@ -11099,7 +11973,10 @@ util.promisify@1.0.0, util.promisify@^1.0.0, util.promisify@~1.0.0:
 util@0.10.3:
   version "0.10.3"
   resolved "https://registry.yarnpkg.com/util/-/util-0.10.3.tgz#7afb1afe50805246489e3db7fe0ed379336ac0f9"
+<<<<<<< HEAD
   integrity sha1-evsa/lCAUkZInj23/g7TeTNqwPk=
+=======
+>>>>>>> videoPlayer
   dependencies:
     inherits "2.0.1"
 
@@ -11123,7 +12000,10 @@ utils-merge@1.0.1:
 uuid@^2.0.1:
   version "2.0.3"
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
+<<<<<<< HEAD
   integrity sha1-Z+LoY3lyFVMN/zGOW/nc6/1Hsho=
+=======
+>>>>>>> videoPlayer
 
 uuid@^3.0.1, uuid@^3.1.0, uuid@^3.3.2:
   version "3.3.2"
@@ -11175,14 +12055,20 @@ vfile-location@^2.0.0:
 vfile-message@^1.0.0:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/vfile-message/-/vfile-message-1.1.1.tgz#5833ae078a1dfa2d96e9647886cd32993ab313e1"
+<<<<<<< HEAD
   integrity sha512-1WmsopSGhWt5laNir+633LszXvZ+Z/lxveBf6yhGsqnQIhlhzooZae7zV6YVM1Sdkw68dtAW3ow0pOdPANugvA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     unist-util-stringify-position "^1.1.1"
 
 vfile@^3.0.0:
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/vfile/-/vfile-3.0.1.tgz#47331d2abe3282424f4a4bb6acd20a44c4121803"
+<<<<<<< HEAD
   integrity sha512-y7Y3gH9BsUSdD4KzHsuMaCzRjglXN0W2EcMf0gpvu6+SbsGhMje7xDc8AEoeXy6mIwCKMI6BkjMsRjzQbhMEjQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     is-buffer "^2.0.0"
     replace-ext "1.0.0"
@@ -11241,7 +12127,10 @@ wbuf@^1.1.0, wbuf@^1.7.3:
 webpack-cli@^3.1.2:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-3.2.1.tgz#779c696c82482491f0803907508db2e276ed3b61"
+<<<<<<< HEAD
   integrity sha512-jeJveHwz/vwpJ3B8bxEL5a/rVKIpRNJDsKggfKnxuYeohNDW4Y/wB9N/XHJA093qZyS0r6mYL+/crLsIol4WKA==
+=======
+>>>>>>> videoPlayer
   dependencies:
     chalk "^2.4.1"
     cross-spawn "^6.0.5"
@@ -11270,7 +12159,10 @@ webpack-dev-middleware@3.4.0:
 webpack-dev-server@^3.1.9:
   version "3.1.14"
   resolved "https://registry.yarnpkg.com/webpack-dev-server/-/webpack-dev-server-3.1.14.tgz#60fb229b997fc5a0a1fc6237421030180959d469"
+<<<<<<< HEAD
   integrity sha512-mGXDgz5SlTxcF3hUpfC8hrQ11yhAttuUQWf1Wmb+6zo3x6rb7b9mIfuQvAPLdfDRCGRGvakBWHdHOa0I9p/EVQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     ansi-html "0.0.7"
     bonjour "^3.5.0"
@@ -11322,7 +12214,10 @@ webpack-sources@^1.1.0, webpack-sources@^1.3.0:
 webpack@^4.21.0:
   version "4.28.4"
   resolved "https://registry.yarnpkg.com/webpack/-/webpack-4.28.4.tgz#1ddae6c89887d7efb752adf0c3cd32b9b07eacd0"
+<<<<<<< HEAD
   integrity sha512-NxjD61WsK/a3JIdwWjtIpimmvE6UrRi3yG54/74Hk9rwNj5FPkA4DJCf1z4ByDWLkvZhTZE+P3C/eh6UD5lDcw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     "@webassemblyjs/ast" "1.7.11"
     "@webassemblyjs/helper-module-context" "1.7.11"
@@ -11394,7 +12289,10 @@ wide-align@^1.1.0:
 widest-line@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/widest-line/-/widest-line-1.0.0.tgz#0c09c85c2a94683d0d7eaf8ee097d564bf0e105c"
+<<<<<<< HEAD
   integrity sha1-DAnIXCqUaD0Nfq+O4JfVZL8OEFw=
+=======
+>>>>>>> videoPlayer
   dependencies:
     string-width "^1.0.1"
 
@@ -11413,7 +12311,10 @@ worker-farm@^1.5.2:
 wrap-ansi@^2.0.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-2.1.0.tgz#d8fc3d284dd05794fe84973caecdd1cf824fdd85"
+<<<<<<< HEAD
   integrity sha1-2Pw9KE3QV5T+hJc8rs3Rz4JP3YU=
+=======
+>>>>>>> videoPlayer
   dependencies:
     string-width "^1.0.1"
     strip-ansi "^3.0.1"
@@ -11480,6 +12381,10 @@ y18n@^3.2.1:
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
   integrity sha1-bRX7qITAhnnA136I53WegR4H+kE=
 
+y18n@^3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/y18n/-/y18n-3.2.1.tgz#6d15fba884c08679c0d77e88e7759e811e07fa41"
+
 "y18n@^3.2.1 || ^4.0.0", y18n@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/y18n/-/y18n-4.0.0.tgz#95ef94f85ecc81d007c264e190a120f0a3c8566b"
@@ -11513,14 +12418,20 @@ yargs-parser@^11.1.1:
 yargs-parser@^8.0.0:
   version "8.1.0"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-8.1.0.tgz#f1376a33b6629a5d063782944da732631e966950"
+<<<<<<< HEAD
   integrity sha512-yP+6QqN8BmrgW2ggLtTbdrOyBNSI7zBa4IykmiV5R1wl1JWNxQvWhMfMdmzIYtKU7oP3OOInY/tl2ov3BDjnJQ==
+=======
+>>>>>>> videoPlayer
   dependencies:
     camelcase "^4.1.0"
 
 yargs@10.0.3:
   version "10.0.3"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-10.0.3.tgz#6542debd9080ad517ec5048fb454efe9e4d4aaae"
+<<<<<<< HEAD
   integrity sha512-DqBpQ8NAUX4GyPP/ijDGHsJya4tYqLQrjPr95HNsr1YwL3+daCfvBwg7+gIC6IdJhR2kATh3hb61vjzMWEtjdw==
+=======
+>>>>>>> videoPlayer
   dependencies:
     cliui "^3.2.0"
     decamelize "^1.1.1"

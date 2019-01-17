@@ -1,2 +1,27 @@
-@import './css/reset.css';
-@import './css/vars.css';
+@import "./css/reset.css";
+@import "./css/vars.css";
+
+body {
+  margin: 10px;
+}
+
+.progressBarHolder {
+  position: relative;
+  display: flex;
+}
+.stepsHolder {
+  display: flex;
+}
+.step {
+  margin-left: 5px;
+  width: 10px;
+  height: 20px;
+  background-color: black;
+}
+
+.activeStep {
+  background-color: red;
+}
+.contentHolder {
+  display: flex;
+}

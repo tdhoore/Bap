@@ -62,12 +62,11 @@ module.exports = (env, {mode}) => {
           ]
         },
         {
-          test: /\.(jpe?g|png|svg|webp)$/,
+          test: /\.(jpe?g|png|svg|webp|mp4)$/,
           use: {
             loader: 'url-loader',
             options: {
-              limit: 1000,
-              context: './src',
+              limit: 10000,
               name: '[path][name].[ext]'
             }
           }
