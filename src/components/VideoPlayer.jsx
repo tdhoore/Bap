@@ -6,9 +6,19 @@ import video from '../assets/video/vid.mp4';
 const VideoPlayer = ({store}) => {
   const videoRef = React.createRef();
   const progressRef = React.createRef();
-  const scrubberRef = React.createRef();
+  //const scrubberRef = React.createRef();
 
-  const handleUpdateTime = e => {
+  const togglePlay = () => {
+    const $videoElem = videoRef.current;
+
+    if ($videoElem.paused) {
+      $videoElem.play();
+    } else {
+      $videoElem.pause();
+    }
+  };
+
+  const handleUpdateTime = () => {
     //update progress bar
     const $progressBar = progressRef.current;
     const $videoElem = videoRef.current;
@@ -19,20 +29,38 @@ const VideoPlayer = ({store}) => {
     $progressBar.value = percentage;
 
     //update location scrubber
-    const newPosition = ($progressBar.offsetWidth / 100) * percentage;
-    scrubberRef.current.style.transform = `translateX(${newPosition}px)`;
-    console.log(newPosition);
+    //const newPosition = ($progressBar.offsetWidth / 100) * percentage;
+    //scrubberRef.current.style.transform = `translateX(${newPosition}px)`;
+    //console.log(newPosition);
   };
 
-  const handleStartStop = e => {
+  const handleStartStop = () => {
     //start and stop the video
-    const $videoElem = videoRef.current;
+    togglePlay();
+  };
 
-    if ($videoElem.paused) {
-      $videoElem.play();
-    } else {
-      $videoElem.pause();
-    }
+  const handleProgressBarDown = e => {
+    const videoElem = videoRef.current;
+    const progressElem = progressRef.current;
+
+    //pause the video
+    videoElem.pause();
+
+    //get new position
+    const newPos = e.clientX - e.currentTarget.getBoundingClientRect().left;
+    const newValue = Math.floor((100 / progressElem.offsetWidth) * newPos);
+
+    //set new value on progressbar
+    progressElem.value = newValue;
+
+    //set new value on video
+    videoElem.currentTime = videoElem.duration * (progressElem.value / 100);
+    console.log(videoElem.currentTime);
+  };
+
+  const handleProgressBarUp = () => {
+    //play the video
+    videoRef.current.play();
   };
 
   return (
@@ -51,10 +79,13 @@ const VideoPlayer = ({store}) => {
           Play/pause
         </button>
         <div className='progressBarHolder'>
-          <button className='scrubber' ref={scrubberRef}>
-            P
-          </button>
-          <progress value='0' max='100' ref={progressRef} />
+          <progress
+            value='0'
+            max='100'
+            ref={progressRef}
+            onMouseDown={e => handleProgressBarDown(e)}
+            onMouseUp={e => handleProgressBarUp(e)}
+          />
         </div>
         <button className='fullScreenBtn'>Fullscreen</button>
       </div>

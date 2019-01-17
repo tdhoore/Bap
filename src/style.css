@@ -1,6 +1,10 @@
 @import "./css/reset.css";
 @import "./css/vars.css";
 
+body {
+  margin: 10px;
+}
+
 .progressBarHolder {
   position: relative;
 }
