@@ -1,7 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import {observer} from 'mobx-react';
+import Step from './Step.jsx';
 import video from '../assets/video/vid.mp4';
+import img from '../assets/img/pic.jpg';
 
 const VideoPlayer = ({store}) => {
   const videoRef = React.createRef();
@@ -29,11 +31,6 @@ const VideoPlayer = ({store}) => {
     );
 
     $progressBar.value = percentage;
-
-    //update location scrubber
-    //const newPosition = ($progressBar.offsetWidth / 100) * percentage;
-    //scrubberRef.current.style.transform = `translateX(${newPosition}px)`;
-    //console.log(newPosition);
   };
 
   const handleStartStop = () => {
@@ -86,15 +83,17 @@ const VideoPlayer = ({store}) => {
 
   return (
     <div className='videoPlayer'>
-      <video
-        width='320'
-        height='240'
-        ref={videoRef}
-        onTimeUpdate={e => handleUpdateTime(e)}
-      >
-        <source src={video} type='video/mp4' />
-        Your browser does not support the video tag.
-      </video>
+      <div className='contentHolder'>
+        <video
+          height='240'
+          ref={videoRef}
+          onTimeUpdate={e => handleUpdateTime(e)}
+        >
+          <source src={video} type='video/mp4' />
+          Your browser does not support the video tag.
+        </video>
+        <div className='imageHolder' data-id='1' />
+      </div>
       <div className='videoControls'>
         <button className='playBtn' onClick={e => handleStartStop(e)}>
           Play/pause
@@ -108,6 +107,7 @@ const VideoPlayer = ({store}) => {
             onMouseUp={e => handleProgressBarUp(e)}
             onMouseMove={e => handleMoveMouseProgressBar(e)}
           />
+          <div className='stepsHolder' />
         </div>
         <button className='fullScreenBtn' onClick={e => handleGoFullscreen(e)}>
           Fullscreen

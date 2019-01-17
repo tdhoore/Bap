@@ -14,9 +14,32 @@ class Store {
     //this.api = new Api();
     //normaal van de steam api maar die werkt enkel online
     //this.getFromApi(`../data/allUserGames.json`);
+
+    //per project andere stappen opvragen
+    this.activeProject = 0;
+    this.currentStep = 0;
+  }
+
+  handleShowInstruction(e) {
+    const elem = e.currentTarget;
+    //get the id that is needed
+    const stepId = elem.getAttribute(`data-id`);
+
+    //search the data base for the correct image an caption
+
+    //na ophaling plaats deze in de image holder
+
+    //animeer de image in beeld
+
+    //plaats de knop voor volgende op zijn plaats indien nodig
+
+    //plaats de knop voor vorige op zijn plaats indien nodig
+
+    //set self to active step
   }
 }
 decorate(Store, {
+  handleShowInstruction: action
   /*playtime: observable,
   randomGamesList: observable,
   playList: observable,

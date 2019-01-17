@@ -7,10 +7,21 @@ body {
 
 .progressBarHolder {
   position: relative;
+  display: flex;
+}
+.stepsHolder {
+  display: flex;
+}
+.step {
+  margin-left: 5px;
+  width: 10px;
+  height: 20px;
+  background-color: black;
 }
 
-.scrubber {
-  position: absolute;
-  top: 0;
-  left: 0;
+.activeStep {
+  background-color: red;
+}
+.contentHolder {
+  display: flex;
 }
