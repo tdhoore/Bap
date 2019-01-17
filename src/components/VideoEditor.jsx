@@ -27,7 +27,8 @@ const VideoEditor = ({store}) => {
     store.addClipToTimeLine({
       fileUrl: fileURL,
       isVideo: isVideo,
-      isActiveClip: true
+      isActiveClip: true,
+      duration: 0.5
     });
 
     //
@@ -35,12 +36,14 @@ const VideoEditor = ({store}) => {
 
   return (
     <div>
-      <video className='test' />
+      <video className='test' src={store.activeClipUrl} />
       <div className='timeLine'>
         <div className='deel1' />
         <div className='clipsHolder' ref={clipsHolder}>
           {store.clips.map(clip => {
-            return <Clip key={`${clip.fileUrl} + clip`} data={clip} />;
+            return (
+              <Clip key={`${clip.fileUrl} + clip`} store={store} data={clip} />
+            );
           })}
         </div>
         <div className='uploadBar'>

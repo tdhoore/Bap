@@ -4,12 +4,6 @@ import {decorate, observable, action, computed, configure} from 'mobx';
 //import Api from "../api/playList";
 
 class Store {
-  /*playtime = 0;
-  allGames = [];
-  randomGamesList = [];
-  playList = [];
-  isLogin = true;*/
-
   constructor() {
     //this.api = new Api();
     //normaal van de steam api maar die werkt enkel online
@@ -34,6 +28,23 @@ class Store {
 
     //add to clips
     this.clips.push(newClip);
+
+    //set new active clip
+    this.activeClipUrl = newClip.fileUrl;
+  }
+
+  setDurrationIfVideo(data, newDuration) {
+    //is video?
+    //if yes change duration
+    if (data.isVideo) {
+      //get the clip
+      this.clips.forEach((clip, index) => {
+        if (clip.fileUrl === data.fileUrl) {
+          //set the new duration
+          this.clips[index].duration = newDuration;
+        }
+      });
+    }
   }
 
   handleShowInstruction(e) {

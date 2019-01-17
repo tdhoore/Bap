@@ -59,7 +59,9 @@
 .clipsHolder {
   display: flex;
 }
-
+.test {
+  height: 200px;
+}
 .clip {
   height: 100%;
   max-width: 100px;
