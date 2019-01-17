@@ -6,6 +6,7 @@ import video from '../assets/video/vid.mp4';
 const VideoPlayer = ({store}) => {
   const videoRef = React.createRef();
   const progressRef = React.createRef();
+  const scrubberRef = React.createRef();
 
   const handleUpdateTime = e => {
     //update progress bar
@@ -16,6 +17,11 @@ const VideoPlayer = ({store}) => {
     );
 
     $progressBar.value = percentage;
+
+    //update location scrubber
+    const newPosition = ($progressBar.offsetWidth / 100) * percentage;
+    scrubberRef.current.style.transform = `translateX(${newPosition}px)`;
+    console.log(newPosition);
   };
 
   const handleStartStop = e => {
@@ -45,7 +51,9 @@ const VideoPlayer = ({store}) => {
           Play/pause
         </button>
         <div className='progressBarHolder'>
-          <button className='progressBtn'>P</button>
+          <button className='scrubber' ref={scrubberRef}>
+            P
+          </button>
           <progress value='0' max='100' ref={progressRef} />
         </div>
         <button className='fullScreenBtn'>Fullscreen</button>

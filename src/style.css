@@ -1,2 +1,12 @@
-@import './css/reset.css';
-@import './css/vars.css';
+@import "./css/reset.css";
+@import "./css/vars.css";
+
+.progressBarHolder {
+  position: relative;
+}
+
+.scrubber {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
