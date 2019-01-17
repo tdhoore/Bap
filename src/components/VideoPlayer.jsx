@@ -8,6 +8,8 @@ const VideoPlayer = ({store}) => {
   const progressRef = React.createRef();
   //const scrubberRef = React.createRef();
 
+  let isMouseDownOverProgressBar = false;
+
   const togglePlay = () => {
     const $videoElem = videoRef.current;
 
@@ -39,7 +41,7 @@ const VideoPlayer = ({store}) => {
     togglePlay();
   };
 
-  const handleProgressBarDown = e => {
+  const changeVideosCurrentTime = e => {
     const videoElem = videoRef.current;
     const progressElem = progressRef.current;
 
@@ -55,13 +57,32 @@ const VideoPlayer = ({store}) => {
 
     //set new value on video
     videoElem.currentTime = videoElem.duration * (progressElem.value / 100);
-    console.log(videoElem.currentTime);
+  };
+
+  const handleProgressBarDown = e => {
+    //update video
+    changeVideosCurrentTime(e);
+
+    //set mouse to down over progressbar
+    isMouseDownOverProgressBar = true;
   };
 
   const handleProgressBarUp = () => {
     //play the video
     videoRef.current.play();
+
+    //set mouse to up over progressbar
+    isMouseDownOverProgressBar = false;
   };
+
+  const handleMoveMouseProgressBar = e => {
+    //update location duren mouse move
+    if (isMouseDownOverProgressBar) {
+      changeVideosCurrentTime(e);
+    }
+  };
+
+  const handleGoFullscreen = () => {};
 
   return (
     <div className='videoPlayer'>
@@ -85,9 +106,12 @@ const VideoPlayer = ({store}) => {
             ref={progressRef}
             onMouseDown={e => handleProgressBarDown(e)}
             onMouseUp={e => handleProgressBarUp(e)}
+            onMouseMove={e => handleMoveMouseProgressBar(e)}
           />
         </div>
-        <button className='fullScreenBtn'>Fullscreen</button>
+        <button className='fullScreenBtn' onClick={e => handleGoFullscreen(e)}>
+          Fullscreen
+        </button>
       </div>
     </div>
   );
