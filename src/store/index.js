@@ -18,6 +18,22 @@ class Store {
     //per project andere stappen opvragen
     this.activeProject = 0;
     this.currentStep = 0;
+
+    //video editor
+    this.clips = [];
+    this.activeClipUrl = '';
+  }
+
+  addClipToTimeLine(newClip) {
+    //remove active class from clips
+    this.clips.forEach((clip, index) => {
+      if (clip.isActiveClip) {
+        this.clips[index].isActiveClip = false;
+      }
+    });
+
+    //add to clips
+    this.clips.push(newClip);
   }
 
   handleShowInstruction(e) {
@@ -39,7 +55,8 @@ class Store {
   }
 }
 decorate(Store, {
-  handleShowInstruction: action
+  handleShowInstruction: action,
+  clips: observable
   /*playtime: observable,
   randomGamesList: observable,
   playList: observable,
