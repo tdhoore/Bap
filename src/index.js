@@ -2,7 +2,7 @@ import './style.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
-
+// eslint-disable-next-line no-unused-vars
 import App from './containers/App';
 
 //import ApolloClient from 'apollo-boost';

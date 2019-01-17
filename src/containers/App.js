@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {Route, NavLink, Switch} from 'react-router-dom';
 import {observer} from 'mobx-react';
+import VideoPlayer from '../components/VideoPlayer.jsx';
 //import RandomGameList from "../components/RandomGameList";
 //import Filter from "../components/Filter";
 //import PlayList from "../components/PlayList";
@@ -41,11 +42,15 @@ class App extends Component {
     );
   }*/
 
+  displayVideoPlayer(store) {
+    return <VideoPlayer store={store} />;
+  }
+
   render() {
     const {store} = this.props;
     return (
       <Switch>
-        <Route path='/' />
+        <Route path='/' render={props => this.displayVideoPlayer(store)} />
         <Route component={null} />
       </Switch>
     );
