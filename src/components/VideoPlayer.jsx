@@ -5,12 +5,21 @@ import video from '../assets/video/vid.mp4';
 
 const VideoPlayer = ({store}) => {
   const videoRef = React.createRef();
+  const progressRef = React.createRef();
 
   const handleUpdateTime = e => {
-    console.log(e);
+    //update progress bar
+    const $progressBar = progressRef.current;
+    const $videoElem = videoRef.current;
+    const percentage = Math.floor(
+      (100 / $videoElem.duration) * $videoElem.currentTime
+    );
+
+    $progressBar.value = percentage;
   };
 
   const handleStartStop = e => {
+    //start and stop the video
     const $videoElem = videoRef.current;
 
     if ($videoElem.paused) {
@@ -37,7 +46,7 @@ const VideoPlayer = ({store}) => {
         </button>
         <div className='progressBarHolder'>
           <button className='progressBtn'>P</button>
-          <progress value='0' max='100' />
+          <progress value='0' max='100' ref={progressRef} />
         </div>
         <button className='fullScreenBtn'>Fullscreen</button>
       </div>
