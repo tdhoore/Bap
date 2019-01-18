@@ -31,7 +31,7 @@ const Clip = ({store, data}) => {
   };
 
   return (
-    <div className={classNames}>
+    <div className={classNames} style={{width: `${data.clipLength}%`}}>
       {renderVideoOrImg(data.isVideo)}
       <p className='duration'>{data.duration}</p>
     </div>

@@ -29,7 +29,8 @@ const VideoEditor = ({store}) => {
       fileUrl: fileURL,
       isVideo: isVideo,
       isActiveClip: true,
-      duration: `0:30`
+      duration: `0:30`,
+      clipLength: 100
     });
   };
 

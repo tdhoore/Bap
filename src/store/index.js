@@ -15,6 +15,7 @@ class Store {
     //video editor
     this.clips = [];
     this.activeClipUrl = '';
+    this.totalClipsLength = 0;
   }
 
   addClipToTimeLine(newClip) {
@@ -48,7 +49,36 @@ class Store {
       });
     }
 
+    //add to total clips length
+    this.totalClipsLength += newDuration;
+
     //set clips length in persentages
+    this.clips.forEach(clip => {
+      clip.clipLength = Math.round(
+        this.mapVal(
+          this.durationToSeconds(clip.duration),
+          0,
+          this.totalClipsLength,
+          0,
+          100
+        )
+      );
+      console.log(clip.clipLength);
+    });
+  }
+
+  durationToSeconds(durationText) {
+    const minutes = parseInt(durationText.substr(0, 2), 10);
+    const seconds = parseInt(
+      durationText.substr(durationText.length - 2, 2),
+      10
+    );
+
+    return minutes * 60 + seconds;
+  }
+
+  mapVal(num, inMin, inMax, outMin, outMax) {
+    return ((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
   }
 
   calcDuration(duration) {
