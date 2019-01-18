@@ -1,6 +1,5 @@
 import {decorate, observable, action, computed, configure} from 'mobx';
-//import RandomGame from "../models/RandomGame";
-//import PlayListGame from "../models/PlayListGame";
+import {resultKeyNameFromField} from 'apollo-utilities';
 //import Api from "../api/playList";
 
 class Store {
@@ -37,14 +36,41 @@ class Store {
     //is video?
     //if yes change duration
     if (data.isVideo) {
+      //duration to time stamp
+      const duration = this.calcDuration(newDuration);
+
       //get the clip
       this.clips.forEach((clip, index) => {
         if (clip.fileUrl === data.fileUrl) {
           //set the new duration
-          this.clips[index].duration = newDuration;
+          this.clips[index].duration = duration;
         }
       });
     }
+
+    //set clips length in persentages
+  }
+
+  calcDuration(duration) {
+    let result = duration;
+    let minutes = 0;
+    let seconds = '0';
+
+    //calculate the minutes
+    minutes = Math.floor(duration / 60);
+
+    //calcultate seconds
+    seconds = Math.floor(duration - minutes * 60).toString();
+
+    //add leading zero's if needed
+    if (parseInt(seconds, 10) < 10) {
+      seconds = `0${seconds}`;
+    }
+
+    //add together for result
+    result = `${minutes}:${seconds}`;
+
+    return result;
   }
 
   handleShowInstruction(e) {
@@ -68,19 +94,6 @@ class Store {
 decorate(Store, {
   handleShowInstruction: action,
   clips: observable
-  /*playtime: observable,
-  randomGamesList: observable,
-  playList: observable,
-  allGames: observable,
-  isLogin: observable,
-  loginOrRegister: action,
-  addToRandomGame: action,
-  removeFrom: action,
-  updateRandomGame: action,
-  addToPlayListGame: action,
-  updatePlayListGame: action,
-  updateOneValue: action,
-  calcPlayTime: action*/
 });
 
 const store = new Store();

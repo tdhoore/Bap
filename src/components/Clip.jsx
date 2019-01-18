@@ -33,7 +33,7 @@ const Clip = ({store, data}) => {
   return (
     <div className={classNames}>
       {renderVideoOrImg(data.isVideo)}
-      <p className='duration'>{Math.floor(data.duration)}</p>
+      <p className='duration'>{data.duration}</p>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import {observer} from 'mobx-react';
+// eslint-disable-next-line no-unused-vars
 import Clip from './Clip.jsx';
 import video from '../assets/video/vid.mp4';
 import img from '../assets/img/pic.jpg';
@@ -28,10 +29,24 @@ const VideoEditor = ({store}) => {
       fileUrl: fileURL,
       isVideo: isVideo,
       isActiveClip: true,
-      duration: 0.5
+      duration: `0:30`
     });
+  };
 
-    //
+  const renderUploadBarClasses = () => {
+    if (store.clips.length > 0) {
+      return `uploadBar uploadBarWithClip`;
+    } else {
+      return `uploadBar`;
+    }
+  };
+
+  const renderClipsHolderClasses = () => {
+    if (store.clips.length > 0) {
+      return `clipsHolder clipHolderWithClips`;
+    } else {
+      return `clipsHolder`;
+    }
   };
 
   return (
@@ -39,18 +54,18 @@ const VideoEditor = ({store}) => {
       <video className='test' src={store.activeClipUrl} />
       <div className='timeLine'>
         <div className='deel1' />
-        <div className='clipsHolder' ref={clipsHolder}>
+        <div className={renderClipsHolderClasses()} ref={clipsHolder}>
           {store.clips.map(clip => {
             return (
-              <Clip key={`${clip.fileUrl} + clip`} store={store} data={clip} />
+              <Clip key={`${clip.fileUrl}clip`} store={store} data={clip} />
             );
           })}
         </div>
-        <div className='uploadBar'>
+        <div className={renderUploadBarClasses()}>
           <label htmlFor='uploadFile'>
             <input
               type='file'
-              accept='video/*,image/*'
+              accept='video/mp4'
               id='uploadFile'
               onChange={e => handleAddClip(e)}
             />
