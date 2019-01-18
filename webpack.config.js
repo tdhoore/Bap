@@ -66,8 +66,7 @@ module.exports = (env, {mode}) => {
           use: {
             loader: 'url-loader',
             options: {
-              limit: 1000,
-              context: './src',
+              limit: 10000,
               name: '[path][name].[ext]'
             }
           }
