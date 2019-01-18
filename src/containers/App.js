@@ -1,12 +1,10 @@
+/* eslint-disable no-unused-vars */
 import React, {Component} from 'react';
 import {Route, NavLink, Switch} from 'react-router-dom';
 import {observer} from 'mobx-react';
 import VideoPlayer from '../components/VideoPlayer.jsx';
-//import RandomGameList from "../components/RandomGameList";
-//import Filter from "../components/Filter";
-//import PlayList from "../components/PlayList";
-//import NotFound from "../components/NotFound";
-//import Login from "../components/Login";
+import Login from './Login.jsx';
+import Home from './Home.jsx';
 
 //import GET_CURRENT_USER from "../graphql/getCurrentUser";
 //import { Query } from "react-apollo";
@@ -50,7 +48,7 @@ class App extends Component {
     const {store} = this.props;
     return (
       <Switch>
-        <Route path='/' render={props => this.displayVideoPlayer(store)} />
+        {store.user ? (<Home />) : (<Login store={store}/>)}
         <Route component={null} />
       </Switch>
     );

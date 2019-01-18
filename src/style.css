@@ -1,2 +1,6 @@
 @import './css/reset.css';
 @import './css/vars.css';
+
+.btn, .btn-success {
+  margin-left: 2.5rem;
+}

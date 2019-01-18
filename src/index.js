@@ -10,17 +10,6 @@ import App from './containers/App';
 
 import store from './store';
 
-import * as firebase from 'firebase';
-var config = {
-  apiKey: "AIzaSyCL-E4wSU4FrQ_CHzciHl3H5pLEYnD7LPg",
-  authDomain: "bap-firebase.firebaseapp.com",
-  databaseURL: "https://bap-firebase.firebaseio.com",
-  projectId: "bap-firebase",
-  storageBucket: "bap-firebase.appspot.com",
-  messagingSenderId: "573194971360"
-};
-firebase.initializeApp(config);
-
 /*const client = new ApolloClient({
   uri: "http://localhost:4000/graphql",
   clientState: {
