@@ -2,9 +2,8 @@
 import React from 'react';
 import {observer} from 'mobx-react';
 
-const Clip = ({store, data}) => {
+const Clip = ({store, data, index, totalClips}) => {
   let classNames = `clip`;
-  const videoRef = React.createRef();
 
   //set active clip
   if (data.isActiveClip) {
@@ -30,10 +29,39 @@ const Clip = ({store, data}) => {
     return <img src={data.fileUrl} />;
   };
 
+  const handleClickNextAndPrevBtns = (e, counter) => {
+    //move the clip
+    store.moveClip(index, counter);
+  };
+
+  const renderPrevBtn = () => {
+    if (index > 0) {
+      return (
+        <button
+          className='moveClipBtn moveClipBtnPrev'
+          onClick={e => handleClickNextAndPrevBtns(e, - 1)}
+        />
+      );
+    }
+  };
+
+  const renderNextBtn = () => {
+    if (index < totalClips) {
+      return (
+        <button
+          className='moveClipBtn moveClipBtnNext'
+          onClick={e => handleClickNextAndPrevBtns(e, 1)}
+        />
+      );
+    }
+  };
+
   return (
     <div className={classNames} style={{width: `${data.clipLength}%`}}>
+      {renderPrevBtn()}
       {renderVideoOrImg(data.isVideo)}
       <p className='duration'>{data.duration}</p>
+      {renderNextBtn()}
     </div>
   );
 };

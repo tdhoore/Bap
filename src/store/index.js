@@ -63,7 +63,6 @@ class Store {
           100
         )
       );
-      console.log(clip.clipLength);
     });
   }
 
@@ -103,6 +102,17 @@ class Store {
     return result;
   }
 
+  moveClip(currentIndex, direction) {
+    //save old val
+    const toSwapVal = this.clips[currentIndex + direction];
+
+    //set the old val
+    this.clips[currentIndex + direction] = this.clips[currentIndex];
+
+    //swap in the new val
+    this.clips[currentIndex] = toSwapVal;
+  }
+
   handleShowInstruction(e) {
     const elem = e.currentTarget;
     //get the id that is needed
@@ -123,7 +133,8 @@ class Store {
 }
 decorate(Store, {
   handleShowInstruction: action,
-  clips: observable
+  clips: observable,
+  moveClip: action
 });
 
 const store = new Store();

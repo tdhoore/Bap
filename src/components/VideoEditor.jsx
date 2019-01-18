@@ -3,8 +3,6 @@ import React from 'react';
 import {observer} from 'mobx-react';
 // eslint-disable-next-line no-unused-vars
 import Clip from './Clip.jsx';
-import video from '../assets/video/vid.mp4';
-import img from '../assets/img/pic.jpg';
 
 const VideoEditor = ({store}) => {
   const clipsHolder = React.createRef();
@@ -56,9 +54,15 @@ const VideoEditor = ({store}) => {
       <div className='timeLine'>
         <div className='deel1' />
         <div className={renderClipsHolderClasses()} ref={clipsHolder}>
-          {store.clips.map(clip => {
+          {store.clips.map((clip, index) => {
             return (
-              <Clip key={`${clip.fileUrl}clip`} store={store} data={clip} />
+              <Clip
+                key={`${clip.fileUrl}clip`}
+                store={store}
+                data={clip}
+                index={index}
+                totalClips={store.clips.length - 1}
+              />
             );
           })}
         </div>
