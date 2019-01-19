@@ -113,6 +113,15 @@ const VideoPlayer = ({store, videos}) => {
     totalDurationVideos += store.durationToSeconds(video.duration);
   };
 
+  const setvideoRef = video => {
+    //the active clip is the video we want to refference
+    if (video.isActiveClip) {
+      return videoRef;
+    }
+
+    return null;
+  };
+
   return (
     <div className='videoPlayer'>
       <div className='contentHolder'>
@@ -121,13 +130,13 @@ const VideoPlayer = ({store, videos}) => {
           setTotalDurationVideos(video, index);
 
           //set new progress value
-          store.setProgressBarValue(totalDurationVideos, index);
+          //store.setProgressBarValue(totalDurationVideos, index);
 
           return (
             <video
               key={`${video.fileUrl}mainClip`}
               height='240'
-              ref={videoRef}
+              ref={setvideoRef(video)}
               onTimeUpdate={e => handleUpdateTime(e)}
               src={video.fileUrl}
               className={isActiveVideo(video)}

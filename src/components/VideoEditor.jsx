@@ -28,7 +28,7 @@ const VideoEditor = ({store}) => {
     store.addClipToTimeLine({
       fileUrl: fileURL,
       isVideo: isVideo,
-      isActiveClip: true,
+      isActiveClip: false,
       duration: `0:30`,
       clipLength: 100
     });

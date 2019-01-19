@@ -31,7 +31,10 @@ class Store {
     this.clips.push(newClip);
 
     //set new active clip
-    this.activeClipUrl = newClip.fileUrl;
+    this.activeClipUrl = this.clips[0].fileUrl;
+
+    //set active clip
+    this.clips[0].isActiveClip = true;
   }
 
   setDurrationIfVideo(data, newDuration) {
@@ -85,7 +88,6 @@ class Store {
     if (this.clips[indexCurrent].isActiveClip) {
       //get start time
       let startTime = totalDurationVideos;
-      console.log(indexCurrent);
       //loop through videos if more than 1
       if (this.clips.length > 1 && indexCurrent !== 0) {
         if (indexCurrent === this.clips.length - 1) {
