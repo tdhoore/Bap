@@ -121,7 +121,7 @@ const VideoPlayer = ({store, videos}) => {
           setTotalDurationVideos(video, index);
 
           //set new progress value
-          store.setProgressBarValue(totalDurationVideos, video);
+          store.setProgressBarValue(totalDurationVideos, index);
 
           return (
             <video

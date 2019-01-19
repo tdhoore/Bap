@@ -81,16 +81,38 @@ class Store {
     return ((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
   }
 
-  setProgressBarValue(totalDurationVideos, video) {
-    //get start time
-    const startTime =
-      totalDurationVideos - store.durationToSeconds(video.duration);
+  setProgressBarValue(totalDurationVideos, indexCurrent) {
+    if (this.clips[indexCurrent].isActiveClip) {
+      //get start time
+      let startTime = totalDurationVideos;
+      console.log(indexCurrent);
+      //loop through videos if more than 1
+      if (this.clips.length > 1 && indexCurrent !== 0) {
+        if (indexCurrent === this.clips.length - 1) {
+          //is the last video
+          startTime -= this.durationToSeconds(
+            this.clips[this.clips.length - 1].duration
+          );
+        } else {
+          // is not the last video
+          this.clips.forEach((clip, index) => {
+            if (index > indexCurrent) {
+              //- this.durationToSeconds()
+              startTime -= this.durationToSeconds(clip.duration);
+            }
+          });
+        }
+      } else {
+        //only one video
+        startTime = 0;
+      }
 
-    //calc percentage of the bar
-    const percentage = Math.floor((100 / totalDurationVideos) * startTime);
+      //calc percentage of the bar
+      const percentage = Math.floor((100 / totalDurationVideos) * startTime);
 
-    //set value of the progressbar
-    this.progressBarMove = percentage;
+      //set value of the progressbar
+      this.progressBarMove = percentage;
+    }
   }
 
   calcDuration(duration) {
@@ -124,6 +146,17 @@ class Store {
 
     //swap in the new val
     this.clips[currentIndex] = toSwapVal;
+
+    //set new active clip
+    this.clips.forEach((clip, index) => {
+      if (currentIndex + direction === index) {
+        //is new active clip
+        clip.isActiveClip = true;
+      } else {
+        //remove active clip
+        clip.isActiveClip = false;
+      }
+    });
   }
 
   handleShowInstruction(e) {
