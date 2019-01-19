@@ -22,6 +22,7 @@ const Clip = ({store, data, index, totalClips}) => {
         <video
           src={data.fileUrl}
           onLoadedMetadata={e => handleLoadMetaDeta(e)}
+          muted
         />
       );
     }

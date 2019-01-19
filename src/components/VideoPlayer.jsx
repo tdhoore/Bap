@@ -8,7 +8,8 @@ import img from '../assets/img/pic.jpg';
 const VideoPlayer = ({store, videos}) => {
   const videoRef = React.createRef();
   const progressRef = React.createRef();
-  //const scrubberRef = React.createRef();
+
+  let totalDurationVideos = 0;
 
   let isMouseDownOverProgressBar = false;
 
@@ -27,7 +28,7 @@ const VideoPlayer = ({store, videos}) => {
     const $progressBar = progressRef.current;
     const $videoElem = videoRef.current;
     const percentage = Math.floor(
-      (100 / $videoElem.duration) * $videoElem.currentTime
+      (100 / totalDurationVideos) * $videoElem.currentTime
     );
 
     $progressBar.value = percentage;
@@ -89,10 +90,39 @@ const VideoPlayer = ({store, videos}) => {
     }
   };
 
+  const handleEndVideo = (e, index) => {
+    //video ended
+    console.log(`${index} video ended`);
+  };
+
+  const addEndedEvent = (e, index) => {
+    if (index !== videos.length - 1) {
+      return handleEndVideo(e, index);
+    }
+
+    return '';
+  };
+
+  const setTotalDurationVideos = (video, index) => {
+    //reset the total at start of the loop
+    if (index === 0) {
+      totalDurationVideos = 0;
+    }
+
+    //set total duration of all the clips
+    totalDurationVideos += store.durationToSeconds(video.duration);
+  };
+
   return (
     <div className='videoPlayer'>
       <div className='contentHolder'>
-        {videos.map(video => {
+        {videos.map((video, index) => {
+          //set total duration
+          setTotalDurationVideos(video, index);
+
+          //set new progress value
+          store.setProgressBarValue(totalDurationVideos, video);
+
           return (
             <video
               key={`${video.fileUrl}mainClip`}
@@ -101,6 +131,8 @@ const VideoPlayer = ({store, videos}) => {
               onTimeUpdate={e => handleUpdateTime(e)}
               src={video.fileUrl}
               className={isActiveVideo(video)}
+              onEnded={e => addEndedEvent(e, index)}
+              muted
             />
           );
         })}
@@ -112,7 +144,7 @@ const VideoPlayer = ({store, videos}) => {
         </button>
         <div className='progressBarHolder'>
           <progress
-            value='0'
+            value={store.progressBarMove}
             max='100'
             ref={progressRef}
             onMouseDown={e => handleProgressBarDown(e)}

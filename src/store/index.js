@@ -16,6 +16,7 @@ class Store {
     this.clips = [];
     this.activeClipUrl = '';
     this.totalClipsLength = 0;
+    this.progressBarMove = 0;
   }
 
   addClipToTimeLine(newClip) {
@@ -78,6 +79,18 @@ class Store {
 
   mapVal(num, inMin, inMax, outMin, outMax) {
     return ((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+  }
+
+  setProgressBarValue(totalDurationVideos, video) {
+    //get start time
+    const startTime =
+      totalDurationVideos - store.durationToSeconds(video.duration);
+
+    //calc percentage of the bar
+    const percentage = Math.floor((100 / totalDurationVideos) * startTime);
+
+    //set value of the progressbar
+    this.progressBarMove = percentage;
   }
 
   calcDuration(duration) {

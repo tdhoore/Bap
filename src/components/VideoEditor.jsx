@@ -3,6 +3,7 @@ import React from 'react';
 import {observer} from 'mobx-react';
 // eslint-disable-next-line no-unused-vars
 import Clip from './Clip.jsx';
+// eslint-disable-next-line no-unused-vars
 import VideoPlayer from './VideoPlayer.jsx';
 
 const VideoEditor = ({store}) => {
