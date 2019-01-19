@@ -54,7 +54,7 @@ const VideoPlayer = ({store, videos}) => {
     progressElem.value = newValue;
 
     //set new value on video
-    videoElem.currentTime = videoElem.duration * (progressElem.value / 100);
+    videoElem.currentTime = totalDurationVideos * (progressElem.value / 100);
   };
 
   const handleProgressBarDown = e => {
@@ -114,7 +114,7 @@ const VideoPlayer = ({store, videos}) => {
   };
 
   const setvideoRef = video => {
-    //the active clip is the video we want to refference
+    //the active clip is the video we want to reference
     if (video.isActiveClip) {
       return videoRef;
     }
