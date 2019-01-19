@@ -20,6 +20,12 @@
 }
 .contentHolder {
   display: flex;
+  position: relative;
+  height: 240px;
+
+  & video {
+    position: absolute;
+  }
 }
 
 .timeLine {
@@ -105,4 +111,8 @@
 
 .moveClipBtnNext {
   right: 0;
+}
+
+.hide {
+  display: none;
 }

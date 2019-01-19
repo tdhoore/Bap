@@ -2,10 +2,10 @@
 import React from 'react';
 import {observer} from 'mobx-react';
 import Step from './Step.jsx';
-import video from '../assets/video/vid.mp4';
+//import video from '../assets/video/vid.mp4';
 import img from '../assets/img/pic.jpg';
 
-const VideoPlayer = ({store}) => {
+const VideoPlayer = ({store, videos}) => {
   const videoRef = React.createRef();
   const progressRef = React.createRef();
   //const scrubberRef = React.createRef();
@@ -81,17 +81,29 @@ const VideoPlayer = ({store}) => {
 
   const handleGoFullscreen = () => {};
 
+  const isActiveVideo = video => {
+    if (!video.isActiveClip) {
+      return 'hide';
+    } else {
+      return '';
+    }
+  };
+
   return (
     <div className='videoPlayer'>
       <div className='contentHolder'>
-        <video
-          height='240'
-          ref={videoRef}
-          onTimeUpdate={e => handleUpdateTime(e)}
-        >
-          <source src={video} type='video/mp4' />
-          Your browser does not support the video tag.
-        </video>
+        {videos.map(video => {
+          return (
+            <video
+              key={`${video.fileUrl}mainClip`}
+              height='240'
+              ref={videoRef}
+              onTimeUpdate={e => handleUpdateTime(e)}
+              src={video.fileUrl}
+              className={isActiveVideo(video)}
+            />
+          );
+        })}
         <div className='imageHolder' data-id='1' />
       </div>
       <div className='videoControls'>
