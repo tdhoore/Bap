@@ -12,11 +12,17 @@ class Store {
     this.activeProject = 0;
     this.currentStep = 0;
 
+    //video player
+    this.progressBarValue = 0;
+    this.isMouseDownOverProgressBar = false;
+
     //video editor
     this.clips = [];
-    this.activeClipUrl = '';
     this.totalClipsLength = 0;
     this.progressBarMove = 0;
+  }
+  updateProgress(val) {
+    this.progressBarValue = val;
   }
 
   addClipToTimeLine(newClip) {
@@ -29,9 +35,6 @@ class Store {
 
     //add to clips
     this.clips.push(newClip);
-
-    //set new active clip
-    this.activeClipUrl = this.clips[0].fileUrl;
 
     //set active clip
     this.clips[0].isActiveClip = true;
@@ -161,6 +164,24 @@ class Store {
     });
   }
 
+  playNextClip(index) {
+    //set new video as active
+    this.clips[index + 1].isActiveClip = true;
+
+    //set old video as inactive
+    this.clips[index].isActiveClip = false;
+  }
+
+  updateActiveClip(clipIndex) {
+    this.clips.forEach((clip, index) => {
+      if (index === clipIndex) {
+        this.clips[index].isActiveClip = true;
+      } else {
+        this.clips[index].isActiveClip = false;
+      }
+    });
+  }
+
   handleShowInstruction(e) {
     const elem = e.currentTarget;
     //get the id that is needed
@@ -182,7 +203,9 @@ class Store {
 decorate(Store, {
   handleShowInstruction: action,
   clips: observable,
-  moveClip: action
+  progressBarValue: observable,
+  moveClip: action,
+  playNextClip: action
 });
 
 const store = new Store();

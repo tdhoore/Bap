@@ -11,8 +11,6 @@ const VideoPlayer = ({store, videos}) => {
 
   let totalDurationVideos = 0;
 
-  let isMouseDownOverProgressBar = false;
-
   const togglePlay = () => {
     const $videoElem = videoRef.current;
 
@@ -25,13 +23,36 @@ const VideoPlayer = ({store, videos}) => {
 
   const handleUpdateTime = () => {
     //update progress bar
-    const $progressBar = progressRef.current;
     const $videoElem = videoRef.current;
+
+    //find the active clip
+    let videoIndex = 0;
+
+    store.clips.forEach((clip, index) => {
+      if (clip.isActiveClip) {
+        videoIndex = index;
+      }
+    });
+
+    //calc the percentages to add
+    let percentageToAdd = 0;
+
+    if (videoIndex > 0) {
+      store.clips.forEach((clip, index) => {
+        //check if in range
+        if (videoIndex > index) {
+          percentageToAdd = clip.clipLength;
+        }
+      });
+    }
+
+    //calc correct percentage
     const percentage = Math.floor(
       (100 / totalDurationVideos) * $videoElem.currentTime
     );
 
-    $progressBar.value = percentage;
+    //add the percentages together and make the final bar value
+    store.progressBarValue = percentage + percentageToAdd;
   };
 
   const handleStartStop = () => {
@@ -51,18 +72,53 @@ const VideoPlayer = ({store, videos}) => {
     const newValue = Math.floor((100 / progressElem.offsetWidth) * newPos);
 
     //set new value on progressbar
-    progressElem.value = newValue;
+    store.progressBarValue = newValue;
+
+    //find wich video needs top be set active and played
+    //use new value as a guide
+    let clipStartPercent = 0;
+    let videoIndex = 0;
+
+    store.clips.forEach((clip, index) => {
+      const clipEndPercent = clipStartPercent + clip.clipLength;
+
+      //check if in range
+      if (clipStartPercent <= newValue && clipEndPercent >= newValue) {
+        videoIndex = index;
+      }
+
+      //add to start percetage
+      clipStartPercent = clipEndPercent;
+    });
+
+    //set new active video
+    store.updateActiveClip(videoIndex);
+
+    //get toRemoveTime
+    let toRemoveTime = 0;
+
+    store.clips.forEach((clip, index) => {
+      if (videoIndex !== 0 && index < videoIndex) {
+        toRemoveTime += clip.clipLength;
+      }
+    });
 
     //set new value on video
-    videoElem.currentTime = totalDurationVideos * (progressElem.value / 100);
+    videoElem.currentTime =
+      totalDurationVideos * ((store.progressBarValue - toRemoveTime) / 100);
   };
 
   const handleProgressBarDown = e => {
     //update video
-    changeVideosCurrentTime(e);
+    //changeVideosCurrentTime(e);
 
     //set mouse to down over progressbar
-    isMouseDownOverProgressBar = true;
+    store.isMouseDownOverProgressBar = true;
+  };
+
+  const handleProgressBarClick = e => {
+    //update video
+    changeVideosCurrentTime(e);
   };
 
   const handleProgressBarUp = () => {
@@ -70,12 +126,12 @@ const VideoPlayer = ({store, videos}) => {
     videoRef.current.play();
 
     //set mouse to up over progressbar
-    isMouseDownOverProgressBar = false;
+    store.isMouseDownOverProgressBar = false;
   };
 
   const handleMoveMouseProgressBar = e => {
     //update location duren mouse move
-    if (isMouseDownOverProgressBar) {
+    if (store.isMouseDownOverProgressBar) {
       changeVideosCurrentTime(e);
     }
   };
@@ -90,14 +146,41 @@ const VideoPlayer = ({store, videos}) => {
     }
   };
 
-  const handleEndVideo = (e, index) => {
-    //video ended
-    console.log(`${index} video ended`);
+  const handleEndVideo = index => {
+    // handle the store update
+    store.playNextClip(index);
+
+    //get ref
+    const oldVideo = videoRef.current;
+
+    //get the other video's
+    const oldVideos = oldVideo.parentElement.querySelectorAll(`video`);
+
+    //index next video
+    let newVideoIndex = 0;
+
+    //hide the all the videos except the new video
+    [...oldVideos].forEach((video, index) => {
+      if (video === oldVideo) {
+        newVideoIndex = index + 1;
+      }
+
+      if (index === newVideoIndex) {
+        //is new video
+        video.classList.remove(`hide`);
+
+        //play video
+        video.play();
+      } else {
+        //is other video
+        video.classList.add(`hide`);
+      }
+    });
   };
 
-  const addEndedEvent = (e, index) => {
-    if (index !== videos.length - 1) {
-      return handleEndVideo(e, index);
+  const addEndedEvent = (index, video) => {
+    if (index !== videos.length - 1 && video.isActiveClip) {
+      return handleEndVideo(index);
     }
 
     return '';
@@ -140,7 +223,7 @@ const VideoPlayer = ({store, videos}) => {
               onTimeUpdate={e => handleUpdateTime(e)}
               src={video.fileUrl}
               className={isActiveVideo(video)}
-              onEnded={e => addEndedEvent(e, index)}
+              onEnded={e => addEndedEvent(index, video)}
               muted
             />
           );
@@ -153,12 +236,13 @@ const VideoPlayer = ({store, videos}) => {
         </button>
         <div className='progressBarHolder'>
           <progress
-            value={store.progressBarMove}
+            value={store.progressBarValue}
             max='100'
             ref={progressRef}
             onMouseDown={e => handleProgressBarDown(e)}
             onMouseUp={e => handleProgressBarUp(e)}
             onMouseMove={e => handleMoveMouseProgressBar(e)}
+            onClick={e => handleProgressBarClick(e)}
           />
           <div className='stepsHolder' />
         </div>
