@@ -113,6 +113,14 @@
   right: 0;
 }
 
+.activeClip {
+  border: solid 5px purple;
+}
+
+.selectedClip {
+  border: solid 5px green;
+}
+
 .hide {
   display: none;
 }

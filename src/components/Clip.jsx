@@ -57,8 +57,40 @@ const Clip = ({store, data, index, totalClips}) => {
     }
   };
 
+  const handleClickClip = e => {
+    //set active if it's not jet
+    if (!data.isActiveClip) {
+      //search the current clip
+      store.clips.forEach((clip, index) => {
+        if (clip.fileUrl === data.fileUrl) {
+          //set new active clip
+          store.updateActiveClip(index);
+
+          //calc the percentages to add
+          let percentageToAdd = 0;
+
+          if (index > 0) {
+            store.clips.forEach((clip, indexInput) => {
+              //check if in range
+              if (index > indexInput) {
+                percentageToAdd = clip.clipLength;
+              }
+            });
+          }
+
+          //add the percentages together and make the final bar value
+          store.progressBarValue = percentageToAdd;
+        }
+      });
+    }
+  };
+
   return (
-    <div className={classNames} style={{width: `${data.clipLength}%`}}>
+    <div
+      className={classNames}
+      style={{width: `${data.clipLength}%`}}
+      onClick={e => handleClickClip(e)}
+    >
       {renderPrevBtn()}
       {renderVideoOrImg(data.isVideo)}
       <p className='duration'>{data.duration}</p>

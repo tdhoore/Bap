@@ -212,9 +212,6 @@ const VideoPlayer = ({store, videos}) => {
           //set total duration
           setTotalDurationVideos(video, index);
 
-          //set new progress value
-          //store.setProgressBarValue(totalDurationVideos, index);
-
           return (
             <video
               key={`${video.fileUrl}mainClip`}
