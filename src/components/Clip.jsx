@@ -5,6 +5,10 @@ import {observer} from 'mobx-react';
 const Clip = ({store, data, index, totalClips}) => {
   let classNames = `clip`;
 
+  const clipRef = React.createRef();
+  let isMouseDownStartTrimmer = false;
+  let isMouseDownEndTrimmer = false;
+
   //set active clip
   if (data.isActiveClip) {
     classNames += ` activeClip`;
@@ -85,16 +89,79 @@ const Clip = ({store, data, index, totalClips}) => {
     }
   };
 
-  const handleEditStart = e => {};
+  const handleMouseDownStartTrimmer = e => {
+    //set mouse down
+    isMouseDownStartTrimmer = true;
+  };
 
-  const handleEditEnd = e => {};
+  const handleToggleStartTrimmer = e => {
+    if (isMouseDownStartTrimmer) {
+      isMouseDownStartTrimmer = false;
+    } else {
+      isMouseDownStartTrimmer = true;
+    }
+  };
+
+  const handleEditStart = e => {
+    //is the mouse down over trimmer
+    if (isMouseDownStartTrimmer) {
+      const trimmerElem = e.currentTarget;
+      const parentLeftPos = trimmerElem.parentElement.getBoundingClientRect()
+        .left;
+      const parentWidth = trimmerElem.parentElement.offsetWidth;
+
+      //calc new position
+      const newPos = e.clientX - parentLeftPos;
+
+      //move if value is positive
+      if (newPos >= 0) {
+        //move trimmer
+        trimmerElem.style.transform = `translateX(${newPos}px)`;
+
+        //calc to remove percetage
+        const startPercent = Math.floor((100 / parentWidth) * newPos);
+
+        //percentage to duration
+        const startDuration = Math.floor(
+          (100 / store.durationToSeconds(data.duration)) * startPercent
+        );
+        console.log(startDuration);
+        //update start postion of the clip
+      }
+    }
+  };
+
+  const handleMouseUpStartTrimmer = e => {
+    //set mouse up
+    isMouseDownStartTrimmer = false;
+  };
+
+  const handleMouseDownEndTrimmer = e => {
+    //set mouse down
+    isMouseDownEndTrimmer = true;
+  };
+
+  const handleEditEnd = e => {
+    //is the mouse down over trimmer
+    if (isMouseDownEndTrimmer) {
+    }
+  };
+
+  const handleMouseUpEndTrimmer = e => {
+    //set mouse up
+    isMouseDownEndTrimmer = false;
+  };
 
   const renderTrimerStart = () => {
     if (data.isActiveClip) {
       return (
         <button
           className='trimer trimerStart'
-          onMouseDown={e => handleEditStart(e)}
+          //onMouseDown={e => handleMouseDownStartTrimmer(e)}
+          onClick={e => handleToggleStartTrimmer(e)}
+          onMouseMove={e => handleEditStart(e)}
+          //onMouseUp={e => handleMouseUpStartTrimmer(e)}
+          //onMouseLeave={e => handleMouseUpStartTrimmer(e)}
         />
       );
     }
@@ -105,7 +172,9 @@ const Clip = ({store, data, index, totalClips}) => {
       return (
         <button
           className='trimer trimerEnd'
-          onMouseDown={e => handleEditEnd(e)}
+          onMouseDown={e => handleMouseDownEndTrimmer(e)}
+          onMouseMove={e => handleEditEnd(e)}
+          onMouseUp={e => handleMouseUpEndTrimmer(e)}
         />
       );
     }
@@ -116,6 +185,7 @@ const Clip = ({store, data, index, totalClips}) => {
       className={classNames}
       style={{width: `${data.clipLength}%`}}
       onClick={e => handleClickClip(e)}
+      ref={clipRef}
     >
       {renderTrimerStart()}
       {renderPrevBtn()}

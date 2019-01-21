@@ -19,7 +19,6 @@ class Store {
     //video editor
     this.clips = [];
     this.totalClipsLength = 0;
-    this.progressBarMove = 0;
   }
 
   updateProgress(val) {
@@ -85,25 +84,28 @@ class Store {
         if (clip.fileUrl === data.fileUrl) {
           //set the new duration
           this.clips[index].duration = duration;
+
+          //set clip max duration
+          clip.maxDuration = newDuration;
         }
       });
+
+      //add to total clips length
+      this.totalClipsLength += newDuration;
+
+      //set clips length in persentages
+      this.clips.forEach(clip => {
+        clip.clipLength = Math.round(
+          this.mapVal(
+            this.durationToSeconds(clip.duration),
+            0,
+            this.totalClipsLength,
+            0,
+            100
+          )
+        );
+      });
     }
-
-    //add to total clips length
-    this.totalClipsLength += newDuration;
-
-    //set clips length in persentages
-    this.clips.forEach(clip => {
-      clip.clipLength = Math.round(
-        this.mapVal(
-          this.durationToSeconds(clip.duration),
-          0,
-          this.totalClipsLength,
-          0,
-          100
-        )
-      );
-    });
   }
 
   durationToSeconds(durationText) {

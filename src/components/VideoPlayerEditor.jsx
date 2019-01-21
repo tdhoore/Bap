@@ -11,6 +11,9 @@ const VideoPlayerEditor = ({store, videos}) => {
 
   let totalDurationVideos = 0;
 
+  //set default isMouseDown
+  store.isMouseDownOverProgressBar = false;
+
   const togglePlay = () => {
     const $videoElem = videoRef.current;
 
