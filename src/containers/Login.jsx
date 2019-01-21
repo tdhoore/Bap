@@ -10,12 +10,12 @@ const Login = ({store}) =>  {
       <form>
         <div className='form-group'>
           <label htmlFor='exampleInputEmail1'>Email address</label>
-          <input value={store.email} onChange={store.handleChangeLogin} type='email' name='email' className='form-control' id='exampleInputEmail1' aria-describedby='emailHelp' placeholder='Enter email' />
+          <input value={store.email} onChange={e => store.handleChangeLogin(e)} type='email' name='email' className='form-control' id='exampleInputEmail1' aria-describedby='emailHelp' placeholder='Enter email' />
           <p id='emailHelp' className='form-text text-muted'>We'll never share your email with anyone else.</p>
         </div>
         <div className='form-group'>
           <label htmlFor='exampleInputPassword1'>Password</label>
-          <input value={store.password} onChange={store.handleChangeLogin} type='password' name='password' className='form-control' id='exampleInputPassword1' placeholder='Password' />
+          <input value={store.password} onChange={e => store.handleChangeLogin(e)} type='password' name='password' className='form-control' id='exampleInputPassword1' placeholder='Password' />
         </div>
         <button type='submit' onClick={store.login} className='btn btn-primary'>Login</button>
         <button onClick={store.signup} className='btn btn-success'>Signup</button>

@@ -14,7 +14,7 @@ import fire from '../config/Fire';
 class Store {
   constructor() {
     this.user = null;
-    this.email;
+    this.email = '';
     this.password = '';
   }
 
