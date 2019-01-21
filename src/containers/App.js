@@ -55,7 +55,7 @@ class App extends Component {
     const {store} = this.props;
     return (
       <Switch>
-        <Route path='/' render={props => this.displayVideoEditor(store)} />
+        <Route path='/' render={props => this.displayVideoPlayer(store)} />
         <Route component={null} />
       </Switch>
     );

@@ -4,7 +4,7 @@ import {observer} from 'mobx-react';
 // eslint-disable-next-line no-unused-vars
 import Clip from './Clip.jsx';
 // eslint-disable-next-line no-unused-vars
-import VideoPlayer from './VideoPlayer.jsx';
+import VideoPlayerEditor from './VideoPlayerEditor.jsx';
 
 const VideoEditor = ({store}) => {
   const clipsHolder = React.createRef();
@@ -53,7 +53,7 @@ const VideoEditor = ({store}) => {
 
   return (
     <div>
-      <VideoPlayer store={store} videos={store.clips} />
+      <VideoPlayerEditor store={store} videos={store.clips} />
       <div className='timeLine'>
         <div className='deel1' />
         <div className={renderClipsHolderClasses()} ref={clipsHolder}>

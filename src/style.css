@@ -138,6 +138,15 @@
   right: -10px;
 }
 
+.scrubber {
+  position: absolute;
+  top: -20px;
+  left: -10px;
+  height: 20px;
+  width: 20px;
+  background-color: red;
+}
+
 .hide {
   display: none;
 }
