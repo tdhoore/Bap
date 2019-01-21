@@ -14,7 +14,7 @@ import fire from '../config/Fire';
 class Store {
   constructor() {
     this.user = null;
-    this.email = '';
+    this.email;
     this.password = '';
   }
 
@@ -50,7 +50,10 @@ class Store {
 
   handleChangeLogin(e) {
     const input = e.currentTarget;
+    this.email = '';
+    console.log(`input:`, input.name);
     if (input.name === 'email') {
+      console.log(`email input:`, this.email);
       this.email = input.value;
     } else {
       this.password = input.value;
@@ -64,6 +67,9 @@ decorate(Store, {
   user: observable,
   login: action,
   signup: action,
+  handleChangeLogin: action,
+  email: observable,
+  password: observable,
   /*playtime: observable,
     randomGamesList: observable,
     playList: observable,
