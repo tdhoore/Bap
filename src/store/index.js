@@ -21,8 +21,41 @@ class Store {
     this.totalClipsLength = 0;
     this.progressBarMove = 0;
   }
+
   updateProgress(val) {
     this.progressBarValue = val;
+  }
+
+  getActiveClipIndex(newValue) {
+    let clipStartPercent = 0;
+
+    let videoIndex = 0;
+
+    store.clips.forEach((clip, index) => {
+      const clipEndPercent = clipStartPercent + clip.clipLength;
+
+      //check if in range
+      if (clipStartPercent <= newValue && clipEndPercent >= newValue) {
+        videoIndex = index;
+      }
+
+      //add to start percetage
+      clipStartPercent = clipEndPercent;
+    });
+
+    return videoIndex;
+  }
+
+  calcToRemoveTime(videoIndex) {
+    let toRemoveTime = 0;
+
+    store.clips.forEach((clip, index) => {
+      if (videoIndex !== 0 && index < videoIndex) {
+        toRemoveTime += clip.clipLength;
+      }
+    });
+
+    return toRemoveTime;
   }
 
   addClipToTimeLine(newClip) {
@@ -129,6 +162,15 @@ class Store {
         clip.isActiveClip = false;
       }
     });
+
+    //set new progressbar
+    //check if first or not
+    if (currentIndex + direction > 0) {
+      this.progressBarValue =
+        100 - this.calcToRemoveTime(currentIndex + direction);
+    } else {
+      this.progressBarValue = 0;
+    }
   }
 
   playNextClip(index) {

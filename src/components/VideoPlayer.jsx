@@ -76,36 +76,17 @@ const VideoPlayer = ({store, videos}) => {
 
     //find wich video needs top be set active and played
     //use new value as a guide
-    let clipStartPercent = 0;
     let videoIndex = 0;
 
-    store.clips.forEach((clip, index) => {
-      const clipEndPercent = clipStartPercent + clip.clipLength;
-
-      //check if in range
-      if (clipStartPercent <= newValue && clipEndPercent >= newValue) {
-        videoIndex = index;
-      }
-
-      //add to start percetage
-      clipStartPercent = clipEndPercent;
-    });
+    videoIndex = store.getActiveClipIndex(newValue);
 
     //set new active video
     store.updateActiveClip(videoIndex);
 
-    //get toRemoveTime
-    let toRemoveTime = 0;
-
-    store.clips.forEach((clip, index) => {
-      if (videoIndex !== 0 && index < videoIndex) {
-        toRemoveTime += clip.clipLength;
-      }
-    });
-
     //set new value on video
     videoElem.currentTime =
-      totalDurationVideos * ((store.progressBarValue - toRemoveTime) / 100);
+      totalDurationVideos *
+      ((store.progressBarValue - store.calcToRemoveTime(videoIndex)) / 100);
   };
 
   const handleProgressBarDown = e => {

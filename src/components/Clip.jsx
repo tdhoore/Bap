@@ -78,10 +78,36 @@ const Clip = ({store, data, index, totalClips}) => {
             });
           }
 
-          //add the percentages together and make the final bar value
+          //update the progress bar
           store.progressBarValue = percentageToAdd;
         }
       });
+    }
+  };
+
+  const handleEditStart = e => {};
+
+  const handleEditEnd = e => {};
+
+  const renderTrimerStart = () => {
+    if (data.isActiveClip) {
+      return (
+        <button
+          className='trimer trimerStart'
+          onMouseDown={e => handleEditStart(e)}
+        />
+      );
+    }
+  };
+
+  const renderTrimerEnd = () => {
+    if (data.isActiveClip) {
+      return (
+        <button
+          className='trimer trimerEnd'
+          onMouseDown={e => handleEditEnd(e)}
+        />
+      );
     }
   };
 
@@ -91,10 +117,12 @@ const Clip = ({store, data, index, totalClips}) => {
       style={{width: `${data.clipLength}%`}}
       onClick={e => handleClickClip(e)}
     >
+      {renderTrimerStart()}
       {renderPrevBtn()}
       {renderVideoOrImg(data.isVideo)}
       <p className='duration'>{data.duration}</p>
       {renderNextBtn()}
+      {renderTrimerEnd()}
     </div>
   );
 };

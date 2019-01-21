@@ -73,7 +73,6 @@
   position: relative;
   height: 100%;
   background-color: blue;
-  overflow: hidden;
 
   & video,
   & img {
@@ -119,6 +118,24 @@
 
 .selectedClip {
   border: solid 5px green;
+}
+
+.trimer {
+  position: absolute;
+  display: block;
+  z-index: 5;
+  top: -20px;
+  width: 20px;
+  height: 20px;
+  background-color: purple;
+}
+
+.trimerStart {
+  left: -10px;
+}
+
+.trimerEnd {
+  right: -10px;
 }
 
 .hide {

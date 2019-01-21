@@ -30,7 +30,8 @@ const VideoEditor = ({store}) => {
       isVideo: isVideo,
       isActiveClip: false,
       duration: `0:30`,
-      clipLength: 100
+      clipLength: 100,
+      clipStart: 0
     });
   };
 
