@@ -6,8 +6,8 @@ const Clip = ({store, data, index, totalClips}) => {
   let classNames = `clip`;
 
   const clipRef = React.createRef();
-  let isMouseDownStartTrimmer = false;
-  let isMouseDownEndTrimmer = false;
+  const isMouseDownStartTrimmer = false;
+  const isMouseDownEndTrimmer = false;
 
   //set active clip
   if (data.isActiveClip) {
@@ -87,9 +87,12 @@ const Clip = ({store, data, index, totalClips}) => {
         }
       });
     }
+
+    //open trimmer window
+    store.isTrimmerOpen = true;
   };
 
-  const handleMouseDownStartTrimmer = e => {
+  /*const handleMouseDownStartTrimmer = e => {
     //set mouse down
     isMouseDownStartTrimmer = true;
   };
@@ -122,9 +125,7 @@ const Clip = ({store, data, index, totalClips}) => {
         const startPercent = Math.floor((100 / parentWidth) * newPos);
 
         //percentage to duration
-        const startDuration = Math.floor(
-          (100 / store.durationToSeconds(data.duration)) * startPercent
-        );
+        const startDuration = Math.floor((100 / data.duration) * startPercent);
         console.log(startDuration);
         //update start postion of the clip
       }
@@ -178,7 +179,7 @@ const Clip = ({store, data, index, totalClips}) => {
         />
       );
     }
-  };
+  };*/
 
   return (
     <div
@@ -187,12 +188,10 @@ const Clip = ({store, data, index, totalClips}) => {
       onClick={e => handleClickClip(e)}
       ref={clipRef}
     >
-      {renderTrimerStart()}
       {renderPrevBtn()}
       {renderVideoOrImg(data.isVideo)}
-      <p className='duration'>{data.duration}</p>
+      <p className='duration'>{store.calcDurationStamp(data.duration)}</p>
       {renderNextBtn()}
-      {renderTrimerEnd()}
     </div>
   );
 };

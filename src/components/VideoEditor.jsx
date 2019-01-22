@@ -5,6 +5,8 @@ import {observer} from 'mobx-react';
 import Clip from './Clip.jsx';
 // eslint-disable-next-line no-unused-vars
 import VideoPlayerEditor from './VideoPlayerEditor.jsx';
+// eslint-disable-next-line no-unused-vars
+import Trimmer from './Trimmer.jsx';
 
 const VideoEditor = ({store}) => {
   const clipsHolder = React.createRef();
@@ -26,14 +28,24 @@ const VideoEditor = ({store}) => {
     //add clip to the timeline
     //and set as active clip
     store.addClipToTimeLine({
+      id: store.clipId,
       fileUrl: fileURL,
       isVideo: isVideo,
       isActiveClip: false,
-      duration: `0:30`,
+      duration: 0,
       maxDuration: 0,
       clipLength: 100,
       clipStart: 0
     });
+
+    //open trimmer window
+    store.isTrimmerOpen = true;
+  };
+
+  const renderTrimmerWindow = () => {
+    if (store.isTrimmerOpen) {
+      return <Trimmer store={store} />;
+    }
   };
 
   const renderUploadBarClasses = () => {
@@ -54,6 +66,7 @@ const VideoEditor = ({store}) => {
 
   return (
     <div>
+      {renderTrimmerWindow()}
       <VideoPlayerEditor store={store} videos={store.clips} />
       <div className='timeLine'>
         <div className='deel1' />

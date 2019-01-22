@@ -17,8 +17,17 @@ class Store {
     this.isMouseDownOverProgressBar = false;
 
     //video editor
+    this.activeClipIndex = 0;
+    this.clipId = 0;
     this.clips = [];
     this.totalClipsLength = 0;
+
+    //trimmer
+    this.isTrimmerOpen = false;
+    this.minClipduration = 5;
+    this.maxClipduration = 30;
+    this.maxTotalDuration = 60;
+    this.isMouseDownOverTrimmer = false;
   }
 
   updateProgress(val) {
@@ -41,6 +50,9 @@ class Store {
       //add to start percetage
       clipStartPercent = clipEndPercent;
     });
+
+    //set global var
+    this.activeClipIndex = videoIndex;
 
     return videoIndex;
   }
@@ -70,15 +82,15 @@ class Store {
 
     //set active clip
     this.clips[0].isActiveClip = true;
+
+    //add to clip id
+    this.clipId ++;
   }
 
-  setDurrationIfVideo(data, newDuration) {
+  setDurrationIfVideo(data, duration) {
     //is video?
     //if yes change duration
     if (data.isVideo) {
-      //duration to time stamp
-      const duration = this.calcDuration(newDuration);
-
       //get the clip
       this.clips.forEach((clip, index) => {
         if (clip.fileUrl === data.fileUrl) {
@@ -86,23 +98,17 @@ class Store {
           this.clips[index].duration = duration;
 
           //set clip max duration
-          clip.maxDuration = newDuration;
+          clip.maxDuration = duration;
         }
       });
 
       //add to total clips length
-      this.totalClipsLength += newDuration;
+      this.totalClipsLength += duration;
 
       //set clips length in persentages
       this.clips.forEach(clip => {
         clip.clipLength = Math.round(
-          this.mapVal(
-            this.durationToSeconds(clip.duration),
-            0,
-            this.totalClipsLength,
-            0,
-            100
-          )
+          this.mapVal(clip.duration, 0, this.totalClipsLength, 0, 100)
         );
       });
     }
@@ -122,7 +128,7 @@ class Store {
     return ((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
   }
 
-  calcDuration(duration) {
+  calcDurationStamp(duration) {
     let result = duration;
     let minutes = 0;
     let seconds = '0';

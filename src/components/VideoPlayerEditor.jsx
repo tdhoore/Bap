@@ -177,7 +177,7 @@ const VideoPlayerEditor = ({store, videos}) => {
     }
 
     //set total duration of all the clips
-    totalDurationVideos += store.durationToSeconds(video.duration);
+    totalDurationVideos += video.duration;
   };
 
   const setvideoRef = video => {
@@ -209,7 +209,6 @@ const VideoPlayerEditor = ({store, videos}) => {
             />
           );
         })}
-        <div className='imageHolder' data-id='1' />
       </div>
       <div className='videoControls'>
         <button className='playBtn' onClick={e => handleStartStop(e)}>
@@ -225,11 +224,13 @@ const VideoPlayerEditor = ({store, videos}) => {
             onMouseMove={e => handleMoveMouseProgressBar(e)}
             onClick={e => handleProgressBarClick(e)}
           />
-          <div className='stepsHolder' />
+          <button
+            className='fullScreenBtn'
+            onClick={e => handleGoFullscreen(e)}
+          >
+            Fullscreen
+          </button>
         </div>
-        <button className='fullScreenBtn' onClick={e => handleGoFullscreen(e)}>
-          Fullscreen
-        </button>
       </div>
     </div>
   );
