@@ -12,9 +12,10 @@ const Trimmer = ({store}) => {
   const trimmerTimeLineRef = React.createRef();
 
   let startDuration = 0;
+  let duration = 0;
 
   const clacMarginLeft = () => {
-    if (Math.floor(activeClip.duration) !== 0) {
+    if (Math.floor(activeClip.duration) > 0 && activeClip.maxDuration > 0) {
       return Math.floor(
         store.mapVal(activeClip.clipStart, 0, activeClip.maxDuration, 0, 100)
       );
@@ -47,7 +48,12 @@ const Trimmer = ({store}) => {
 
     //addEventListeners fr move and up on the window
     window.addEventListener(`mousemove`, handleMoveMouse);
-    window.addEventListener(`mouseup`, handleUpMouse);
+
+    if (isStart) {
+      window.addEventListener(`mouseup`, handleUpMouseStart);
+    } else {
+      window.addEventListener(`mouseup`, handleUpMouseEnd);
+    }
   };
 
   const handleMoveMouse = e => {
@@ -76,7 +82,7 @@ const Trimmer = ({store}) => {
 
     //postion to percentage
     const startPercent = store.mapVal(newPos, 0, trimmerWidth, 0, 100);
-    console.log(startPercent);
+
     //percentage to duration
     let tempStartDuration = Math.floor(
       store.mapVal(startPercent, 0, 100, 0, activeClip.maxDuration)
@@ -103,15 +109,72 @@ const Trimmer = ({store}) => {
 
   const updateEndVal = e => {
     console.log('end');
+    const trimmerTimeLineElem = trimmerTimeLineRef.current;
+
+    //get postion from 0
+    const trimmerLeftPos = trimmerTimeLineElem.getBoundingClientRect().left;
+    const trimmerWidth = trimmerTimeLineElem.offsetWidth;
+    let newPos = e.clientX - trimmerLeftPos;
+
+    //cap pos at the trimmer width
+    if (newPos > trimmerWidth) {
+      newPos = trimmerWidth;
+    }
+
+    //postion to percentage
+    let endPercent = store.mapVal(newPos, 0, trimmerWidth, 0, 100);
+
+    //cap pos at the max duration
+    const maxEnd =
+      store.mapVal(activeClip.clipStart, 0, activeClip.maxDuration, 0, 100) +
+      store.mapVal(store.maxClipduration, 0, activeClip.maxDuration, 0, 100);
+
+    if (endPercent > maxEnd) {
+      endPercent = maxEnd;
+    }
+
+    //percentage to duration
+    let tempEndDuration = Math.floor(
+      store.mapVal(endPercent, 0, 100, 0, activeClip.maxDuration)
+    );
+
+    //limit duration
+    if (tempEndDuration <= activeClip.clipStart + store.minClipduration) {
+      tempEndDuration = activeClip.clipStart + store.minClipduration;
+    }
+
+    //set start duration
+    duration = tempEndDuration - activeClip.clipStart;
+
+    //calc margin
+    const margin = Math.floor(
+      store.mapVal(tempEndDuration, 0, activeClip.maxDuration, 0, 100)
+    );
+
+    //temp update the margin for now
+    trimmerTimeLineElem.querySelector(
+      '.videoLength'
+    ).style.marginRight = `${100 - margin}%`;
   };
 
-  const handleUpMouse = e => {
+  const handleUpMouseStart = e => {
     //update margins
     store.clips[store.activeClipIndex].clipStart = startDuration;
 
     //remove listeners
     window.removeEventListener(`mousemove`, handleMoveMouse);
-    window.removeEventListener(`mouseup`, handleUpMouse);
+    window.removeEventListener(`mouseup`, handleUpMouseStart);
+  };
+
+  const handleUpMouseEnd = e => {
+    //update margins
+    if (duration !== 0) {
+      store.clips[store.activeClipIndex].duration = duration;
+    }
+
+    //remove listeners
+    window.removeEventListener(`mousemove`, handleMoveMouse);
+    window.removeEventListener(`mouseup`, handleUpMouseEnd);
   };
 
   return (
