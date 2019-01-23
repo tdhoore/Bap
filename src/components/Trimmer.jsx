@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from 'react';
 import {observer} from 'mobx-react';
-import video from '../assets/video/vid.mp4';
 
 const Trimmer = ({store}) => {
   //use the active clipdata
@@ -13,6 +12,8 @@ const Trimmer = ({store}) => {
 
   let startDuration = 0;
   let duration = 0;
+
+  const videoRef = React.createRef();
 
   const clacMarginLeft = () => {
     if (Math.floor(activeClip.duration) > 0 && activeClip.maxDuration > 0) {
@@ -100,8 +101,20 @@ const Trimmer = ({store}) => {
         activeClip.duration + activeClip.clipStart - store.minClipduration;
     }
 
+    //clamp duration min
+    if (
+      tempStartDuration <
+      activeClip.duration + activeClip.clipStart - store.maxClipduration
+    ) {
+      tempStartDuration =
+        activeClip.duration + activeClip.clipStart - store.maxClipduration;
+    }
+
     //set start duration
     startDuration = tempStartDuration;
+
+    //update video
+    setVideoDuration(startDuration);
 
     //calc margin
     const margin = Math.floor(
@@ -112,6 +125,17 @@ const Trimmer = ({store}) => {
     trimmerTimeLineElem.querySelector(
       '.videoLength'
     ).style.marginLeft = `${margin}%`;
+  };
+
+  const setVideoDuration = duration => {
+    //get video elem
+    const videoElem = videoRef.current;
+
+    //pause video
+    videoElem.pause();
+
+    //set videoPosition
+    videoElem.currentTime = duration;
   };
 
   const updateEndVal = e => {
@@ -129,20 +153,15 @@ const Trimmer = ({store}) => {
     }
 
     //postion to percentage
-    let endPercent = store.mapVal(newPos, 0, trimmerWidth, 0, 100);
-
-    //cap pos at the max duration
-    const maxEnd =
-      store.mapVal(activeClip.clipStart, 0, activeClip.maxDuration, 0, 100) +
-      store.mapVal(store.maxClipduration, 0, activeClip.maxDuration, 0, 100);
-
-    if (endPercent > maxEnd) {
-      endPercent = maxEnd;
-    }
+    const endPercent = store.mapVal(newPos, 0, trimmerWidth, 0, 100);
 
     //percentage to duration
-    let tempEndDuration = Math.floor(
-      store.mapVal(endPercent, 0, 100, 0, activeClip.maxDuration)
+    let tempEndDuration = store.mapVal(
+      endPercent,
+      0,
+      100,
+      0,
+      activeClip.maxDuration
     );
 
     //limit duration
@@ -152,6 +171,9 @@ const Trimmer = ({store}) => {
 
     //set start duration
     duration = tempEndDuration - activeClip.clipStart;
+
+    //update video
+    setVideoDuration(tempEndDuration);
 
     //calc margin
     const margin = Math.floor(
@@ -201,7 +223,7 @@ const Trimmer = ({store}) => {
   return (
     <div className='trimmerWindow'>
       <div className='videoTrimmer'>
-        <video src={video} muted height='240' />
+        <video src={activeClip.fileUrl} muted height='240' ref={videoRef} />
         <div className='trimmerTimeLine' ref={trimmerTimeLineRef}>
           <div
             className='videoLength'
