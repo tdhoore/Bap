@@ -61,32 +61,6 @@ const Clip = ({store, data, index, totalClips}) => {
   };
 
   const handleClickClip = e => {
-    //set active if it's not jet
-    /*if (!data.isActiveClip) {
-      //search the current clip
-      store.clips.forEach((clip, index) => {
-        if (clip.fileUrl === data.fileUrl) {
-          //set new active clip
-          store.updateActiveClip(index);
-
-          //calc the percentages to add
-          let percentageToAdd = 0;
-
-          if (index > 0) {
-            store.clips.forEach((clip, indexInput) => {
-              //check if in range
-              if (index > indexInput) {
-                percentageToAdd = clip.clipLength;
-              }
-            });
-          }
-
-          //update the progress bar
-          store.progressBarValue = percentageToAdd;
-        }
-      });
-    }*/
-    console.log(`text`);
     //set as active clip
     if (!data.isActiveClip) {
       //search the current clip

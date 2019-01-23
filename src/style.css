@@ -88,11 +88,6 @@
   }
 }
 
-.clipPadder {
-  flex: 2;
-  background-color: yellow;
-}
-
 .uploadBarWithClip {
   flex: 0;
 }

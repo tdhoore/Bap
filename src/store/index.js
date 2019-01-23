@@ -60,7 +60,7 @@ class Store {
   calcToRemoveTime(videoIndex) {
     let toRemoveTime = 0;
 
-    store.clips.forEach((clip, index) => {
+    this.clips.forEach((clip, index) => {
       if (videoIndex !== 0 && index < videoIndex) {
         toRemoveTime += clip.clipLength;
       }
@@ -195,6 +195,9 @@ class Store {
       if (currentIndex + direction === index) {
         //is new active clip
         clip.isActiveClip = true;
+
+        //set global active
+        this.activeClipIndex = index;
       } else {
         //remove active clip
         clip.isActiveClip = false;
@@ -217,6 +220,9 @@ class Store {
 
     //set old video as inactive
     this.clips[index].isActiveClip = false;
+
+    //set global
+    this.activeClipIndex = index + 1;
   }
 
   updateActiveClip(clipIndex) {

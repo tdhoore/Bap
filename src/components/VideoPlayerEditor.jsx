@@ -9,15 +9,15 @@ const VideoPlayerEditor = ({store, videos}) => {
   const videoRef = React.createRef();
   const progressRef = React.createRef();
 
-  let totalDurationVideos = 0;
-
-  //set default isMouseDown
-  store.isMouseDownOverProgressBar = false;
-
   const togglePlay = () => {
     const $videoElem = videoRef.current;
 
     if ($videoElem.paused) {
+      //set start time
+      if ($videoElem.currentTime === 0) {
+        $videoElem.currentTime = store.clips[store.activeClipIndex].clipStart;
+      }
+
       $videoElem.play();
     } else {
       $videoElem.pause();
@@ -27,15 +27,12 @@ const VideoPlayerEditor = ({store, videos}) => {
   const handleUpdateTime = () => {
     //update progress bar
     const $videoElem = videoRef.current;
+    const progressElem = progressRef.current;
+
+    const activeClip = store.clips[store.activeClipIndex];
 
     //find the active clip
-    let videoIndex = 0;
-
-    store.clips.forEach((clip, index) => {
-      if (clip.isActiveClip) {
-        videoIndex = index;
-      }
-    });
+    const videoIndex = store.activeClipIndex;
 
     //calc the percentages to add
     let percentageToAdd = 0;
@@ -44,18 +41,48 @@ const VideoPlayerEditor = ({store, videos}) => {
       store.clips.forEach((clip, index) => {
         //check if in range
         if (videoIndex > index) {
-          percentageToAdd = clip.clipLength;
+          percentageToAdd += clip.clipLength;
         }
       });
     }
 
     //calc correct percentage
-    const percentage = Math.floor(
-      (100 / totalDurationVideos) * $videoElem.currentTime
+    let currentDurTotal = store.mapVal(
+      $videoElem.currentTime - store.clips[0].clipStart,
+      0,
+      store.totalClipsLength,
+      0,
+      100
     );
 
+    if (store.activeClipIndex > 0) {
+      store.clips.forEach((clip, index) => {
+        //check if in range
+        if (store.activeClipIndex > index) {
+          currentDurTotal += store.mapVal(
+            clip.duration,
+            0,
+            store.totalClipsLength,
+            0,
+            100
+          );
+        }
+      });
+    }
+
     //add the percentages together and make the final bar value
-    store.progressBarValue = percentage + percentageToAdd;
+    progressElem.value = currentDurTotal;
+
+    //detect end of active clip AND if there is a next clip
+    //pause if
+    if ($videoElem.currentTime >= activeClip.duration + activeClip.clipStart) {
+      $videoElem.pause();
+
+      if (store.activeClipIndex < store.clips.length - 1) {
+        //handle end video
+        handleEndVideo(store.activeClipIndex);
+      }
+    }
   };
 
   const handleStartStop = () => {
@@ -72,29 +99,41 @@ const VideoPlayerEditor = ({store, videos}) => {
 
     //get new position
     const newPos = e.clientX - e.currentTarget.getBoundingClientRect().left;
-    const newValue = Math.floor((100 / progressElem.offsetWidth) * newPos);
+    const newValue = (100 / progressElem.offsetWidth) * newPos;
 
     //set new value on progressbar
-    store.progressBarValue = newValue;
+    progressElem.value = newValue;
 
-    //find wich video needs top be set active and played
-    //use new value as a guide
-    let videoIndex = 0;
+    //calc and set active clip
+    store.updateActiveClip(store.getActiveClipIndex(newValue));
 
-    videoIndex = store.getActiveClipIndex(newValue);
+    let currentDurTotal = store.mapVal(
+      newValue,
+      0,
+      100,
+      0,
+      store.totalClipsLength
+    );
 
-    //set new active video
-    store.updateActiveClip(videoIndex);
+    //add the start duration
+    currentDurTotal += store.clips[0].clipStart;
+
+    if (store.activeClipIndex > 0) {
+      store.clips.forEach((clip, index) => {
+        //check if in range
+        if (store.activeClipIndex > index) {
+          currentDurTotal -= clip.duration;
+        }
+      });
+    }
 
     //set new value on video
-    videoElem.currentTime =
-      totalDurationVideos *
-      ((store.progressBarValue - store.calcToRemoveTime(videoIndex)) / 100);
+    videoElem.currentTime = Math.floor(currentDurTotal);
   };
 
   const handleProgressBarDown = e => {
     //update video
-    //changeVideosCurrentTime(e);
+    changeVideosCurrentTime(e);
 
     //set mouse to down over progressbar
     store.isMouseDownOverProgressBar = true;
@@ -102,12 +141,12 @@ const VideoPlayerEditor = ({store, videos}) => {
 
   const handleProgressBarClick = e => {
     //update video
-    changeVideosCurrentTime(e);
+    //changeVideosCurrentTime(e);
   };
 
   const handleProgressBarUp = () => {
     //play the video
-    videoRef.current.play();
+    //videoRef.current.play();
 
     //set mouse to up over progressbar
     store.isMouseDownOverProgressBar = false;
@@ -173,16 +212,6 @@ const VideoPlayerEditor = ({store, videos}) => {
     return '';
   };
 
-  const setTotalDurationVideos = (video, index) => {
-    //reset the total at start of the loop
-    if (index === 0) {
-      totalDurationVideos = 0;
-    }
-
-    //set total duration of all the clips
-    totalDurationVideos += video.duration;
-  };
-
   const setvideoRef = video => {
     //the active clip is the video we want to reference
     if (video.isActiveClip) {
@@ -196,9 +225,6 @@ const VideoPlayerEditor = ({store, videos}) => {
     <div className='videoPlayer'>
       <div className='contentHolder'>
         {videos.map((video, index) => {
-          //set total duration
-          setTotalDurationVideos(video, index);
-
           return (
             <video
               key={`${video.fileUrl}mainClip`}
@@ -219,7 +245,7 @@ const VideoPlayerEditor = ({store, videos}) => {
         </button>
         <div className='progressBarHolder'>
           <progress
-            value={store.progressBarValue}
+            value='0'
             max='100'
             ref={progressRef}
             onMouseDown={e => handleProgressBarDown(e)}

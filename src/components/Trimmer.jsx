@@ -111,7 +111,7 @@ const Trimmer = ({store}) => {
     }
 
     //set start duration
-    startDuration = tempStartDuration;
+    startDuration = Math.floor(tempStartDuration);
 
     //update video
     setVideoDuration(startDuration);
@@ -179,14 +179,20 @@ const Trimmer = ({store}) => {
     }
 
     //set start duration
-    duration = tempEndDuration - activeClip.clipStart;
+    duration = Math.floor(tempEndDuration - activeClip.clipStart);
 
     //update video
-    setVideoDuration(tempEndDuration);
+    setVideoDuration(Math.floor(tempEndDuration));
 
     //calc margin
     const margin = Math.floor(
-      store.mapVal(tempEndDuration, 0, activeClip.maxDuration, 0, 100)
+      store.mapVal(
+        Math.floor(tempEndDuration),
+        0,
+        activeClip.maxDuration,
+        0,
+        100
+      )
     );
 
     //temp update the margin for now
