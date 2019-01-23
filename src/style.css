@@ -70,6 +70,7 @@
   height: 200px;
 }
 .clip {
+  display: flex;
   position: relative;
   height: 100%;
   background-color: blue;
@@ -87,6 +88,11 @@
   }
 }
 
+.clipPadder {
+  flex: 2;
+  background-color: yellow;
+}
+
 .uploadBarWithClip {
   flex: 0;
 }
@@ -97,7 +103,7 @@
 
 .moveClipBtn {
   position: absolute;
-  z-index: 2;
+  z-index: 10;
   top: 0;
   height: 100%;
   width: 10px;

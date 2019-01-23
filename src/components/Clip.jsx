@@ -24,6 +24,7 @@ const Clip = ({store, data, index, totalClips}) => {
         <video
           src={data.fileUrl}
           onLoadedMetadata={e => handleLoadMetaDeta(e)}
+          onClick={e => handleClickClip(e)}
           muted
         />
       );
@@ -61,7 +62,7 @@ const Clip = ({store, data, index, totalClips}) => {
 
   const handleClickClip = e => {
     //set active if it's not jet
-    if (!data.isActiveClip) {
+    /*if (!data.isActiveClip) {
       //search the current clip
       store.clips.forEach((clip, index) => {
         if (clip.fileUrl === data.fileUrl) {
@@ -84,6 +85,17 @@ const Clip = ({store, data, index, totalClips}) => {
           store.progressBarValue = percentageToAdd;
         }
       });
+    }*/
+    console.log(`text`);
+    //set as active clip
+    if (!data.isActiveClip) {
+      //search the current clip
+      store.clips.forEach((clip, index) => {
+        if (clip.id === data.id) {
+          //set new active clip
+          store.updateActiveClip(index);
+        }
+      });
     }
 
     //open trimmer window
@@ -94,7 +106,6 @@ const Clip = ({store, data, index, totalClips}) => {
     <div
       className={classNames}
       style={{width: `${data.clipLength}%`}}
-      onClick={e => handleClickClip(e)}
       ref={clipRef}
     >
       {renderPrevBtn()}

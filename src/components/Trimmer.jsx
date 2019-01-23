@@ -213,6 +213,9 @@ const Trimmer = ({store}) => {
 
     store.clips[store.activeClipIndex].duration = newDuration;
 
+    //update total clip length
+    store.updateTotalClipsLength();
+
     //remove listeners
     window.removeEventListener(`mousemove`, handleMoveMouse);
     window.removeEventListener(`mouseup`, handleUpMouseStart);
@@ -223,6 +226,9 @@ const Trimmer = ({store}) => {
     if (duration !== 0) {
       store.clips[store.activeClipIndex].duration = duration;
     }
+
+    //update total clip length
+    store.updateTotalClipsLength();
 
     //remove listeners
     window.removeEventListener(`mousemove`, handleMoveMouse);

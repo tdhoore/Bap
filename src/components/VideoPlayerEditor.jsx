@@ -130,9 +130,9 @@ const VideoPlayerEditor = ({store, videos}) => {
     }
   };
 
-  const handleEndVideo = index => {
+  const handleEndVideo = indexIn => {
     // handle the store update
-    store.playNextClip(index);
+    store.playNextClip(indexIn);
 
     //get ref
     const oldVideo = videoRef.current;
@@ -152,6 +152,9 @@ const VideoPlayerEditor = ({store, videos}) => {
       if (index === newVideoIndex) {
         //is new video
         video.classList.remove(`hide`);
+
+        //set new start duration of clip
+        video.currentTime = store.clips[indexIn + 1].clipStart;
 
         //play video
         video.play();

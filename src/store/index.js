@@ -81,7 +81,10 @@ class Store {
     this.clips.push(newClip);
 
     //set active clip
-    this.clips[0].isActiveClip = true;
+    this.clips[this.clips.length - 1].isActiveClip = true;
+
+    //set index
+    this.activeClipIndex = this.clips.length - 1;
 
     //add to clip id
     this.clipId ++;
@@ -119,6 +122,26 @@ class Store {
         );
       });
     }
+  }
+
+  updateTotalClipsLength() {
+    //reset totalClipsLength
+    let newTotalClipsLength = 0;
+
+    //calc totalClipsLength
+    this.clips.forEach(clip => {
+      newTotalClipsLength += clip.duration;
+    });
+
+    //update totalClipsLength
+    this.totalClipsLength = newTotalClipsLength;
+
+    //update clip length
+    this.clips.forEach(clip => {
+      clip.clipLength = Math.round(
+        this.mapVal(clip.duration, 0, this.totalClipsLength, 0, 100)
+      );
+    });
   }
 
   durationToSeconds(durationText) {
@@ -200,6 +223,9 @@ class Store {
     this.clips.forEach((clip, index) => {
       if (index === clipIndex) {
         this.clips[index].isActiveClip = true;
+
+        //set activeClipIndex
+        this.activeClipIndex = index;
       } else {
         this.clips[index].isActiveClip = false;
       }
