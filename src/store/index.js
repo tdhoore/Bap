@@ -229,7 +229,8 @@ decorate(Store, {
   clips: observable,
   progressBarValue: observable,
   moveClip: action,
-  playNextClip: action
+  playNextClip: action,
+  isTrimmerOpen: observable
 });
 
 const store = new Store();

@@ -229,10 +229,46 @@ const Trimmer = ({store}) => {
     window.removeEventListener(`mouseup`, handleUpMouseEnd);
   };
 
+  const handlePlayClip = e => {
+    const videoElem = videoRef.current;
+
+    //set clip to start
+    videoElem.currentTime = activeClip.clipStart;
+
+    //play clip
+    videoElem.play();
+  };
+
+  const handleTimeUpdate = e => {
+    const videoElem = videoRef.current;
+
+    //check if at the end
+    if (videoElem.currentTime >= activeClip.clipStart + activeClip.duration) {
+      //if so end video
+      videoElem.pause();
+
+      //reset video and replay?
+    }
+  };
+
+  const handleComfirmTrim = e => {
+    console.log(`close trimmer`);
+    //close the trimmer
+    store.isTrimmerOpen = false;
+  };
+
   return (
     <div className='trimmerWindow'>
       <div className='videoTrimmer'>
-        <video src={activeClip.fileUrl} muted height='240' ref={videoRef} />
+        <video
+          src={activeClip.fileUrl}
+          muted
+          height='240'
+          ref={videoRef}
+          onTimeUpdate={e => handleTimeUpdate(e)}
+        />
+        <button onClick={e => handlePlayClip(e)}>play</button>
+        <button onClick={e => handleComfirmTrim(e)}>confirm</button>
         <div className='trimmerTimeLine' ref={trimmerTimeLineRef}>
           <div
             className='videoLength'
