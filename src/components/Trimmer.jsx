@@ -153,7 +153,16 @@ const Trimmer = ({store}) => {
     }
 
     //postion to percentage
-    const endPercent = store.mapVal(newPos, 0, trimmerWidth, 0, 100);
+    let endPercent = store.mapVal(newPos, 0, trimmerWidth, 0, 100);
+
+    //cap pos at the max duration
+    const maxEnd =
+      store.mapVal(store.maxClipduration, 0, activeClip.maxDuration, 0, 100) +
+      store.mapVal(activeClip.clipStart, 0, activeClip.maxDuration, 0, 100);
+
+    if (endPercent > maxEnd) {
+      endPercent = maxEnd;
+    }
 
     //percentage to duration
     let tempEndDuration = store.mapVal(
