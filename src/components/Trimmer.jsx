@@ -35,6 +35,9 @@ const Trimmer = ({store}) => {
       marginRight = store.maxClipduration;
     }
 
+    //clip start + video duration
+    marginRight += activeClip.clipStart;
+
     //calc margin right final
     return 100 - Math.floor((100 / activeClip.maxDuration) * marginRight);
   };
@@ -89,8 +92,12 @@ const Trimmer = ({store}) => {
     );
 
     //limit duration
-    if (tempStartDuration >= activeClip.duration - store.minClipduration) {
-      tempStartDuration = activeClip.duration - store.minClipduration;
+    if (
+      tempStartDuration >
+      activeClip.duration + activeClip.clipStart - store.minClipduration
+    ) {
+      tempStartDuration =
+        activeClip.duration + activeClip.clipStart - store.minClipduration;
     }
 
     //set start duration
@@ -158,8 +165,22 @@ const Trimmer = ({store}) => {
   };
 
   const handleUpMouseStart = e => {
+    //calc new duration
+    let newDuration = 0;
+
+    if (store.clips[store.activeClipIndex].clipStart === 0) {
+      newDuration = store.clips[store.activeClipIndex].duration - startDuration;
+    } else {
+      newDuration =
+        store.clips[store.activeClipIndex].duration -
+        startDuration +
+        store.clips[store.activeClipIndex].clipStart;
+    }
+
     //update margins
     store.clips[store.activeClipIndex].clipStart = startDuration;
+
+    store.clips[store.activeClipIndex].duration = newDuration;
 
     //remove listeners
     window.removeEventListener(`mousemove`, handleMoveMouse);

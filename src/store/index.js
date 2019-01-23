@@ -91,6 +91,13 @@ class Store {
     //is video?
     //if yes change duration
     if (data.isVideo) {
+      const maxDuration = duration;
+
+      //clip duration to the max duration of a clip
+      if (duration > this.maxClipduration) {
+        duration = this.maxClipduration;
+      }
+
       //get the clip
       this.clips.forEach((clip, index) => {
         if (clip.fileUrl === data.fileUrl) {
@@ -98,7 +105,7 @@ class Store {
           this.clips[index].duration = duration;
 
           //set clip max duration
-          clip.maxDuration = duration;
+          clip.maxDuration = maxDuration;
         }
       });
 
