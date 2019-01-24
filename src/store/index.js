@@ -1,5 +1,5 @@
-import {decorate, observable, action, computed, configure} from 'mobx';
-import {resultKeyNameFromField} from 'apollo-utilities';
+import { decorate, observable, action, computed, configure } from "mobx";
+import { resultKeyNameFromField } from "apollo-utilities";
 //import Api from "../api/playList";
 
 class Store {
@@ -87,7 +87,7 @@ class Store {
     this.activeClipIndex = this.clips.length - 1;
 
     //add to clip id
-    this.clipId ++;
+    this.clipId++;
   }
 
   setDurrationIfVideo(data, duration) {
@@ -161,7 +161,7 @@ class Store {
   calcDurationStamp(duration) {
     let result = duration;
     let minutes = 0;
-    let seconds = '0';
+    let seconds = "0";
 
     //calculate the minutes
     minutes = Math.floor(duration / 60);
@@ -238,24 +238,48 @@ class Store {
     });
   }
 
-  handleShowInstruction(e) {
-    const elem = e.currentTarget;
-    //get the id that is needed
-    const stepId = elem.getAttribute(`data-id`);
+  uploadClips() {
+    //check if there are clips
+    if (this.clips.length > 0) {
+      let sendDis = {};
 
-    //search the data base for the correct image an caption
+      //create form data
+      const data = new FormData();
 
-    //na ophaling plaats deze in de image holder
+      //go throug clips and add the data
+      this.clips.forEach((clip, index) => {
+        //append data to form
+        //use the users UID!!!!!
+        /*  
 
-    //animeer de image in beeld
 
-    //plaats de knop voor volgende op zijn plaats indien nodig
+        !!!!!!!!!!TODO!!!!!!!
 
-    //plaats de knop voor vorige op zijn plaats indien nodig
+        */
+        data.append(`clip`, clip.file, `clip${index}.mp4`);
+        //console.log(typeof clip.file);
+        data.append(`start`, clip.clipStart.toString());
+        data.append(`duration`, clip.duration.toString());
+      });
 
-    //set self to active step
+      for (const pair of data.entries()) {
+        sendDis[pair[0]] = pair[1];
+
+        console.log(`${pair[0]}, ${pair[1]}`);
+      }
+
+      console.log(`string: ` + JSON.stringify(sendDis));
+      //post data to server
+      fetch("http://localhost:5000/postclips", {
+        method: "POST",
+        body: data
+      })
+        .then(r => r)
+        .then(r => console.log(r));
+    }
   }
 }
+
 decorate(Store, {
   handleShowInstruction: action,
   clips: observable,

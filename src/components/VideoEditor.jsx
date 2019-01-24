@@ -1,14 +1,14 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
-import {observer} from 'mobx-react';
+import React from "react";
+import { observer } from "mobx-react";
 // eslint-disable-next-line no-unused-vars
-import Clip from './Clip.jsx';
+import Clip from "./Clip.jsx";
 // eslint-disable-next-line no-unused-vars
-import VideoPlayerEditor from './VideoPlayerEditor.jsx';
+import VideoPlayerEditor from "./VideoPlayerEditor.jsx";
 // eslint-disable-next-line no-unused-vars
-import Trimmer from './Trimmer.jsx';
+import Trimmer from "./Trimmer.jsx";
 
-const VideoEditor = ({store}) => {
+const VideoEditor = ({ store }) => {
   const clipsHolder = React.createRef();
 
   const handleAddClip = e => {
@@ -20,7 +20,7 @@ const VideoEditor = ({store}) => {
     const type = file.type;
     let isVideo = false;
 
-    if (type.includes('video')) {
+    if (type.includes("video")) {
       //is video
       isVideo = true;
     }
@@ -30,6 +30,7 @@ const VideoEditor = ({store}) => {
     store.addClipToTimeLine({
       id: store.clipId,
       fileUrl: fileURL,
+      file: file,
       isVideo: isVideo,
       isActiveClip: false,
       duration: 0,
@@ -68,8 +69,7 @@ const VideoEditor = ({store}) => {
     <div>
       {renderTrimmerWindow()}
       <VideoPlayerEditor store={store} videos={store.clips} />
-      <div className='timeLine'>
-        <div className='deel1' />
+      <div className="timeLine">
         <div className={renderClipsHolderClasses()} ref={clipsHolder}>
           {store.clips.map((clip, index) => {
             return (
@@ -84,17 +84,17 @@ const VideoEditor = ({store}) => {
           })}
         </div>
         <div className={renderUploadBarClasses()}>
-          <label htmlFor='uploadFile'>
+          <label htmlFor="uploadFile">
             <input
-              type='file'
-              accept='video/mp4'
-              id='uploadFile'
+              type="file"
+              accept="video/mp4"
+              id="uploadFile"
               onChange={e => handleAddClip(e)}
             />
           </label>
         </div>
-        <div className='deel2' />
       </div>
+      <button onClick={e => store.uploadClips()}>upload</button>
     </div>
   );
 };
