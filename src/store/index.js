@@ -6,14 +6,11 @@ import {
   computed,
   configure
 } from 'mobx';
-import fire from '../config/Fire';
-//import RandomGame from "../models/RandomGame";
-//import PlayListGame from "../models/PlayListGame";
-//import Api from "../api/playList";
+import Firebase from '../components/Firebase/firebase';
 
 class Store {
   constructor() {
-    this.user = null;
+    this.user = '';
     this.email = '';
     this.password = '';
   }
@@ -23,8 +20,8 @@ class Store {
   }
 
   authListener() {
-    fire.auth().onAuthStateChanged(user => {
-      console.log(user);
+    Firebase.auth().onAuthStateChanged(user => {
+      console.log('user:', user);
       if (user) {
         this.user;
       } else {
@@ -35,14 +32,22 @@ class Store {
 
   login(e) {
     e.preventDefault();
-    fire.auth().signInWithEmailAndPassword(this.email, this.password).catch(error => {
-      console.log(error);
-    });
+    Firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+      .then(result => {
+        const user = result.user;
+        console.log('user:', user);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+    console.log('user:', this.user);
+    console.log('email:', this.email);
+    console.log('password:', this.password);
   }
 
   signup(e) {
     e.preventDefault();
-    fire.auth().createUserWithEmailAndPassword(this.email, this.password).then(u => {console.log(u);})
+    Firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(u => {console.log(u);})
       .catch(error => {
         console.log(error);
       });
@@ -50,10 +55,7 @@ class Store {
 
   handleChangeLogin(e) {
     const input = e.currentTarget;
-    this.email = '';
-    console.log(`input:`, input.name);
     if (input.name === 'email') {
-      console.log(`email input:`, this.email);
       this.email = input.value;
     } else {
       this.password = input.value;

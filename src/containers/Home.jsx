@@ -1,11 +1,14 @@
 /* eslint-disable no-unused-vars */
-import fire from '../config/Fire.js';
+import Firebase from '../components/Firebase/Fire.js';
 import {observer} from 'mobx-react';
+import React from 'react';
+// import video from '../assets/video/vid.mp4';
 
 const Home = () => {
   return (
     <div className='videoPlayer'>
-      <video src='./assets/video/vid.mp4' />
+      <video src='../src/assets/video/vid.mp4' />
+      <p>TEST</p>
     </div>
   );
 };

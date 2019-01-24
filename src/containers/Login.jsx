@@ -1,24 +1,24 @@
 /* eslint-disable no-unused-vars */
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
-import fire from '../config/Fire.js';
+import fire from '../components/Firebase/firebase.js';
 import {observer} from 'mobx-react';
 
 const Login = ({store}) =>  {
   return (
-    <div className='col-md-6'>
+    <div className=''>
       <form>
-        <div className='form-group'>
+        <div className=''>
           <label htmlFor='exampleInputEmail1'>Email address</label>
-          <input value={store.email} onChange={e => store.handleChangeLogin(e)} type='email' name='email' className='form-control' id='exampleInputEmail1' aria-describedby='emailHelp' placeholder='Enter email' />
-          <p id='emailHelp' className='form-text text-muted'>We'll never share your email with anyone else.</p>
+          <input value={store.email} onChange={e => store.handleChangeLogin(e)} type='email' name='email' className='' id='exampleInputEmail1' aria-describedby='emailHelp' placeholder='Enter email' />
+          <p id='emailHelp' className=''>We'll never share your email with anyone else.</p>
         </div>
-        <div className='form-group'>
+        <div className=''>
           <label htmlFor='exampleInputPassword1'>Password</label>
-          <input value={store.password} onChange={e => store.handleChangeLogin(e)} type='password' name='password' className='form-control' id='exampleInputPassword1' placeholder='Password' />
+          <input value={store.password} onChange={e => store.handleChangeLogin(e)} type='password' name='password' className='' id='exampleInputPassword1' placeholder='Password' />
         </div>
-        <button type='submit' onClick={store.login} className='btn btn-primary'>Login</button>
-        <button onClick={store.signup} className='btn btn-success'>Signup</button>
+        <button type='submit' onClick={e => store.login(e)} className=''>Login</button>
+        <button onClick={e => store.signup(e)} className=''>Signup</button>
       </form>
  
     </div>
