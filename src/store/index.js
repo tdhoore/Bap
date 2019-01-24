@@ -241,10 +241,15 @@ class Store {
   uploadClips() {
     //check if there are clips
     if (this.clips.length > 0) {
-      let sendDis = {};
-
       //create form data
-      const data = new FormData();
+      let data = new FormData();
+
+      /*let metaData = {
+        starts: [],
+        durations: []
+      };*/
+
+      const metaData = new FormData();
 
       //go throug clips and add the data
       this.clips.forEach((clip, index) => {
@@ -257,25 +262,33 @@ class Store {
 
         */
         data.append(`clip`, clip.file, `clip${index}.mp4`);
-        //console.log(typeof clip.file);
-        data.append(`start`, clip.clipStart.toString());
-        data.append(`duration`, clip.duration.toString());
+        data.append(`index`, index);
+
+        //add start and duration to the pile
+        metaData.append(`starts`, clip.clipStart.toString());
+        metaData.append(`durations`, clip.duration.toString());
+        //metaData.starts.push(clip.clipStart.toString());
+        //metaData.durations.push(clip.duration.toString());
+
+        //post data to server
+        fetch("http://localhost:5000/postclips", {
+          method: "POST",
+          body: data
+        }).then(r => {
+          console.log(r);
+          if (index === this.clips.length - 1) {
+            console.log(JSON.stringify(metaData));
+            //all videos have been send
+            //send the metha data from all the clips
+            fetch("http://localhost:5000/postclipsmetadata", {
+              method: "POST",
+              body: metaData
+            }).then(r => console.log(r));
+          }
+        });
+
+        data = new FormData();
       });
-
-      for (const pair of data.entries()) {
-        sendDis[pair[0]] = pair[1];
-
-        console.log(`${pair[0]}, ${pair[1]}`);
-      }
-
-      console.log(`string: ` + JSON.stringify(sendDis));
-      //post data to server
-      fetch("http://localhost:5000/postclips", {
-        method: "POST",
-        body: data
-      })
-        .then(r => r)
-        .then(r => console.log(r));
     }
   }
 }

@@ -9,7 +9,7 @@ const port = process.env.PORT || 5000;
 const storage = multer.diskStorage({
   destination: "./server/uploads/",
   filename: (req, file, cb) => {
-    cb(null, `${file.fieldname}${path.extname(file.originalname)}`);
+    cb(null, `${file.originalname}`);
   }
 });
 //setup upload
@@ -34,16 +34,13 @@ app.use(function(req, res, next) {
   next();
 });
 
-app.use(bodyParser.json()); // to support JSON-encoded bodies
-/*app.use(
-  bodyParser.urlencoded({
-    // to support URL-encoded bodies
-    extended: true
-  })
-);*/
-
 app.post("/postclips", upload.single("clip"), (req, res) => {
-  console.log(req.body);
+  console.log("clip: " + req.file);
+  res.send(req.file);
+});
+
+app.post("/postclipsmetadata", upload.single(), (req, res) => {
+  console.log("meta: " + req.body.durations);
   res.send(req.body);
 });
 
