@@ -1,8 +1,8 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
-import {observer} from 'mobx-react';
+import React from "react";
+import { observer } from "mobx-react";
 
-const Clip = ({store, data, index, totalClips}) => {
+const Clip = ({ store, data, index, totalClips }) => {
   let classNames = `clip`;
 
   const clipRef = React.createRef();
@@ -42,8 +42,8 @@ const Clip = ({store, data, index, totalClips}) => {
     if (index > 0) {
       return (
         <button
-          className='moveClipBtn moveClipBtnPrev'
-          onClick={e => handleClickNextAndPrevBtns(e, - 1)}
+          className="moveClipBtn moveClipBtnPrev"
+          onClick={e => handleClickNextAndPrevBtns(e, -1)}
         />
       );
     }
@@ -53,7 +53,7 @@ const Clip = ({store, data, index, totalClips}) => {
     if (index < totalClips) {
       return (
         <button
-          className='moveClipBtn moveClipBtnNext'
+          className="moveClipBtn moveClipBtnNext"
           onClick={e => handleClickNextAndPrevBtns(e, 1)}
         />
       );
@@ -79,12 +79,12 @@ const Clip = ({store, data, index, totalClips}) => {
   return (
     <div
       className={classNames}
-      style={{width: `${data.clipLength}%`}}
+      style={{ width: `${data.clipLength}%` }}
       ref={clipRef}
     >
       {renderPrevBtn()}
       {renderVideoOrImg(data.isVideo)}
-      <p className='duration'>{store.calcDurationStamp(data.duration)}</p>
+      <p className="duration">{store.calcDurationStamp(data.duration)}</p>
       {renderNextBtn()}
     </div>
   );

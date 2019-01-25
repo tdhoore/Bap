@@ -1,3 +1,4 @@
+const CreateVideo = require("./classes/CreateVideo.js");
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -41,6 +42,11 @@ app.post("/postclips", upload.single("clip"), (req, res) => {
 
 app.post("/postclipsmetadata", upload.single(), (req, res) => {
   console.log("meta: " + req.body.durations);
+
+  //create the video
+  const genVideo = new CreateVideo({ meta: req.body });
+  genVideo.createVideo();
+
   res.send(req.body);
 });
 

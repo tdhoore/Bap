@@ -244,11 +244,6 @@ class Store {
       //create form data
       let data = new FormData();
 
-      /*let metaData = {
-        starts: [],
-        durations: []
-      };*/
-
       const metaData = new FormData();
 
       //go throug clips and add the data
@@ -267,8 +262,6 @@ class Store {
         //add start and duration to the pile
         metaData.append(`starts`, clip.clipStart.toString());
         metaData.append(`durations`, clip.duration.toString());
-        //metaData.starts.push(clip.clipStart.toString());
-        //metaData.durations.push(clip.duration.toString());
 
         //post data to server
         fetch("http://localhost:5000/postclips", {
