@@ -2,7 +2,7 @@ import {observer} from 'mobx-react';
 import {NavLink} from 'react-router-dom';
 import React from 'react';
 
-const Home = ({}) => {
+const Home = () => {
   return (
     <div className=''>
       <ul>

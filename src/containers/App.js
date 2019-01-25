@@ -4,6 +4,7 @@ import {Route, NavLink, Switch, withRouter} from 'react-router-dom';
 import {observer} from 'mobx-react';
 import VideoPlayer from '../components/VideoPlayer.jsx';
 import Login from './Login.jsx';
+import Register from './Register.jsx';
 import Home from './Home.jsx';
 import firebase from 'firebase/app';
 
@@ -43,7 +44,8 @@ class App extends Component {
     return (
       <Switch>
         <Route path='/' exact render={() => <Home store={store}/>} authenticated={this.authenticated} />
-        <Route path='/login' render={() => <Login store={store}/>} authenticated={this.authenticated}/>
+        <Route path='/login' render={() => <Login store={store} history={history}/>} authenticated={this.authenticated} />
+        <Route path='/register' render={() => <Register store={store}/>} authenticated={this.authenticated} />
       </Switch>
     );
   }

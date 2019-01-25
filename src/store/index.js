@@ -11,6 +11,8 @@ import {
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
 
 class Store {
   constructor() {
@@ -41,22 +43,32 @@ class Store {
   }
 
   login = (e) => {
-    const {email, password} = e;
+    const {email, password, feedback} = e;
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(result => {
         const user = result.user;
         console.log('user:', user);
+        this.history.push("/");
+        <Redirect
+          to={{
+            pathname: "/",
+          }}
+        />
       })
       .catch(error => {
-        console.log(error);
+        error.message = feedback;
       });
   }
 
-  signup = (e) => {
-    e.preventDefault();
-    firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(u => {console.log(u);})
+  register = (e) => {
+    const {email, password, feedback} = e;
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(u => {
+        console.log(u);
+      })
       .catch(error => {
         console.log(error);
+        error.message = feedback;
       });
   }
 
