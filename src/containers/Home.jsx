@@ -1,14 +1,14 @@
-/* eslint-disable no-unused-vars */
-import Firebase from '../components/Firebase/firebase.js';
 import {observer} from 'mobx-react';
+import {NavLink} from 'react-router-dom';
 import React from 'react';
-// import video from '../assets/video/vid.mp4';
 
-const Home = () => {
+const Home = ({}) => {
   return (
-    <div className='videoPlayer'>
-      <video src='../src/assets/video/vid.mp4' />
-      <p>TEST</p>
+    <div className=''>
+      <ul>
+        <li><NavLink to="/login">Inloggen</NavLink></li>
+        <li><NavLink to="/register">Registreren</NavLink></li>
+      </ul>
     </div>
   );
 };

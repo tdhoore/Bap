@@ -7,21 +7,30 @@ import {
   computed,
   configure
 } from 'mobx';
-import Firebase from '../components/Firebase/firebase';
+
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/database';
 
 class Store {
   constructor() {
-    this.user = '';
-    this.email = '';
-    this.password = '';
+
+  const config = {
+    apiKey: 'AIzaSyCL-E4wSU4FrQ_CHzciHl3H5pLEYnD7LPg',
+    authDomain: 'bap-firebase.firebaseapp.com',
+    databaseURL: 'https://bap-firebase.firebaseio.com',
+    projectId: 'bap-firebase',
+    storageBucket: 'bap-firebase.appspot.com',
+    messagingSenderId: '573194971360'
+  };
+  
+  firebase.initializeApp(config);
+    this.auth = firebase.auth();
+    this.db = firebase.database();
   }
 
-  componentDidMount() {
-    this.authListener();
-  }
-
-  authListener() {
-    Firebase.auth().onAuthStateChanged(user => {
+  authListener = () => {
+    firebase.auth().onAuthStateChanged(user => {
       console.log('user:', user);
       if (user) {
         this.user;
@@ -31,9 +40,9 @@ class Store {
     });
   }
 
-  login(e) {
-    e.preventDefault();
-    Firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+  login = (e) => {
+    const {email, password} = e;
+    firebase.auth().signInWithEmailAndPassword(email, password)
       .then(result => {
         const user = result.user;
         console.log('user:', user);
@@ -41,14 +50,11 @@ class Store {
       .catch(error => {
         console.log(error);
       });
-    console.log('user:', this.user);
-    console.log('email:', this.email);
-    console.log('password:', this.password);
   }
 
-  signup(e) {
+  signup = (e) => {
     e.preventDefault();
-    Firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(u => {console.log(u);})
+    firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(u => {console.log(u);})
       .catch(error => {
         console.log(error);
       });
