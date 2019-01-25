@@ -1,32 +1,14 @@
+// eslint-disable-next-line no-unused-vars
 import './style.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import {BrowserRouter} from 'react-router-dom';
-// eslint-disable-next-line no-unused-vars
 import App from './containers/App';
-
-//import ApolloClient from 'apollo-boost';
-//import {ApolloProvider} from 'react-apollo';
 
 import store from './store';
 
-/*const client = new ApolloClient({
-  uri: "http://localhost:4000/graphql",
-  clientState: {
-    defaults,
-    resolvers
-  },
-  request: async operation => {
-    const token = localStorage.getItem("jwt");
-    operation.setContext({
-      headers: {
-        authorization: token
-          ? `Bearer ${token}`
-          : ""
-      }
-    });
-  }
-});*/
+// import Firebase, {FirebaseContext} from './components/Firebase/firebase';
+
 
 ReactDOM.render(
   <BrowserRouter>

@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import Firebase from '../components/Firebase/Fire.js';
+import Firebase from '../components/Firebase/firebase.js';
 import {observer} from 'mobx-react';
 import React from 'react';
 // import video from '../assets/video/vid.mp4';
