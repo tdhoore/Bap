@@ -11,6 +11,8 @@ const VideoPlayer = ({ store }) => {
   const scrubberRef = React.createRef();
   const commentFormRef = React.createRef();
   const commentInputRef = React.createRef();
+  const commentsHolderRef = React.createRef();
+  let commentElems = false;
 
   let isMouseDownOverProgressBar = false;
 
@@ -46,6 +48,9 @@ const VideoPlayer = ({ store }) => {
 
     //move scubber
     scrubber.style.transform = `translateX(${progress}px)`;
+
+    //display comment
+    displayComment($videoElem.currentTime);
   };
 
   const handleStartStop = () => {
@@ -137,6 +142,34 @@ const VideoPlayer = ({ store }) => {
     return false;
   };
 
+  const displayComment = dur => {
+    console.log(dur);
+    //is there a comment here
+    store.commentsCurrentProject.forEach((commentData, index) => {
+      if (commentData.timeStamp < dur + 1 && commentData.timeStamp > dur - 1) {
+        //there is a comment here
+
+        //check if there are comment elemets
+        if (!commentElems) {
+          //no so create them
+          const commentsHolder = commentsHolderRef.current;
+          commentElems = [...commentsHolder.querySelectorAll(`.comment`)];
+        }
+
+        //hide all other comments and display this one
+        commentElems.forEach((commentElem, indexElems) => {
+          if (indexElems === index) {
+            //show this
+            commentElem.classList.remove(`hide`);
+          } else {
+            //hide this
+            commentElem.classList.add(`hide`);
+          }
+        });
+      }
+    });
+  };
+
   return (
     <div className="videoPlayer">
       <div className="contentHolder">
@@ -148,7 +181,6 @@ const VideoPlayer = ({ store }) => {
           <source src={video} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-        <div className="imageHolder" data-id="1" />
       </div>
       <div className="videoControls">
         <button className="playBtn" onClick={e => handleStartStop(e)}>
@@ -160,15 +192,24 @@ const VideoPlayer = ({ store }) => {
             ref={scrubberRef}
             onClick={e => handleClickScrubber(e)}
           />
-          <progress
-            value="0"
-            max="100"
-            ref={progressRef}
-            onMouseDown={e => handleProgressBarDown(e)}
-            onMouseUp={e => handleProgressBarUp(e)}
-            onMouseMove={e => handleMoveMouseProgressBar(e)}
-          />
-          <div className="stepsHolder" />
+          <div className="commentsHolder" ref={commentsHolderRef}>
+            {store.commentsCurrentProject.map((commentData, index) => {
+              return (
+                <div key={`comment${index}`} className="comment hide">
+                  {commentData.comment}
+                </div>
+              );
+            })}
+            <div />
+            <progress
+              value="0"
+              max="100"
+              ref={progressRef}
+              onMouseDown={e => handleProgressBarDown(e)}
+              onMouseUp={e => handleProgressBarUp(e)}
+              onMouseMove={e => handleMoveMouseProgressBar(e)}
+            />
+          </div>
         </div>
         <button className="fullScreenBtn" onClick={e => handleGoFullscreen(e)}>
           Fullscreen
