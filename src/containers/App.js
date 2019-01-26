@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import {Route, NavLink, Switch} from 'react-router-dom';
-import {observer} from 'mobx-react';
-import VideoPlayer from '../components/VideoPlayer.jsx';
-import VideoEditor from '../components/VideoEditor.jsx';
-import VideoPlayerInfo from '../components/VideoPlayerInfo.jsx';
+import React, { Component } from "react";
+import { Route, NavLink, Switch } from "react-router-dom";
+import { observer } from "mobx-react";
+import VideoPlayer from "../components/VideoPlayer.jsx";
+import VideoEditor from "../components/VideoEditor.jsx";
+import VideoPlayerInfo from "../components/VideoPlayerInfo.jsx";
 //import RandomGameList from "../components/RandomGameList";
 //import Filter from "../components/Filter";
 //import PlayList from "../components/PlayList";
@@ -57,10 +57,14 @@ class App extends Component {
   }
 
   render() {
-    const {store} = this.props;
+    const { store } = this.props;
+
+    //get initial comments
+    store.getComments();
+
     return (
       <Switch>
-        <Route path='/' render={props => this.displayVideoEditor(store)} />
+        <Route path="/" render={props => this.displayVideoPlayer(store)} />
         <Route component={null} />
       </Switch>
     );

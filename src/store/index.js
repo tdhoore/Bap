@@ -1,16 +1,26 @@
 import { decorate, observable, action, computed, configure } from "mobx";
 import { resultKeyNameFromField } from "apollo-utilities";
-//import Api from "../api/playList";
+import * as firebase from "firebase";
 
 class Store {
   constructor() {
-    //this.api = new Api();
-    //normaal van de steam api maar die werkt enkel online
-    //this.getFromApi(`../data/allUserGames.json`);
+    // Initialize Firebase
+    const config = {
+      apiKey: "AIzaSyCL-E4wSU4FrQ_CHzciHl3H5pLEYnD7LPg",
+      authDomain: "bap-firebase.firebaseapp.com",
+      databaseURL: "https://bap-firebase.firebaseio.com",
+      projectId: "bap-firebase",
+      storageBucket: "bap-firebase.appspot.com",
+      messagingSenderId: "573194971360"
+    };
+    firebase.initializeApp(config);
 
-    //per project andere stappen opvragen
-    this.activeProject = 0;
-    this.currentStep = 0;
+    //database
+    this.database = firebase.firestore();
+
+    //project
+    this.currentProject = `firstproject`;
+    this.commentsCurrentProject = [];
 
     //video player
     this.progressBarValue = 0;
@@ -238,6 +248,50 @@ class Store {
     });
   }
 
+  uploadComment(comment, timeStamp) {
+    //get user name and profile picture
+    /*
+    
+    
+    TODO!!!!!!!!!!!!!!
+    
+    
+    */
+
+    //send data
+    this.database
+      .collection(`projects`)
+      .doc(this.currentProject)
+      .collection(`comments`)
+      .add({ comment: comment, timeStamp: timeStamp })
+      .then(() => {
+        console.log("Document successfully written!");
+      })
+      .catch(error => {
+        console.error("Error writing document: ", error);
+      });
+  }
+
+  getComments() {
+    //empty old comments
+    this.commentsCurrentProject = [];
+
+    this.database
+      .collection(`projects`)
+      .doc(this.currentProject)
+      .collection(`comments`)
+      .get()
+      .then(querySnapshot => {
+        console.log("Document got!");
+        querySnapshot.forEach(doc => {
+          this.commentsCurrentProject.push(doc.data());
+        });
+      })
+      .catch(error => {
+        console.error("Error getting document: ", error);
+      });
+  }
+
   uploadClips() {
     //check if there are clips
     if (this.clips.length > 0) {
@@ -292,7 +346,8 @@ decorate(Store, {
   progressBarValue: observable,
   moveClip: action,
   playNextClip: action,
-  isTrimmerOpen: observable
+  isTrimmerOpen: observable,
+  commentsCurrentProject: observable
 });
 
 const store = new Store();
