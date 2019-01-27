@@ -4,6 +4,7 @@ import { observer } from "mobx-react";
 import VideoPlayer from "../components/VideoPlayer.jsx";
 import VideoEditor from "../components/VideoEditor.jsx";
 import VideoPlayerInfo from "../components/VideoPlayerInfo.jsx";
+import BodySelector from "../components/BodySelector.jsx";
 //import RandomGameList from "../components/RandomGameList";
 //import Filter from "../components/Filter";
 //import PlayList from "../components/PlayList";
@@ -56,15 +57,20 @@ class App extends Component {
     return <VideoEditor store={store} />;
   }
 
+  displayBodySelector(store) {
+    return <BodySelector store={store} />;
+  }
+
   render() {
     const { store } = this.props;
 
     //get initial comments
+    //only for the normal player
     store.getComments();
 
     return (
       <Switch>
-        <Route path="/" render={props => this.displayVideoPlayer(store)} />
+        <Route path="/" render={props => this.displayBodySelector(store)} />
         <Route component={null} />
       </Switch>
     );

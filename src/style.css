@@ -177,6 +177,16 @@
   background-color: black;
 }
 
+.bodyPart {
+  width: 100px;
+  height: 100px;
+  background-color: red;
+}
+
+.activeBodyPart {
+  background-color: blue;
+}
+
 .hide {
   display: none;
 }
