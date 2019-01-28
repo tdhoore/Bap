@@ -431,7 +431,9 @@ decorate(Store, {
   moveClip: action,
   playNextClip: action,
   isTrimmerOpen: observable,
-  commentsCurrentProject: observable
+  commentsCurrentProject: observable,
+  prototypeLevels: observable,
+  selectedPrototypeIds: observable
 });
 
 const store = new Store();
