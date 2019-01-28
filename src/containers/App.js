@@ -5,11 +5,7 @@ import VideoPlayer from "../components/VideoPlayer.jsx";
 import VideoEditor from "../components/VideoEditor.jsx";
 import VideoPlayerInfo from "../components/VideoPlayerInfo.jsx";
 import BodySelector from "../components/BodySelector.jsx";
-//import RandomGameList from "../components/RandomGameList";
-//import Filter from "../components/Filter";
-//import PlayList from "../components/PlayList";
-//import NotFound from "../components/NotFound";
-//import Login from "../components/Login";
+import Branches from "../components/Branches.jsx";
 
 //import GET_CURRENT_USER from "../graphql/getCurrentUser";
 //import { Query } from "react-apollo";
@@ -61,6 +57,10 @@ class App extends Component {
     return <BodySelector store={store} />;
   }
 
+  displayBranch(store) {
+    return <Branches store={store} />;
+  }
+
   render() {
     const { store } = this.props;
 
@@ -70,7 +70,7 @@ class App extends Component {
 
     return (
       <Switch>
-        <Route path="/" render={props => this.displayBodySelector(store)} />
+        <Route path="/" render={props => this.displayBranch(store)} />
         <Route component={null} />
       </Switch>
     );

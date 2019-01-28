@@ -22,6 +22,10 @@ class Store {
     this.currentProject = `firstproject`;
     this.commentsCurrentProject = [];
 
+    //project branches
+    this.prototypeLevels = {};
+    this.selectedPrototypeIds = [];
+
     //video player
     this.progressBarValue = 0;
     this.isMouseDownOverProgressBar = false;
@@ -337,6 +341,86 @@ class Store {
         data = new FormData();
       });
     }
+  }
+
+  /*getFirstLevelOfProjectBranches() {
+    this.database
+      .collection(`projects`)
+      .doc(this.currentProject)
+      .collection(`prototype1`)
+      .get()
+      .then(querySnapshot => {
+        let isFirst = true;
+
+        querySnapshot.forEach(doc => {
+          console.log(doc);
+          //push data to correct level
+          this.prototypeLevels[1] = [];
+
+          this.prototypeLevels[1].push(doc.data());
+
+          //check if ther is a selected id at the current level AND check if first id
+          if (this.selectedPrototypeIds[0] === undefined && isFirst) {
+            //.doc.id
+            this.selectedPrototypeIds[0] = doc.id;
+
+            //trigger once
+            isFirst = false;
+          }
+        });
+
+        //get the docs from the next level
+      })
+      .catch(e => console.log(e));
+  }*/
+
+  getProjectBranches(level = 1, lastId = ``) {
+    let queryString = ``;
+
+    //create query
+    for (let i = 1; i <= level; i++) {
+      if (i === 1) {
+        queryString += `prototype${i}`;
+      } else {
+        queryString += `/${lastId}/prototype${i}`;
+      }
+    }
+
+    //send request
+    this.database
+      .collection(`projects`)
+      .doc(this.currentProject)
+      .collection(queryString)
+      .get()
+      .then(querySnapshot => {
+        let isFirst = true;
+        //check if there is anything here
+        if (querySnapshot.docs.length > 0) {
+          //setup docs for this level
+          querySnapshot.forEach(doc => {
+            //push data to correct level
+            this.prototypeLevels[level] = [];
+
+            this.prototypeLevels[level].push(doc.data());
+
+            //check if ther is a selected id at the current level AND check if first id
+            if (this.selectedPrototypeIds[level - 1] === undefined && isFirst) {
+              //.doc.id
+              this.selectedPrototypeIds[level - 1] = doc.id;
+
+              //trigger once
+              isFirst = false;
+            }
+          });
+
+          //get the docs from the next level
+          this.getProjectBranches(
+            level + 1,
+            this.selectedPrototypeIds[level - 1]
+          );
+        }
+      })
+      .catch(e => console.log(e));
   }
 }
 
