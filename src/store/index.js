@@ -31,15 +31,18 @@ class Store {
     this.db = firebase.database();
   }
 
-  authListener = () => {
-    firebase.auth().onAuthStateChanged(user => {
-      console.log('user:', user);
-      if (user) {
-        this.user;
-      } else {
-        this.user = null;
-      }
-    });
+  // authListener = () => {
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     if (user) {
+  //       this.user;
+  //     } else {
+  //       this.user = null;
+  //     }
+  //   });
+  // }
+
+  test = () => {
+    const testDocumentRef = this.db.collection('projects').doc('firstproject');
   }
 
   login = (e) => {
@@ -48,7 +51,6 @@ class Store {
       .then(result => {
         const user = result.user;
         console.log('user:', user);
-        this.history.push("/");
         <Redirect
           to={{
             pathname: "/",

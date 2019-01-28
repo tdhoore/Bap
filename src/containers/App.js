@@ -44,8 +44,8 @@ class App extends Component {
     return (
       <Switch>
         <Route path='/' exact render={() => <Home store={store}/>} authenticated={this.authenticated} />
-        <Route path='/login' render={() => <Login store={store} history={history}/>} authenticated={this.authenticated} />
-        <Route path='/register' render={() => <Register store={store}/>} authenticated={this.authenticated} />
+        <Route path='/login' render={({history}) => <Login store={store} history={history}/>} authenticated={this.authenticated} />
+        <Route path='/register' render={({history}) => <Register store={store} history={history}/>} authenticated={this.authenticated}/>
       </Switch>
     );
   }
