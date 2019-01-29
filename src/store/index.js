@@ -68,7 +68,7 @@ class Store {
       });
   }
 
-  register = (e) => {
+  register(e) {
     const {email, password, feedback} = e;
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(u => {
