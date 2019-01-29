@@ -8,9 +8,7 @@ import {
   configure
 } from 'mobx';
 
-import firebase from 'firebase/app';
-import 'firebase/auth';
-import 'firebase/database';
+import * as firebase from 'firebase';
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 
@@ -29,33 +27,52 @@ class Store {
   firebase.initializeApp(config);
     this.auth = firebase.auth();
     this.db = firebase.database();
+    this.fs = firebase.firestore();
+
+  this.user = false;
+  this.authenticated = false;
+  this.history = null;
   }
 
-  // authListener = () => {
+    // componentDidMount() {
+  //   this.firebaseListener = firebase.auth().onAuthStateChanged(user => {
+  //     if (user) {
+  //       this.authenticated = true;
+  //       this.currentUser = user;
+  //     } else {
+  //       this.authenticated = false;
+  //       this.currentUser = null;
+  //     }
+  //   });
+  // }
+
+  // componentWillUnmount() {
+  //   this.firebaseListener = undefined;
+  // }
+
+  // authListener() {
   //   firebase.auth().onAuthStateChanged(user => {
   //     if (user) {
-  //       this.user;
+  //     this.user = firebase.auth().currentUser;
+  //       // this.user;
+  //       <Redirect
+  //         to={{
+  //           pathname: "/",
+  //         }}
+  //       />
   //     } else {
   //       this.user = null;
   //     }
   //   });
   // }
 
-  test = () => {
-    const testDocumentRef = this.db.collection('projects').doc('firstproject');
-  }
-
-  login = (e) => {
+  login(e) {
     const {email, password, feedback} = e;
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(result => {
-        const user = result.user;
-        console.log('user:', user);
-        <Redirect
-          to={{
-            pathname: "/",
-          }}
-        />
+        this.user = result.user;
+        console.log('user:', this.user);
+        this.authenticated = true;
       })
       .catch(error => {
         error.message = feedback;
@@ -84,28 +101,16 @@ class Store {
   }
 }
 
-
-
 decorate(Store, {
   user: observable,
   login: action,
-  signup: action,
+  register: action,
+  authListener: action,
   handleChangeLogin: action,
   email: observable,
   password: observable,
-  /*playtime: observable,
-    randomGamesList: observable,
-    playList: observable,
-    allGames: observable,
-    isLogin: observable,
-    loginOrRegister: action,
-    addToRandomGame: action,
-    removeFrom: action,
-    updateRandomGame: action,
-    addToPlayListGame: action,
-    updatePlayListGame: action,
-    updateOneValue: action,
-    calcPlayTime: action*/
+  authenticated: observable,
+  currentUser: observable,
 });
 
 

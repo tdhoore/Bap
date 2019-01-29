@@ -1,24 +1,26 @@
 /* eslint-disable no-unused-vars */
 import React, {Component} from 'react';
-import firebase from "firebase/app";
-import "firebase/auth";
+import {Redirect} from 'react-router-dom';
+import * as firebase from 'firebase';
 import {observer} from 'mobx-react';
 
 const Login = ({store}) =>  {
-  const {login, feedback} = store;
   const handleLogin = e => {
     e.preventDefault();
-    login({
+    store.login({
       email: e.target.email.value,
       password: e.target.password.value,
-      feedback: feedback
+      feedback: store.feedback
     });
   };
 
+  if(store.user){
+    return <Redirect to='/'/>
+  } else {
   return (
     <div className=''>
       <form onSubmit={e => handleLogin(e)}>
-      <p className="auth-feedback">{feedback}</p>
+      <p className="auth-feedback">{store.feedback}</p>
         <div className=''>
           <label htmlFor='emailaddress'>Email address</label>
           <input 
@@ -40,7 +42,7 @@ const Login = ({store}) =>  {
       </form>
  
     </div>
-  );
+  );}
 };
 
 export default observer(Login);
