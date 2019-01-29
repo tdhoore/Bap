@@ -1,46 +1,18 @@
+/* eslint-disable no-unused-vars */
 import React, { Component } from "react";
-import { Route, NavLink, Switch } from "react-router-dom";
+import {Route, NavLink, Switch, withRouter, Redirect} from 'react-router-dom';
 import { observer } from "mobx-react";
 import VideoPlayer from "../components/VideoPlayer.jsx";
 import VideoEditor from "../components/VideoEditor.jsx";
 import VideoPlayerInfo from "../components/VideoPlayerInfo.jsx";
 import BodySelector from "../components/BodySelector.jsx";
 import Branches from "../components/Branches.jsx";
-
-//import GET_CURRENT_USER from "../graphql/getCurrentUser";
-//import { Query } from "react-apollo";
+import Login from './Login.jsx';
+import Register from './Register.jsx';
+import Home from './Home.jsx';
+import firebase from 'firebase/app';
 
 class App extends Component {
-  /*diplayAppSelf(store) {
-    return (
-      <div className="App">
-        <div className="gameListHolder">
-          <Filter />
-          <RandomGameList store={store} steamId={0} />
-        </div>
-        <PlayList store={store} />
-      </div>
-    );
-  }
-
-  displayLogin(store, client) {
-    return <Login store={store} client={client} />;
-  }
-
-  isUserLogedIn(store) {
-    return (
-      <Query query={GET_CURRENT_USER}>
-        {({ loading, error, data, client }) => {
-          if (loading) return null;
-          if (error) return null;
-          return data.currentUser
-            ? this.diplayAppSelf(store)
-            : this.displayLogin(store, client);
-        }}
-      </Query>
-    );
-  }*/
-
   displayVideoPlayer(store) {
     return <VideoPlayer store={store} />;
   }
@@ -70,11 +42,28 @@ class App extends Component {
 
     return (
       <Switch>
-        <Route path="/" render={props => this.displayBranch(store)} />
-        <Route component={null} />
+        <Route path='/' 
+        exact 
+        render={(props) => <Home store={store}/>} 
+        />
+        <Route 
+        path='/login' 
+        render={(props) => {
+          console.log(`authenticated:`, store);
+          if(store.user){
+            return <Redirect to='/'/>
+          }
+          return <Login store={store}/>
+        }} 
+        />
+        <Route 
+        path='/register' 
+        render={({history}) => <Register store={store} history={history}/>}
+        />
       </Switch>
     );
   }
+  
 }
 
-export default observer(App);
+export default withRouter(observer(App));

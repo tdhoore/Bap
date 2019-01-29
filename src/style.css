@@ -190,3 +190,7 @@
 .hide {
   display: none;
 }
+
+.btn, .btn-success {
+  margin-left: 2.5rem;
+}

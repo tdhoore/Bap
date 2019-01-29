@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-unused-vars */
+import React from "react";
+import { Route, Redirect } from "react-router-dom";
 import { decorate, observable, action, computed, configure } from "mobx";
 import { resultKeyNameFromField } from "apollo-utilities";
 import * as firebase from "firebase";
@@ -13,7 +17,14 @@ class Store {
       storageBucket: "bap-firebase.appspot.com",
       messagingSenderId: "573194971360"
     };
+
     firebase.initializeApp(config);
+    this.auth = firebase.auth();
+    this.db = firebase.database();
+
+    this.user = false;
+    this.authenticated = false;
+    this.history = null;
 
     //database
     this.database = firebase.firestore();
@@ -42,6 +53,40 @@ class Store {
     this.maxClipduration = 30;
     this.maxTotalDuration = 60;
     this.isMouseDownOverTrimmer = false;
+  }
+
+  login(e) {
+    const {email, password, feedback} = e;
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(result => {
+        this.user = result.user;
+        console.log('user:', this.user);
+        this.authenticated = true;
+      })
+      .catch(error => {
+        error.message = feedback;
+      });
+  }
+
+  register = (e) => {
+    const {email, password, feedback} = e;
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(u => {
+        console.log(u);
+      })
+      .catch(error => {
+        console.log(error);
+        error.message = feedback;
+      });
+  }
+
+  handleChangeLogin(e) {
+    const input = e.currentTarget;
+    if (input.name === 'email') {
+      this.email = input.value;
+    } else {
+      this.password = input.value;
+    } 
   }
 
   updateProgress(val) {
@@ -375,6 +420,7 @@ class Store {
   }*/
 
   getProjectBranches(level = 1, lastId = ``) {
+
     let queryString = ``;
 
     //create query
@@ -421,8 +467,8 @@ class Store {
         }
       })
       .catch(e => console.log(e));
+    }
   }
-}
 
 decorate(Store, {
   handleShowInstruction: action,
@@ -433,8 +479,18 @@ decorate(Store, {
   isTrimmerOpen: observable,
   commentsCurrentProject: observable,
   prototypeLevels: observable,
-  selectedPrototypeIds: observable
+  selectedPrototypeIds: observable,
+  user: observable,
+  login: action,
+  register: action,
+  authListener: action,
+  handleChangeLogin: action,
+  email: observable,
+  password: observable,
+  authenticated: observable,
+  currentUser: observable,
 });
+
 
 const store = new Store();
 export default store;

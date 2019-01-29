@@ -1,11 +1,9 @@
 :root {
-  --color-black: #000;
+  --color-black: black;
   --color-white: white;
-  --color-dark: #1a1813;
-  --color-primary: #ff7bab;
-  --color-grey: #979797;
-  --color-gradient-pink:  rgba(255, 123, 171, .6);
-  --color-gradient-white: rgba(255, 255, 255, 0);
+  --color-grey: #ccc;
+  --color-orange: #fd7166;
+  --color-purple: #6a32ef;
   --weight-regular: 400;
   --weight-bold: 700;
 }
