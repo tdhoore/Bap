@@ -22,8 +22,8 @@ class Store {
     this.auth = firebase.auth();
     this.db = firebase.database();
 
-    this.user = false;
-    this.authenticated = false;
+    this.user = ((localStorage.getItem('authUser') !== null) ? localStorage.getItem('authUser') : false);
+    console.log(`authUser:`, localStorage.getItem('authUser'));
     this.history = null;
 
     //database
@@ -56,27 +56,42 @@ class Store {
   }
 
   login(e) {
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+    .then(() => {
+      this.actualLogin(e);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log('errorCode:', errorCode);
+      console.log('errorMessage:', errorMessage);
+    });
+  }
+
+  actualLogin(e) {
     const {email, password, feedback} = e;
     firebase.auth().signInWithEmailAndPassword(email, password)
       .then(result => {
         this.user = result.user;
+        localStorage.setItem('authUser', JSON.stringify(this.user));
         console.log('user:', this.user);
-        this.authenticated = true;
       })
       .catch(error => {
         error.message = feedback;
       });
   }
 
-  logout(e) {
-    firebase.auth().signOut().then(function() {
+  logout() {
+    firebase.auth().signOut().then(() => {
       console.log('Sign-out successful');
+      this.user = false;
+      localStorage.removeItem('authUser');
     }).catch(function(error) {
-      console.log('Sign-out failed');
+      console.log('Sign-out failed:', error);
     });
   }
 
-  register = (e) => {
+  register(e) {
     const {email, password, feedback} = e;
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(u => {
