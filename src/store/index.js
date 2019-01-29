@@ -68,6 +68,14 @@ class Store {
       });
   }
 
+  logout(e) {
+    firebase.auth().signOut().then(function() {
+      console.log('Sign-out successful');
+    }).catch(function(error) {
+      console.log('Sign-out failed');
+    });
+  }
+
   register = (e) => {
     const {email, password, feedback} = e;
     firebase.auth().createUserWithEmailAndPassword(email, password)

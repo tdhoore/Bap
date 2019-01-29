@@ -3,10 +3,18 @@ import {NavLink} from 'react-router-dom';
 import React from 'react';
 
 const Home = ({store}) => {
+  const handleLogOut = e => {
+    e.preventDefault();
+    store.logout(e);
+  };
+
   if (store.user) {
     return (
       <div>
         {}
+        <ul>
+          <li><NavLink to="/" onClick={e => handleLogOut(e)} >Uitloggen</NavLink></li>
+        </ul>
         <p>{store.user.email}</p>
       </div>
     );

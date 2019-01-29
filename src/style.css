@@ -1,6 +1,10 @@
 @import './css/reset.css';
 @import './css/vars.css';
 
+body {
+  font-family: Montserrat, sans-serif;
+}
+
 .progressBarHolder {
   position: relative;
   display: flex;
