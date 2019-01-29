@@ -11,6 +11,8 @@ import Login from './Login.jsx';
 import Register from './Register.jsx';
 import Home from './Home.jsx';
 import firebase from 'firebase/app';
+import Registration from "./Registration.jsx";
+import UserTypeSelector from "../components/UserTypeSelector.jsx";
 
 class App extends Component {
   displayVideoPlayer(store) {
@@ -35,10 +37,10 @@ class App extends Component {
 
   render() {
     const { store } = this.props;
-
     //get initial comments
     //only for the normal player
     store.getComments();
+    // store.checkUser();
 
     return (
       <Switch>
@@ -56,9 +58,24 @@ class App extends Component {
           return <Login store={store}/>
         }} 
         />
-        <Route 
+        {/* <Route 
         path='/register' 
-        render={({history}) => <Register store={store} history={history}/>}
+        render={(props) => {
+          if(store.user){
+            return <Redirect to='/login'/>
+          }
+          return <Register store={store}/>
+        }}
+        /> */}
+
+       <Route 
+        path='/register' 
+        render={(props) => {
+          if(store.user){
+            return <Redirect to='/login'/>
+          }
+          return <Registration store={store}/>
+        }}
         />
       </Switch>
     );

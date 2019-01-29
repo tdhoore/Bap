@@ -3,7 +3,6 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
 import { decorate, observable, action, computed, configure } from "mobx";
-import { resultKeyNameFromField } from "apollo-utilities";
 import * as firebase from "firebase";
 
 class Store {
@@ -22,9 +21,12 @@ class Store {
     this.auth = firebase.auth();
     this.db = firebase.database();
 
-    this.user = ((localStorage.getItem('authUser') !== null) ? localStorage.getItem('authUser') : false);
+    this.user = ((localStorage.getItem('authUser') !== null) ? JSON.parse(localStorage.getItem('authUser')) : false);
     console.log(`authUser:`, localStorage.getItem('authUser'));
     this.history = null;
+
+    // this.user = false;
+    // console.log(`firebase auth:`, firebase.auth());
 
     //database
     this.database = firebase.firestore();
@@ -53,7 +55,20 @@ class Store {
     this.maxClipduration = 30;
     this.maxTotalDuration = 60;
     this.isMouseDownOverTrimmer = false;
+
+    //form
+    this.formObject = {};
+    this.step = 1;
   }
+
+  // checkUser() {
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     if(user){
+  //       this.user = user;
+  //     }
+  //   });
+  // }
+
 
   login(e) {
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
@@ -96,6 +111,7 @@ class Store {
     firebase.auth().createUserWithEmailAndPassword(email, password)
       .then(u => {
         console.log(u);
+        this.user = u.user;
       })
       .catch(error => {
         console.log(error);
@@ -505,6 +521,8 @@ decorate(Store, {
   selectedPrototypeIds: observable,
   user: observable,
   login: action,
+  actualLogin: action,
+  logout: action,
   register: action,
   authListener: action,
   handleChangeLogin: action,
@@ -512,6 +530,8 @@ decorate(Store, {
   password: observable,
   authenticated: observable,
   currentUser: observable,
+  formObject: observable,
+  step: observable,
 });
 
 

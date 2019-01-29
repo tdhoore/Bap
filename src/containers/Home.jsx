@@ -25,7 +25,6 @@ const Home = ({store}) => {
           <li><NavLink to="/login">Inloggen</NavLink></li>
           <li><NavLink to="/register">Registreren</NavLink></li>
         </ul>
-        <p>test</p>
       </div>
     );
   }
