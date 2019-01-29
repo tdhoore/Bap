@@ -40,6 +40,11 @@ app.post("/postclips", upload.single("clip"), (req, res) => {
   res.send(req.file);
 });
 
+app.post("/createaftermovie", upload.single("clip"), (req, res) => {
+  console.log(req.body);
+  res.send(req.file);
+});
+
 app.post("/postclipsmetadata", upload.single(), (req, res) => {
   console.log("meta: " + req.body.durations);
 

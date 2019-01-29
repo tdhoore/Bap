@@ -438,7 +438,10 @@ class Store {
             //push data to correct level
             this.prototypeLevels[level] = [];
 
-            this.prototypeLevels[level].push(doc.data());
+            //create data object
+            const protoData = { id: doc.id, doc: doc.data() };
+
+            this.prototypeLevels[level].push(protoData);
 
             //check if ther is a selected id at the current level AND check if first id
             if (this.selectedPrototypeIds[level - 1] === undefined && isFirst) {
@@ -458,6 +461,33 @@ class Store {
         }
       })
       .catch(e => console.log(e));
+  }
+
+  createAfterMovie() {
+    let data = new FormData();
+
+    //save prototype links to server
+    for (var key in this.prototypeLevels) {
+      //data.append(`videoLinks`, this.prototypeLevels[key].video);
+      //console.log(this.prototypeLevels[key]);
+
+      // eslint-disable-next-line no-loop-func
+      this.prototypeLevels[key].forEach(level => {
+        if (level.id === this.selectedPrototypeIds[key - 1]) {
+          console.log(level.doc.video);
+          data.append(`videoLinks`, level.doc.video);
+        }
+      });
+    }
+
+    fetch("http://localhost:5000/createaftermovie", {
+      method: "POST",
+      body: data
+    }).then(r => {
+      console.log(r);
+    });
+
+    data = new FormData();
   }
 }
 

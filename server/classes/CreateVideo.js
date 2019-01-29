@@ -103,6 +103,31 @@ class CreateVideo {
     }
   }
 
+  createAfterMovie(videos) {
+    const dir = __dirname.replace(`/classes`, ``);
+
+    //add videos to merge
+    let toMergeVideo = new ffmpeg();
+
+    videos.forEach(video => {
+      toMergeVideo = toMergeVideo.mergeAdd(`${dir}/uploads/${video}.mp4`);
+    });
+
+    //merge the videos
+    toMergeVideo
+      .mergeToFile(`${dir}/uploads/finalVideo.mp4`, `${dir}/tmp`)
+      .on("progress", function(progress) {
+        console.log("In Progress !!" + Date());
+      })
+      .on("end", function() {
+        console.log(`done`);
+      })
+      .on("error", function(err) {
+        console.log(err);
+        return err;
+      });
+  }
+
   createVideo() {
     console.log(typeof this.metaData.durations);
     //is there more than one video?

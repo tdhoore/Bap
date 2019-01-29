@@ -5,7 +5,15 @@ import { observer } from "mobx-react";
 const Branches = ({ store }) => {
   store.getProjectBranches();
 
-  return <div />;
+  const createMovie = e => {
+    store.createAfterMovie();
+  };
+
+  return (
+    <div>
+      <button onClick={e => createMovie(e)}>createMov</button>
+    </div>
+  );
 };
 
 export default observer(Branches);
