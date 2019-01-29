@@ -41,7 +41,10 @@ app.post("/postclips", upload.single("clip"), (req, res) => {
 });
 
 app.post("/createaftermovie", upload.single("clip"), (req, res) => {
-  console.log(req.body);
+  console.log(req.body.videoLinks);
+  const genVideo = new CreateVideo();
+  //tester
+  genVideo.createAfterMovie(["test1", "test2"]);
   res.send(req.file);
 });
 
