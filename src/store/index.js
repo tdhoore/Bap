@@ -49,6 +49,7 @@ class Store {
     this.clipId = 0;
     this.clips = [];
     this.totalClipsLength = 0;
+    this.notesCurrentProject = [];
 
     //trimmer
     this.isTrimmerOpen = false;
@@ -468,9 +469,6 @@ class Store {
 
     //save prototype links to server
     for (var key in this.prototypeLevels) {
-      //data.append(`videoLinks`, this.prototypeLevels[key].video);
-      //console.log(this.prototypeLevels[key]);
-
       // eslint-disable-next-line no-loop-func
       this.prototypeLevels[key].forEach(level => {
         if (level.id === this.selectedPrototypeIds[key - 1]) {
@@ -480,14 +478,13 @@ class Store {
       });
     }
 
+    //post data to server
     fetch("http://localhost:5000/createaftermovie", {
       method: "POST",
       body: data
     }).then(r => {
       console.log(r);
     });
-
-    data = new FormData();
   }
 }
 
@@ -509,7 +506,8 @@ decorate(Store, {
   email: observable,
   password: observable,
   authenticated: observable,
-  currentUser: observable
+  currentUser: observable,
+  notesCurrentProject: observable
 });
 
 const store = new Store();

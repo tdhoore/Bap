@@ -47,7 +47,11 @@ class App extends Component {
 
     return (
       <Switch>
-        <Route path="/" exact render={props => this.displayBranch(store)} />
+        <Route
+          path="/"
+          exact
+          render={props => this.displayVideoEditor(store)}
+        />
         <Route
           path="/login"
           render={props => {

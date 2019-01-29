@@ -16,8 +16,6 @@ const VideoPlayer = ({ store }) => {
 
   let isMouseDownOverProgressBar = false;
 
-  console.log(store.commentsCurrentProject);
-
   const togglePlay = () => {
     const $videoElem = videoRef.current;
 
@@ -200,25 +198,24 @@ const VideoPlayer = ({ store }) => {
                 </div>
               );
             })}
-            <div />
-            <progress
-              value="0"
-              max="100"
-              ref={progressRef}
-              onMouseDown={e => handleProgressBarDown(e)}
-              onMouseUp={e => handleProgressBarUp(e)}
-              onMouseMove={e => handleMoveMouseProgressBar(e)}
-            />
           </div>
+          <progress
+            value="0"
+            max="100"
+            ref={progressRef}
+            onMouseDown={e => handleProgressBarDown(e)}
+            onMouseUp={e => handleProgressBarUp(e)}
+            onMouseMove={e => handleMoveMouseProgressBar(e)}
+          />
         </div>
-        <button className="fullScreenBtn" onClick={e => handleGoFullscreen(e)}>
-          Fullscreen
-        </button>
-        <form className="miniComment hide" ref={commentFormRef}>
-          <input type="text" className="timeStamp" ref={commentInputRef} />
-          <input type="submit" onClick={e => handleSubmitComment(e)} />
-        </form>
       </div>
+      <button className="fullScreenBtn" onClick={e => handleGoFullscreen(e)}>
+        Fullscreen
+      </button>
+      <form className="miniComment hide" ref={commentFormRef}>
+        <input type="text" className="timeStamp" ref={commentInputRef} />
+        <input type="submit" onClick={e => handleSubmitComment(e)} />
+      </form>
     </div>
   );
 };
