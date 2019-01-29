@@ -41,6 +41,7 @@ const Filter = ({ store }) => {
 
   return (
     <div>
+      {console.log(store.filter)}
       <form>
         <label htmlFor="search">
           <span>zoeken</span>
@@ -97,7 +98,7 @@ const Filter = ({ store }) => {
             <span>kinderen</span>
             <input
               type="checkbox"
-              value="0"
+              value="0-12"
               name="kinderen"
               id="kinderen"
               onChange={e => handleInputCheckBox(e)}
@@ -107,9 +108,19 @@ const Filter = ({ store }) => {
             <span>tieners</span>
             <input
               type="checkbox"
-              value="0"
+              value="13-18"
               name="tieners"
               id="tieners"
+              onChange={e => handleInputCheckBox(e)}
+            />
+          </label>
+          <label htmlFor="jongVolwassenen">
+            <span>jong volwassenen</span>
+            <input
+              type="checkbox"
+              value="19-25"
+              name="jongVolwassenen"
+              id="jongVolwassenen"
               onChange={e => handleInputCheckBox(e)}
             />
           </label>

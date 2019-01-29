@@ -27,6 +27,7 @@ class Store {
 
     //filter
     this.filter = {};
+    this.filterdContent = null;
 
     //database
     this.database = firebase.firestore();
@@ -55,6 +56,22 @@ class Store {
     this.maxClipduration = 30;
     this.maxTotalDuration = 60;
     this.isMouseDownOverTrimmer = false;
+  }
+
+  getContentByFilter() {
+    //get content by filter
+    this.database
+      .collection(`projects`)
+      .get()
+      .then(querySnapshot => {
+        console.log("Document got!");
+        querySnapshot.forEach(doc => {
+          this.commentsCurrentProject.push(doc.data());
+        });
+      })
+      .catch(error => {
+        console.error("Error getting document: ", error);
+      });
   }
 
   login(e) {
