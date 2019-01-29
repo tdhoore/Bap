@@ -20,11 +20,13 @@ class Store {
 
     firebase.initializeApp(config);
     this.auth = firebase.auth();
-    this.db = firebase.database();
 
     this.user = false;
     this.authenticated = false;
     this.history = null;
+
+    //filter
+    this.filter = {};
 
     //database
     this.database = firebase.firestore();
@@ -56,11 +58,13 @@ class Store {
   }
 
   login(e) {
-    const {email, password, feedback} = e;
-    firebase.auth().signInWithEmailAndPassword(email, password)
+    const { email, password, feedback } = e;
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
       .then(result => {
         this.user = result.user;
-        console.log('user:', this.user);
+        console.log("user:", this.user);
         this.authenticated = true;
       })
       .catch(error => {
@@ -69,8 +73,10 @@ class Store {
   }
 
   register(e) {
-    const {email, password, feedback} = e;
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+    const { email, password, feedback } = e;
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
       .then(u => {
         console.log(u);
       })
@@ -82,11 +88,11 @@ class Store {
 
   handleChangeLogin(e) {
     const input = e.currentTarget;
-    if (input.name === 'email') {
+    if (input.name === "email") {
       this.email = input.value;
     } else {
       this.password = input.value;
-    } 
+    }
   }
 
   updateProgress(val) {
@@ -388,39 +394,7 @@ class Store {
     }
   }
 
-  /*getFirstLevelOfProjectBranches() {
-    this.database
-      .collection(`projects`)
-      .doc(this.currentProject)
-      .collection(`prototype1`)
-      .get()
-      .then(querySnapshot => {
-        let isFirst = true;
-
-        querySnapshot.forEach(doc => {
-          console.log(doc);
-          //push data to correct level
-          this.prototypeLevels[1] = [];
-
-          this.prototypeLevels[1].push(doc.data());
-
-          //check if ther is a selected id at the current level AND check if first id
-          if (this.selectedPrototypeIds[0] === undefined && isFirst) {
-            //.doc.id
-            this.selectedPrototypeIds[0] = doc.id;
-
-            //trigger once
-            isFirst = false;
-          }
-        });
-
-        //get the docs from the next level
-      })
-      .catch(e => console.log(e));
-  }*/
-
   getProjectBranches(level = 1, lastId = ``) {
-
     let queryString = ``;
 
     //create query
@@ -467,8 +441,8 @@ class Store {
         }
       })
       .catch(e => console.log(e));
-    }
   }
+}
 
 decorate(Store, {
   handleShowInstruction: action,
@@ -488,9 +462,8 @@ decorate(Store, {
   email: observable,
   password: observable,
   authenticated: observable,
-  currentUser: observable,
+  currentUser: observable
 });
-
 
 const store = new Store();
 export default store;

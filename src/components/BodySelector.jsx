@@ -41,26 +41,15 @@ const BodySelector = ({ store }) => {
 
   return (
     <div className="bodyPartSelector" ref={bodyPartSelectorRef}>
-      <div
-        className="bodyPart"
-        data-part="armLeft"
-        onClick={e => handleSelectBodyPart(e)}
-      />
-      <div
-        className="bodyPart"
-        data-part="armRight"
-        onClick={e => handleSelectBodyPart(e)}
-      />
-      <div
-        className="bodyPart"
-        data-part="legRight"
-        onClick={e => handleSelectBodyPart(e)}
-      />
-      <div
-        className="bodyPart"
-        data-part="legLeft"
-        onClick={e => handleSelectBodyPart(e)}
-      />
+      <label htmlFor="armL" className="bodyPart">
+        <input
+          type="checkbox"
+          name="armL"
+          id="armL"
+          onChange={e => handleSelectBodyPart(e)}
+        />
+        <span className="selectedBox" />
+      </label>
     </div>
   );
 };

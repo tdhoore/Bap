@@ -1,16 +1,17 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
-import {Route, NavLink, Switch, withRouter, Redirect} from 'react-router-dom';
+import { Route, NavLink, Switch, withRouter, Redirect } from "react-router-dom";
 import { observer } from "mobx-react";
 import VideoPlayer from "../components/VideoPlayer.jsx";
 import VideoEditor from "../components/VideoEditor.jsx";
 import VideoPlayerInfo from "../components/VideoPlayerInfo.jsx";
 import BodySelector from "../components/BodySelector.jsx";
 import Branches from "../components/Branches.jsx";
-import Login from './Login.jsx';
-import Register from './Register.jsx';
-import Home from './Home.jsx';
-import firebase from 'firebase/app';
+import Filter from "../components/Filter.jsx";
+import Login from "./Login.jsx";
+import Register from "./Register.jsx";
+import Home from "./Home.jsx";
+import firebase from "firebase/app";
 
 class App extends Component {
   displayVideoPlayer(store) {
@@ -33,6 +34,10 @@ class App extends Component {
     return <Branches store={store} />;
   }
 
+  displayFilter(store) {
+    return <Filter store={store} />;
+  }
+
   render() {
     const { store } = this.props;
 
@@ -42,28 +47,24 @@ class App extends Component {
 
     return (
       <Switch>
-        <Route path='/' 
-        exact 
-        render={(props) => <Home store={store}/>} 
+        <Route path="/" exact render={props => this.displayFilter(store)} />
+        <Route
+          path="/login"
+          render={props => {
+            console.log(`authenticated:`, store);
+            if (store.user) {
+              return <Redirect to="/" />;
+            }
+            return <Login store={store} />;
+          }}
         />
-        <Route 
-        path='/login' 
-        render={(props) => {
-          console.log(`authenticated:`, store);
-          if(store.user){
-            return <Redirect to='/'/>
-          }
-          return <Login store={store}/>
-        }} 
-        />
-        <Route 
-        path='/register' 
-        render={({history}) => <Register store={store} history={history}/>}
+        <Route
+          path="/register"
+          render={({ history }) => <Register store={store} history={history} />}
         />
       </Switch>
     );
   }
-  
 }
 
 export default withRouter(observer(App));
