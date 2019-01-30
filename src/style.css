@@ -6,21 +6,6 @@
   display: flex;
 }
 
-.stepsHolder {
-  display: flex;
-}
-
-.step {
-  margin-left: 5px;
-  width: 10px;
-  height: 20px;
-  background-color: black;
-}
-
-.activeStep {
-  background-color: red;
-}
-
 .contentHolder {
   display: flex;
   position: relative;
@@ -37,12 +22,10 @@
   height: 100px;
 }
 
-.deel1,
-.deel2 {
+.track {
+  display: flex;
   height: 100%;
-  width: 30px;
-  background-color: black;
-  margin: 0 10px;
+  width: 100%;
 }
 
 .uploadBar {
@@ -207,6 +190,22 @@
 
 .activeBodyPart {
   background-color: blue;
+}
+
+.cssOutroVid {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  background-color: orange;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.cssOutroVidShow {
+  opacity: 1;
 }
 
 .hide {

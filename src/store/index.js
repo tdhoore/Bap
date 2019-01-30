@@ -48,6 +48,9 @@ class Store {
     this.clips = [];
     this.totalClipsLength = 0;
     this.notesCurrentProject = [];
+    //gebruiker message
+    this.message = ``;
+    this.messageDuration = 10;
 
     //trimmer
     this.isTrimmerOpen = false;
@@ -205,7 +208,7 @@ class Store {
     }
   }
 
-  updateTotalClipsLength() {
+  updateTotalClipsLength(editorType) {
     //reset totalClipsLength
     let newTotalClipsLength = 0;
 

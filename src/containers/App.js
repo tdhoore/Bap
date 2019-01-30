@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Route, NavLink, Switch, withRouter, Redirect } from "react-router-dom";
 import { observer } from "mobx-react";
 import VideoPlayer from "../components/VideoPlayer.jsx";
-import VideoEditor from "../components/VideoEditor.jsx";
+import VideoEditor from "./VideoEditor.jsx";
 import VideoPlayerInfo from "../components/VideoPlayerInfo.jsx";
 import BodySelector from "../components/BodySelector.jsx";
 import Branches from "../components/Branches.jsx";
@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   displayVideoEditor(store) {
-    return <VideoEditor store={store} />;
+    return <VideoEditor store={store} editorType={0} />;
   }
 
   displayBodySelector(store) {
@@ -64,11 +64,6 @@ class App extends Component {
         />
         <Route
           path="/register"
-          render={({ history }) => <Register store={store} history={history} />}
-        />
-
-        <Route
-          path="/fecker"
           render={({ history }) => <Register store={store} history={history} />}
         />
       </Switch>

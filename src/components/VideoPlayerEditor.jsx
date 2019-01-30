@@ -5,7 +5,7 @@ import Step from "./Step.jsx";
 //import video from '../assets/video/vid.mp4';
 import img from "../assets/img/pic.jpg";
 
-const VideoPlayerEditor = ({ store, videos }) => {
+const VideoPlayerEditor = ({ store, videos, editorType }) => {
   const videoRef = React.createRef();
   const progressRef = React.createRef();
 
@@ -15,6 +15,8 @@ const VideoPlayerEditor = ({ store, videos }) => {
   const noteInputRef = React.createRef();
   const notesHolderRef = React.createRef();
   let noteElems = false;
+
+  const cssOutroVidRef = React.createRef();
 
   const togglePlay = () => {
     const $videoElem = videoRef.current;
@@ -36,7 +38,7 @@ const VideoPlayerEditor = ({ store, videos }) => {
     const $videoElem = videoRef.current;
     const progressElem = progressRef.current;
 
-    const scrubber = scrubberRef.current;
+    //const scrubber = scrubberRef.current;
 
     const activeClip = store.clips[store.activeClipIndex];
 
@@ -86,6 +88,12 @@ const VideoPlayerEditor = ({ store, videos }) => {
     //pause if
     if ($videoElem.currentTime >= activeClip.duration + activeClip.clipStart) {
       $videoElem.pause();
+
+      //if upload project start animation
+      if (editorType === 0) {
+        //show css animation
+        cssOutroVidRef.current.classList.add(`cssOutroVidShow`);
+      }
 
       if (store.activeClipIndex < store.clips.length - 1) {
         //handle end video
@@ -325,6 +333,9 @@ const VideoPlayerEditor = ({ store, videos }) => {
             />
           );
         })}
+        <div className="cssOutroVid" ref={cssOutroVidRef}>
+          css
+        </div>
       </div>
       <div className="videoControls">
         <button className="playBtn" onClick={e => handleStartStop(e)}>
