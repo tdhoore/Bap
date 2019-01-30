@@ -3,6 +3,7 @@
 import React from "react";
 import { decorate, observable, action, computed, configure } from "mobx";
 import * as firebase from "firebase";
+//import Login from "../containers/Login";
 
 class Store {
   constructor() {
@@ -155,27 +156,60 @@ class Store {
   }
 
   addClipToTimeLine(newClip) {
+    //last trackId
+    let lastIndex = 0;
+
     //remove active class from clips
     this.clips.forEach((clip, index) => {
+      console.log("clip: " + clip);
       if (clip.isActiveClip) {
         this.clips[index].isActiveClip = false;
+      }
+
+      //add clip after there track clips
+      if (clip.trackId === newClip.trackId) {
+        lastIndex = index;
       }
     });
 
     //add to clips
     this.clips.push(newClip);
 
+    //move new clip to the correct position
+    let test = this.clips;
+    test = test.sort((a, b) => {
+      console.log("a", a.trackId);
+      console.log("b", b.trackId);
+
+      return a.trackId - b.trackId;
+    });
+    this.clips = test;
+    console.log("jksfkjdhfsdj ", test);
+
+    this.clips.forEach((clip, index) => {
+      if (clip.id === newClip.id) {
+        //set active clip
+        this.clips[index].isActiveClip = true;
+
+        //set index
+        this.activeClipIndex = index;
+      }
+    });
+
     //set active clip
-    this.clips[this.clips.length - 1].isActiveClip = true;
+    //this.clips[this.clips.length - 1].isActiveClip = true;
+    //console.log("last index: ", lastIndex);
+    //console.log("clips: ", this.clips);
+    //this.clips[lastIndex].isActiveClip = true;
 
     //set index
-    this.activeClipIndex = this.clips.length - 1;
+    //this.activeClipIndex = this.clips.length - 1;
+    //this.activeClipIndex = lastIndex;
 
     //add to clip id
     this.clipId++;
 
-    //sort the clips by trackId
-    //this.clips = this.clips.sort((a, b) => a.trackId - b.trackId);
+    console.log("clips", this.clips);
   }
 
   setDurrationIfVideo(data, duration) {

@@ -78,8 +78,6 @@ const Clip = ({ store, data, index, totalClips }) => {
 
   const calcLengthPerTrack = () => {
     //set clip length in persentages
-
-    console.log(data.trackId, store.totalTrackLengths);
     return Math.round(
       store.mapVal(
         data.duration,
