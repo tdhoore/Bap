@@ -66,6 +66,11 @@ class App extends Component {
           path="/register"
           render={({ history }) => <Register store={store} history={history} />}
         />
+
+        <Route
+          path="/fecker"
+          render={({ history }) => <Register store={store} history={history} />}
+        />
       </Switch>
     );
   }

@@ -58,4 +58,14 @@ app.post("/postclipsmetadata", upload.single(), (req, res) => {
   res.send(req.body);
 });
 
+//fix empty links
+//TODO
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "path/to/your/index.html"), err => {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
+
 app.listen(port, () => {});

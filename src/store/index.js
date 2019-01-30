@@ -1,9 +1,7 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
 import { decorate, observable, action, computed, configure } from "mobx";
-import { resultKeyNameFromField } from "apollo-utilities";
 import * as firebase from "firebase";
 
 class Store {
