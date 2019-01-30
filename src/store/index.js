@@ -173,6 +173,9 @@ class Store {
 
     //add to clip id
     this.clipId++;
+
+    //sort the clips by trackId
+    //this.clips = this.clips.sort((a, b) => a.trackId - b.trackId);
   }
 
   setDurrationIfVideo(data, duration) {
@@ -200,20 +203,20 @@ class Store {
       //add to total clips length
       this.totalClipsLength += duration;
 
+      //check if track exists
+      if (this.totalTrackLengths[data.trackId] === undefined) {
+        //if not set to 0
+        this.totalTrackLengths[data.trackId] = 0;
+      }
+
+      //set total clip length per track
+      this.totalTrackLengths[data.trackId] += data.duration;
+
       //set clips length in persentages
       this.clips.forEach(clip => {
         clip.clipLength = Math.round(
           this.mapVal(clip.duration, 0, this.totalClipsLength, 0, 100)
         );
-
-        //check if track exists
-        if (this.totalTrackLengths[clip.trackId] === undefined) {
-          //if not set to 0
-          this.totalTrackLengths[clip.trackId] = 0;
-        }
-
-        //set total clip length per track
-        this.totalTrackLengths[clip.trackId] += clip.duration;
       });
     }
   }
