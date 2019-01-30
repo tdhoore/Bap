@@ -58,6 +58,7 @@ class Store {
 
     //form
     this.formObject = {};
+    console.log('STORE FORMOBJECT:',this.formObject);
     this.step = 1;
   }
 
