@@ -20,7 +20,7 @@ const Track = ({ store, trackId }) => {
       //is video
       isVideo = true;
     }
-
+    console.log(trackId);
     //add clip to the timeline
     //and set as active clip
     store.addClipToTimeLine({
@@ -32,15 +32,28 @@ const Track = ({ store, trackId }) => {
       duration: 0,
       maxDuration: 0,
       clipLength: 100,
-      clipStart: 0
+      clipStart: 0,
+      trackId: trackId
     });
 
     //open trimmer window
     store.isTrimmerOpen = true;
   };
 
+  const checkIfClipPresentInThisTrack = () => {
+    let result = false;
+
+    store.clips.forEach(clip => {
+      if (clip.trackId === trackId) {
+        result = true;
+      }
+    });
+
+    return result;
+  };
+
   const renderUploadBarClasses = () => {
-    if (store.clips.length > 0) {
+    if (store.clips.length > 0 && checkIfClipPresentInThisTrack()) {
       return `uploadBar uploadBarWithClip`;
     } else {
       return `uploadBar`;
@@ -48,7 +61,7 @@ const Track = ({ store, trackId }) => {
   };
 
   const renderClipsHolderClasses = () => {
-    if (store.clips.length > 0) {
+    if (store.clips.length > 0 && checkIfClipPresentInThisTrack()) {
       return `clipsHolder clipHolderWithClips`;
     } else {
       return `clipsHolder`;
@@ -59,15 +72,17 @@ const Track = ({ store, trackId }) => {
     <div className={`track track${trackId}`}>
       <div className={renderClipsHolderClasses()} ref={clipsHolder}>
         {store.clips.map((clip, index) => {
-          return (
-            <Clip
-              key={`${clip.fileUrl}clip`}
-              store={store}
-              data={clip}
-              index={index}
-              totalClips={store.clips.length - 1}
-            />
-          );
+          if (clip.trackId === trackId) {
+            return (
+              <Clip
+                key={`${clip.fileUrl}clip`}
+                store={store}
+                data={clip}
+                index={index}
+                totalClips={store.clips.length - 1}
+              />
+            );
+          }
         })}
       </div>
       <div className={renderUploadBarClasses()}>

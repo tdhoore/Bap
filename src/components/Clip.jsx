@@ -76,10 +76,23 @@ const Clip = ({ store, data, index, totalClips }) => {
     store.isTrimmerOpen = true;
   };
 
+  const calcLengthPerTrack = () => {
+    //set clip length in persentages
+    return Math.round(
+      store.mapVal(
+        data.duration,
+        0,
+        store.totalTrackLengths[data.trackId],
+        0,
+        100
+      )
+    );
+  };
+
   return (
     <div
       className={classNames}
-      style={{ width: `${data.clipLength}%` }}
+      style={{ width: `${calcLengthPerTrack()}%` }}
       ref={clipRef}
     >
       {renderPrevBtn()}

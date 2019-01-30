@@ -47,6 +47,7 @@ class Store {
     this.clipId = 0;
     this.clips = [];
     this.totalClipsLength = 0;
+    this.totalTrackLengths = {};
     this.notesCurrentProject = [];
     //gebruiker message
     this.message = ``;
@@ -204,6 +205,15 @@ class Store {
         clip.clipLength = Math.round(
           this.mapVal(clip.duration, 0, this.totalClipsLength, 0, 100)
         );
+
+        //check if track exists
+        if (this.totalTrackLengths[clip.trackId] === undefined) {
+          //if not set to 0
+          this.totalTrackLengths[clip.trackId] = 0;
+        }
+
+        //set total clip length per track
+        this.totalTrackLengths[clip.trackId] += clip.duration;
       });
     }
   }
@@ -212,10 +222,25 @@ class Store {
     //reset totalClipsLength
     let newTotalClipsLength = 0;
 
+    //reset totalTrackLengths
+    let newTotalTrackLengths = {};
+
     //calc totalClipsLength
     this.clips.forEach(clip => {
       newTotalClipsLength += clip.duration;
+
+      //check if track exists
+      if (newTotalTrackLengths[clip.trackId] === undefined) {
+        //if not set to 0
+        newTotalTrackLengths[clip.trackId] = 0;
+      }
+
+      //set total clip length per track
+      newTotalTrackLengths[clip.trackId] += clip.duration;
     });
+
+    //update the total clip length
+    this.totalTrackLengths = newTotalTrackLengths;
 
     //update totalClipsLength
     this.totalClipsLength = newTotalClipsLength;
@@ -509,7 +534,8 @@ decorate(Store, {
   authenticated: observable,
   currentUser: observable,
   notesCurrentProject: observable,
-  message: observable
+  message: observable,
+  totalTrackLengths: observable
 });
 
 const store = new Store();
