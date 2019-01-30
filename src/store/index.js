@@ -196,20 +196,8 @@ class Store {
       }
     });
 
-    //set active clip
-    //this.clips[this.clips.length - 1].isActiveClip = true;
-    //console.log("last index: ", lastIndex);
-    //console.log("clips: ", this.clips);
-    //this.clips[lastIndex].isActiveClip = true;
-
-    //set index
-    //this.activeClipIndex = this.clips.length - 1;
-    //this.activeClipIndex = lastIndex;
-
     //add to clip id
     this.clipId++;
-
-    console.log("clips", this.clips);
   }
 
   setDurrationIfVideo(data, duration) {
@@ -332,6 +320,12 @@ class Store {
 
     //set the old val
     this.clips[currentIndex + direction] = this.clips[currentIndex];
+
+    //update the trackId
+    if (toSwapVal.trackId !== this.clips[currentIndex.trackId]) {
+      //set the new trackId
+      this.clips[currentIndex + direction].trackId += direction;
+    }
 
     //swap in the new val
     this.clips[currentIndex] = toSwapVal;
