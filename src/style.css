@@ -28,6 +28,11 @@
   width: 100%;
 }
 
+.outroTrack {
+  max-width: 20%;
+  background-color: yellow;
+}
+
 .uploadBar {
   position: relative;
   flex: 2;

@@ -33,6 +33,14 @@ const VideoEditor = ({ store, editorType }) => {
     //store.uploadClips();
   };
 
+  const handleInputTitle = e => {
+    const input = e.currentTarget;
+
+    //set the store message
+    //TODO get username
+    store.message = `user wilt ${input.value}`;
+  };
+
   const displayCorrectForm = () => {
     if (editorType === 0) {
       //upload a project voor de klant
@@ -42,7 +50,13 @@ const VideoEditor = ({ store, editorType }) => {
           <div className="titleAndStoryHolder">
             <label htmlFor="title">
               <span>Wat is je doel?</span>
-              <input type="text" id="title" name="title" required />
+              <input
+                type="text"
+                id="title"
+                name="title"
+                required
+                onInput={e => handleInputTitle(e)}
+              />
             </label>
             <label htmlFor="verhaal">
               <span>Jouw verhaal</span>
@@ -61,7 +75,6 @@ const VideoEditor = ({ store, editorType }) => {
   const displayExtraTrack = () => {
     if (editorType === 0) {
       //add to total time
-
       //de gebruiker krijgt een extra css track
       return <Outro store={store} />;
     } else if (editorType === 1) {

@@ -19,6 +19,12 @@ const VideoPlayerEditor = ({ store, videos, editorType }) => {
   const cssOutroVidRef = React.createRef();
 
   const togglePlay = () => {
+    //if upload project remove the animation
+    if (editorType === 0) {
+      //remove css animation
+      cssOutroVidRef.current.classList.remove(`cssOutroVidShow`);
+    }
+
     const $videoElem = videoRef.current;
 
     if ($videoElem.paused) {
@@ -34,6 +40,12 @@ const VideoPlayerEditor = ({ store, videos, editorType }) => {
   };
 
   const handleUpdateTime = () => {
+    //if upload project remove the animation
+    if (editorType === 0) {
+      //remove css animation
+      cssOutroVidRef.current.classList.remove(`cssOutroVidShow`);
+    }
+
     //update progress bar
     const $videoElem = videoRef.current;
     const progressElem = progressRef.current;
@@ -161,6 +173,12 @@ const VideoPlayerEditor = ({ store, videos, editorType }) => {
   const changeVideosCurrentTime = e => {
     const videoElem = videoRef.current;
     const progressElem = progressRef.current;
+
+    //if upload project remove the animation
+    if (editorType === 0) {
+      //remove css animation
+      cssOutroVidRef.current.classList.remove(`cssOutroVidShow`);
+    }
 
     //pause the video
     videoElem.pause();
@@ -334,7 +352,7 @@ const VideoPlayerEditor = ({ store, videos, editorType }) => {
           );
         })}
         <div className="cssOutroVid" ref={cssOutroVidRef}>
-          css
+          {store.message}
         </div>
       </div>
       <div className="videoControls">

@@ -508,7 +508,8 @@ decorate(Store, {
   password: observable,
   authenticated: observable,
   currentUser: observable,
-  notesCurrentProject: observable
+  notesCurrentProject: observable,
+  message: observable
 });
 
 const store = new Store();
