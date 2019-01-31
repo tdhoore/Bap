@@ -12,13 +12,11 @@ const RegisterMakerStep1 = ({store}) =>  {
       } else {
         andereInputRef.current.disabled = true;
       }
-    } else if(e.currentTarget.name === "andereInput"){
-      store.formObject.skillsExtra = e.currentTarget.value;
     } else {
       if(store.formObject.skills === undefined){
         store.formObject.skills = [];
       }
-      store.formObject.skills.push(e.currentTarget.name);
+      store.formObject.skills.push(e.currentTarget.value);
     }
     
   };
@@ -34,32 +32,36 @@ const RegisterMakerStep1 = ({store}) =>  {
         <label htmlFor='lasercutten'>Lasercutten</label>
           <input 
             type='checkbox' 
-            name='lasercutten' 
+            name='skills' 
             id='lasercutten' 
+            value='lasercutten'
             onChange={e => handleMakerSkills(e)}/> 
         </div>
         <div className=''>
         <label htmlFor='3dprinten'>3D printen</label>
           <input 
             type='checkbox' 
-            name='3dprinten' 
+            name='skills' 
             id='3dprinten' 
+            value='3dprinten'
             onChange={e => handleMakerSkills(e)}/> 
         </div>
         <div className=''>
         <label htmlFor='houtbewerking'>Houtbewerking</label>
           <input 
             type='checkbox' 
-            name='houtbewerking' 
-            id='houtbewerking' 
+            name='skills' 
+            id='houtbewerking'
+            value='houtbewerking' 
             onChange={e => handleMakerSkills(e)}/> 
         </div>
         <div className=''>
         <label htmlFor='metaalbewerking'>Metaalbewerking</label>
           <input 
             type='checkbox' 
-            name='metaalbewerking' 
+            name='skills' 
             id='metaalbewerking' 
+            value='metaalbewerking' 
             onChange={e => handleMakerSkills(e)}/> 
         </div>
 
@@ -67,12 +69,12 @@ const RegisterMakerStep1 = ({store}) =>  {
         <label htmlFor='andereCheckbox'>Andere:</label>
           <input 
             type='checkbox' 
-            name='andereCheckbox' 
+            name='skills' 
             id='andereCheckbox' 
             onChange={e => handleMakerSkills(e)}/> 
           <input 
           type="text"
-          name="andereInput"
+          name="skills"
           onChange={e => handleMakerSkills(e)}
           disabled
           ref={andereInputRef}

@@ -4,14 +4,23 @@ import { observer } from "mobx-react";
 
 const RegisterMakerStep2 = ({ store }) => {
 
-  // if(store.formObject.skills === undefined){
-  //       store.formObject.skills = [];
-  //     }
-  //     store.formObject.skills.push(e.currentTarget.name);
-  //   }
-  const handleMakerHobby = e => {
-    store.formObject.hobby = e.currentTarget.name;
+  const andereInputRef = React.createRef();
+  const handleMakerHobby = (e) => {
+    if(e.currentTarget.name === "andereCheckbox"){
+      if(e.currentTarget.checked){
+        andereInputRef.current.disabled = false;
+      } else {
+        andereInputRef.current.disabled = true;
+      }
+    } else {
+      if(store.formObject.hobby === undefined){
+        store.formObject.hobby = [];
+      }
+      store.formObject.hobby.push(e.currentTarget.value);
+    }
+    
   };
+
 
   const handleNextPage = e => {
     store.step++;
@@ -28,8 +37,9 @@ const RegisterMakerStep2 = ({ store }) => {
         <label htmlFor="piano">Piano</label>
         <input
           type="checkbox"
-          name="piano"
+          name="hobby"
           id="piano"
+          value="piano"
           onChange={e => handleMakerHobby(e)}
         />
       </div>
@@ -37,8 +47,9 @@ const RegisterMakerStep2 = ({ store }) => {
         <label htmlFor="tennis">Tennis</label>
         <input
           type="checkbox"
-          name="tennis"
+          name="hobby"
           id="tennis"
+          value="tennis"
           onChange={e => handleMakerHobby(e)}
         />
       </div>
@@ -46,8 +57,9 @@ const RegisterMakerStep2 = ({ store }) => {
         <label htmlFor="pottenbakken">Pottenbakken</label>
         <input
           type="checkbox"
-          name="pottenbakken"
+          name="hobby"
           id="pottenbakken"
+          value="pottenbakken"
           onChange={e => handleMakerHobby(e)}
         />
       </div>
@@ -55,25 +67,28 @@ const RegisterMakerStep2 = ({ store }) => {
         <label htmlFor="gitaar">Gitaar</label>
         <input
           type="checkbox"
-          name="gitaar"
+          name="hobby"
           id="gitaar"
+          value="gitaar"
           onChange={e => handleMakerHobby(e)}
         />
       </div>
 
-      {/* <div className=''>
-        <label htmlFor='naam'>Andere:</label>
+      <div className=''>
+        <label htmlFor='andereCheckbox'>Andere:</label>
           <input 
             type='checkbox' 
-            name='anderecheckbox' 
-            id='andere' 
+            name='hobby' 
+            id='andereCheckbox' 
             onChange={e => handleMakerHobby(e)}/> 
           <input 
           type="text"
-          name="anderetext"
+          name="hobby"
           onChange={e => handleMakerHobby(e)}
+          disabled
+          ref={andereInputRef}
           />
-        </div> */}
+        </div>
       <button onClick={e => handlePreviousPage(e)}>Vorige</button>
       <button onClick={e => handleNextPage(e)}>Volgende</button>
     </div>

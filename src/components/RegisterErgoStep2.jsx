@@ -3,10 +3,23 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 
 const RegisterErgoStep2 = ({ store }) => {
+  const andereInputRef = React.createRef();
   const handleErgoSpecialisation = (e) => {
-    store.formObject.specialisation = e.currentTarget.value;
+    if(e.currentTarget.name === "andereCheckbox"){
+      if(e.currentTarget.checked){
+        andereInputRef.current.disabled = false;
+      } else {
+        andereInputRef.current.disabled = true;
+      }
+    } else {
+      if(store.formObject.specialisation === undefined){
+        store.formObject.specialisation = [];
+      }
+      store.formObject.specialisation.push(e.currentTarget.value);
+    }
+    
   };
-  
+
   const handleNextPage = e => {
     store.step++;
   };

@@ -14,7 +14,7 @@ const RegisterClientStep2 = ({ store }) => {
   };
 
   const handleBirthday = (e) => {
-    store.formObject.birthday = e.target.name.value;
+    store.formObject.birthday = e.target.value;
   };
 
   const handlePreviousPage = e => {

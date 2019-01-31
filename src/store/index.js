@@ -107,15 +107,23 @@ class Store {
   }
 
   registerUser(fileurl='') {
+    const toSendData = {
+      email: this.formObject.email, name: this.formObject.name, type: this.formObject.type, birthday: this.formObject.birthday, skills: this.formObject.skills, hobby: this.formObject.hobby, profilepic: fileurl
+    };
+
+    for(let key in toSendData){
+      if(toSendData[key] === undefined){
+        delete toSendData[key];
+      }
+    }
+    console.log(toSendData);
     firebase.auth().createUserWithEmailAndPassword(this.formObject.email, this.formObject.password)
       .then(u => {
-        const skillsArray = this.formObject.skills;
-        skillsArray.push(this.formObject.skillsExtra);
         console.log(u);
         this.user = u.user;
         this.database
         .collection(`users`)
-        .add({ email: this.formObject.email, name: this.formObject.name, type: this.formObject.type, birthday: this.formObject.birthday, skills: skillsArray})
+        .add(toSendData)
         .then(() => {
           console.log("User successfully added!");
         })
@@ -133,11 +141,13 @@ class Store {
     if(this.formObject.profilepicfile === undefined){
       this.registerUser();
     } else {
-
-      const imgLocation = this.storage.child(`profilepics/${this.formObject.email}.${this.formObject.profilepicfile.type}`);
-      console.log('PROFILEPIC:', `profilepics/${this.formObject.email}.${this.formObject.profilepicfile.type}`);
-      this.storage.put(this.formObject.profilepicfile).then( snapshot => {
-        console.log('SNAPSHOT:', snapshot);
+      console.log('PROFILE FILE:',this.formObject.profilepicfile.name.split('.').pop());
+      const extension = this.formObject.profilepicfile.name.split('.').pop();
+      const imgLocation = this.storage.child(`profilePics/${this.formObject.email}.${extension}`);
+      console.log('PROFILEPIC:', `profilePics/${this.formObject.email}.${this.formObject.profilepicfile.type}`);
+      imgLocation.put(this.formObject.profilepicfile).then( snapshot => {
+        console.log('SNAPSHOT FULLPATH:', snapshot);
+        this.registerUser(snapshot.metadata.fullPath);
       }).catch(error => {
         console.log(error.message);
       });
