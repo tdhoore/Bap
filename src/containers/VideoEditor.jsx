@@ -20,17 +20,16 @@ const VideoEditor = ({ store, editorType }) => {
 
   const handleUpload = e => {
     e.preventDefault();
-    console.log(e);
     const formData = new FormData(e.target);
     const data = {};
 
-    formData.forEach(function(value, key) {
+    formData.forEach((value, key) => {
       data[key] = value;
     });
 
     console.log(data);
 
-    //store.uploadClips();
+    store.uploadClips();
   };
 
   const handleInputTitle = e => {

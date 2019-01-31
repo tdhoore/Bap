@@ -52,10 +52,8 @@ app.post("/postclipsmetadata", upload.single(), (req, res) => {
   console.log("meta: " + req.body.durations);
 
   //create the video
-  const genVideo = new CreateVideo({ meta: req.body });
+  const genVideo = new CreateVideo({ meta: req.body, res: res });
   genVideo.createVideo();
-
-  res.send(req.body);
 });
 
 //fix empty links

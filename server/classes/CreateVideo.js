@@ -9,10 +9,15 @@ ffmpeg.setFfprobePath(ffprobePath);
 class CreateVideo {
   constructor(
     param = {
-      meta: false
+      meta: false,
+      res: false
     }
   ) {
     this.metaData = param.meta;
+    this.res = param.res;
+
+    this.counter = 0;
+    this.isOneClip = false;
   }
 
   durationToTimeStamp(time) {
@@ -41,36 +46,51 @@ class CreateVideo {
   cutVideo(clipName, startDur, dur, isLastCLip, totalVideoCount) {
     const dir = __dirname.replace(`/classes`, ``);
 
-    return new Promise((resolve, reject) => {
-      new ffmpeg(`${dir}/uploads/${clipName}.mp4`)
-        .setStartTime(startDur)
-        .setDuration(dur)
-        .noAudio()
-        .size("1280x720")
-        .save(`${dir}/uploads/${clipName}Edited.mp4`)
-        .on("start", function(commandLine) {
-          console.log("start : " + commandLine);
-        })
-        .on("progress", function(progress) {
-          console.log("In Progress !!" + Date());
-        })
-        .on("end", () => {
-          console.log("download resolved");
+    //if one clip  this is final video name approperiatly
+    let clipFinalName = `${clipName}Edited`;
 
-          //delete old clip
-          fs.unlinkSync(`${dir}/uploads/${clipName}.mp4`);
+    if (this.isOneClip) {
+      clipFinalName = `video`;
+    }
 
-          //merge videos
-          console.log(isLastCLip && totalVideoCount > 0);
-          this.mergeClips(isLastCLip, totalVideoCount);
+    new ffmpeg(`${dir}/uploads/${clipName}.mp4`)
+      .setStartTime(startDur)
+      .setDuration(dur)
+      .noAudio()
+      .size("1280x720")
+      .save(`${dir}/uploads/${clipFinalName}.mp4`)
+      .on("start", function(commandLine) {
+        console.log("start : " + commandLine);
+      })
+      .on("progress", function(progress) {
+        console.log("In Progress !!" + Date());
+      })
+      .on("end", () => {
+        console.log("cut resolved");
 
-          return `done`;
-        })
-        .on("error", function(err) {
-          console.log(err);
-          return err;
-        });
-    });
+        //delete old clip
+        fs.unlinkSync(`${dir}/uploads/${clipName}.mp4`);
+
+        //add to the counter
+        this.counter++;
+
+        //first video has been cut start the next one
+        if (
+          this.counter <= this.metaData.durations.length - 1 &&
+          !this.isOneClip
+        ) {
+          this.cutMoreVideos();
+        }
+
+        //merge videos
+        this.mergeClips(isLastCLip, totalVideoCount);
+
+        return `done`;
+      })
+      .on("error", function(err) {
+        console.log(err);
+        return err;
+      });
   }
 
   mergeClips(isLastCLip, totalVideoCount) {
@@ -93,8 +113,16 @@ class CreateVideo {
         .on("progress", function(progress) {
           console.log("In Progress !!" + Date());
         })
-        .on("end", function() {
+        .on("end", () => {
           console.log(`done`);
+
+          //delete old edit files
+          for (let i = 0; i < totalVideoCount; i++) {
+            fs.unlinkSync(`${dir}/uploads/clip${i}Edited.mp4`);
+          }
+
+          this.res.send(`done`);
+          this.isDone = true;
         })
         .on("error", function(err) {
           console.log(err);
@@ -128,12 +156,25 @@ class CreateVideo {
       });
   }
 
+  cutMoreVideos() {
+    this.cutVideo(
+      `clip${this.counter}`,
+      this.durationToTimeStamp(this.metaData.starts[this.counter]),
+      this.durationToTimeStamp(this.metaData.durations[this.counter]),
+      this.metaData.durations.length - 1 === this.counter,
+      this.metaData.durations.length
+    );
+  }
+
   createVideo() {
     console.log(typeof this.metaData.durations);
     //is there more than one video?
     if (typeof this.metaData.durations === `string`) {
       //is one video
       console.log(`one`);
+
+      //is one clip
+      this.isOneClip = true;
 
       //calculate the start duration
       const startDur = this.durationToTimeStamp(this.metaData.starts);
@@ -150,21 +191,11 @@ class CreateVideo {
       //are more videos
       console.log(`more`);
 
-      //go through all videos and cup them all
-      this.metaData.durations.forEach((dur, index) => {
-        //check if last clip
-        const isLastClip = 0 === index;
+      //are more clips
+      this.isOneClip = false;
 
-        console.log(index);
-
-        this.cutVideo(
-          `clip${index}`,
-          this.durationToTimeStamp(this.metaData.starts[index]),
-          this.durationToTimeStamp(dur),
-          isLastClip,
-          this.metaData.durations.length
-        );
-      });
+      //cut first video
+      this.cutMoreVideos();
     }
   }
 }
