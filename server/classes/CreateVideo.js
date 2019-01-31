@@ -2,6 +2,7 @@ const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
 const ffprobePath = require("@ffprobe-installer/ffprobe").path;
 const ffmpeg = require("fluent-ffmpeg");
 const fs = require("fs");
+const uniqid = require("uniqid");
 
 ffmpeg.setFfmpegPath(ffmpegPath);
 ffmpeg.setFfprobePath(ffprobePath);
@@ -52,7 +53,7 @@ class CreateVideo {
     let clipFinalName = `${clipName}Edited`;
 
     if (this.isOneClip) {
-      clipFinalName = `video`;
+      clipFinalName = uniqid();
     }
 
     new ffmpeg(`${dir}/uploads/${clipName}.mp4`)
@@ -75,7 +76,7 @@ class CreateVideo {
 
         //if one clip then send result
         if (this.isOneClip) {
-          this.res.send(`video`);
+          this.res.send(`server/uploads/${clipFinalName}.mp4`);
         }
 
         //add to the counter
@@ -114,9 +115,12 @@ class CreateVideo {
         );
       }
 
+      //gen random name
+      const vidName = uniqid();
+
       //merge the videos
       toMergeVideo
-        .mergeToFile(`${dir}/uploads/video.mp4`, `${dir}/tmp`)
+        .mergeToFile(`${dir}/uploads/${vidName}.mp4`, `${dir}/tmp`)
         .on("progress", function(progress) {
           console.log("In Progress !!" + Date());
         })
@@ -129,7 +133,7 @@ class CreateVideo {
           }
 
           //send back message of completion
-          this.res.send(`video`);
+          this.res.send(`server/uploads/${vidName}.mp4`);
         })
         .on("error", function(err) {
           console.log(err);
