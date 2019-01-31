@@ -72,7 +72,6 @@ const Trimmer = ({ store }) => {
   };
 
   const updateStartVal = e => {
-    console.log("start");
     const trimmerTimeLineElem = trimmerTimeLineRef.current;
     //get postion from 0
     const trimmerLeftPos = trimmerTimeLineElem.getBoundingClientRect().left;
@@ -139,7 +138,6 @@ const Trimmer = ({ store }) => {
   };
 
   const updateEndVal = e => {
-    console.log("end");
     const trimmerTimeLineElem = trimmerTimeLineRef.current;
 
     //get postion from 0
@@ -264,7 +262,6 @@ const Trimmer = ({ store }) => {
   };
 
   const handleComfirmTrim = e => {
-    console.log(`close trimmer`);
     //close the trimmer
     store.isTrimmerOpen = false;
   };

@@ -55,7 +55,6 @@ class App extends Component {
         <Route
           path="/login"
           render={props => {
-            console.log(`authenticated:`, store);
             if (store.user) {
               return <Redirect to="/" />;
             }

@@ -161,7 +161,6 @@ class Store {
 
     //remove active class from clips
     this.clips.forEach((clip, index) => {
-      console.log("clip: " + clip);
       if (clip.isActiveClip) {
         this.clips[index].isActiveClip = false;
       }
@@ -177,14 +176,8 @@ class Store {
 
     //move new clip to the correct position
     let test = this.clips;
-    test = test.sort((a, b) => {
-      console.log("a", a.trackId);
-      console.log("b", b.trackId);
-
-      return a.trackId - b.trackId;
-    });
+    test = test.sort((a, b) => a.trackId - b.trackId);
     this.clips = test;
-    console.log("jksfkjdhfsdj ", test);
 
     this.clips.forEach((clip, index) => {
       if (clip.id === newClip.id) {
@@ -250,7 +243,7 @@ class Store {
 
     //update the total clip length
     this.totalTrackLengths = newTotalTrackLengths;
-    console.log("trackLenghts: ", newTotalTrackLengths);
+
     //update totalClipsLength
     this.totalClipsLength = newTotalClipsLength;
 
@@ -302,39 +295,59 @@ class Store {
     //save old val
     const toSwapVal = this.clips[currentIndex + direction];
 
-    //set the old val
-    this.clips[currentIndex + direction] = this.clips[currentIndex];
+    //check if move track or move index
+    if (toSwapVal !== undefined) {
+      if (toSwapVal.trackId === this.clips[currentIndex].trackId) {
+        //move by index
+        //set the old val
+        this.clips[currentIndex + direction] = this.clips[currentIndex];
 
-    //update the trackId
-    if (toSwapVal.trackId !== this.clips[currentIndex.trackId]) {
-      //set the new trackId
-      this.clips[currentIndex + direction].trackId += direction;
-    }
+        //swap in the new val
+        this.clips[currentIndex] = toSwapVal;
 
-    //swap in the new val
-    this.clips[currentIndex] = toSwapVal;
+        //set new active clip
+        this.clips.forEach((clip, index) => {
+          if (currentIndex + direction === index) {
+            //is new active clip
+            clip.isActiveClip = true;
 
-    //set new active clip
-    this.clips.forEach((clip, index) => {
-      if (currentIndex + direction === index) {
-        //is new active clip
-        clip.isActiveClip = true;
+            //set global active
+            this.activeClipIndex = index;
+          } else {
+            //remove active clip
+            clip.isActiveClip = false;
+          }
+        });
 
-        //set global active
-        this.activeClipIndex = index;
+        //set new progressbar
+        //check if first or not
+        if (currentIndex + direction > 0) {
+          this.progressBarValue =
+            100 - this.calcToRemoveTime(currentIndex + direction);
+        } else {
+          this.progressBarValue = 0;
+        }
       } else {
-        //remove active clip
-        clip.isActiveClip = false;
-      }
-    });
+        //move by track
+        let newTrackId = this.clips[currentIndex].trackId + direction;
 
-    //set new progressbar
-    //check if first or not
-    if (currentIndex + direction > 0) {
-      this.progressBarValue =
-        100 - this.calcToRemoveTime(currentIndex + direction);
+        //limit track id
+        if (newTrackId < 1) {
+          newTrackId = 1;
+        }
+
+        this.clips[currentIndex].trackId = newTrackId;
+      }
     } else {
-      this.progressBarValue = 0;
+      //move by track
+      let newTrackId = this.clips[currentIndex].trackId + direction;
+
+      //limit track id
+      if (newTrackId < 1) {
+        newTrackId = 1;
+      }
+
+      this.clips[currentIndex].trackId = newTrackId;
     }
 
     //update length of clips

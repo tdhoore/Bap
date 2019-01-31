@@ -38,30 +38,19 @@ const Clip = ({ store, data, index, totalClips }) => {
     store.moveClip(index, counter);
   };
 
-  const handleMoveTrack = e => {
-    store.clips[index].trackId = data.trackId - 1;
-  };
-
   const renderPrevBtn = () => {
-    if (index > 0) {
+    if (index > 0 || data.trackId === 2) {
       return (
         <button
           className="moveClipBtn moveClipBtnPrev"
           onClick={e => handleClickNextAndPrevBtns(e, -1)}
         />
       );
-    } else if (data.trackId > 1 && index > 0) {
-      return (
-        <button
-          className="moveClipBtn moveClipBtnPrev"
-          onClick={e => handleMoveTrack(e)}
-        />
-      );
     }
   };
 
   const renderNextBtn = () => {
-    if (index < totalClips) {
+    if (index < totalClips || data.trackId === 1) {
       return (
         <button
           className="moveClipBtn moveClipBtnNext"
@@ -88,7 +77,6 @@ const Clip = ({ store, data, index, totalClips }) => {
   };
 
   const calcLengthPerTrack = () => {
-    console.log("track lengths: ", store.totalTrackLengths);
     //set clip length in persentages
     return Math.round(
       store.mapVal(

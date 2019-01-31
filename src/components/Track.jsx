@@ -20,7 +20,7 @@ const Track = ({ store, trackId }) => {
       //is video
       isVideo = true;
     }
-    console.log(trackId);
+
     //add clip to the timeline
     //and set as active clip
     store.addClipToTimeLine({

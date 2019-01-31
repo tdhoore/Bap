@@ -1,20 +1,11 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { observer } from "mobx-react";
-import Step from "./Step.jsx";
 //import video from '../assets/video/vid.mp4';
-import img from "../assets/img/pic.jpg";
 
 const VideoPlayerEditor = ({ store, videos, editorType }) => {
   const videoRef = React.createRef();
   const progressRef = React.createRef();
-
-  const scrubberRef = React.createRef();
-
-  const noteFormRef = React.createRef();
-  const noteInputRef = React.createRef();
-  const notesHolderRef = React.createRef();
-  let noteElems = false;
 
   const cssOutroVidRef = React.createRef();
 
@@ -50,24 +41,7 @@ const VideoPlayerEditor = ({ store, videos, editorType }) => {
     const $videoElem = videoRef.current;
     const progressElem = progressRef.current;
 
-    //const scrubber = scrubberRef.current;
-
     const activeClip = store.clips[store.activeClipIndex];
-
-    //find the active clip
-    //const videoIndex = store.activeClipIndex;
-
-    //calc the percentages to add
-    /*let percentageToAdd = 0;
-
-    if (videoIndex > 0) {
-      store.clips.forEach((clip, index) => {
-        //check if in range
-        if (videoIndex > index) {
-          percentageToAdd += clip.clipLength;
-        }
-      });
-    }*/
 
     //calc correct percentage
     let currentDurTotal = store.mapVal(
@@ -112,58 +86,7 @@ const VideoPlayerEditor = ({ store, videos, editorType }) => {
         handleEndVideo(store.activeClipIndex);
       }
     }
-
-    //get total width of the progressbar
-    /*const progressTotalWidth = progressElem.offsetWidth;
-
-    //calc the distance of the bar
-    const progress = (progressTotalWidth / 100) * progressElem.value;
-
-    //move scubber
-    scrubber.style.transform = `translateX(${progress}px)`;
-
-    //display note
-    displayNote($videoElem.currentTime);*/
   };
-
-  /*const displayNote = dur => {
-    console.log(dur);
-    //is there a comment here
-    store.notesCurrentProject.forEach((noteData, index) => {
-      if (noteData.timeStamp < dur + 1 && noteData.timeStamp > dur - 1) {
-        //there is a comment here
-
-        //check if there are comment elemets
-        if (!noteElems) {
-          //no so create them
-          const commentsHolder = notesHolderRef.current;
-          noteElems = [...commentsHolder.querySelectorAll(`.comment`)];
-        }
-
-        //hide all other comments and display this one
-        noteElems.forEach((commentElem, indexElems) => {
-          if (indexElems === index) {
-            //show this
-            commentElem.classList.remove(`hide`);
-          } else {
-            //hide this
-            commentElem.classList.add(`hide`);
-          }
-        });
-      }
-    });
-  };
-
-  const handleClickScrubber = e => {
-    const videoElem = videoRef.current;
-    const commentFormElem = noteFormRef.current;
-
-    //pause video
-    videoElem.pause();
-
-    //show the comment option
-    commentFormElem.classList.toggle(`hide`);
-  };*/
 
   const handleStartStop = () => {
     //start and stop the video
@@ -307,33 +230,6 @@ const VideoPlayerEditor = ({ store, videos, editorType }) => {
     return null;
   };
 
-  /*const handleSaveNote = e => {
-    e.preventDefault();
-    //get input
-    const commentInput = noteInputRef.current;
-    const videoElem = videoRef.current;
-
-    //collect data
-    const data = {
-      note: "",
-      timeStamp: 0
-    };
-
-    //collect comment
-    data.note = commentInput.value;
-
-    //collect timeStamp
-    data.timeStamp = videoElem.currentTime;
-
-    //send comment
-    console.log(`send ${data.note} at ${data.timeStamp}`);
-    store.notesCurrentProject.push(data);
-
-    console.log(store.notesCurrentProject);
-
-    return false;
-  };*/
-
   return (
     <div className="videoPlayer">
       <div className="contentHolder">
@@ -360,20 +256,6 @@ const VideoPlayerEditor = ({ store, videos, editorType }) => {
           Play/pause
         </button>
         <div className="progressBarHolder">
-          <div
-            className="scrubber"
-            ref={scrubberRef}
-            onClick={e => handleClickScrubber(e)}
-          />
-          <div className="commentsHolder" ref={notesHolderRef}>
-            {store.notesCurrentProject.map((noteData, index) => {
-              return (
-                <div key={`note${index}`} className="comment hide">
-                  {noteData.note}
-                </div>
-              );
-            })}
-          </div>
           <progress
             value="0"
             max="100"
@@ -389,10 +271,6 @@ const VideoPlayerEditor = ({ store, videos, editorType }) => {
           >
             Fullscreen
           </button>
-          <form className="miniComment hide" ref={noteFormRef}>
-            <input type="text" className="timeStamp" ref={noteInputRef} />
-            <input type="submit" onClick={e => handleSaveNote(e)} />
-          </form>
         </div>
       </div>
     </div>
