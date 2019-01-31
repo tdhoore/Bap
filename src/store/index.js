@@ -213,7 +213,7 @@ class Store {
 
       //get the clip
       this.clips.forEach((clip, index) => {
-        if (clip.fileUrl === data.fileUrl) {
+        if (clip.id === data.id) {
           //set the new duration
           this.clips[index].duration = duration;
 
@@ -222,28 +222,12 @@ class Store {
         }
       });
 
-      //add to total clips length
-      this.totalClipsLength += duration;
-
-      //check if track exists
-      if (this.totalTrackLengths[data.trackId] === undefined) {
-        //if not set to 0
-        this.totalTrackLengths[data.trackId] = 0;
-      }
-
-      //set total clip length per track
-      this.totalTrackLengths[data.trackId] += data.duration;
-
-      //set clips length in persentages
-      this.clips.forEach(clip => {
-        clip.clipLength = Math.round(
-          this.mapVal(clip.duration, 0, this.totalClipsLength, 0, 100)
-        );
-      });
+      //update total length
+      this.updateTotalClipsLength();
     }
   }
 
-  updateTotalClipsLength(editorType) {
+  updateTotalClipsLength() {
     //reset totalClipsLength
     let newTotalClipsLength = 0;
 
@@ -266,7 +250,7 @@ class Store {
 
     //update the total clip length
     this.totalTrackLengths = newTotalTrackLengths;
-
+    console.log("trackLenghts: ", newTotalTrackLengths);
     //update totalClipsLength
     this.totalClipsLength = newTotalClipsLength;
 
@@ -352,6 +336,9 @@ class Store {
     } else {
       this.progressBarValue = 0;
     }
+
+    //update length of clips
+    this.updateTotalClipsLength();
   }
 
   playNextClip(index) {
