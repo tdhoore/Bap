@@ -4,34 +4,27 @@ import { Redirect } from "react-router-dom";
 import { observer } from "mobx-react";
 
 const RegisterClientStep2 = ({ store }) => {
-  //   const handleSumbitForm = e => {
-  //   e.preventDefault();
-  //   store.register({
-  //     email: e.target.email.value,
-  //     password: e.target.password.value,
-  //     feedback: store.feedback
-  //   });
-  // };
-
-  const handleClientStep2 = (e) => {
-    store.formObject.name = e.target.name.value;
-    console.log('e target value:', e.target.name.value);
-    store.formObject.email = e.target.email.value;
-    // store.formObject.profilepic = e.currentTarget.value;
+    const handleSumbitForm = e => {
+    e.preventDefault();
+    store.register();
   };
 
-  const handleNextPage = e => {
-    store.step++;
+  const handleLocation = (e) => {
+    // store.formObject.location = e.target.name.value;
+  };
+
+  const handleBirthday = (e) => {
+    store.formObject.birthday = e.target.name.value;
   };
 
   const handlePreviousPage = e => {
+    e.preventDefault();
     store.step--;
   };
 
   return (
     <div className="">
-      {/* <form onSubmit={e => handleRegister(e)}> */}
-        <p className="auth-feedback">{store.feedback}</p>
+      <form>
         <div className="">
           <label htmlFor="stad">Stad</label>
           <input
@@ -39,7 +32,7 @@ const RegisterClientStep2 = ({ store }) => {
             name="stad"
             id="stad"
             placeholder="Stad"
-            onChange={e => handleClientStep2(e)}
+            onChange={e => handleLocation(e)}
           />
         </div>
         <div className="">
@@ -48,7 +41,7 @@ const RegisterClientStep2 = ({ store }) => {
             type="date"
             name="birthday"
             id="birthday"
-            onChange={e => handleClientStep2(e)}
+            onChange={e => handleBirthday(e)}
           />
         </div>
         <div className="">
@@ -61,8 +54,8 @@ voorwaarden</label>
           />
         </div>
         <button onClick={e => handlePreviousPage(e)}>Vorige</button>
-        {/* <button onClick={e => handleSumbitForm(e)}>Registreer</button> */}
-        {/* <button type='submit'>Registreer</button> */}
+        <button onClick={e => handleSumbitForm(e)}>Registreer</button>
+      </form>
     </div>
   );
 };

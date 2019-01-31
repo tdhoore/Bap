@@ -3,8 +3,14 @@ import React, { Component } from "react";
 import { observer } from "mobx-react";
 
 const RegisterMakerStep2 = ({ store }) => {
+
+  // if(store.formObject.skills === undefined){
+  //       store.formObject.skills = [];
+  //     }
+  //     store.formObject.skills.push(e.currentTarget.name);
+  //   }
   const handleMakerHobby = e => {
-    store.formObject.hobby = e.currentTarget.value;
+    store.formObject.hobby = e.currentTarget.name;
   };
 
   const handleNextPage = e => {

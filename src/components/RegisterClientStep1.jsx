@@ -1,23 +1,42 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { observer } from "mobx-react";
+import defaultPic from '../assets/img/pic.jpg';
 
 const RegisterClientStep1 = ({ store }) => {
-  // const handleRegister = e => {
-  //   e.preventDefault();
-  //   store.register({
-  //     email: e.target.email.value,
-  //     password: e.target.password.value,
-  //     feedback: store.feedback
-  //   });
-  // };
+  const handleRegister = e => {
+    e.preventDefault();
+    // store.register({
+    //   email: e.target.email.value,
+    //   password: e.target.password.value,
+    //   feedback: store.feedback
+    // });
+  };
 
   const handleClientStep1 = (e) => {
-    store.formObject.name = e.target.name.value;
-    console.log('e target value:', e.target.name.value);
-    store.formObject.email = e.target.email.value;
-    // store.formObject.profilepic = e.currentTarget.value;
+    const input = e.currentTarget;
+    if(input.name === "name"){
+      store.formObject.name = input.value;
+      console.log(`store.formObject.name:`, input.value);
+    } else if(input.name ==="email") {
+      store.formObject.email = input.value;
+    } else if(input.name === 'profilepic'){
+      const file = input.files[0];
+      store.formObject.profilepicfile = file;
+      store.formObject.profilepicurl = URL.createObjectURL(file);
+      console.log(`PROFILEPICURL:`,store.formObject.profilepicurl)
+    } else if(input.name === 'password'){
+      store.formObject.password = input.value;
+    }
   };
+
+  const showPicture = () => {
+    if(store.formObject.profilepicurl === undefined){
+      return defaultPic;
+    } else {
+      return store.formObject.profilepicurl;
+    }
+  }
 
   const handleNextPage = e => {
     store.step++;
@@ -27,20 +46,24 @@ const RegisterClientStep1 = ({ store }) => {
     store.step--;
   };
 
-  // onSubmit={e => handleRegister(e)}
-
   return (
     <div className="">
+    <form onSubmit={e => handleRegister(e)}>
         <p className="auth-feedback">{store.feedback}</p>
-        {/* <div className=''>
+        <div className=''>
         <label htmlFor='profilepic' className='hide'>profilepic</label>
-          <input 
-            type='image' 
-            name='profilepic' 
-            id='profilepic'
-            alt='profilepic'
-          /> 
-        </div> */}
+          <div className="profilePictureDiv">
+            <input 
+              type='file' 
+              name='profilepic' 
+              id='profilepic'
+              accept='image/png,image/jpg'
+              onChange={e => handleClientStep1(e)}
+              required
+            /> 
+            <img src={showPicture()} alt="profielfoto"/>
+          </div>
+        </div>
         <div className="">
           <label htmlFor="naam">Naam</label>
           <input
@@ -49,6 +72,7 @@ const RegisterClientStep1 = ({ store }) => {
             id="name"
             placeholder="Voornaam Familienaam"
             onChange={e => handleClientStep1(e)}
+            required
           />
         </div>
         <div className="">
@@ -59,6 +83,7 @@ const RegisterClientStep1 = ({ store }) => {
             id="emailaddress"
             placeholder="billie@mail.com"
             onChange={e => handleClientStep1(e)}
+            required
           />
           <p className="">We delen jouw e-mailadres nooit met iemand anders.</p>
         </div>
@@ -70,10 +95,13 @@ const RegisterClientStep1 = ({ store }) => {
             className=""
             id="passwordinput"
             placeholder="Wachtwoord"
+            onChange={e => handleClientStep1(e)}
+            required
           />
         </div>
         <button onClick={e => handlePreviousPage(e)}>Vorige</button>
         <button onClick={e => handleNextPage(e)}>Volgende</button>
+        </form>
     </div>
   );
 };

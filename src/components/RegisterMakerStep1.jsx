@@ -3,8 +3,24 @@ import React, {Component} from 'react';
 import {observer} from 'mobx-react';
 
 const RegisterMakerStep1 = ({store}) =>  {
+  // referentie aangemaakt om inputveld 'andere' aan te spreken en te kunnen disablen of enablen
+  const andereInputRef = React.createRef();
   const handleMakerSkills = (e) => {
-    store.formObject.skills = e.currentTarget.value;
+    if(e.currentTarget.name === "andereCheckbox"){
+      if(e.currentTarget.checked){
+        andereInputRef.current.disabled = false;
+      } else {
+        andereInputRef.current.disabled = true;
+      }
+    } else if(e.currentTarget.name === "andereInput"){
+      store.formObject.skillsExtra = e.currentTarget.value;
+    } else {
+      if(store.formObject.skills === undefined){
+        store.formObject.skills = [];
+      }
+      store.formObject.skills.push(e.currentTarget.name);
+    }
+    
   };
 
   const handleNextPage = e => {
@@ -47,19 +63,21 @@ const RegisterMakerStep1 = ({store}) =>  {
             onChange={e => handleMakerSkills(e)}/> 
         </div>
 
-        {/* <div className=''>
-        <label htmlFor='naam'>Andere:</label>
+        <div className=''>
+        <label htmlFor='andereCheckbox'>Andere:</label>
           <input 
             type='checkbox' 
-            name='metaalbewerking' 
-            id='metaalbewerking' 
+            name='andereCheckbox' 
+            id='andereCheckbox' 
             onChange={e => handleMakerSkills(e)}/> 
           <input 
           type="text"
-          name="andere"
+          name="andereInput"
           onChange={e => handleMakerSkills(e)}
+          disabled
+          ref={andereInputRef}
           />
-        </div> */}
+        </div>
 
       <button onClick={e => handleNextPage(e)}>Volgende</button>
     </div>

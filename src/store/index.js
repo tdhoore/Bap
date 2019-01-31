@@ -19,7 +19,7 @@ class Store {
 
     firebase.initializeApp(config);
     this.auth = firebase.auth();
-    this.db = firebase.database();
+    this.storage = firebase.storage().ref();
 
     this.user = ((localStorage.getItem('authUser') !== null) ? JSON.parse(localStorage.getItem('authUser')) : false);
     console.log(`authUser:`, localStorage.getItem('authUser'));
@@ -58,7 +58,6 @@ class Store {
 
     //form
     this.formObject = {};
-    console.log('STORE FORMOBJECT:',this.formObject);
     this.step = 1;
   }
 
@@ -107,18 +106,43 @@ class Store {
     });
   }
 
-  register(e) {
-    const {email, password, feedback} = e;
-    firebase.auth().createUserWithEmailAndPassword(email, password)
+  registerUser(fileurl='') {
+    firebase.auth().createUserWithEmailAndPassword(this.formObject.email, this.formObject.password)
       .then(u => {
+        const skillsArray = this.formObject.skills;
+        skillsArray.push(this.formObject.skillsExtra);
         console.log(u);
         this.user = u.user;
+        this.database
+        .collection(`users`)
+        .add({ email: this.formObject.email, name: this.formObject.name, type: this.formObject.type, birthday: this.formObject.birthday, skills: skillsArray})
+        .then(() => {
+          console.log("User successfully added!");
+        })
+        .catch(error => {
+          console.error("Error adding user in db: ", error);
+        });
       })
       .catch(error => {
-        console.log(error);
-        error.message = feedback;
+        console.log(error.message);
       });
   }
+
+  register() {
+    console.log('STORE FORMOBJECT:',this.formObject);
+    if(this.formObject.profilepicfile === undefined){
+      this.registerUser();
+    } else {
+
+      const imgLocation = this.storage.child(`profilepics/${this.formObject.email}.${this.formObject.profilepicfile.type}`);
+      console.log('PROFILEPIC:', `profilepics/${this.formObject.email}.${this.formObject.profilepicfile.type}`);
+      this.storage.put(this.formObject.profilepicfile).then( snapshot => {
+        console.log('SNAPSHOT:', snapshot);
+      }).catch(error => {
+        console.log(error.message);
+      });
+      }
+    }
 
   handleChangeLogin(e) {
     const input = e.currentTarget;
