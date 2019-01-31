@@ -4,7 +4,7 @@ import { observer } from "mobx-react";
 // eslint-disable-next-line no-unused-vars
 import Clip from "../components/Clip.jsx";
 
-const Track = ({ store, trackId }) => {
+const Track = ({ store, trackId, editorType }) => {
   const clipsHolder = React.createRef();
 
   const handleAddClip = e => {
@@ -80,6 +80,7 @@ const Track = ({ store, trackId }) => {
                 data={clip}
                 index={index}
                 totalClips={store.clips.length - 1}
+                editorType={editorType}
               />
             );
           }

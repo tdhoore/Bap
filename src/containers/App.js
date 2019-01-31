@@ -23,7 +23,7 @@ class App extends Component {
   }
 
   displayVideoEditor(store) {
-    return <VideoEditor store={store} editorType={1} />;
+    return <VideoEditor store={store} editorType={0} />;
   }
 
   displayBodySelector(store) {

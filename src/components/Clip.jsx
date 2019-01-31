@@ -2,7 +2,7 @@
 import React from "react";
 import { observer } from "mobx-react";
 
-const Clip = ({ store, data, index, totalClips }) => {
+const Clip = ({ store, data, index, totalClips, editorType }) => {
   let classNames = `clip`;
 
   const clipRef = React.createRef();
@@ -39,7 +39,7 @@ const Clip = ({ store, data, index, totalClips }) => {
   };
 
   const renderPrevBtn = () => {
-    if (index > 0 || data.trackId === 2) {
+    if (index > 0 || (data.trackId === 2 && editorType === 1)) {
       return (
         <button
           className="moveClipBtn moveClipBtnPrev"
@@ -50,7 +50,7 @@ const Clip = ({ store, data, index, totalClips }) => {
   };
 
   const renderNextBtn = () => {
-    if (index < totalClips || data.trackId === 1) {
+    if (index < totalClips || (data.trackId === 1 && editorType === 1)) {
       return (
         <button
           className="moveClipBtn moveClipBtnNext"

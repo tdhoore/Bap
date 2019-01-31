@@ -79,7 +79,7 @@ const VideoEditor = ({ store, editorType }) => {
       return <Outro store={store} />;
     } else if (editorType === 1) {
       //de maker heeft 2 gewone tracks
-      return <Track store={store} trackId={2} />;
+      return <Track store={store} trackId={2} editorType={editorType} />;
     }
   };
 
