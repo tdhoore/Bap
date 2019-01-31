@@ -18,6 +18,8 @@ class CreateVideo {
 
     this.counter = 0;
     this.isOneClip = false;
+
+    this.tester = ``;
   }
 
   durationToTimeStamp(time) {
@@ -71,6 +73,11 @@ class CreateVideo {
         //delete old clip
         fs.unlinkSync(`${dir}/uploads/${clipName}.mp4`);
 
+        //if one clip then send result
+        if (this.isOneClip) {
+          this.res.send(`video`);
+        }
+
         //add to the counter
         this.counter++;
 
@@ -121,8 +128,8 @@ class CreateVideo {
             fs.unlinkSync(`${dir}/uploads/clip${i}Edited.mp4`);
           }
 
-          this.res.send(`done`);
-          this.isDone = true;
+          //send back message of completion
+          this.res.send(`video`);
         })
         .on("error", function(err) {
           console.log(err);

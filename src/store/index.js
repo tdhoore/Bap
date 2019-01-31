@@ -460,7 +460,11 @@ class Store {
             fetch("http://localhost:5000/postclipsmetadata", {
               method: "POST",
               body: metaData
-            }).then(r => console.log("result: ", r.text()));
+            })
+              .then(r => r.text())
+              .then(r => {
+                console.log(r);
+              });
           }
         });
 
