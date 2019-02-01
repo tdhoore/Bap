@@ -21,35 +21,39 @@ const RegisterErgoStep3 = ({ store }) => {
         <div className="">
           <p>Welke leeftijd van klant vergt je voorkeur?</p>
           <div className=''>
-        <label htmlFor='kinderen'>Kinderen</label>
+        <label htmlFor='kinderen'>Kinderen (0 - 12 jaar)</label>
           <input 
             type='radio' 
-            name='kinderen' 
-            id='kinderen' 
+            name='ageCategory' 
+            id='kinderen'
+            value='kinderen'
             onChange={e => handleErgoClientAge(e)}/> 
         </div>
         <div className=''>
-        <label htmlFor='jongeren'>Jongeren</label>
+        <label htmlFor='jongeren'>Jongeren (13 - 17 jaar)</label>
           <input 
             type='radio' 
-            name='jongeren' 
-            id='jongeren' 
+            name='ageCategory' 
+            id='jongeren'
+            value='jongeren'
             onChange={e => handleErgoClientAge(e)}/> 
         </div>
         <div className=''>
-        <label htmlFor='volwassenen'>Volwassenen</label>
+        <label htmlFor='volwassenen'>Volwassenen (18 - 60 jaar)</label>
           <input 
             type='radio' 
-            name='volwassenen' 
-            id='volwassenen' 
+            name='ageCategory' 
+            id='volwassenen'
+            value='volwassenen'
             onChange={e => handleErgoClientAge(e)}/> 
         </div>
         <div className=''>
-        <label htmlFor='ouderen'>Ouderen</label>
+        <label htmlFor='ouderen'>Ouderen (60+ jaar)</label>
           <input 
             type='radio' 
-            name='ouderen' 
-            id='ouderen' 
+            name='ageCategory' 
+            id='ouderen'
+            value='ouderen'
             onChange={e => handleErgoClientAge(e)}/> 
         </div>
         </div>

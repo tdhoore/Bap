@@ -34,51 +34,57 @@ const RegisterErgoStep2 = ({ store }) => {
         <div className="">
           <p>Wat houdt je specialisatie in?</p>
           <div className=''>
-        <label htmlFor='amputatie'>Amputatie</label>
+        <label htmlFor='specialisatie'>Amputatie</label>
           <input 
             type='checkbox' 
-            name='amputatie' 
+            name='specialisatie' 
             id='amputatie' 
+            value="amputatie"
             onChange={e => handleErgoSpecialisation(e)}/> 
         </div>
         <div className=''>
         <label htmlFor='parkinson'>Ziekte van Parkinson</label>
           <input 
             type='checkbox' 
-            name='parkinson' 
-            id='parkinson' 
+            name='specialisatie' 
+            id='parkinson'
+            value="parkinson" 
             onChange={e => handleErgoSpecialisation(e)}/> 
         </div>
         <div className=''>
         <label htmlFor='als'>ALS</label>
           <input 
             type='checkbox' 
-            name='als' 
+            name='specialisatie' 
             id='als' 
+            value="als"
             onChange={e => handleErgoSpecialisation(e)}/> 
         </div>
         <div className=''>
         <label htmlFor='spierdystrofie'>Spierdystrofie</label>
           <input 
             type='checkbox' 
-            name='spierdystrofie' 
-            id='spierdystrofie' 
+            name='specialisatie' 
+            id='spierdystrofie'
+            value="spierdystrofie" 
             onChange={e => handleErgoSpecialisation(e)}/> 
         </div>
 
-        {/* <div className=''>
-        <label htmlFor='naam'>Andere:</label>
+        <div className=''>
+        <label htmlFor='andereCheckbox'>Andere:</label>
           <input 
             type='checkbox' 
-            name='metaalbewerking' 
-            id='metaalbewerking' 
+            name='specialisatie' 
+            id='andereCheckbox' 
             onChange={e => handleErgoSpecialisation(e)}/> 
           <input 
           type="text"
-          name="andere"
-          onChange={e => handleMakerSkills(e)}
+          name="specialisatie"
+          onChange={e => handleErgoSpecialisation(e)}
+          disabled
+          ref={andereInputRef}
           />
-        </div> */}
+        </div>
         </div>
         <button onClick={e => handlePreviousPage(e)}>Vorige</button>
         <button onClick={e => handleNextPage(e)}>Volgende</button>

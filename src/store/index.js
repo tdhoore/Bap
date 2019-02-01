@@ -108,7 +108,7 @@ class Store {
 
   registerUser(fileurl='') {
     const toSendData = {
-      email: this.formObject.email, name: this.formObject.name, type: this.formObject.type, birthday: this.formObject.birthday, skills: this.formObject.skills, hobby: this.formObject.hobby, profilepic: fileurl
+      email: this.formObject.email, name: this.formObject.name, type: this.formObject.type, birthday: this.formObject.birthday, skills: this.formObject.skills, hobby: this.formObject.hobby, profilepic: fileurl, specialisation: this.formObject.specialisation, ageCategory: this.formObject.ageCategory
     };
 
     for(let key in toSendData){
