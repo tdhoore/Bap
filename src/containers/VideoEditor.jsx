@@ -27,7 +27,13 @@ const VideoEditor = ({ store, editorType }) => {
       data[key] = value;
     });
 
-    console.log(data);
+    //add editor type to editorType
+    data.editorType = editorType;
+
+    //save data to store
+    store.formContent = data;
+
+    console.log(store.formContent);
 
     store.uploadClips();
   };
@@ -57,9 +63,9 @@ const VideoEditor = ({ store, editorType }) => {
                 onInput={e => handleInputTitle(e)}
               />
             </label>
-            <label htmlFor="verhaal">
+            <label htmlFor="description">
               <span>Jouw verhaal</span>
-              <textarea name="verhaal" id="verhaal" required />
+              <textarea name="description" id="description" required />
             </label>
           </div>
         </div>

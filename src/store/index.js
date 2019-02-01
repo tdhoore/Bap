@@ -50,6 +50,7 @@ class Store {
     this.totalClipsLength = 0;
     this.totalTrackLengths = {};
     this.notesCurrentProject = [];
+    this.formContent = {};
     //gebruiker message
     this.message = ``;
     this.messageDuration = 10;
@@ -462,8 +463,49 @@ class Store {
               body: metaData
             })
               .then(r => r.text())
-              .then(r => {
-                console.log(r);
+              .then(videoUrl => {
+                console.log(videoUrl);
+                //video done loading
+                //save data to server
+                if (this.formContent.editorType === 0) {
+                  //add project to file
+                  const toSendData = {};
+
+                  //add user data to toSendData
+                  /*
+                  
+                  
+                  
+                  
+                  TODO
+                  
+                  
+                  
+                  
+                  */
+
+                  //add form data
+                  for (const key in store.formContent) {
+                    toSendData[key] = store.formContent[key];
+                  }
+
+                  //add video
+                  toSendData.mainvid = videoUrl;
+
+                  //delete editorType
+                  delete toSendData.editorType;
+
+                  //send data to server
+                  this.database
+                    .collection(`projects`)
+                    .add(toSendData)
+                    .then(() => {
+                      console.log("Document successfully written!");
+                    })
+                    .catch(error => {
+                      console.error("Error writing document: ", error);
+                    });
+                }
               });
           }
         });
