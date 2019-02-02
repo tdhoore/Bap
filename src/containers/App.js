@@ -41,6 +41,9 @@ class App extends Component {
   render() {
     const { store } = this.props;
 
+    //setup listener to data base
+    store.getAllProjects();
+
     //get initial comments
     //only for the normal player
     store.getComments();

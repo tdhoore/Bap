@@ -1,11 +1,12 @@
 import { observer } from "mobx-react";
-import { NavLink } from "react-router-dom";
 import React from "react";
 import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
-import VideoPlayerInfo from "../components/Footer.jsx";
+import VideoPlayerInfo from "../components/VideoPlayerInfo.jsx";
+import CardHolder from "../components/CardHolder.jsx";
 
 const Home = ({ store }) => {
   const displayInfoVideo = () => {
+    console.log(store.user);
     if (!store.user) {
       return <VideoPlayerInfo store={store} />;
     }
@@ -19,7 +20,9 @@ const Home = ({ store }) => {
           <header>
             <h2>Projecten in je buurt</h2>
           </header>
-          <div className="projectHolder">divs</div>
+          <div className="projectHolder">
+            <CardHolder store={store} content={store.allProjects} />
+          </div>
         </section>
         <section>
           <header className="hide">

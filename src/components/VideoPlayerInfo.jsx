@@ -108,16 +108,12 @@ const VideoPlayer = ({ store }) => {
   const handleGoFullscreen = () => {};
 
   return (
-    <article className="videoPlayer">
+    <article className="videoPlayerInfo">
       <header className="hide">
         <h2>info video</h2>
       </header>
-      <div className="contentHolder">
-        <video
-          height="240"
-          ref={videoRef}
-          onTimeUpdate={e => handleUpdateTime(e)}
-        >
+      <div className="infoVideoHolder">
+        <video ref={videoRef} onTimeUpdate={e => handleUpdateTime(e)}>
           <source src={video} type="video/mp4" />
           Your browser does not support the video tag.
         </video>

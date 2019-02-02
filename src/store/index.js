@@ -61,6 +61,9 @@ class Store {
     this.maxClipduration = 30;
     this.maxTotalDuration = 60;
     this.isMouseDownOverTrimmer = false;
+
+    //projects
+    this.allProjects = [];
   }
 
   getContentByFilter() {
@@ -589,6 +592,26 @@ class Store {
       console.log(r);
     });
   }
+
+  getAllProjects() {
+    //this.getAllProjects;
+    this.database
+      .collection("projects")
+      .orderBy("created")
+      .onSnapshot(snapshot => {
+        const changes = snapshot.docChanges();
+
+        changes.forEach(change => {
+          if (change.type === "added") {
+            //add to array
+            this.allProjects.push(change.doc);
+          } else if (change.type === "removed") {
+            //remove from array
+            this.allProjects = this.allProjects.filter(elem => elem !== change);
+          }
+        });
+      });
+  }
 }
 
 decorate(Store, {
@@ -612,7 +635,8 @@ decorate(Store, {
   currentUser: observable,
   notesCurrentProject: observable,
   message: observable,
-  totalTrackLengths: observable
+  totalTrackLengths: observable,
+  allProjects: observable
 });
 
 const store = new Store();
