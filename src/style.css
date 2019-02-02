@@ -16,6 +16,11 @@ h1 {
   display: none;
 }
 
+button {
+  border: none;
+  background: none;
+}
+
 nav {
   & ul {
     display: flex;
@@ -37,7 +42,60 @@ nav {
   color: var(--activeColor);
 }
 
+progress {
+  height: 0.4rem;
+  width: 100%;
+  background-color: var(--backgroundColor);
+}
+
+progress::-webkit-progress-value {
+  background: #ff9e2c;
+}
+
+progress::-moz-progress-bar {
+  background: #ff9e2c;
+}
+
+.videoPlayer {
+  position: relative;
+  overflow: hidden;
+
+  & .videoHolder {
+    width: 100%;
+  }
+
+  & .videoHolder video {
+    max-width: 100%;
+    border-radius: var(--borderRadius);
+  }
+}
+
+.videoControls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+
+  & .playBtn {
+    background-color: yellow;
+    width: 2rem;
+    height: 2rem;
+    overflow: hidden;
+    color: transparent;
+    margin-right: 1rem;
+  }
+
+  & .progressBarHolder {
+    flex: 2;
+  }
+}
+
 .videoPlayerInfo {
+  margin: 0 1rem;
+
   & .infoVideoHolder video {
     width: 100%;
   }
@@ -52,11 +110,11 @@ nav {
   font-size: 1.4rem;
   text-decoration: none;
   color: var(--defaultFontColor);
-  border-radius: 0.5rem;
+  border-radius: var(--borderRadius);
   background-color: var(--cardColor);
 
   & header {
-    border-radius: 0.5rem;
+    border-radius: var(--borderRadius);
     overflow: hidden;
   }
 

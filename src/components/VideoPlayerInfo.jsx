@@ -112,31 +112,35 @@ const VideoPlayer = ({ store }) => {
       <header className="hide">
         <h2>info video</h2>
       </header>
-      <div className="infoVideoHolder">
-        <video ref={videoRef} onTimeUpdate={e => handleUpdateTime(e)}>
-          <source src={video} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div className="imageHolder" data-id="1" />
-      </div>
-      <div className="videoControls">
-        <button className="playBtn" onClick={e => handleStartStop(e)}>
-          Play/pause
-        </button>
-        <div className="progressBarHolder">
-          <progress
-            value="0"
-            max="100"
-            ref={progressRef}
-            onMouseDown={e => handleProgressBarDown(e)}
-            onMouseUp={e => handleProgressBarUp(e)}
-            onMouseMove={e => handleMoveMouseProgressBar(e)}
-          />
-          <div className="stepsHolder" />
+      <div className="videoPlayer">
+        <div className="videoHolder">
+          <video ref={videoRef} onTimeUpdate={e => handleUpdateTime(e)}>
+            <source src={video} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <div className="imageHolder" data-id="1" />
         </div>
-        <button className="fullScreenBtn" onClick={e => handleGoFullscreen(e)}>
-          Fullscreen
-        </button>
+        <div className="videoControls">
+          <button className="playBtn" onClick={e => handleStartStop(e)}>
+            Play/pause
+          </button>
+          <div className="progressBarHolder">
+            <progress
+              value="0"
+              max="100"
+              ref={progressRef}
+              onMouseDown={e => handleProgressBarDown(e)}
+              onMouseUp={e => handleProgressBarUp(e)}
+              onMouseMove={e => handleMoveMouseProgressBar(e)}
+            />
+          </div>
+          <button
+            className="fullScreenBtn"
+            onClick={e => handleGoFullscreen(e)}
+          >
+            Fullscreen
+          </button>
+        </div>
       </div>
     </article>
   );
