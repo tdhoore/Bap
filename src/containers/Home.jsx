@@ -1,26 +1,24 @@
-import {observer} from 'mobx-react';
-import {NavLink} from 'react-router-dom';
-import React from 'react';
+import { observer } from "mobx-react";
+import { NavLink } from "react-router-dom";
+import React from "react";
+import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
+import VideoPlayerInfo from "../components/Footer.jsx";
 
-const Home = ({store}) => {
-  if (store.user) {
-    return (
-      <div>
-        {}
-        <p>{store.user.email}</p>
-      </div>
-    );
-  } else {
-    return (
-      <div className=''>
-        <ul>
-          <li><NavLink to="/login">Inloggen</NavLink></li>
-          <li><NavLink to="/register">Registreren</NavLink></li>
-        </ul>
-        <p>test</p>
-      </div>
-    );
-  }
+const Home = ({ store }) => {
+  // if (store.user) {
+  //   return (
+  //     <div>
+  //       {}
+  //       <p>{store.user.email}</p>
+  //     </div>
+  //   );
+  // }
+
+  const displayHome = () => {
+    return <main>text</main>;
+  };
+
+  return <DefaultPageHolder store={store} main={displayHome()} />;
 };
-  
+
 export default observer(Home);
