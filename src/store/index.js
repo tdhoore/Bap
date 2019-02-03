@@ -3,7 +3,6 @@
 import React from "react";
 import { decorate, observable, action, computed, configure } from "mobx";
 import * as firebase from "firebase";
-//import Login from "../containers/Login";
 
 class Store {
   constructor() {
@@ -32,7 +31,7 @@ class Store {
     this.database = firebase.firestore();
 
     //project
-    this.currentProject = `firstproject`;
+    this.currentProjectId = ``;
     this.commentsCurrentProject = [];
 
     //project branches
@@ -64,6 +63,13 @@ class Store {
 
     //projects
     this.allProjects = [];
+  }
+
+  setCurrentProject(id) {
+    if (id !== this.currentProjectId || this.currentProjectId === ``) {
+      //set current project id
+      this.currentProjectId = id;
+    }
   }
 
   getContentByFilter() {
@@ -395,7 +401,7 @@ class Store {
     //send data
     this.database
       .collection(`projects`)
-      .doc(this.currentProject)
+      .doc(this.currentProjectId)
       .collection(`comments`)
       .add({ comment: comment, timeStamp: timeStamp })
       .then(() => {
@@ -412,7 +418,7 @@ class Store {
 
     this.database
       .collection(`projects`)
-      .doc(this.currentProject)
+      .doc(this.currentProjectId)
       .collection(`comments`)
       .get()
       .then(querySnapshot => {
@@ -533,7 +539,7 @@ class Store {
     //send request
     this.database
       .collection(`projects`)
-      .doc(this.currentProject)
+      .doc(this.currentProjectId)
       .collection(queryString)
       .get()
       .then(querySnapshot => {
@@ -594,17 +600,29 @@ class Store {
   }
 
   getAllProjects() {
-    //this.getAllProjects;
     this.database
       .collection("projects")
       .orderBy("created")
       .onSnapshot(snapshot => {
         const changes = snapshot.docChanges();
 
+        console.log(changes);
+
         changes.forEach(change => {
           if (change.type === "added") {
+            let exists = false;
+
+            //check if exists already
+            this.allProjects.forEach(project => {
+              if (project.id === change.id) {
+                exists = true;
+              }
+            });
+
             //add to array
-            this.allProjects.push(change.doc);
+            if (!exists) {
+              this.allProjects.push(change.doc);
+            }
           } else if (change.type === "removed") {
             //remove from array
             this.allProjects = this.allProjects.filter(elem => elem !== change);

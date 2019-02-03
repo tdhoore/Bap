@@ -11,6 +11,7 @@ import Filter from "../components/Filter.jsx";
 import Login from "./Login.jsx";
 import Register from "./Register.jsx";
 import Home from "./Home.jsx";
+import ProjectDetail from "./ProjectDetail.jsx";
 import firebase from "firebase/app";
 
 class App extends Component {
@@ -46,7 +47,7 @@ class App extends Component {
 
     //get initial comments
     //only for the normal player
-    store.getComments();
+    //store.getComments();
 
     return (
       <Switch>
@@ -63,6 +64,10 @@ class App extends Component {
         <Route
           path="/register"
           render={({ history }) => <Register store={store} history={history} />}
+        />
+        <Route
+          path="/projectdetail/:id"
+          render={props => <ProjectDetail store={store} props={props} />}
         />
       </Switch>
     );

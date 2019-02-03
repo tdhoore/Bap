@@ -3,6 +3,7 @@ import React from "react";
 import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 import VideoPlayerInfo from "../components/VideoPlayerInfo.jsx";
 import CardHolder from "../components/CardHolder.jsx";
+import { Link } from "react-router-dom";
 
 const Home = ({ store }) => {
   const displayInfoVideo = () => {
@@ -15,6 +16,7 @@ const Home = ({ store }) => {
   const displayHome = () => {
     return (
       <main>
+        <Link to="/projectdetail/firstproject">uberlink</Link>
         {displayInfoVideo()}
         <section>
           <header>
