@@ -7,6 +7,8 @@ import VideoEditor from "./VideoEditor.jsx";
 import VideoPlayerInfo from "../components/VideoPlayerInfo.jsx";
 import BodySelector from "../components/BodySelector.jsx";
 import Branches from "../components/Branches.jsx";
+import Registration from "./Registration.jsx";
+import UserTypeSelector from "../components/UserTypeSelector.jsx";
 import Filter from "../components/Filter.jsx";
 import Login from "./Login.jsx";
 import Register from "./Register.jsx";
@@ -41,13 +43,13 @@ class App extends Component {
 
   render() {
     const { store } = this.props;
+    //get initial comments
+    //only for the normal player
+    store.getComments();
+    // store.checkUser();
 
     //setup listener to data base
     store.getAllProjects();
-
-    //get initial comments
-    //only for the normal player
-    //store.getComments();
 
     return (
       <Switch>
@@ -61,10 +63,16 @@ class App extends Component {
             return <Login store={store} />;
           }}
         />
-        <Route
-          path="/register"
-          render={({ history }) => <Register store={store} history={history} />}
-        />
+
+       <Route 
+        path='/register' 
+        render={(props) => {
+          if(store.user){
+            return <Redirect to='/login'/>
+          }
+          return <Registration store={store}/>
+        }}
+
         <Route
           path="/projectdetail/:id"
           render={props => <ProjectDetail store={store} props={props} />}
