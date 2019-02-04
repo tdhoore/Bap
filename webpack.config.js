@@ -42,7 +42,7 @@ module.exports = (env, {mode}) => {
 
   return {
     output: {filename: '[name].[hash].js'},
-    devServer: {overlay: true, hot: true, contentBase: './client/src'},
+    devServer: {overlay: true, hot: true, contentBase: './src', historyApiFallback: true},
     module: {
       rules: [
         {

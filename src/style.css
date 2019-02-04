@@ -2,6 +2,10 @@
 @import "./css/vars.css";
 
 body {
+  font-family: Montserrat, sans-serif;
+}
+
+.progressBarHolder {
   padding: 1rem 1rem 0;
   height: 100vh;
   overflow: auto;
@@ -379,4 +383,32 @@ progress::-moz-progress-bar {
 .btn,
 .btn-success {
   margin-left: 2.5rem;
+}
+
+.profilePictureDiv {
+  width: 4rem;
+  height: 4rem;
+  overflow: hidden;
+  position: relative;
+
+  & img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  & input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+    font-size: 100vw;
+    opacity: 0;
+  }
+}
+
+.hide {
+  display: none;
 }
