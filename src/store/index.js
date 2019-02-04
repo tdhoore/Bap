@@ -536,6 +536,8 @@ class Store {
       }
     }
 
+    console.log(queryString);
+
     //send request
     this.database
       .collection(`projects`)
@@ -550,6 +552,8 @@ class Store {
           querySnapshot.forEach(doc => {
             //push data to correct level
             this.prototypeLevels[level] = [];
+
+            console.log("snap", doc);
 
             //create data object
             const protoData = { id: doc.id, doc: doc.data() };
@@ -614,7 +618,7 @@ class Store {
 
             //check if exists already
             this.allProjects.forEach(project => {
-              if (project.id === change.id) {
+              if (project.doc.id === change.doc.id) {
                 exists = true;
               }
             });

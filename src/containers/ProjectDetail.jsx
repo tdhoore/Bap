@@ -2,6 +2,7 @@ import { observer } from "mobx-react";
 import React from "react";
 import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 import { Redirect } from "react-router-dom";
+import Branches from "../components/Branches.jsx";
 
 const ProjectDetail = ({ store, props }) => {
   const id = props.match.params.id;
@@ -58,8 +59,9 @@ const ProjectDetail = ({ store, props }) => {
         </article>
         <section>
           <header>
-            <h3>Protoype fase 1</h3>
+            <h2>Protoypes</h2>
           </header>
+          {<Branches store={store} />}
         </section>
       </main>
     );

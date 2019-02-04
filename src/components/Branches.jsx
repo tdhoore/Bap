@@ -6,7 +6,7 @@ const Branches = ({ store }) => {
   store.getProjectBranches();
 
   const createMovie = e => {
-    store.createAfterMovie();
+    //store.createAfterMovie();
   };
 
   return (
