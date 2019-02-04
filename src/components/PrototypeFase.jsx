@@ -13,7 +13,13 @@ const PrototypeFase = ({ store, faseKey }) => {
       </header>
       {store.prototypeLevels[faseKey].map(prototype => {
         console.log("prototype", prototype);
-        return <PrototypeArticle store={store} prototype={prototype} />;
+        return (
+          <PrototypeArticle
+            store={store}
+            prototype={prototype}
+            key={`individualPrototypes${prototype.id}`}
+          />
+        );
       })}
     </section>
   );

@@ -29,12 +29,12 @@ const Card = ({ store, cardData }) => {
     <Link to={`/${data.id}`} className="card">
       <article>
         <header>
-          <video src={video} />
-        </header>
-        <div className="cardTitle">
           <h3>{data.title}</h3>
           <img src={data.profilepic} alt="profiel foto" />
           <p>{calcDistance()}</p>
+        </header>
+        <div className="cardVideoHolder">
+          <video src={video} />
         </div>
         <div className="contributorsData">
           <ul className="contributors">

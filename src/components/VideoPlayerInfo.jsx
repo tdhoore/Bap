@@ -118,7 +118,6 @@ const VideoPlayer = ({ store }) => {
             <source src={video} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div className="imageHolder" data-id="1" />
         </div>
         <div className="videoControls">
           <button className="playBtn" onClick={e => handleStartStop(e)}>
