@@ -18,12 +18,12 @@ class Store {
 
     firebase.initializeApp(config);
     this.auth = firebase.auth();
-    this.storage = firebase.storage().ref();
 
-    this.user = ((localStorage.getItem('authUser') !== null) ? JSON.parse(localStorage.getItem('authUser')) : false);
-    console.log(`authUser:`, localStorage.getItem('authUser'));
+    this.user = false;
+    this.authenticated = false;
     this.history = null;
 
+    //filter
     this.filter = {};
     this.filterdContent = null;
 
@@ -61,9 +61,6 @@ class Store {
     this.maxTotalDuration = 60;
     this.isMouseDownOverTrimmer = false;
 
-    //form
-    this.formObject = {};
-    this.step = 1;
     //projects
     this.allProjects = [];
   }
@@ -90,15 +87,6 @@ class Store {
         console.error("Error getting document: ", error);
       });
   }
-
-  // checkUser() {
-  //   firebase.auth().onAuthStateChanged(user => {
-  //     if(user){
-  //       this.user = user;
-  //     }
-  //   });
-  // }
-
 
   login(e) {
     firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
@@ -174,19 +162,10 @@ class Store {
       .createUserWithEmailAndPassword(email, password)
       .then(u => {
         console.log(u);
-        this.user = u.user;
-        this.database
-        .collection(`users`)
-        .add(toSendData)
-        .then(() => {
-          console.log("User successfully added!");
-        })
-        .catch(error => {
-          console.error("Error adding user in db: ", error);
-        });
       })
       .catch(error => {
-        console.log(error.message);
+        console.log(error);
+        error.message = feedback;
       });
   };
 
@@ -609,6 +588,8 @@ class Store {
       }
     }
 
+    console.log(queryString);
+
     //send request
     this.database
       .collection(`projects`)
@@ -623,6 +604,8 @@ class Store {
           querySnapshot.forEach(doc => {
             //push data to correct level
             this.prototypeLevels[level] = [];
+
+            console.log("snap", querySnapshot);
 
             //create data object
             const protoData = { id: doc.id, doc: doc.data() };
@@ -687,7 +670,7 @@ class Store {
 
             //check if exists already
             this.allProjects.forEach(project => {
-              if (project.id === change.id) {
+              if (project.doc.id === change.doc.id) {
                 exists = true;
               }
             });
@@ -717,8 +700,6 @@ decorate(Store, {
   selectedPrototypeIds: observable,
   user: observable,
   login: action,
-  actualLogin: action,
-  logout: action,
   register: action,
   authListener: action,
   handleChangeLogin: action,
@@ -726,8 +707,6 @@ decorate(Store, {
   password: observable,
   authenticated: observable,
   currentUser: observable,
-  formObject: observable,
-  step: observable,
   notesCurrentProject: observable,
   message: observable,
   totalTrackLengths: observable,

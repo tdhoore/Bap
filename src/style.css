@@ -3,6 +3,8 @@
 
 body {
   font-family: Montserrat, sans-serif;
+  padding: 1rem;
+  min-height: 100vh;
 }
 
 .progressBarHolder {
@@ -13,7 +15,7 @@ body {
 
 #root {
   background-color: var(--backgroundColor);
-  min-height: 100%;
+  min-height: calc(100vh - 2rem);
 }
 
 h1 {
@@ -23,6 +25,8 @@ h1 {
 button {
   border: none;
   background: none;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
 nav {
