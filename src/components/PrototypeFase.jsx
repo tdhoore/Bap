@@ -1,11 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { observer } from "mobx-react";
+import { Link } from "react-router-dom";
 import PrototypeArticle from "./PrototypeArticle.jsx";
 
 const PrototypeFase = ({ store, faseKey }) => {
-  console.log(faseKey);
-
   return (
     <section>
       <header>
@@ -21,6 +20,7 @@ const PrototypeFase = ({ store, faseKey }) => {
           />
         );
       })}
+      <Link to="/">prototype toevoegen</Link>
     </section>
   );
 };

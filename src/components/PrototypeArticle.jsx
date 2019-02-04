@@ -19,6 +19,7 @@ const PrototypeArticle = ({ store, prototype }) => {
           <li>Hobbyist</li>
           <li>Expert</li>
         </ul>
+        <button>verifieer</button>
       </article>
     </Link>
   );
