@@ -1,4 +1,6 @@
+/* eslint-disable no-unused-vars */
 import { observer } from "mobx-react";
+import {NavLink} from 'react-router-dom';
 import React from "react";
 import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 import VideoPlayerInfo from "../components/VideoPlayerInfo.jsx";
@@ -6,14 +8,7 @@ import CardHolder from "../components/CardHolder.jsx";
 import { Link } from "react-router-dom";
 
 const Home = ({ store }) => {
-  const displayInfoVideo = () => {
-    console.log(store.user);
-    if (!store.user) {
-      return <VideoPlayerInfo store={store} />;
-    }
-  };
-
-  const displayHome = () => {
+    const displayHome = () => {
     return (
       <main>
         <Link to="/projectdetail/firstproject">uberlink</Link>
@@ -50,7 +45,34 @@ const Home = ({ store }) => {
     );
   };
 
-  return <DefaultPageHolder store={store} main={displayHome()} />;
+  const displayInfoVideo = () => {
+    console.log(store.user);
+    if (!store.user) {
+      return <VideoPlayerInfo store={store} />;
+    }
+  };
+
+  if (store.user) {
+    return (
+      <div>
+        {}
+        <ul>
+          <li><NavLink to="/" onClick={e => store.handleLogOut(e)} >Uitloggen</NavLink></li>
+        </ul>
+        <DefaultPageHolder store={store} main={displayHome()} />
+      </div>
+    );
+  } else {
+    return (
+      <div className=''>
+        <ul>
+          <li><NavLink to="/login">Inloggen</NavLink></li>
+          <li><NavLink to="/register">Registreren</NavLink></li>
+        </ul>
+        <DefaultPageHolder store={store} main={displayHome()} />
+      </div>
+    )
+  }
 };
 
 export default observer(Home);
