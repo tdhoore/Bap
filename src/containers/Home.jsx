@@ -4,37 +4,14 @@ import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 import VideoPlayerInfo from "../components/VideoPlayerInfo.jsx";
 import CardHolder from "../components/CardHolder.jsx";
 import { Link } from "react-router-dom";
-        
+
 const Home = ({ store }) => {
-   const handleLogOut = e => {
-    e.preventDefault();
-    store.logout(e);
-  };
   const displayInfoVideo = () => {
     console.log(store.user);
     if (!store.user) {
       return <VideoPlayerInfo store={store} />;
     }
   };
-
-  if (store.user) {
-    return (
-      <div>
-        {}
-        <ul>
-          <li><NavLink to="/" onClick={e => handleLogOut(e)} >Uitloggen</NavLink></li>
-        </ul>
-        <p>{store.user.email}</p>
-      </div>
-    );
-  } else {
-    return (
-      <div className=''>
-        <ul>
-          <li><NavLink to="/login">Inloggen</NavLink></li>
-          <li><NavLink to="/register">Registreren</NavLink></li>
-        </ul>
-      </div>
 
   const displayHome = () => {
     return (

@@ -45,7 +45,7 @@ class App extends Component {
     const { store } = this.props;
     //get initial comments
     //only for the normal player
-    store.getComments();
+    //store.getComments();
     // store.checkUser();
 
     //setup listener to data base
@@ -64,14 +64,15 @@ class App extends Component {
           }}
         />
 
-       <Route 
-        path='/register' 
-        render={(props) => {
-          if(store.user){
-            return <Redirect to='/login'/>
-          }
-          return <Registration store={store}/>
-        }}
+        <Route
+          path="/register"
+          render={props => {
+            if (store.user) {
+              return <Redirect to="/login" />;
+            }
+            return <Registration store={store} />;
+          }}
+        />
 
         <Route
           path="/projectdetail/:id"
