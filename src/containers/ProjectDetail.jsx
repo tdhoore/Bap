@@ -3,6 +3,7 @@ import React from "react";
 import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 import { Redirect } from "react-router-dom";
 import Branches from "../components/Branches.jsx";
+import { Link } from "react-router-dom";
 
 const ProjectDetail = ({ store, props }) => {
   const id = props.match.params.id;
@@ -31,6 +32,23 @@ const ProjectDetail = ({ store, props }) => {
     }
   };
 
+  const ontmoetingsfase = () => {
+    if (store.user) {
+      if (store.user.id === data.user_id) {
+        //user is owner so allow acces to changes
+        //security eigelijk op server zelf doen maar geen tijd
+        return (
+          <section>
+            <header>
+              <h3>Ontmoetingsfase</h3>
+            </header>
+            <Link to="/">Ontmoetingsfilmpje</Link>
+          </section>
+        );
+      }
+    }
+  };
+
   console.log(data);
 
   const displayProjectDetail = () => {
@@ -52,12 +70,12 @@ const ProjectDetail = ({ store, props }) => {
               <li>{numbOfX(2)}</li>
             </ul>
           </div>
-
           <div className="links">
             <a href="#">Delen</a>
             <a href="#">Contacteren</a>
           </div>
         </article>
+        {ontmoetingsfase()}
         {<Branches store={store} />}
       </main>
     );

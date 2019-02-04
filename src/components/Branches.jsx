@@ -11,9 +11,12 @@ const Branches = ({ store }) => {
     store.createAfterMovie();
   };
 
+  const afterMovieLink = () => {};
+
   const mapProtoTypes = () => {
     if (store.prototypeLevels !== {}) {
       return Object.keys(store.prototypeLevels).map(key => {
+        //check if prototype is approved by 2 people owner en ergo
         return (
           <PrototypeFase
             store={store}
