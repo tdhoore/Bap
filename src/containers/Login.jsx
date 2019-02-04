@@ -40,7 +40,6 @@ const Login = ({store}) =>  {
         </div>
         <button type='submit'>Login</button>
       </form>
- 
     </div>
   );}
 };

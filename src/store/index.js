@@ -18,12 +18,12 @@ class Store {
 
     firebase.initializeApp(config);
     this.auth = firebase.auth();
+    this.storage = firebase.storage().ref();
 
-    this.user = false;
-    this.authenticated = false;
+    this.user = ((localStorage.getItem('authUser') !== null) ? JSON.parse(localStorage.getItem('authUser')) : false);
+    console.log(`authUser:`, localStorage.getItem('authUser'));
     this.history = null;
 
-    //filter
     this.filter = {};
     this.filterdContent = null;
 
@@ -61,6 +61,9 @@ class Store {
     this.maxTotalDuration = 60;
     this.isMouseDownOverTrimmer = false;
 
+    //form
+    this.formObject = {};
+    this.step = 1;
     //projects
     this.allProjects = [];
   }
@@ -88,34 +91,104 @@ class Store {
       });
   }
 
+  // checkUser() {
+  //   firebase.auth().onAuthStateChanged(user => {
+  //     if(user){
+  //       this.user = user;
+  //     }
+  //   });
+  // }
+
+
   login(e) {
-    const { email, password, feedback } = e;
-    firebase
-      .auth()
-      .signInWithEmailAndPassword(email, password)
+    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+    .then(() => {
+      this.actualLogin(e);
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log('errorCode:', errorCode);
+      console.log('errorMessage:', errorMessage);
+    });
+  }
+
+  actualLogin(e) {
+    const {email, password, feedback} = e;
+    firebase.auth().signInWithEmailAndPassword(email, password)
       .then(result => {
         this.user = result.user;
-        console.log("user:", this.user);
-        this.authenticated = true;
+        localStorage.setItem('authUser', JSON.stringify(this.user));
+        console.log('user:', this.user)
       })
       .catch(error => {
         error.message = feedback;
       });
-  }
+    }
+
+  logout() {
+    firebase.auth().signOut().then(() => {
+      console.log('Sign-out successful');
+      this.user = false;
+      localStorage.removeItem('authUser');
+    }).catch((error) => {
+      console.log('Sign-out failed:', error)
+    });
+  };
+
+  registerUser(fileurl='') {
+    const toSendData = {
+      email: this.formObject.email, name: this.formObject.name, type: this.formObject.type, birthday: this.formObject.birthday, skills: this.formObject.skills, hobby: this.formObject.hobby, profilepic: fileurl, specialisation: this.formObject.specialisation, ageCategory: this.formObject.ageCategory
+    };
+
+    for(let key in toSendData){
+      if(toSendData[key] === undefined){
+        delete toSendData[key];
+      }
+    }
+    console.log(toSendData);
+    firebase.auth().createUserWithEmailAndPassword(this.formObject.email, this.formObject.password);
+  };
 
   register(e) {
     const { email, password, feedback } = e;
+    
+    console.log('STORE FORMOBJECT:',this.formObject);
+    if(this.formObject.profilepicfile === undefined){
+      this.registerUser();
+    } else {
+      console.log('PROFILE FILE:',this.formObject.profilepicfile.name.split('.').pop());
+      const extension = this.formObject.profilepicfile.name.split('.').pop();
+      const imgLocation = this.storage.child(`profilePics/${this.formObject.email}.${extension}`);
+      console.log('PROFILEPIC:', `profilePics/${this.formObject.email}.${this.formObject.profilepicfile.type}`);
+      imgLocation.put(this.formObject.profilepicfile).then( snapshot => {
+        console.log('SNAPSHOT FULLPATH:', snapshot);
+        this.registerUser(snapshot.metadata.fullPath);
+      }).catch(error => {
+        console.log(error.message);
+      });
+    }
+    
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
       .then(u => {
         console.log(u);
+        this.user = u.user;
+        this.database
+        .collection(`users`)
+        .add(toSendData)
+        .then(() => {
+          console.log("User successfully added!");
+        })
+        .catch(error => {
+          console.error("Error adding user in db: ", error);
+        });
       })
       .catch(error => {
-        console.log(error);
-        error.message = feedback;
+        console.log(error.message);
       });
-  }
+  };
 
   handleChangeLogin(e) {
     const input = e.currentTarget;
@@ -124,11 +197,11 @@ class Store {
     } else {
       this.password = input.value;
     }
-  }
+  };
 
   updateProgress(val) {
     this.progressBarValue = val;
-  }
+  };
 
   getActiveClipIndex(newValue) {
     let clipStartPercent = 0;
@@ -141,7 +214,7 @@ class Store {
       //check if in range
       if (clipStartPercent <= newValue && clipEndPercent >= newValue) {
         videoIndex = index;
-      }
+      };
 
       //add to start percetage
       clipStartPercent = clipEndPercent;
@@ -574,7 +647,7 @@ class Store {
         }
       })
       .catch(e => console.log(e));
-  }
+  };
 
   createAfterMovie() {
     let data = new FormData();
@@ -597,7 +670,7 @@ class Store {
     }).then(r => {
       console.log(r);
     });
-  }
+  };
 
   getAllProjects() {
     this.database
@@ -629,7 +702,7 @@ class Store {
           }
         });
       });
-  }
+  };
 }
 
 decorate(Store, {
@@ -644,6 +717,8 @@ decorate(Store, {
   selectedPrototypeIds: observable,
   user: observable,
   login: action,
+  actualLogin: action,
+  logout: action,
   register: action,
   authListener: action,
   handleChangeLogin: action,
@@ -651,6 +726,8 @@ decorate(Store, {
   password: observable,
   authenticated: observable,
   currentUser: observable,
+  formObject: observable,
+  step: observable,
   notesCurrentProject: observable,
   message: observable,
   totalTrackLengths: observable,
