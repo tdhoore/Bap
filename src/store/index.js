@@ -536,8 +536,6 @@ class Store {
       }
     }
 
-    console.log(queryString);
-
     //send request
     this.database
       .collection(`projects`)
@@ -546,14 +544,13 @@ class Store {
       .get()
       .then(querySnapshot => {
         let isFirst = true;
+
         //check if there is anything here
         if (querySnapshot.docs.length > 0) {
           //setup docs for this level
           querySnapshot.forEach(doc => {
             //push data to correct level
             this.prototypeLevels[level] = [];
-
-            console.log("snap", querySnapshot);
 
             //create data object
             const protoData = { id: doc.id, doc: doc.data() };
@@ -588,7 +585,6 @@ class Store {
       // eslint-disable-next-line no-loop-func
       this.prototypeLevels[key].forEach(level => {
         if (level.id === this.selectedPrototypeIds[key - 1]) {
-          console.log(level.doc.video);
           data.append(`videoLinks`, level.doc.video);
         }
       });
@@ -610,15 +606,13 @@ class Store {
       .onSnapshot(snapshot => {
         const changes = snapshot.docChanges();
 
-        console.log(changes);
-
         changes.forEach(change => {
           if (change.type === "added") {
             let exists = false;
 
             //check if exists already
             this.allProjects.forEach(project => {
-              if (project.doc.id === change.doc.id) {
+              if (project.id === change.doc.id) {
                 exists = true;
               }
             });

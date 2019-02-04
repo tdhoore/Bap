@@ -42,6 +42,7 @@ const ProjectDetail = ({ store, props }) => {
             <p>{data.stad}, 4km</p>
           </header>
           <button className="like">like</button>
+          <video src={data.mainvid} />
           <p>{data.description}</p>
           <div className="">
             <div className="bobyPart" />
@@ -57,12 +58,7 @@ const ProjectDetail = ({ store, props }) => {
             <a href="#">Contacteren</a>
           </div>
         </article>
-        <section>
-          <header>
-            <h2>Protoypes</h2>
-          </header>
-          {<Branches store={store} />}
-        </section>
+        {<Branches store={store} />}
       </main>
     );
   };
