@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-expressions */
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Route, Redirect } from "react-router-dom";
 import { decorate, observable, action, computed, configure } from "mobx";
 import * as firebase from "firebase";
 
@@ -25,14 +24,14 @@ class Store {
     console.log(`authUser:`, localStorage.getItem('authUser'));
     this.history = null;
 
-    // this.user = false;
-    // console.log(`firebase auth:`, firebase.auth());
+    this.filter = {};
+    this.filterdContent = null;
 
     //database
     this.database = firebase.firestore();
 
     //project
-    this.currentProject = `firstproject`;
+    this.currentProjectId = ``;
     this.commentsCurrentProject = [];
 
     //project branches
@@ -48,6 +47,12 @@ class Store {
     this.clipId = 0;
     this.clips = [];
     this.totalClipsLength = 0;
+    this.totalTrackLengths = {};
+    this.notesCurrentProject = [];
+    this.formContent = {};
+    //gebruiker message
+    this.message = ``;
+    this.messageDuration = 10;
 
     //trimmer
     this.isTrimmerOpen = false;
@@ -59,6 +64,31 @@ class Store {
     //form
     this.formObject = {};
     this.step = 1;
+    //projects
+    this.allProjects = [];
+  }
+
+  setCurrentProject(id) {
+    if (id !== this.currentProjectId || this.currentProjectId === ``) {
+      //set current project id
+      this.currentProjectId = id;
+    }
+  }
+
+  getContentByFilter() {
+    //get content by filter
+    this.database
+      .collection(`projects`)
+      .get()
+      .then(querySnapshot => {
+        console.log("Document got!");
+        querySnapshot.forEach(doc => {
+          this.commentsCurrentProject.push(doc.data());
+        });
+      })
+      .catch(error => {
+        console.error("Error getting document: ", error);
+      });
   }
 
   // checkUser() {
@@ -90,6 +120,14 @@ class Store {
         this.user = result.user;
         localStorage.setItem('authUser', JSON.stringify(this.user));
         console.log('user:', this.user);
+    const { email, password, feedback } = e;
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
+      .then(result => {
+        this.user = result.user;
+        console.log("user:", this.user);
+        this.authenticated = true;
       })
       .catch(error => {
         error.message = feedback;
@@ -118,6 +156,29 @@ class Store {
     }
     console.log(toSendData);
     firebase.auth().createUserWithEmailAndPassword(this.formObject.email, this.formObject.password)
+
+  register(e) {
+    const { email, password, feedback } = e;
+    
+    console.log('STORE FORMOBJECT:',this.formObject);
+    if(this.formObject.profilepicfile === undefined){
+      this.registerUser();
+    } else {
+      console.log('PROFILE FILE:',this.formObject.profilepicfile.name.split('.').pop());
+      const extension = this.formObject.profilepicfile.name.split('.').pop();
+      const imgLocation = this.storage.child(`profilePics/${this.formObject.email}.${extension}`);
+      console.log('PROFILEPIC:', `profilePics/${this.formObject.email}.${this.formObject.profilepicfile.type}`);
+      imgLocation.put(this.formObject.profilepicfile).then( snapshot => {
+        console.log('SNAPSHOT FULLPATH:', snapshot);
+        this.registerUser(snapshot.metadata.fullPath);
+      }).catch(error => {
+        console.log(error.message);
+      });
+      }
+    
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(email, password)
       .then(u => {
         console.log(u);
         this.user = u.user;
@@ -136,31 +197,13 @@ class Store {
       });
   }
 
-  register() {
-    console.log('STORE FORMOBJECT:',this.formObject);
-    if(this.formObject.profilepicfile === undefined){
-      this.registerUser();
-    } else {
-      console.log('PROFILE FILE:',this.formObject.profilepicfile.name.split('.').pop());
-      const extension = this.formObject.profilepicfile.name.split('.').pop();
-      const imgLocation = this.storage.child(`profilePics/${this.formObject.email}.${extension}`);
-      console.log('PROFILEPIC:', `profilePics/${this.formObject.email}.${this.formObject.profilepicfile.type}`);
-      imgLocation.put(this.formObject.profilepicfile).then( snapshot => {
-        console.log('SNAPSHOT FULLPATH:', snapshot);
-        this.registerUser(snapshot.metadata.fullPath);
-      }).catch(error => {
-        console.log(error.message);
-      });
-      }
-    }
-
   handleChangeLogin(e) {
     const input = e.currentTarget;
-    if (input.name === 'email') {
+    if (input.name === "email") {
       this.email = input.value;
     } else {
       this.password = input.value;
-    } 
+    }
   }
 
   updateProgress(val) {
@@ -203,21 +246,38 @@ class Store {
   }
 
   addClipToTimeLine(newClip) {
+    //last trackId
+    let lastIndex = 0;
+
     //remove active class from clips
     this.clips.forEach((clip, index) => {
       if (clip.isActiveClip) {
         this.clips[index].isActiveClip = false;
+      }
+
+      //add clip after there track clips
+      if (clip.trackId === newClip.trackId) {
+        lastIndex = index;
       }
     });
 
     //add to clips
     this.clips.push(newClip);
 
-    //set active clip
-    this.clips[this.clips.length - 1].isActiveClip = true;
+    //move new clip to the correct position
+    let test = this.clips;
+    test = test.sort((a, b) => a.trackId - b.trackId);
+    this.clips = test;
 
-    //set index
-    this.activeClipIndex = this.clips.length - 1;
+    this.clips.forEach((clip, index) => {
+      if (clip.id === newClip.id) {
+        //set active clip
+        this.clips[index].isActiveClip = true;
+
+        //set index
+        this.activeClipIndex = index;
+      }
+    });
 
     //add to clip id
     this.clipId++;
@@ -236,7 +296,7 @@ class Store {
 
       //get the clip
       this.clips.forEach((clip, index) => {
-        if (clip.fileUrl === data.fileUrl) {
+        if (clip.id === data.id) {
           //set the new duration
           this.clips[index].duration = duration;
 
@@ -245,15 +305,8 @@ class Store {
         }
       });
 
-      //add to total clips length
-      this.totalClipsLength += duration;
-
-      //set clips length in persentages
-      this.clips.forEach(clip => {
-        clip.clipLength = Math.round(
-          this.mapVal(clip.duration, 0, this.totalClipsLength, 0, 100)
-        );
-      });
+      //update total length
+      this.updateTotalClipsLength();
     }
   }
 
@@ -261,10 +314,25 @@ class Store {
     //reset totalClipsLength
     let newTotalClipsLength = 0;
 
+    //reset totalTrackLengths
+    let newTotalTrackLengths = {};
+
     //calc totalClipsLength
     this.clips.forEach(clip => {
       newTotalClipsLength += clip.duration;
+
+      //check if track exists
+      if (newTotalTrackLengths[clip.trackId] === undefined) {
+        //if not set to 0
+        newTotalTrackLengths[clip.trackId] = 0;
+      }
+
+      //set total clip length per track
+      newTotalTrackLengths[clip.trackId] += clip.duration;
     });
+
+    //update the total clip length
+    this.totalTrackLengths = newTotalTrackLengths;
 
     //update totalClipsLength
     this.totalClipsLength = newTotalClipsLength;
@@ -317,34 +385,63 @@ class Store {
     //save old val
     const toSwapVal = this.clips[currentIndex + direction];
 
-    //set the old val
-    this.clips[currentIndex + direction] = this.clips[currentIndex];
+    //check if move track or move index
+    if (toSwapVal !== undefined) {
+      if (toSwapVal.trackId === this.clips[currentIndex].trackId) {
+        //move by index
+        //set the old val
+        this.clips[currentIndex + direction] = this.clips[currentIndex];
 
-    //swap in the new val
-    this.clips[currentIndex] = toSwapVal;
+        //swap in the new val
+        this.clips[currentIndex] = toSwapVal;
 
-    //set new active clip
-    this.clips.forEach((clip, index) => {
-      if (currentIndex + direction === index) {
-        //is new active clip
-        clip.isActiveClip = true;
+        //set new active clip
+        this.clips.forEach((clip, index) => {
+          if (currentIndex + direction === index) {
+            //is new active clip
+            clip.isActiveClip = true;
 
-        //set global active
-        this.activeClipIndex = index;
+            //set global active
+            this.activeClipIndex = index;
+          } else {
+            //remove active clip
+            clip.isActiveClip = false;
+          }
+        });
+
+        //set new progressbar
+        //check if first or not
+        if (currentIndex + direction > 0) {
+          this.progressBarValue =
+            100 - this.calcToRemoveTime(currentIndex + direction);
+        } else {
+          this.progressBarValue = 0;
+        }
       } else {
-        //remove active clip
-        clip.isActiveClip = false;
-      }
-    });
+        //move by track
+        let newTrackId = this.clips[currentIndex].trackId + direction;
 
-    //set new progressbar
-    //check if first or not
-    if (currentIndex + direction > 0) {
-      this.progressBarValue =
-        100 - this.calcToRemoveTime(currentIndex + direction);
+        //limit track id
+        if (newTrackId < 1) {
+          newTrackId = 1;
+        }
+
+        this.clips[currentIndex].trackId = newTrackId;
+      }
     } else {
-      this.progressBarValue = 0;
+      //move by track
+      let newTrackId = this.clips[currentIndex].trackId + direction;
+
+      //limit track id
+      if (newTrackId < 1) {
+        newTrackId = 1;
+      }
+
+      this.clips[currentIndex].trackId = newTrackId;
     }
+
+    //update length of clips
+    this.updateTotalClipsLength();
   }
 
   playNextClip(index) {
@@ -384,7 +481,7 @@ class Store {
     //send data
     this.database
       .collection(`projects`)
-      .doc(this.currentProject)
+      .doc(this.currentProjectId)
       .collection(`comments`)
       .add({ comment: comment, timeStamp: timeStamp })
       .then(() => {
@@ -401,7 +498,7 @@ class Store {
 
     this.database
       .collection(`projects`)
-      .doc(this.currentProject)
+      .doc(this.currentProjectId)
       .collection(`comments`)
       .get()
       .then(querySnapshot => {
@@ -453,7 +550,52 @@ class Store {
             fetch("http://localhost:5000/postclipsmetadata", {
               method: "POST",
               body: metaData
-            }).then(r => console.log(r));
+            })
+              .then(r => r.text())
+              .then(videoUrl => {
+                console.log(videoUrl);
+                //video done loading
+                //save data to server
+                if (this.formContent.editorType === 0) {
+                  //add project to file
+                  const toSendData = {};
+
+                  //add user data to toSendData
+                  /*
+                  
+                  
+                  
+                  
+                  TODO
+                  
+                  
+                  
+                  
+                  */
+
+                  //add form data
+                  for (const key in store.formContent) {
+                    toSendData[key] = store.formContent[key];
+                  }
+
+                  //add video
+                  toSendData.mainvid = videoUrl;
+
+                  //delete editorType
+                  delete toSendData.editorType;
+
+                  //send data to server
+                  this.database
+                    .collection(`projects`)
+                    .add(toSendData)
+                    .then(() => {
+                      console.log("Document successfully written!");
+                    })
+                    .catch(error => {
+                      console.error("Error writing document: ", error);
+                    });
+                }
+              });
           }
         });
 
@@ -462,39 +604,7 @@ class Store {
     }
   }
 
-  /*getFirstLevelOfProjectBranches() {
-    this.database
-      .collection(`projects`)
-      .doc(this.currentProject)
-      .collection(`prototype1`)
-      .get()
-      .then(querySnapshot => {
-        let isFirst = true;
-
-        querySnapshot.forEach(doc => {
-          console.log(doc);
-          //push data to correct level
-          this.prototypeLevels[1] = [];
-
-          this.prototypeLevels[1].push(doc.data());
-
-          //check if ther is a selected id at the current level AND check if first id
-          if (this.selectedPrototypeIds[0] === undefined && isFirst) {
-            //.doc.id
-            this.selectedPrototypeIds[0] = doc.id;
-
-            //trigger once
-            isFirst = false;
-          }
-        });
-
-        //get the docs from the next level
-      })
-      .catch(e => console.log(e));
-  }*/
-
   getProjectBranches(level = 1, lastId = ``) {
-
     let queryString = ``;
 
     //create query
@@ -509,7 +619,7 @@ class Store {
     //send request
     this.database
       .collection(`projects`)
-      .doc(this.currentProject)
+      .doc(this.currentProjectId)
       .collection(queryString)
       .get()
       .then(querySnapshot => {
@@ -521,7 +631,10 @@ class Store {
             //push data to correct level
             this.prototypeLevels[level] = [];
 
-            this.prototypeLevels[level].push(doc.data());
+            //create data object
+            const protoData = { id: doc.id, doc: doc.data() };
+
+            this.prototypeLevels[level].push(protoData);
 
             //check if ther is a selected id at the current level AND check if first id
             if (this.selectedPrototypeIds[level - 1] === undefined && isFirst) {
@@ -541,8 +654,63 @@ class Store {
         }
       })
       .catch(e => console.log(e));
-    }
   }
+
+  createAfterMovie() {
+    let data = new FormData();
+
+    //save prototype links to server
+    for (var key in this.prototypeLevels) {
+      // eslint-disable-next-line no-loop-func
+      this.prototypeLevels[key].forEach(level => {
+        if (level.id === this.selectedPrototypeIds[key - 1]) {
+          console.log(level.doc.video);
+          data.append(`videoLinks`, level.doc.video);
+        }
+      });
+    }
+
+    //post data to server
+    fetch("http://localhost:5000/createaftermovie", {
+      method: "POST",
+      body: data
+    }).then(r => {
+      console.log(r);
+    });
+  }
+
+  getAllProjects() {
+    this.database
+      .collection("projects")
+      .orderBy("created")
+      .onSnapshot(snapshot => {
+        const changes = snapshot.docChanges();
+
+        console.log(changes);
+
+        changes.forEach(change => {
+          if (change.type === "added") {
+            let exists = false;
+
+            //check if exists already
+            this.allProjects.forEach(project => {
+              if (project.id === change.id) {
+                exists = true;
+              }
+            });
+
+            //add to array
+            if (!exists) {
+              this.allProjects.push(change.doc);
+            }
+          } else if (change.type === "removed") {
+            //remove from array
+            this.allProjects = this.allProjects.filter(elem => elem !== change);
+          }
+        });
+      });
+  }
+}
 
 decorate(Store, {
   handleShowInstruction: action,
@@ -567,8 +735,11 @@ decorate(Store, {
   currentUser: observable,
   formObject: observable,
   step: observable,
+  notesCurrentProject: observable,
+  message: observable,
+  totalTrackLengths: observable,
+  allProjects: observable
 });
-
 
 const store = new Store();
 export default store;

@@ -1,28 +1,172 @@
-@import './css/reset.css';
-@import './css/vars.css';
+@import "./css/reset.css";
+@import "./css/vars.css";
 
 body {
   font-family: Montserrat, sans-serif;
 }
 
 .progressBarHolder {
+  padding: 1rem 1rem 0;
+  height: 100vh;
+  overflow: auto;
+}
+
+#root {
+  background-color: var(--backgroundColor);
+  min-height: 100%;
+}
+
+h1 {
+  display: none;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+nav {
+  & ul {
+    display: flex;
+  }
+
+  & ul li {
+    flex: 2;
+    text-align: center;
+    font-size: 1.6rem;
+  }
+
+  & ul li a {
+    text-decoration: none;
+    color: var(--defaultFontColor);
+  }
+}
+
+.activeLink a {
+  color: var(--activeColor);
+}
+
+progress {
+  height: 0.4rem;
+  width: 100%;
+  background-color: var(--backgroundColor);
+}
+
+progress::-webkit-progress-value {
+  background: #ff9e2c;
+}
+
+progress::-moz-progress-bar {
+  background: #ff9e2c;
+}
+
+.videoPlayer {
+  position: relative;
+  overflow: hidden;
+
+  & .videoHolder {
+    width: 100%;
+  }
+
+  & .videoHolder video {
+    max-width: 100%;
+    border-radius: var(--borderRadius);
+  }
+}
+
+.videoControls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+
+  & .playBtn {
+    background-color: yellow;
+    width: 2rem;
+    height: 2rem;
+    overflow: hidden;
+    color: transparent;
+    margin-right: 1rem;
+  }
+
+  & .progressBarHolder {
+    flex: 2;
+  }
+}
+
+.videoPlayerInfo {
+  margin: 0 1rem;
+
+  & .infoVideoHolder video {
+    width: 100%;
+  }
+}
+
+.cardHolder {
+  padding: 0 1rem;
+}
+
+.card {
+  display: block;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: var(--defaultFontColor);
+  border-radius: var(--borderRadius);
+  background-color: var(--cardColor);
+
+  & header {
+    border-radius: var(--borderRadius);
+    overflow: hidden;
+  }
+
+  & header video {
+    max-width: 100%;
+    max-height: 100%;
+  }
+
+  & img {
+    border-radius: 50%;
+    display: block;
+    width: 4rem;
+    height: 4rem;
+    overflow: hidden;
+  }
+
+  & .cardTitle {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+
+    & h3 {
+      font-size: 2rem;
+      order: 1;
+      flex: 2;
+      margin-left: 0.5rem;
+    }
+  }
+
+  & .contributorsData {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+
+    & .contributors {
+      display: flex;
+      flex: 2;
+    }
+
+    & p {
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.progressBarHolder {
   position: relative;
   display: flex;
-}
-
-.stepsHolder {
-  display: flex;
-}
-
-.step {
-  margin-left: 5px;
-  width: 10px;
-  height: 20px;
-  background-color: black;
-}
-
-.activeStep {
-  background-color: red;
 }
 
 .contentHolder {
@@ -41,12 +185,15 @@ body {
   height: 100px;
 }
 
-.deel1,
-.deel2 {
+.track {
+  display: flex;
   height: 100%;
-  width: 30px;
-  background-color: black;
-  margin: 0 10px;
+  width: 100%;
+}
+
+.outroTrack {
+  max-width: 20%;
+  background-color: yellow;
 }
 
 .uploadBar {
@@ -168,7 +315,7 @@ body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .videoTrimmer {
@@ -188,16 +335,53 @@ body {
 }
 
 .bodyPart {
+  display: block;
   width: 100px;
   height: 100px;
   background-color: red;
+
+  & .selectedBox {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: blue;
+  }
+
+  & input {
+    display: none;
+  }
+
+  & input:checked ~ .selectedBox {
+    background-color: red;
+  }
 }
 
 .activeBodyPart {
   background-color: blue;
 }
 
-.btn, .btn-success {
+.cssOutroVid {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  background-color: orange;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.cssOutroVidShow {
+  opacity: 1;
+}
+
+.hide {
+  display: none;
+}
+
+.btn,
+.btn-success {
   margin-left: 2.5rem;
 }
 

@@ -3,64 +3,30 @@ import React from "react";
 import { observer } from "mobx-react";
 
 const BodySelector = ({ store }) => {
-  const bodyPartSelectorRef = React.createRef();
-  let bodyPartsElems = [];
-
   const handleSelectBodyPart = e => {
-    //set all the elements
-    setBodyParts();
+    const input = e.currentTarget;
 
-    //set active body part
-    bodyPartsElems.forEach(part => {
-      if (e.currentTarget === part) {
-        //add the chosen body part to the filter of choice
-        if (part.classList.contains(`activeBodyPart`)) {
-          //send reset
-          console.log(`nothing`);
-        } else {
-          //send part
-          console.log(part.getAttribute(`data-part`));
-        }
-
-        //is active
-        part.classList.toggle(`activeBodyPart`);
-      } else {
-        //is other elem
-        part.classList.remove(`activeBodyPart`);
-      }
-    });
-  };
-
-  const setBodyParts = () => {
-    if (bodyPartsElems.length === 0) {
-      bodyPartsElems = [
-        ...bodyPartSelectorRef.current.querySelectorAll(`.bodyPart`)
-      ];
+    //check if there is somthing in this part of the filter
+    if (store.filter[input.name] === undefined) {
+      store.filter[input.name] = {};
     }
+
+    //save filter
+    store.filter[input.name][input.value] = input.checked;
   };
 
   return (
-    <div className="bodyPartSelector" ref={bodyPartSelectorRef}>
-      <div
-        className="bodyPart"
-        data-part="armLeft"
-        onClick={e => handleSelectBodyPart(e)}
-      />
-      <div
-        className="bodyPart"
-        data-part="armRight"
-        onClick={e => handleSelectBodyPart(e)}
-      />
-      <div
-        className="bodyPart"
-        data-part="legRight"
-        onClick={e => handleSelectBodyPart(e)}
-      />
-      <div
-        className="bodyPart"
-        data-part="legLeft"
-        onClick={e => handleSelectBodyPart(e)}
-      />
+    <div className="bodyPartSelector">
+      <label htmlFor="armL" className="bodyPart">
+        <input
+          type="checkbox"
+          name="bodyParts"
+          id="armL"
+          value="armL"
+          onChange={e => handleSelectBodyPart(e)}
+        />
+        <span className="selectedBox" />
+      </label>
     </div>
   );
 };

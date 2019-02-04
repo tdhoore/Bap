@@ -1,11 +1,13 @@
 :root {
   --color-black: black;
-  --color-white: white;
-  --color-grey: #ccc;
+  --cardColor: white;
+  --backgroundColor: #dad8df;
   --color-orange: #fd7166;
-  --color-purple: #6a32ef;
+  --activeColor: #6a32ef;
   --weight-regular: 400;
   --weight-bold: 700;
+  --defaultFontColor: black;
+  --borderRadius: 0.5rem;
 }
 
 @custom-media --xs screen and (min-width: 0);

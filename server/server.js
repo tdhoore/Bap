@@ -40,14 +40,30 @@ app.post("/postclips", upload.single("clip"), (req, res) => {
   res.send(req.file);
 });
 
+app.post("/createaftermovie", upload.single("clip"), (req, res) => {
+  console.log(req.body.videoLinks);
+  const genVideo = new CreateVideo();
+  //tester
+  genVideo.createAfterMovie(["test1", "test2"]);
+  res.send(req.file);
+});
+
 app.post("/postclipsmetadata", upload.single(), (req, res) => {
   console.log("meta: " + req.body.durations);
 
   //create the video
-  const genVideo = new CreateVideo({ meta: req.body });
+  const genVideo = new CreateVideo({ meta: req.body, res: res });
   genVideo.createVideo();
+});
 
-  res.send(req.body);
+//fix empty links
+//TODO
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "path/to/your/index.html"), err => {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
 });
 
 app.listen(port, () => {});

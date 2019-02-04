@@ -1,18 +1,20 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
-import {Route, NavLink, Switch, withRouter, Redirect} from 'react-router-dom';
+import { Route, NavLink, Switch, withRouter, Redirect } from "react-router-dom";
 import { observer } from "mobx-react";
 import VideoPlayer from "../components/VideoPlayer.jsx";
-import VideoEditor from "../components/VideoEditor.jsx";
+import VideoEditor from "./VideoEditor.jsx";
 import VideoPlayerInfo from "../components/VideoPlayerInfo.jsx";
 import BodySelector from "../components/BodySelector.jsx";
 import Branches from "../components/Branches.jsx";
-import Login from './Login.jsx';
-import Register from './Register.jsx';
-import Home from './Home.jsx';
-import firebase from 'firebase/app';
 import Registration from "./Registration.jsx";
 import UserTypeSelector from "../components/UserTypeSelector.jsx";
+import Filter from "../components/Filter.jsx";
+import Login from "./Login.jsx";
+import Register from "./Register.jsx";
+import Home from "./Home.jsx";
+import ProjectDetail from "./ProjectDetail.jsx";
+import firebase from "firebase/app";
 
 class App extends Component {
   displayVideoPlayer(store) {
@@ -24,7 +26,7 @@ class App extends Component {
   }
 
   displayVideoEditor(store) {
-    return <VideoEditor store={store} />;
+    return <VideoEditor store={store} editorType={0} />;
   }
 
   displayBodySelector(store) {
@@ -35,6 +37,10 @@ class App extends Component {
     return <Branches store={store} />;
   }
 
+  displayFilter(store) {
+    return <Filter store={store} />;
+  }
+
   render() {
     const { store } = this.props;
     //get initial comments
@@ -42,31 +48,21 @@ class App extends Component {
     store.getComments();
     // store.checkUser();
 
+    //setup listener to data base
+    store.getAllProjects();
+
     return (
       <Switch>
-        <Route path='/' 
-        exact 
-        render={(props) => <Home store={store}/>} 
+        <Route path="/" exact render={props => <Home store={store} />} />
+        <Route
+          path="/login"
+          render={props => {
+            if (store.user) {
+              return <Redirect to="/" />;
+            }
+            return <Login store={store} />;
+          }}
         />
-        <Route 
-        path='/login' 
-        render={(props) => {
-          console.log(`authenticated:`, store);
-          if(store.user){
-            return <Redirect to='/'/>
-          }
-          return <Login store={store}/>
-        }} 
-        />
-        {/* <Route 
-        path='/register' 
-        render={(props) => {
-          if(store.user){
-            return <Redirect to='/login'/>
-          }
-          return <Register store={store}/>
-        }}
-        /> */}
 
        <Route 
         path='/register' 
@@ -76,11 +72,14 @@ class App extends Component {
           }
           return <Registration store={store}/>
         }}
+
+        <Route
+          path="/projectdetail/:id"
+          render={props => <ProjectDetail store={store} props={props} />}
         />
       </Switch>
     );
   }
-  
 }
 
 export default withRouter(observer(App));

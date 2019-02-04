@@ -2,7 +2,7 @@
 import React from "react";
 import { observer } from "mobx-react";
 
-const Clip = ({ store, data, index, totalClips }) => {
+const Clip = ({ store, data, index, totalClips, editorType }) => {
   let classNames = `clip`;
 
   const clipRef = React.createRef();
@@ -39,7 +39,7 @@ const Clip = ({ store, data, index, totalClips }) => {
   };
 
   const renderPrevBtn = () => {
-    if (index > 0) {
+    if (index > 0 || (data.trackId === 2 && editorType === 1)) {
       return (
         <button
           className="moveClipBtn moveClipBtnPrev"
@@ -50,7 +50,7 @@ const Clip = ({ store, data, index, totalClips }) => {
   };
 
   const renderNextBtn = () => {
-    if (index < totalClips) {
+    if (index < totalClips || (data.trackId === 1 && editorType === 1)) {
       return (
         <button
           className="moveClipBtn moveClipBtnNext"
@@ -76,10 +76,23 @@ const Clip = ({ store, data, index, totalClips }) => {
     store.isTrimmerOpen = true;
   };
 
+  const calcLengthPerTrack = () => {
+    //set clip length in persentages
+    return Math.round(
+      store.mapVal(
+        data.duration,
+        0,
+        store.totalTrackLengths[data.trackId],
+        0,
+        100
+      )
+    );
+  };
+
   return (
     <div
       className={classNames}
-      style={{ width: `${data.clipLength}%` }}
+      style={{ width: `${calcLengthPerTrack()}%` }}
       ref={clipRef}
     >
       {renderPrevBtn()}

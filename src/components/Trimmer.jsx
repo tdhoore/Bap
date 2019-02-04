@@ -1,8 +1,8 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
-import {observer} from 'mobx-react';
+import React from "react";
+import { observer } from "mobx-react";
 
-const Trimmer = ({store}) => {
+const Trimmer = ({ store }) => {
   //use the active clipdata
   const activeClip = store.clips[store.activeClipIndex];
 
@@ -72,7 +72,6 @@ const Trimmer = ({store}) => {
   };
 
   const updateStartVal = e => {
-    console.log('start');
     const trimmerTimeLineElem = trimmerTimeLineRef.current;
     //get postion from 0
     const trimmerLeftPos = trimmerTimeLineElem.getBoundingClientRect().left;
@@ -123,7 +122,7 @@ const Trimmer = ({store}) => {
 
     //temp update the margin for now
     trimmerTimeLineElem.querySelector(
-      '.videoLength'
+      ".videoLength"
     ).style.marginLeft = `${margin}%`;
   };
 
@@ -139,7 +138,6 @@ const Trimmer = ({store}) => {
   };
 
   const updateEndVal = e => {
-    console.log('end');
     const trimmerTimeLineElem = trimmerTimeLineRef.current;
 
     //get postion from 0
@@ -197,7 +195,7 @@ const Trimmer = ({store}) => {
 
     //temp update the margin for now
     trimmerTimeLineElem.querySelector(
-      '.videoLength'
+      ".videoLength"
     ).style.marginRight = `${100 - margin}%`;
   };
 
@@ -264,37 +262,36 @@ const Trimmer = ({store}) => {
   };
 
   const handleComfirmTrim = e => {
-    console.log(`close trimmer`);
     //close the trimmer
     store.isTrimmerOpen = false;
   };
 
   return (
-    <div className='trimmerWindow'>
-      <div className='videoTrimmer'>
+    <div className="trimmerWindow">
+      <div className="videoTrimmer">
         <video
           src={activeClip.fileUrl}
           muted
-          height='240'
+          height="240"
           ref={videoRef}
           onTimeUpdate={e => handleTimeUpdate(e)}
         />
         <button onClick={e => handlePlayClip(e)}>play</button>
         <button onClick={e => handleComfirmTrim(e)}>confirm</button>
-        <div className='trimmerTimeLine' ref={trimmerTimeLineRef}>
+        <div className="trimmerTimeLine" ref={trimmerTimeLineRef}>
           <div
-            className='videoLength'
+            className="videoLength"
             style={{
               marginLeft: `${clacMarginLeft()}%`,
               marginRight: `${clacMarginRight()}%`
             }}
           >
             <div
-              className='trimer trimerStart'
+              className="trimer trimerStart"
               onMouseDown={e => handleMouseDown(e, true)}
             />
             <div
-              className='trimer trimerEnd'
+              className="trimer trimerEnd"
               onMouseDown={e => handleMouseDown(e, false)}
             />
           </div>

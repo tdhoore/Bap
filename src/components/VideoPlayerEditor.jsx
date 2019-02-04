@@ -1,15 +1,21 @@
 // eslint-disable-next-line no-unused-vars
-import React from 'react';
-import {observer} from 'mobx-react';
-import Step from './Step.jsx';
+import React from "react";
+import { observer } from "mobx-react";
 //import video from '../assets/video/vid.mp4';
-import img from '../assets/img/pic.jpg';
 
-const VideoPlayerEditor = ({store, videos}) => {
+const VideoPlayerEditor = ({ store, videos, editorType }) => {
   const videoRef = React.createRef();
   const progressRef = React.createRef();
 
+  const cssOutroVidRef = React.createRef();
+
   const togglePlay = () => {
+    //if upload project remove the animation
+    if (editorType === 0) {
+      //remove css animation
+      cssOutroVidRef.current.classList.remove(`cssOutroVidShow`);
+    }
+
     const $videoElem = videoRef.current;
 
     if ($videoElem.paused) {
@@ -25,26 +31,17 @@ const VideoPlayerEditor = ({store, videos}) => {
   };
 
   const handleUpdateTime = () => {
+    //if upload project remove the animation
+    if (editorType === 0) {
+      //remove css animation
+      cssOutroVidRef.current.classList.remove(`cssOutroVidShow`);
+    }
+
     //update progress bar
     const $videoElem = videoRef.current;
     const progressElem = progressRef.current;
 
     const activeClip = store.clips[store.activeClipIndex];
-
-    //find the active clip
-    const videoIndex = store.activeClipIndex;
-
-    //calc the percentages to add
-    let percentageToAdd = 0;
-
-    if (videoIndex > 0) {
-      store.clips.forEach((clip, index) => {
-        //check if in range
-        if (videoIndex > index) {
-          percentageToAdd += clip.clipLength;
-        }
-      });
-    }
 
     //calc correct percentage
     let currentDurTotal = store.mapVal(
@@ -78,6 +75,12 @@ const VideoPlayerEditor = ({store, videos}) => {
     if ($videoElem.currentTime >= activeClip.duration + activeClip.clipStart) {
       $videoElem.pause();
 
+      //if upload project start animation
+      if (editorType === 0) {
+        //show css animation
+        cssOutroVidRef.current.classList.add(`cssOutroVidShow`);
+      }
+
       if (store.activeClipIndex < store.clips.length - 1) {
         //handle end video
         handleEndVideo(store.activeClipIndex);
@@ -93,6 +96,12 @@ const VideoPlayerEditor = ({store, videos}) => {
   const changeVideosCurrentTime = e => {
     const videoElem = videoRef.current;
     const progressElem = progressRef.current;
+
+    //if upload project remove the animation
+    if (editorType === 0) {
+      //remove css animation
+      cssOutroVidRef.current.classList.remove(`cssOutroVidShow`);
+    }
 
     //pause the video
     videoElem.pause();
@@ -163,9 +172,9 @@ const VideoPlayerEditor = ({store, videos}) => {
 
   const isActiveVideo = video => {
     if (!video.isActiveClip) {
-      return 'hide';
+      return "hide";
     } else {
-      return '';
+      return "";
     }
   };
 
@@ -209,7 +218,7 @@ const VideoPlayerEditor = ({store, videos}) => {
       return handleEndVideo(index);
     }
 
-    return '';
+    return "";
   };
 
   const setvideoRef = video => {
@@ -222,13 +231,13 @@ const VideoPlayerEditor = ({store, videos}) => {
   };
 
   return (
-    <div className='videoPlayer'>
-      <div className='contentHolder'>
+    <div className="videoPlayer">
+      <div className="contentHolder">
         {videos.map((video, index) => {
           return (
             <video
               key={`${video.fileUrl}mainClip`}
-              height='240'
+              height="240"
               ref={setvideoRef(video)}
               onTimeUpdate={e => handleUpdateTime(e)}
               src={video.fileUrl}
@@ -238,15 +247,18 @@ const VideoPlayerEditor = ({store, videos}) => {
             />
           );
         })}
+        <div className="cssOutroVid" ref={cssOutroVidRef}>
+          {store.message}
+        </div>
       </div>
-      <div className='videoControls'>
-        <button className='playBtn' onClick={e => handleStartStop(e)}>
+      <div className="videoControls">
+        <button className="playBtn" onClick={e => handleStartStop(e)}>
           Play/pause
         </button>
-        <div className='progressBarHolder'>
+        <div className="progressBarHolder">
           <progress
-            value='0'
-            max='100'
+            value="0"
+            max="100"
             ref={progressRef}
             onMouseDown={e => handleProgressBarDown(e)}
             onMouseUp={e => handleProgressBarUp(e)}
@@ -254,7 +266,7 @@ const VideoPlayerEditor = ({store, videos}) => {
             onClick={e => handleProgressBarClick(e)}
           />
           <button
-            className='fullScreenBtn'
+            className="fullScreenBtn"
             onClick={e => handleGoFullscreen(e)}
           >
             Fullscreen
