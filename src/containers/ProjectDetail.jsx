@@ -18,6 +18,18 @@ const ProjectDetail = ({ store, props }) => {
     }
   });
 
+  const numbOfX = type => {
+    if (data.contributors === undefined) {
+      //no contributors
+      return 0;
+    } else {
+      //there are contributors
+      return data.contributors.filter(contributor => {
+        return contributor.type === type;
+      }).length;
+    }
+  };
+
   console.log(data);
 
   const displayProjectDetail = () => {
@@ -26,21 +38,16 @@ const ProjectDetail = ({ store, props }) => {
         <article>
           <header>
             <h2>{data.title}</h2>
-            <p>stad, 4km</p>
+            <p>{data.stad}, 4km</p>
           </header>
           <button className="like">like</button>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam
-            saepe et, ipsa nostrum in magni voluptatum nam cum necessitatibus,
-            esse laboriosam autem. Sit facilis consequatur laudantium,
-            exercitationem iusto voluptatibus illum!
-          </p>
+          <p>{data.description}</p>
           <div className="">
             <div className="bobyPart" />
             <ul>
-              <li>17</li>
-              <li>2</li>
-              <li>1</li>
+              <li>{data.likes}</li>
+              <li>{numbOfX(1)}</li>
+              <li>{numbOfX(2)}</li>
             </ul>
           </div>
 
