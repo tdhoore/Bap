@@ -5,6 +5,8 @@ import React from "react";
 import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 import VideoPlayerInfo from "../components/VideoPlayerInfo.jsx";
 import CardHolder from "../components/CardHolder.jsx";
+import Sorter from "../components/Sorter.jsx";
+import Filter from "../components/Filter.jsx";
 import { Link } from "react-router-dom";
 
 const Home = ({ store }) => {
@@ -21,24 +23,14 @@ const Home = ({ store }) => {
           </div>
         </section>
         <section>
-          <header className="hide">
-            <h2>Gesorteerd op tag</h2>
-          </header>
-          <ul className="projectTags">
-            <li>
-              <button>text</button>
-            </li>
-            <li>
-              <button>text</button>
-            </li>
-            <div className="projectHolder">divs</div>
-          </ul>
-        </section>
-        <section>
-          <header>
-            <h2>Nieuwe projecten</h2>
-          </header>
-          <div className="projectHolder">divs</div>
+          <div className="filterAndHeader">
+            <header>
+              <h2>Ontdek</h2>
+            </header>
+            <Filter store={store} />
+          </div>
+          <Sorter store={store} />
+          <CardHolder store={store} content={store.allProjects} />
         </section>
       </main>
     );

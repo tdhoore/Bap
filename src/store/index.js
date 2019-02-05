@@ -67,6 +67,9 @@ class Store {
 
     //projects
     this.allProjects = [];
+
+    //sorter
+    this.currentSortType = ``;
   }
 
   setCurrentProject(id) {

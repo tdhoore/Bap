@@ -41,7 +41,6 @@ const Filter = ({ store }) => {
 
   return (
     <div>
-      {console.log(store.filter)}
       <form>
         <label htmlFor="search">
           <span>zoeken</span>
