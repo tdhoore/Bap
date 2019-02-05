@@ -15,7 +15,6 @@ const PrototypeFase = ({ store, faseKey }) => {
           <PrototypeArticle
             store={store}
             prototype={prototype}
-            faseKey={faseKey}
             key={`individualPrototypes${prototype.id}`}
           />
         );

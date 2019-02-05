@@ -3,23 +3,14 @@ import React from "react";
 import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 
-const PrototypeArticle = ({ store, prototype, faseKey }) => {
-  const createPath = () => {
-    let path = ``;
-
-    //create path
-    for (let i = 1; i <= faseKey; i++) {
-      path += `prototype${i}`;
-      if (i !== faseKey) {
-        path += `/`;
-      }
-    }
-
-    return path;
-  };
+const PrototypeArticle = ({ store, prototype }) => {
+  console.log("rppzepkfo", prototype);
 
   return (
-    <Link className="card protoTypeCard" to={`/prototype/${prototype.id}`}>
+    <Link
+      className="card protoTypeCard"
+      to={`/prototype/${prototype.doc.prototype_id}`}
+    >
       <article>
         <header>
           <h4>tester</h4>
