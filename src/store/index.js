@@ -696,8 +696,6 @@ class Store {
       }
     }
 
-    console.log(queryString);
-
     this.database
       .collection(`projects`)
       .doc(data.projectId)
