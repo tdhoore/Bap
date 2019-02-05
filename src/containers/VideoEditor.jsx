@@ -11,7 +11,7 @@ import Track from "../components/Track.jsx";
 // eslint-disable-next-line no-unused-vars
 import Outro from "../components/Outro.jsx";
 
-const VideoEditor = ({ store, editorType }) => {
+const VideoEditor = ({ store, editorType, props }) => {
   const renderTrimmerWindow = () => {
     if (store.isTrimmerOpen) {
       return <Trimmer store={store} />;
@@ -35,6 +35,7 @@ const VideoEditor = ({ store, editorType }) => {
 
     console.log(store.formContent);
 
+    //upload clips
     store.uploadClips();
   };
 
@@ -71,7 +72,34 @@ const VideoEditor = ({ store, editorType }) => {
         </div>
       );
     } else if (editorType === 1) {
+      console.log("props", props.match.params);
+      const fase = props.match.params.fase;
+      const projectId = props.match.params.projectId;
+
       //upload voor de maker
+      return (
+        <div className="createProjectForm">
+          <div className="titleAndStoryHolder">
+            <input type="hidden" name="fase" value={fase} />
+            <input type="hidden" name="projectId" value={projectId} />
+            <label htmlFor="title">
+              <span>Wat is je doel?</span>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                required
+                onInput={e => handleInputTitle(e)}
+              />
+            </label>
+            <label htmlFor="description">
+              <span>Jouw verhaal</span>
+              <textarea name="description" id="description" required />
+            </label>
+            {/* difficulty */}
+          </div>
+        </div>
+      );
     } else if (editorType === 2) {
       //upload voor de eind video
     }

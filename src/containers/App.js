@@ -64,6 +64,12 @@ class App extends Component {
           path="/prototype/:id"
           render={props => <PrototypeViewer store={store} props={props} />}
         />
+        <Route
+          path="/createprototype/:projectId/:fase"
+          render={props => (
+            <VideoEditor store={store} props={props} editorType={1} />
+          )}
+        />
       </Switch>
     );
   }

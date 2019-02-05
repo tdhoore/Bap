@@ -630,6 +630,47 @@ class Store {
                     .catch(error => {
                       console.error("Error writing document: ", error);
                     });
+                } else if (this.formContent.editorType === 1) {
+                  //add project to file
+                  const toSendData = {};
+
+                  //add user data to toSendData
+                  /*
+                  
+                  
+                  
+                  
+                  TODO
+                  
+                  
+                  
+                  
+                  */
+
+                  //add form data
+                  for (const key in store.formContent) {
+                    toSendData[key] = store.formContent[key];
+                  }
+
+                  //add video
+                  toSendData.video = videoUrl;
+
+                  //delete editorType
+                  delete toSendData.editorType;
+
+                  //send data to server
+                  this.database
+                    .collection(`prototypes`)
+                    .add(toSendData)
+                    .then(r => {
+                      console.log("Document successfully written!");
+                      //write data to correct part of the project
+                      const id = r.id;
+                      this.uploadPrototype(toSendData, id);
+                    })
+                    .catch(error => {
+                      console.error("Error writing document: ", error);
+                    });
                 }
               });
           }
@@ -638,6 +679,36 @@ class Store {
         data = new FormData();
       });
     }
+  }
+
+  uploadPrototype(data, id) {
+    //set prototype id
+    data.prototype_id = id;
+
+    let queryString = ``;
+
+    //create query
+    for (let i = 1; i <= data.fase; i++) {
+      if (i === 1) {
+        queryString += `prototype${i}`;
+      } else {
+        queryString += `/prototype${i}`;
+      }
+    }
+
+    console.log(queryString);
+
+    this.database
+      .collection(`projects`)
+      .doc(data.projectId)
+      .collection(queryString)
+      .add(data)
+      .then(r => {
+        console.log("Document successfully written!");
+      })
+      .catch(error => {
+        console.error("Error writing document: ", error);
+      });
   }
 
   getProjectBranches(level = 1, lastId = ``) {

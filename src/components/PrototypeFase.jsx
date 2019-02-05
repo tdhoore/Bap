@@ -19,7 +19,9 @@ const PrototypeFase = ({ store, faseKey }) => {
           />
         );
       })}
-      <Link to="/">prototype toevoegen</Link>
+      <Link to={`/createprototype/${store.currentProjectId}/${faseKey}`}>
+        prototype toevoegen
+      </Link>
     </section>
   );
 };
