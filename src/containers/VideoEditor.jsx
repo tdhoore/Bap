@@ -96,7 +96,38 @@ const VideoEditor = ({ store, editorType, props }) => {
               <span>Jouw verhaal</span>
               <textarea name="description" id="description" required />
             </label>
-            {/* difficulty */}
+            <div className="difficultySelector">
+              <label htmlFor="beginner">
+                <span>Beginner</span>
+                <input
+                  type="radio"
+                  name="difficulty"
+                  id="beginner"
+                  required
+                  value="0"
+                />
+              </label>
+              <label htmlFor="hobbyist">
+                <span>Hobbyist</span>
+                <input
+                  type="radio"
+                  name="difficulty"
+                  id="hobbyist"
+                  required
+                  value="1"
+                />
+              </label>
+              <label htmlFor="expert">
+                <span>Expert</span>
+                <input
+                  type="radio"
+                  name="difficulty"
+                  id="expert"
+                  required
+                  value="2"
+                />
+              </label>
+            </div>
           </div>
         </div>
       );
