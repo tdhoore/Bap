@@ -26,7 +26,7 @@ const Card = ({ store, cardData }) => {
   };
 
   return (
-    <Link to={`/${data.id}`} className="card">
+    <Link to={`projectdetail/${id}`} className="card">
       <article>
         <header>
           <h3>{data.title}</h3>

@@ -8,6 +8,7 @@ import Registration from "./Registration.jsx";
 import Login from "./Login.jsx";
 import Home from "./Home.jsx";
 import ProjectDetail from "./ProjectDetail.jsx";
+import PrototypeViewer from "./PrototypeViewer.jsx";
 
 class App extends Component {
   displayVideoEditor(store) {
@@ -36,7 +37,6 @@ class App extends Component {
             return <Login store={store} />;
           }}
         />
-
         <Route
           path="/register"
           render={props => {
@@ -46,7 +46,6 @@ class App extends Component {
             return <Registration store={store} />;
           }}
         />
-
         <Route
           path="/mijnprojecten"
           render={props => {
@@ -57,10 +56,13 @@ class App extends Component {
             return <MijnProjecten store={store} />;
           }}
         />
-
         <Route
           path="/projectdetail/:id"
           render={props => <ProjectDetail store={store} props={props} />}
+        />
+        <Route
+          path="/prototypeviewer/:id"
+          render={props => <PrototypeViewer store={store} props={props} />}
         />
       </Switch>
     );

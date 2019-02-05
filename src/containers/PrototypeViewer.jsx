@@ -2,8 +2,12 @@ import { observer } from "mobx-react";
 import React from "react";
 import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 import { Link } from "react-router-dom";
+import VideoPlayer from "../components/VideoPlayer.jsx";
 
 const PrototypeViewer = ({ store, props }) => {
+  const id = props.match.params.id;
+  console.log(id);
+
   const displayPrototypeViewer = () => {
     return (
       <article>
@@ -17,10 +21,12 @@ const PrototypeViewer = ({ store, props }) => {
           </p>
         </header>
         <div className="bigVideoHolder">
-          <video src="" />
+          <VideoPlayer store={store} />
         </div>
         <div className="makerInfo">name</div>
-        <Link to={`/`}>close window</Link>
+        <Link to={`/projectdetail/${store.currentProjectId}`}>
+          close window
+        </Link>
         <Link to={`/`}>Bekijk instructies</Link>
         <div className="bigCommentHolder" />
       </article>

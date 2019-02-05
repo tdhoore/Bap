@@ -11,6 +11,9 @@ const ProjectDetail = ({ store, props }) => {
   //set new current project if needed
   store.setCurrentProject(id);
 
+  //get comments from project if needed
+  store.getComments();
+
   //get data from selected project
   let data = false;
 

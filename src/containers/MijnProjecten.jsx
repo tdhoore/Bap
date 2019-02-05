@@ -4,7 +4,7 @@ import { Redirect } from "react-router-dom";
 import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 import CardHolder from "../components/CardHolder.jsx";
 
-const MijnProjecten = ({ store, props }) => {
+const MijnProjecten = ({ store }) => {
   const displayMijnProjecten = () => {
     /* 
     

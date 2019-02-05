@@ -11,11 +11,11 @@ const PrototypeFase = ({ store, faseKey }) => {
         <h3>Protoypes fase {faseKey}</h3>
       </header>
       {store.prototypeLevels[faseKey].map(prototype => {
-        console.log("prototype", prototype);
         return (
           <PrototypeArticle
             store={store}
             prototype={prototype}
+            faseKey={faseKey}
             key={`individualPrototypes${prototype.id}`}
           />
         );

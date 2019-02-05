@@ -34,6 +34,10 @@ class Store {
     this.currentProjectId = ``;
     this.commentsCurrentProject = [];
 
+    //prototype data
+    this.currentPrototypePath = ``;
+    this.commentsCurrentPrototype = [];
+
     //project branches
     this.prototypeLevels = {};
     this.selectedPrototypeIds = [];
@@ -89,74 +93,108 @@ class Store {
   }
 
   login(e) {
-    firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-    .then(() => {
-      this.actualLogin(e);
-    })
-    .catch((error) => {
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      console.log('errorCode:', errorCode);
-      console.log('errorMessage:', errorMessage);
-    });
+    firebase
+      .auth()
+      .setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+      .then(() => {
+        this.actualLogin(e);
+      })
+      .catch(error => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log("errorCode:", errorCode);
+        console.log("errorMessage:", errorMessage);
+      });
   }
 
   actualLogin(e) {
-    const {email, password, feedback} = e;
-    firebase.auth().signInWithEmailAndPassword(email, password)
+    const { email, password, feedback } = e;
+    firebase
+      .auth()
+      .signInWithEmailAndPassword(email, password)
       .then(result => {
         this.user = result.user;
-        localStorage.setItem('authUser', JSON.stringify(this.user));
-        console.log('user:', this.user)
+        localStorage.setItem("authUser", JSON.stringify(this.user));
+        console.log("user:", this.user);
       })
       .catch(error => {
         error.message = feedback;
       });
-    }
+  }
 
   logout() {
-    firebase.auth().signOut().then(() => {
-      console.log('Sign-out successful');
-      this.user = false;
-      localStorage.removeItem('authUser');
-    }).catch((error) => {
-      console.log('Sign-out failed:', error)
-    });
-  };
+    firebase
+      .auth()
+      .signOut()
+      .then(() => {
+        console.log("Sign-out successful");
+        this.user = false;
+        localStorage.removeItem("authUser");
+      })
+      .catch(error => {
+        console.log("Sign-out failed:", error);
+      });
+  }
 
-  registerUser(fileurl='') {
+  registerUser(fileurl = "") {
     const toSendData = {
-      email: this.formObject.email, name: this.formObject.name, type: this.formObject.type, birthday: this.formObject.birthday, skills: this.formObject.skills, hobby: this.formObject.hobby, profilepic: fileurl, specialisation: this.formObject.specialisation, ageCategory: this.formObject.ageCategory
+      email: this.formObject.email,
+      name: this.formObject.name,
+      type: this.formObject.type,
+      birthday: this.formObject.birthday,
+      skills: this.formObject.skills,
+      hobby: this.formObject.hobby,
+      profilepic: fileurl,
+      specialisation: this.formObject.specialisation,
+      ageCategory: this.formObject.ageCategory
     };
 
-    for(let key in toSendData){
-      if(toSendData[key] === undefined){
+    for (let key in toSendData) {
+      if (toSendData[key] === undefined) {
         delete toSendData[key];
       }
     }
     console.log(toSendData);
-    firebase.auth().createUserWithEmailAndPassword(this.formObject.email, this.formObject.password);
-  };
+    firebase
+      .auth()
+      .createUserWithEmailAndPassword(
+        this.formObject.email,
+        this.formObject.password
+      );
+  }
 
   register(e) {
     const { email, password, feedback } = e;
-    
-    console.log('STORE FORMOBJECT:',this.formObject);
-    if(this.formObject.profilepicfile === undefined){
+
+    console.log("STORE FORMOBJECT:", this.formObject);
+    if (this.formObject.profilepicfile === undefined) {
       this.registerUser();
     } else {
-      console.log('PROFILE FILE:',this.formObject.profilepicfile.name.split('.').pop());
-      const extension = this.formObject.profilepicfile.name.split('.').pop();
-      const imgLocation = this.storage.child(`profilePics/${this.formObject.email}.${extension}`);
-      console.log('PROFILEPIC:', `profilePics/${this.formObject.email}.${this.formObject.profilepicfile.type}`);
-      imgLocation.put(this.formObject.profilepicfile).then( snapshot => {
-        console.log('SNAPSHOT FULLPATH:', snapshot);
-        this.registerUser(snapshot.metadata.fullPath);
-      }).catch(error => {
-        console.log(error.message);
-      });
+      console.log(
+        "PROFILE FILE:",
+        this.formObject.profilepicfile.name.split(".").pop()
+      );
+      const extension = this.formObject.profilepicfile.name.split(".").pop();
+      const imgLocation = this.storage.child(
+        `profilePics/${this.formObject.email}.${extension}`
+      );
+      console.log(
+        "PROFILEPIC:",
+        `profilePics/${this.formObject.email}.${
+          this.formObject.profilepicfile.type
+        }`
+      );
+      imgLocation
+        .put(this.formObject.profilepicfile)
+        .then(snapshot => {
+          console.log("SNAPSHOT FULLPATH:", snapshot);
+          this.registerUser(snapshot.metadata.fullPath);
+        })
+        .catch(error => {
+          console.log(error.message);
+        });
     }
-    
+
     firebase
       .auth()
       .createUserWithEmailAndPassword(email, password)
@@ -167,7 +205,7 @@ class Store {
         console.log(error);
         error.message = feedback;
       });
-  };
+  }
 
   handleChangeLogin(e) {
     const input = e.currentTarget;
@@ -176,11 +214,11 @@ class Store {
     } else {
       this.password = input.value;
     }
-  };
+  }
 
   updateProgress(val) {
     this.progressBarValue = val;
-  };
+  }
 
   getActiveClipIndex(newValue) {
     let clipStartPercent = 0;
@@ -193,7 +231,7 @@ class Store {
       //check if in range
       if (clipStartPercent <= newValue && clipEndPercent >= newValue) {
         videoIndex = index;
-      };
+      }
 
       //add to start percetage
       clipStartPercent = clipEndPercent;
@@ -484,6 +522,27 @@ class Store {
       });
   }
 
+  getPrototypeComments() {
+    //empty old comments
+    this.commentsCurrentPrototype = [];
+    console.log(this.currentPrototypePath);
+
+    this.database
+      .collection(`projects`)
+      .doc(this.currentProjectId)
+      .collection(`${this.currentPrototypePath}/comments`)
+      .get()
+      .then(querySnapshot => {
+        console.log("Document got!");
+        querySnapshot.forEach(doc => {
+          this.commentsCurrentPrototype.push(doc.data());
+        });
+      })
+      .catch(error => {
+        console.error("Error getting document: ", error);
+      });
+  }
+
   uploadClips() {
     //check if there are clips
     if (this.clips.length > 0) {
@@ -627,7 +686,7 @@ class Store {
         }
       })
       .catch(e => console.log(e));
-  };
+  }
 
   createAfterMovie() {
     let data = new FormData();
@@ -649,7 +708,7 @@ class Store {
     }).then(r => {
       console.log(r);
     });
-  };
+  }
 
   getAllProjects() {
     this.database
@@ -679,7 +738,7 @@ class Store {
           }
         });
       });
-  };
+  }
 }
 
 decorate(Store, {
