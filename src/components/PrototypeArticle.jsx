@@ -4,8 +4,6 @@ import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 
 const PrototypeArticle = ({ store, prototype }) => {
-  console.log("rppzepkfo", prototype);
-
   return (
     <Link
       className="card protoTypeCard"

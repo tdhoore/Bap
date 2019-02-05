@@ -505,6 +505,31 @@ class Store {
       });
   }
 
+  uploadPrototypeComment(comment, timeStamp, protoTypeId) {
+    //get user name and profile picture
+    /*
+    
+    
+    TODO!!!!!!!!!!!!!!
+    
+    
+    */
+
+    //send data
+    this.database
+      .collection(`prototypes`)
+      .doc(protoTypeId)
+      .collection(`comments`)
+      .add({ comment: comment, timeStamp: timeStamp })
+      .then(e => {
+        console.log("Document successfully written!");
+        console.log(e);
+      })
+      .catch(error => {
+        console.error("Error writing document: ", error);
+      });
+  }
+
   getComments() {
     this.database
       .collection(`projects`)

@@ -4,6 +4,7 @@ import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 import { Redirect } from "react-router-dom";
 import Branches from "../components/Branches.jsx";
 import { Link } from "react-router-dom";
+import VideoPlayer from "../components/VideoPlayer.jsx";
 
 const ProjectDetail = ({ store, props }) => {
   const id = props.match.params.id;
@@ -63,7 +64,7 @@ const ProjectDetail = ({ store, props }) => {
             <p>{data.stad}, 4km</p>
           </header>
           <button className="like">like</button>
-          <video src={data.mainvid} />
+          <VideoPlayer store={store} comments={store.commentsCurrentProject} />
           <p>{data.description}</p>
           <div className="">
             <div className="bobyPart" />

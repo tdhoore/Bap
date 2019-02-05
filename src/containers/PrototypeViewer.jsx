@@ -6,7 +6,6 @@ import VideoPlayer from "../components/VideoPlayer.jsx";
 
 const PrototypeViewer = ({ store, props }) => {
   const id = props.match.params.id;
-  console.log(id);
 
   const displayPrototypeViewer = () => {
     return (
@@ -21,7 +20,11 @@ const PrototypeViewer = ({ store, props }) => {
           </p>
         </header>
         <div className="bigVideoHolder">
-          <VideoPlayer store={store} />
+          <VideoPlayer
+            store={store}
+            comments={store.commentsCurrentPrototype}
+            prototypeId={id}
+          />
         </div>
         <div className="makerInfo">name</div>
         <Link to={`/projectdetail/${store.currentProjectId}`}>

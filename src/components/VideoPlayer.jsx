@@ -1,11 +1,10 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { observer } from "mobx-react";
-import Step from "./Step.jsx";
 import video from "../assets/video/vid.mp4";
 import img from "../assets/img/pic.jpg";
 
-const VideoPlayer = ({ store }) => {
+const VideoPlayer = ({ store, comments, prototypeId = false }) => {
   const videoRef = React.createRef();
   const progressRef = React.createRef();
   const scrubberRef = React.createRef();
@@ -135,7 +134,14 @@ const VideoPlayer = ({ store }) => {
 
     //send comment
     console.log(`send ${data.comment} at ${data.timeStamp}`);
-    store.uploadComment(data.comment, data.timeStamp);
+    //check if prototype or project
+    if (!prototypeId) {
+      //is project comment
+      store.uploadComment(data.comment, data.timeStamp);
+    } else {
+      //is prototype comment
+      store.uploadPrototypeComment(data.comment, data.timeStamp, prototypeId);
+    }
 
     return false;
   };
@@ -191,7 +197,7 @@ const VideoPlayer = ({ store }) => {
             onClick={e => handleClickScrubber(e)}
           />
           <div className="commentsHolder" ref={commentsHolderRef}>
-            {store.commentsCurrentProject.map((commentData, index) => {
+            {comments.map((commentData, index) => {
               return (
                 <div key={`comment${index}`} className="comment hide">
                   {commentData.comment}

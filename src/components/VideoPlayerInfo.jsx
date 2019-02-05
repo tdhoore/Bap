@@ -1,9 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { observer } from "mobx-react";
-import Step from "./Step.jsx";
 import video from "../assets/video/vid.mp4";
-import img from "../assets/img/pic.jpg";
 
 const VideoPlayer = ({ store }) => {
   const videoRef = React.createRef();
