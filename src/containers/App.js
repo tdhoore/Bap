@@ -61,7 +61,7 @@ class App extends Component {
           render={props => <ProjectDetail store={store} props={props} />}
         />
         <Route
-          path="/prototypeviewer/:id"
+          path="/prototype/:id"
           render={props => <PrototypeViewer store={store} props={props} />}
         />
       </Switch>

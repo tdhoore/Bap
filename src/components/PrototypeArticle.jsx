@@ -4,8 +4,6 @@ import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 
 const PrototypeArticle = ({ store, prototype, faseKey }) => {
-  console.log("faseKey", faseKey);
-
   const createPath = () => {
     let path = ``;
 
@@ -21,10 +19,7 @@ const PrototypeArticle = ({ store, prototype, faseKey }) => {
   };
 
   return (
-    <Link
-      className="card protoTypeCard"
-      to={`/prototypeviewer/${prototype.id}`}
-    >
+    <Link className="card protoTypeCard" to={`/prototype/${prototype.id}`}>
       <article>
         <header>
           <h4>tester</h4>

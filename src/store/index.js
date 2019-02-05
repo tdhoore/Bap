@@ -506,9 +506,6 @@ class Store {
   }
 
   getComments() {
-    //empty old comments
-    this.commentsCurrentProject = [];
-
     this.database
       .collection(`projects`)
       .doc(this.currentProjectId)
@@ -516,7 +513,12 @@ class Store {
       .get()
       .then(querySnapshot => {
         console.log("Document got!");
-        querySnapshot.forEach(doc => {
+        querySnapshot.forEach((doc, index) => {
+          if (index === 0) {
+            //empty old comments
+            this.commentsCurrentProject = [];
+          }
+
           this.commentsCurrentProject.push(doc.data());
         });
       })
