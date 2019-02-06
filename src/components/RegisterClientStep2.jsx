@@ -4,16 +4,16 @@ import { Redirect } from "react-router-dom";
 import { observer } from "mobx-react";
 
 const RegisterClientStep2 = ({ store }) => {
-    const handleSumbitForm = e => {
+  const handleSumbitForm = e => {
     e.preventDefault();
     store.register();
   };
 
-  const handleLocation = (e) => {
+  const handleLocation = e => {
     // store.formObject.location = e.target.name.value;
   };
 
-  const handleBirthday = (e) => {
+  const handleBirthday = e => {
     store.formObject.birthday = e.target.value;
   };
 
@@ -23,7 +23,10 @@ const RegisterClientStep2 = ({ store }) => {
   };
 
   return (
-    <div className="">
+    <article className="">
+      <header>
+        <h2>registreer</h2>
+      </header>
       <form>
         <div className="">
           <label htmlFor="stad">Stad</label>
@@ -45,8 +48,9 @@ const RegisterClientStep2 = ({ store }) => {
           />
         </div>
         <div className="">
-          <label htmlFor="algemenevoorwaarden">Ik ga akkoord met de algemene 
-voorwaarden</label>
+          <label htmlFor="algemenevoorwaarden">
+            Ik ga akkoord met de algemene voorwaarden
+          </label>
           <input
             type="checkbox"
             name="algemenevoorwaarden"
@@ -56,7 +60,7 @@ voorwaarden</label>
         <button onClick={e => handlePreviousPage(e)}>Vorige</button>
         <button onClick={e => handleSumbitForm(e)}>Registreer</button>
       </form>
-    </div>
+    </article>
   );
 };
 

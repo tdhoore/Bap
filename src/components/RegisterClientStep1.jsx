@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { observer } from "mobx-react";
-import defaultPic from '../assets/img/pic.jpg';
+import defaultPic from "../assets/img/pic.jpg";
 
 const RegisterClientStep1 = ({ store }) => {
   const handleRegister = e => {
@@ -13,30 +13,30 @@ const RegisterClientStep1 = ({ store }) => {
     // });
   };
 
-  const handleClientStep1 = (e) => {
+  const handleClientStep1 = e => {
     const input = e.currentTarget;
-    if(input.name === "name"){
+    if (input.name === "name") {
       store.formObject.name = input.value;
       console.log(`store.formObject.name:`, input.value);
-    } else if(input.name ==="email") {
+    } else if (input.name === "email") {
       store.formObject.email = input.value;
-    } else if(input.name === 'profilepic'){
+    } else if (input.name === "profilepic") {
       const file = input.files[0];
       store.formObject.profilepicfile = file;
       store.formObject.profilepicurl = URL.createObjectURL(file);
-      console.log(`PROFILEPICURL:`,store.formObject.profilepicurl)
-    } else if(input.name === 'password'){
+      console.log(`PROFILEPICURL:`, store.formObject.profilepicurl);
+    } else if (input.name === "password") {
       store.formObject.password = input.value;
     }
   };
 
   const showPicture = () => {
-    if(store.formObject.profilepicurl === undefined){
+    if (store.formObject.profilepicurl === undefined) {
       return defaultPic;
     } else {
       return store.formObject.profilepicurl;
     }
-  }
+  };
 
   const handleNextPage = e => {
     store.step++;
@@ -47,21 +47,26 @@ const RegisterClientStep1 = ({ store }) => {
   };
 
   return (
-    <div className="">
-    <form onSubmit={e => handleRegister(e)}>
+    <article className="">
+      <header>
+        <h2>registreer</h2>
+      </header>
+      <form onSubmit={e => handleRegister(e)}>
         <p className="auth-feedback">{store.feedback}</p>
-        <div className=''>
-        <label htmlFor='profilepic' className='hide'>profilepic</label>
+        <div className="">
+          <label htmlFor="profilepic" className="hide">
+            profilepic
+          </label>
           <div className="profilePictureDiv">
-            <input 
-              type='file' 
-              name='profilepic' 
-              id='profilepic'
-              accept='image/png,image/jpg'
+            <input
+              type="file"
+              name="profilepic"
+              id="profilepic"
+              accept="image/png,image/jpg"
               onChange={e => handleClientStep1(e)}
               required
-            /> 
-            <img src={showPicture()} alt="profielfoto"/>
+            />
+            <img src={showPicture()} alt="profielfoto" />
           </div>
         </div>
         <div className="">
@@ -101,8 +106,8 @@ const RegisterClientStep1 = ({ store }) => {
         </div>
         <button onClick={e => handlePreviousPage(e)}>Vorige</button>
         <button onClick={e => handleNextPage(e)}>Volgende</button>
-        </form>
-    </div>
+      </form>
+    </article>
   );
 };
 
