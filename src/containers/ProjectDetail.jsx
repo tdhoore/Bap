@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 import VideoPlayer from "../components/VideoPlayer.jsx";
 
 const ProjectDetail = ({ store, props }) => {
-  const id = props.match.params.id;
-
+  //const id = props.match.params.id;
+  const id = "firstproject";
   //set new current project if needed
   store.setCurrentProject(id);
 
@@ -57,35 +57,47 @@ const ProjectDetail = ({ store, props }) => {
 
   const displayProjectDetail = () => {
     return (
-      <main>
-        <article>
-          <header>
-            <h2>{data.title}</h2>
-            <p>{data.stad}, 4km</p>
-          </header>
-          <button className="like">like</button>
-          <VideoPlayer store={store} comments={store.commentsCurrentProject} />
-          <p>{data.description}</p>
-          <div className="">
-            <div className="bobyPart" />
-            <ul>
-              <li>{data.likes}</li>
-              <li>{numbOfX(1)}</li>
-              <li>{numbOfX(2)}</li>
-            </ul>
+      <section>
+        <header>
+          <h2>Jan wilt bowlen</h2>
+        </header>
+        <article className="projectDetailInfo">
+          <div className="headerWithLikes">
+            <header>
+              <h3>{/*data.title*/}text</h3>
+              <p>{/*data.stad*/}text, 4km</p>
+            </header>
+            <button className="like">like</button>
           </div>
+          <VideoPlayer
+            store={store}
+            comments={store.commentsCurrentProject}
+            video={data.mainvid}
+          />
+          <ul className="projectStats">
+            <li className="likes">{/*data.likes*/}text</li>
+            <li className="numMakers">{numbOfX(1)}</li>
+            <li className="numErgo">{numbOfX(2)}</li>
+          </ul>
+          <p>{data.description}</p>
+          <div className="bobyPart" />
           <div className="links">
-            <a href="#">Delen</a>
-            <a href="#">Contacteren</a>
+            <a href="#" className="ghostBtn">
+              Delen
+            </a>
+            <a href="#" className="btn">
+              Contacteren
+            </a>
           </div>
         </article>
         {ontmoetingsfase()}
         {<Branches store={store} />}
-      </main>
+      </section>
     );
   };
 
   const checkId = () => {
+    return displayProjectDetail();
     if (data) {
       //id found
       return displayProjectDetail();

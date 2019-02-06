@@ -232,6 +232,9 @@ progress::-moz-progress-bar {
   }
 }
 
+.contentHolder {
+}
+
 .videoControls {
   position: absolute;
   bottom: 0;
@@ -251,6 +254,7 @@ progress::-moz-progress-bar {
   }
 
   & .progressBarHolder {
+    position: relative;
     margin-top: -0.4rem;
     flex: 2;
   }
@@ -323,20 +327,24 @@ progress::-moz-progress-bar {
       display: flex;
       flex: 2;
     }
-
-    & p {
-      margin-left: 0.5rem;
-    }
   }
 }
 
-.icon::before {
-  content: "";
-  display: inline-block;
-  width: 1.4rem;
-  height: 1.4rem;
-  background-color: red;
-  margin-right: 0.2rem;
+.projectStats {
+  display: flex;
+
+  & li {
+    margin-left: 0.5rem;
+  }
+
+  & li::before {
+    content: "";
+    display: inline-block;
+    width: 1.4rem;
+    height: 1.4rem;
+    background-color: red;
+    margin-right: 0.2rem;
+  }
 }
 
 .sorter {
@@ -407,16 +415,6 @@ progress::-moz-progress-bar {
   }
 }
 
-.contentHolder {
-  display: flex;
-  position: relative;
-  height: 240px;
-
-  & video {
-    position: absolute;
-  }
-}
-
 /* HOME */
 .filterAndHeader header {
   margin-bottom: 2rem;
@@ -454,6 +452,44 @@ progress::-moz-progress-bar {
     height: 2rem;
     width: 2rem;
     background-color: red;
+  }
+}
+
+/* Project detail */
+.projectDetailInfo {
+  padding: 0 1rem;
+
+  & p {
+    font-size: var(--broodtekst);
+    line-height: 2.2rem;
+    margin-bottom: 2rem;
+  }
+
+  & .projectStats {
+    justify-content: center;
+    margin: 1rem 0;
+  }
+
+  & .links a:first-of-type {
+    margin-bottom: 1rem;
+  }
+}
+
+.headerWithLikes {
+  display: flex;
+  margin: 2rem 0 1rem;
+
+  & header {
+    flex: 2;
+  }
+
+  & header h3 {
+    font-weight: 400;
+    font-size: 2rem;
+  }
+
+  & header p {
+    font-weight: 300;
   }
 }
 
@@ -652,11 +688,6 @@ progress::-moz-progress-bar {
 
 .cssOutroVidShow {
   opacity: 1;
-}
-
-.btn,
-.btn-success {
-  //margin-left: 2.5rem;
 }
 
 .profilePictureDiv {

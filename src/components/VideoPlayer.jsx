@@ -1,10 +1,9 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { observer } from "mobx-react";
-import video from "../assets/video/vid.mp4";
-import img from "../assets/img/pic.jpg";
+//import video from "../assets/video/vid.mp4";
 
-const VideoPlayer = ({ store, comments, prototypeId = false }) => {
+const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
   const videoRef = React.createRef();
   const progressRef = React.createRef();
   const scrubberRef = React.createRef();
@@ -176,12 +175,8 @@ const VideoPlayer = ({ store, comments, prototypeId = false }) => {
 
   return (
     <div className="videoPlayer">
-      <div className="contentHolder">
-        <video
-          height="240"
-          ref={videoRef}
-          onTimeUpdate={e => handleUpdateTime(e)}
-        >
+      <div className="videoHolder">
+        <video ref={videoRef} onTimeUpdate={e => handleUpdateTime(e)}>
           <source src={video} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -214,10 +209,10 @@ const VideoPlayer = ({ store, comments, prototypeId = false }) => {
             onMouseMove={e => handleMoveMouseProgressBar(e)}
           />
         </div>
+        <button className="fullScreenBtn" onClick={e => handleGoFullscreen(e)}>
+          Fullscreen
+        </button>
       </div>
-      <button className="fullScreenBtn" onClick={e => handleGoFullscreen(e)}>
-        Fullscreen
-      </button>
       <form className="miniComment hide" ref={commentFormRef}>
         <input type="text" className="timeStamp" ref={commentInputRef} />
         <input type="submit" onClick={e => handleSubmitComment(e)} />
