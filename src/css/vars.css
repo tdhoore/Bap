@@ -1,16 +1,16 @@
 :root {
   --color-black: black;
   --cardColor: white;
-  --color-white: white;
-  --color-purple: #6a32ef;
   --backgroundColor: #dad8df;
-  --color-orange: #fd7166;
+  --backgroundColorDark: #c4c4c4;
+  --secondColorBg: #fd7166;
+  --secondColorBgTextColor: white;
   --activeColor: #6a32ef;
   --weight-regular: 400;
   --weight-bold: 700;
   --weight-semibold: 600;
   --defaultFontColor: black;
-  --borderRadius: .5rem;
+  --borderRadius: 0.5rem;
   --titlesize: 2.5rem;
   --broodtekst: 1.6rem;
 }

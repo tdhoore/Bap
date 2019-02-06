@@ -14,7 +14,7 @@ const Home = ({ store }) => {
     return (
       <main>
         {displayInfoVideo()}
-        <section>
+        <section className="highLightedSection">
           <header>
             <h2>Projecten in je buurt</h2>
           </header>

@@ -5,7 +5,7 @@ import React from "react";
 const Sorter = () => {
   return (
     <ul className="sorter">
-      <li>
+      <li className="activeSort">
         <button>Aanbevolen projecten</button>
       </li>
       <li>

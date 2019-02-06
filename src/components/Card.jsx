@@ -49,9 +49,9 @@ const Card = ({ store, cardData }) => {
               );
             })}
           </ul>
-          <p className="likes">{data.likes}</p>
-          <p className="numMakers">{numbOfX(1)}</p>
-          <p className="numErgo">{numbOfX(2)}</p>
+          <p className="likes icon">{data.likes}</p>
+          <p className="numMakers icon">{numbOfX(1)}</p>
+          <p className="numErgo icon">{numbOfX(2)}</p>
         </div>
       </article>
     </Link>

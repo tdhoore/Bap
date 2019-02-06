@@ -4,8 +4,7 @@
 body {
   font-family: Montserrat, sans-serif;
   padding: 1rem;
-  height: 100vh;
-  overflow: auto;
+  min-height: 100vh;
 }
 
 #root {
@@ -20,6 +19,13 @@ h1 {
 h2 {
   font-size: 2.5rem;
   font-size: var(--titlesize);
+  text-align: center;
+}
+
+h2,
+h3,
+h4 {
+  font-weight: bold;
 }
 
 button {
@@ -63,16 +69,13 @@ nav {
   border-radius: var(--borderRadius);
   text-decoration: none;
   text-align: center;
+  color: #fff;
 }
 
 .ghostBtn {
   color: var(--activeColor);
   background: none;
   border: solid 0.3rem var(--activeColor);
-}
-
-main {
-  padding: 1rem;
 }
 
 progress {
@@ -122,12 +125,17 @@ progress::-moz-progress-bar {
   }
 
   & .progressBarHolder {
+    margin-top: -0.4rem;
     flex: 2;
   }
 }
 
-.infoVideoHolder video {
-  width: 100%;
+.videoPlayerInfo {
+  margin: 0 1rem;
+
+  & video {
+    width: 100%;
+  }
 }
 
 .card {
@@ -168,6 +176,7 @@ progress::-moz-progress-bar {
     padding: 0.5rem;
 
     & h3 {
+      font-weight: normal;
       font-size: 2rem;
       order: 1;
       flex: 2;
@@ -188,6 +197,82 @@ progress::-moz-progress-bar {
     & p {
       margin-left: 0.5rem;
     }
+  }
+}
+
+.icon::before {
+  content: "";
+  display: inline-block;
+  width: 1.4rem;
+  height: 1.4rem;
+  background-color: red;
+  margin-right: 0.2rem;
+}
+
+.sorter {
+  display: flex;
+  border-bottom: solid 0.5rem var(--backgroundColorDark);
+
+  & li button {
+    font-size: 1.4rem;
+    font-weight: bold;
+  }
+
+  & .activeSort {
+    position: relative;
+  }
+
+  & .activeSort::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -0.5rem;
+    width: 100%;
+    height: 0.5rem;
+    background-color: var(--activeColor);
+  }
+
+  & .activeSort button {
+    color: var(--activeColor);
+  }
+}
+
+.highLightedSection {
+  position: relative;
+  margin: 11.5rem 0;
+  padding: 0 1rem;
+  background-color: var(--secondColorBg);
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 11.5rem;
+    background-image: url(./assets/img/tileableWave.svg);
+    background-size: auto 100%;
+
+    background-repeat: repeat-x;
+  }
+
+  &::before {
+    top: -11.5rem;
+    background-position: center bottom;
+  }
+
+  &::after {
+    bottom: -11.5rem;
+    background-position: center top;
+    transform: rotate(180deg);
+  }
+
+  & header {
+    color: var(--secondColorBgTextColor);
+
+    margin-bottom: 2rem;
   }
 }
 
@@ -485,7 +570,7 @@ progress::-moz-progress-bar {
 }
 
 .orange-background {
-  background-color: var(--color-orange);
+  background-color: var(--secondColorBg);
   padding: 1rem;
 }
 
