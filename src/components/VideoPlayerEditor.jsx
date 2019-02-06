@@ -232,7 +232,7 @@ const VideoPlayerEditor = ({ store, videos, editorType }) => {
 
   return (
     <div className="videoPlayer">
-      <div className="contentHolder">
+      <div className="videoHolder">
         {videos.map((video, index) => {
           return (
             <video

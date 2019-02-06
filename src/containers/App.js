@@ -47,6 +47,15 @@ class App extends Component {
           }}
         />
         <Route
+          path="/upload"
+          render={props => {
+            if (!store.user) {
+              return this.displayVideoEditor(store);
+            }
+            return <Redirect to="/login" />;
+          }}
+        />
+        <Route
           path="/mijnprojecten"
           render={props => {
             if (store.user) {

@@ -10,6 +10,7 @@ import Trimmer from "../components/Trimmer.jsx";
 import Track from "../components/Track.jsx";
 // eslint-disable-next-line no-unused-vars
 import Outro from "../components/Outro.jsx";
+import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 
 const VideoEditor = ({ store, editorType, props }) => {
   const renderTrimmerWindow = () => {
@@ -147,26 +148,33 @@ const VideoEditor = ({ store, editorType, props }) => {
     }
   };
 
-  return (
-    <div>
-      {renderTrimmerWindow()}
-      <div className="videoAndFormHolder">
-        <VideoPlayerEditor
-          store={store}
-          videos={store.clips}
-          editorType={editorType}
-        />
-        <form onSubmit={e => handleUpload(e)}>
-          {displayCorrectForm()}
-          <button>upload</button>
-        </form>
-      </div>
-      <div className="timeLine">
-        <Track store={store} trackId={1} />
-        {displayExtraTrack()}
-      </div>
-    </div>
-  );
+  const displayEditor = () => {
+    return (
+      <article className="videoEditor">
+        <header>
+          <h2>Nieuw project</h2>
+        </header>
+        {renderTrimmerWindow()}
+        <div className="videoEditorHolder colorBg colorBgTop">
+          <VideoPlayerEditor
+            store={store}
+            videos={store.clips}
+            editorType={editorType}
+          />
+          <form onSubmit={e => handleUpload(e)}>
+            {displayCorrectForm()}
+            <button className="btn">upload</button>
+          </form>
+          <div className="timeLine">
+            <Track store={store} trackId={1} />
+            {displayExtraTrack()}
+          </div>
+        </div>
+      </article>
+    );
+  };
+
+  return <DefaultPageHolder store={store} main={displayEditor()} />;
 };
 
 export default observer(VideoEditor);
