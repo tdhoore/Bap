@@ -70,6 +70,10 @@ class Store {
 
     //sorter
     this.currentSortType = ``;
+
+    //register
+    this.step = 1;
+    this.formObject = {};
   }
 
   setCurrentProject(id) {
@@ -140,6 +144,7 @@ class Store {
   }
 
   registerUser(fileurl = "") {
+    console.log(this.formObject);
     const toSendData = {
       email: this.formObject.email,
       name: this.formObject.name,
@@ -166,9 +171,7 @@ class Store {
       );
   }
 
-  register(e) {
-    const { email, password, feedback } = e;
-
+  register() {
     console.log("STORE FORMOBJECT:", this.formObject);
     if (this.formObject.profilepicfile === undefined) {
       this.registerUser();
@@ -197,17 +200,6 @@ class Store {
           console.log(error.message);
         });
     }
-
-    firebase
-      .auth()
-      .createUserWithEmailAndPassword(email, password)
-      .then(u => {
-        console.log(u);
-      })
-      .catch(error => {
-        console.log(error);
-        error.message = feedback;
-      });
   }
 
   handleChangeLogin(e) {
@@ -862,7 +854,9 @@ decorate(Store, {
   notesCurrentProject: observable,
   message: observable,
   totalTrackLengths: observable,
-  allProjects: observable
+  allProjects: observable,
+  formObject: observable,
+  step: observable
 });
 
 const store = new Store();

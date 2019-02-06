@@ -1,69 +1,69 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
-import {Link} from 'react-router-dom';
-import {observer} from 'mobx-react';
-import Home from './Home.jsx';
-import RegisterClientStep1 from '../components/RegisterClientStep1.jsx';
-import RegisterClientStep2 from '../components/RegisterClientStep2.jsx';
-import RegisterMakerStep1 from '../components/RegisterMakerStep1.jsx';
-import RegisterMakerStep2 from '../components/RegisterMakerStep2.jsx';
-import RegisterErgoStep1 from '../components/RegisterErgoStep1.jsx';
-import RegisterErgoStep2 from '../components/RegisterErgoStep2.jsx';
-import RegisterErgoStep3 from '../components/RegisterErgoStep3.jsx';
-import UserTypeSelector from '../components/UserTypeSelector.jsx';
+import React from "react";
+import { Link } from "react-router-dom";
+import { observer } from "mobx-react";
+import Home from "./Home.jsx";
+import RegisterClientStep1 from "../components/RegisterClientStep1.jsx";
+import RegisterClientStep2 from "../components/RegisterClientStep2.jsx";
+import RegisterMakerStep1 from "../components/RegisterMakerStep1.jsx";
+import RegisterMakerStep2 from "../components/RegisterMakerStep2.jsx";
+import RegisterErgoStep1 from "../components/RegisterErgoStep1.jsx";
+import RegisterErgoStep2 from "../components/RegisterErgoStep2.jsx";
+import RegisterErgoStep3 from "../components/RegisterErgoStep3.jsx";
+import UserTypeSelector from "../components/UserTypeSelector.jsx";
 
-
-const Registration = ({store}) =>  {
-    switch(store.step){
-       case 1:
-       return <UserTypeSelector store={store}/> 
-       case 2:
-        switch(store.formObject.type){
-            case 0:
-                return <RegisterClientStep1 store={store}/>
-            case 1:
-                return <RegisterMakerStep1 store={store}/>
-            case 2:
-                return <RegisterErgoStep1 store={store}/>
-            default:
-                return <Home store={store}/>
-        }
-       case 3:
-        switch(store.formObject.type){
-            case 0:
-                return <RegisterClientStep2 store={store}/>
-            case 1:
-                return <RegisterMakerStep2 store={store}/>
-            case 2:
-                return <RegisterErgoStep2 store={store}/>
-            default:
-                return <Home store={store}/>
-        }
-        case 4:
-        switch(store.formObject.type){
-            case 0:
-                return 
-            case 1:
-                return <RegisterClientStep1 store={store}/>
-            case 2:
-                return <RegisterErgoStep3 store={store}/>
-            default:
-                return <Home store={store}/>
-        }
-        case 5:
-        switch(store.formObject.type){
-            case 0:
-                return 
-            case 1:
-                return <RegisterClientStep2 store={store}/>
-            // case 2:
-            //     return <RegisterErgo store={store}/>
-            default:
-                return <Home store={store}/>
-        }
-       default:
-       return <Home store={store}/>
-    }
+const Registration = ({ store }) => {
+  console.log(store.step);
+  switch (store.step) {
+    case 1:
+      return <UserTypeSelector store={store} />;
+    case 2:
+      switch (store.formObject.type) {
+        case 0:
+          return <RegisterClientStep1 store={store} />;
+        case 1:
+          return <RegisterMakerStep1 store={store} />;
+        case 2:
+          return <RegisterErgoStep1 store={store} />;
+        default:
+          return <Home store={store} />;
+      }
+    case 3:
+      switch (store.formObject.type) {
+        case 0:
+          return <RegisterClientStep2 store={store} />;
+        case 1:
+          return <RegisterMakerStep2 store={store} />;
+        case 2:
+          return <RegisterErgoStep2 store={store} />;
+        default:
+          return <Home store={store} />;
+      }
+    case 4:
+      switch (store.formObject.type) {
+        case 0:
+          return;
+        case 1:
+          return <RegisterClientStep1 store={store} />;
+        case 2:
+          return <RegisterErgoStep3 store={store} />;
+        default:
+          return <Home store={store} />;
+      }
+    case 5:
+      switch (store.formObject.type) {
+        case 0:
+          return;
+        case 1:
+          return <RegisterClientStep2 store={store} />;
+        // case 2:
+        //     return <RegisterErgo store={store}/>
+        default:
+          return <Home store={store} />;
+      }
+    default:
+      return <Home store={store} />;
+  }
 };
 
 export default observer(Registration);
