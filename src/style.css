@@ -514,6 +514,10 @@ progress::-moz-progress-bar {
     margin: 5rem 0;
     background-color: var(--secondColorBg);
 
+    & header h3 {
+      color: var(--secondColorBgTextColor);
+    }
+
     &::before,
     &::after {
       content: "";
