@@ -45,6 +45,27 @@ nav {
   color: var(--activeColor);
 }
 
+.btn,
+.ghostBtn {
+  width: 100%;
+  display: block;
+  padding: 1rem;
+  color: var(--color-white);
+  text-transform: uppercase;
+  font-weight: var(--weight-bold);
+  font-size: var(--titlesize);
+  background-color: var(--activeColor);
+  border-radius: var(--borderRadius);
+  text-decoration: none;
+  text-align: center;
+}
+
+.ghostBtn {
+  color: var(--activeColor);
+  background: none;
+  border: solid 0.3rem var(--activeColor);
+}
+
 main {
   padding: 1rem;
 }
@@ -374,7 +395,7 @@ progress::-moz-progress-bar {
 
 .btn,
 .btn-success {
-  margin-left: 2.5rem;
+  //margin-left: 2.5rem;
 }
 
 .profilePictureDiv {
@@ -451,17 +472,6 @@ progress::-moz-progress-bar {
   font-size: var(--broodtekst);
   font-weight: var(--weight-semibold);
   text-decoration: none;
-}
-
-.login-btn {
-  width: 100%;
-  height: 4.5rem;
-  color: var(--color-white);
-  text-transform: uppercase;
-  font-weight: var(--weight-bold);
-  font-size: var(--titlesize);
-  background-color: var(--activeColor);
-  border-radius: var(--borderRadius);
 }
 
 .vraag {
