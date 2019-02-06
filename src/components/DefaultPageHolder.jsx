@@ -5,9 +5,11 @@ import Footer from "../components/Footer.jsx";
 
 const DefaultPageHolder = ({ store, main, activeLink = "/" }) => {
   return (
-    <div>
-      <Header store={store} activeLink={activeLink} />
-      {main}
+    <div className="wrapper">
+      <div className="headerAndMainHolder">
+        <Header store={store} activeLink={activeLink} />
+        {main}
+      </div>
       <Footer store={store} />
     </div>
   );
