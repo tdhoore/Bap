@@ -17,12 +17,15 @@ const PrototypeArticle = ({ store, prototype }) => {
         <div className="cardVideoHolder">
           <video src="" />
         </div>
-        <ul className="difficulty">
-          <li>Beginner</li>
-          <li>Hobbyist</li>
-          <li>Expert</li>
-        </ul>
-        <button>verifieer</button>
+        <div className="difficulty">
+          <p>Moeilijkheid</p>
+          <ul>
+            <li>Beginner</li>
+            <li>Hobbyist</li>
+            <li>Expert</li>
+          </ul>
+        </div>
+        <button className="verifieerBtn">verifieer</button>
       </article>
     </Link>
   );

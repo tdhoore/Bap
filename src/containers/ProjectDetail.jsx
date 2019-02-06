@@ -64,8 +64,11 @@ const ProjectDetail = ({ store, props }) => {
         <article className="projectDetailInfo">
           <div className="headerWithLikes">
             <header>
-              <h3>{/*data.title*/}text</h3>
-              <p>{/*data.stad*/}text, 4km</p>
+              <div className="projectDetailTitle">
+                <h3>{/*data.title*/}text</h3>
+                <p>{/*data.stad*/}text, 4km</p>
+              </div>
+              <img src="d" alt="" />
             </header>
             <button className="like">like</button>
           </div>

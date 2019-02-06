@@ -29,9 +29,9 @@ const Branches = ({ store }) => {
   };
 
   return (
-    <section>
+    <section className="protoTypes">
       <header>
-        <h2>Protoypes</h2>
+        <h2 className="hide">Protoypes</h2>
       </header>
       {mapProtoTypes()}
     </section>

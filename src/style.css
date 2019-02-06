@@ -479,7 +479,12 @@ progress::-moz-progress-bar {
   display: flex;
   margin: 2rem 0 1rem;
 
+  & .projectDetailTitle {
+    margin-left: 0.5rem;
+  }
+
   & header {
+    display: flex;
     flex: 2;
   }
 
@@ -491,8 +496,143 @@ progress::-moz-progress-bar {
   & header p {
     font-weight: 300;
   }
+
+  & header img {
+    display: block;
+    width: 4.5rem;
+    height: 4.5rem;
+    background-color: red;
+    order: -1;
+    border-radius: 50%;
+  }
 }
 
+.protoTypes {
+  & .prototypeFase:nth-of-type(2n + 1),
+  & .prototypeFase:first-of-type {
+    position: relative;
+    margin: 5rem 0;
+    background-color: var(--secondColorBg);
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 5rem;
+      background-image: url(./assets/img/tileableWave.svg);
+      background-size: auto 100%;
+
+      background-repeat: repeat-x;
+    }
+
+    &::before {
+      top: -5rem;
+      background-position: center bottom;
+    }
+
+    &::after {
+      bottom: -5rem;
+      background-position: center top;
+      transform: rotate(180deg);
+    }
+  }
+
+  & .prototypeFase:first-of-type {
+    margin-top: 7rem;
+  }
+
+  & .prototypeFase:last-of-type {
+    margin-bottom: 7rem;
+  }
+}
+
+.prototypeFase {
+  padding: 0 1rem;
+
+  & header h3 {
+    font-size: var(--titlesize);
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  & .protoTypeCard:first-of-type {
+    margin-left: 0;
+  }
+}
+
+.protoTypeCard {
+  position: relative;
+  display: block;
+  min-width: calc(100vw - 4rem);
+  margin-left: 2rem;
+
+  & header {
+    display: flex;
+  }
+
+  & header h4 {
+    font-size: var(--titlesize);
+    font-weight: 400;
+    order: 1;
+    margin-left: 0.5rem;
+  }
+
+  & .cardVideoHolder {
+    background-color: black;
+  }
+
+  & .difficulty {
+    display: flex;
+    margin: 0.5rem 0.5rem 1rem;
+
+    & p {
+      font-weight: 300;
+    }
+
+    & ul {
+      display: flex;
+    }
+
+    & ul li {
+      width: var(--broodtekst);
+      height: var(--broodtekst);
+      border: solid 0.05rem var(--secondColorBg);
+      border-radius: 50%;
+      overflow: hidden;
+      color: transparent;
+      margin-left: 0.5rem;
+    }
+  }
+}
+
+.addPrototypeBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 2rem;
+  min-width: calc(100vw - 4rem);
+}
+
+.prototypeArticleHolder {
+  display: flex;
+  overflow: auto;
+}
+
+.verifieerBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: solid 0.3rem var(--activeColor);
+  width: 3.5rem;
+  height: 3.5rem;
+  overflow: hidden;
+  color: transparent;
+}
+
+/* JUNK */
 .timeLine {
   display: flex;
   width: 100%;
