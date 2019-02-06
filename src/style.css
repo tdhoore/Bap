@@ -35,7 +35,23 @@ button {
   -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
 }
 
+input {
+  padding: 0.5rem 1rem;
+  border-radius: var(--borderRadius);
+  font-family: Montserrat, sans-serif;
+  border: none;
+  font-size: 2rem;
+  font-weight: lighter;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+  }
+}
+
 nav {
+  margin: 0 0 2rem;
+
   & ul {
     display: flex;
   }
@@ -47,13 +63,66 @@ nav {
   }
 
   & ul li a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-decoration: none;
     color: var(--defaultFontColor);
+  }
+
+  & ul li a::before {
+    content: "";
+    display: block;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 1rem;
+    background-color: red;
   }
 }
 
 .activeLink a {
   color: var(--activeColor);
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--secondColorBg);
+  padding: 2rem;
+
+  & p {
+    width: 19rem;
+    height: 6.6rem;
+    background-color: blue;
+  }
+
+  & .socialLinks {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+
+    & li {
+      margin-left: 1rem;
+    }
+
+    & li:first-of-type {
+      margin-left: 0;
+    }
+
+    & li a {
+      display: block;
+      width: 3.5rem;
+      height: 3.5rem;
+      overflow: hidden;
+      color: transparent;
+      background-color: blue;
+    }
+  }
+}
+
+.lastSection {
+  margin-bottom: 2rem;
 }
 
 .btn,
@@ -138,6 +207,10 @@ progress::-moz-progress-bar {
   }
 }
 
+.cardHolder {
+  margin: 0 1rem;
+}
+
 .card {
   text-decoration: none;
 }
@@ -212,8 +285,10 @@ progress::-moz-progress-bar {
 .sorter {
   display: flex;
   border-bottom: solid 0.5rem var(--backgroundColorDark);
+  margin: 0 1rem 1rem;
 
   & li button {
+    padding: 0.5rem;
     font-size: 1.4rem;
     font-weight: bold;
   }
@@ -241,7 +316,6 @@ progress::-moz-progress-bar {
 .highLightedSection {
   position: relative;
   margin: 11.5rem 0;
-  padding: 0 1rem;
   background-color: var(--secondColorBg);
 
   &::before,
@@ -269,7 +343,7 @@ progress::-moz-progress-bar {
     transform: rotate(180deg);
   }
 
-  & header {
+  & .mainHeader {
     color: var(--secondColorBgTextColor);
 
     margin-bottom: 2rem;
@@ -283,6 +357,48 @@ progress::-moz-progress-bar {
 
   & video {
     position: absolute;
+  }
+}
+
+/* HOME */
+.filterAndHeader {
+  & header {
+    margin-bottom: 2rem;
+  }
+}
+
+.zoekFilterHolder {
+  display: flex;
+  margin: 0 1rem 2rem;
+
+  & label {
+    flex: 2;
+  }
+
+  & label input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    height: 100%;
+  }
+}
+
+.openFilterBtn {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  align-items: center;
+  background-color: var(--activeColor);
+  border-top-right-radius: var(--borderRadius);
+  border-bottom-right-radius: var(--borderRadius);
+  font-family: Montserrat, sans-serif;
+  color: var(--activeTextColor);
+
+  &::before {
+    content: "";
+    display: block;
+    height: 2rem;
+    width: 2rem;
+    background-color: red;
   }
 }
 
@@ -523,7 +639,7 @@ progress::-moz-progress-bar {
 }
 
 .login-div {
-  padding: 1rem;
+  padding: 0 1rem;
 }
 
 .login-form {

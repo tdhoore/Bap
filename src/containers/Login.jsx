@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { Redirect, Link } from "react-router-dom";
-import * as firebase from "firebase";
 import { observer } from "mobx-react";
+import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 
 const Login = ({ store }) => {
   const handleLogin = e => {
@@ -14,9 +14,7 @@ const Login = ({ store }) => {
     });
   };
 
-  if (store.user) {
-    return <Redirect to="/" />;
-  } else {
+  const displayLogin = () => {
     return (
       <section className="login-div">
         <header>
@@ -72,6 +70,18 @@ const Login = ({ store }) => {
           </article>
         </div>
       </section>
+    );
+  };
+
+  if (store.user) {
+    return <Redirect to="/" />;
+  } else {
+    return (
+      <DefaultPageHolder
+        store={store}
+        main={displayLogin()}
+        activeLink="/login"
+      />
     );
   }
 };

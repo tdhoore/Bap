@@ -1,13 +1,12 @@
 import { observer } from "mobx-react";
-import { NavLink } from "react-router-dom";
 import React from "react";
 import Header from "../components/Header.jsx";
 import Footer from "../components/Footer.jsx";
 
-const DefaultPageHolder = ({ store, main }) => {
+const DefaultPageHolder = ({ store, main, activeLink = "/" }) => {
   return (
-    <div className="">
-      <Header store={store} activeLink="/" />
+    <div>
+      <Header store={store} activeLink={activeLink} />
       {main}
       <Footer store={store} />
     </div>

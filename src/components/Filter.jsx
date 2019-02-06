@@ -40,94 +40,100 @@ const Filter = ({ store }) => {
   };
 
   return (
-    <div>
+    <div className="filter">
       <form>
-        <label htmlFor="search">
-          <span>zoeken</span>
-          <input
-            type="text"
-            name="search"
-            id="search"
-            onInput={e => handleInputSearch(e)}
-          />
-        </label>
-        <label htmlFor="city">
-          <span>stad</span>
-          <input
-            type="text"
-            name="city"
-            id="city"
-            onInput={e => handleInputCity(e)}
-          />
-        </label>
-        <div className="difficultyFilter">
-          <label htmlFor="difficulty0">
-            <span>makkelijk</span>
+        <div className="zoekFilterHolder">
+          <label htmlFor="search">
+            <span className="hide">zoeken</span>
             <input
-              type="checkbox"
-              value="0"
-              name="difficulty"
-              id="difficulty0"
-              onChange={e => handleInputCheckBox(e)}
+              type="text"
+              name="search"
+              id="search"
+              onInput={e => handleInputSearch(e)}
+              placeholder="Zoeken..."
             />
           </label>
-          <label htmlFor="difficulty1">
-            <span>medium</span>
-            <input
-              type="checkbox"
-              value="1"
-              name="difficulty"
-              id="difficulty1"
-              onChange={e => handleInputCheckBox(e)}
-            />
-          </label>
-          <label htmlFor="difficulty2">
-            <span>moeilijk</span>
-            <input
-              type="checkbox"
-              value="2"
-              name="difficulty"
-              id="difficulty2"
-              onChange={e => handleInputCheckBox(e)}
-            />
-          </label>
+          <button className="openFilterBtn">Filter</button>
         </div>
-        <div className="ageFilter">
-          <label htmlFor="kinderen">
-            <span>kinderen</span>
+        <div className="otherFilterOptions hide">
+          <label htmlFor="city">
+            <span>stad</span>
             <input
-              type="checkbox"
-              value="0-12"
-              name="kinderen"
-              id="kinderen"
-              onChange={e => handleInputCheckBox(e)}
+              type="text"
+              name="city"
+              id="city"
+              onInput={e => handleInputCity(e)}
             />
           </label>
-          <label htmlFor="tieners">
-            <span>tieners</span>
-            <input
-              type="checkbox"
-              value="13-18"
-              name="tieners"
-              id="tieners"
-              onChange={e => handleInputCheckBox(e)}
-            />
-          </label>
-          <label htmlFor="jongVolwassenen">
-            <span>jong volwassenen</span>
-            <input
-              type="checkbox"
-              value="19-25"
-              name="jongVolwassenen"
-              id="jongVolwassenen"
-              onChange={e => handleInputCheckBox(e)}
-            />
-          </label>
+          <div className="difficultyFilter">
+            <label htmlFor="difficulty0">
+              <span>makkelijk</span>
+              <input
+                type="checkbox"
+                value="0"
+                name="difficulty"
+                id="difficulty0"
+                onChange={e => handleInputCheckBox(e)}
+              />
+            </label>
+            <label htmlFor="difficulty1">
+              <span>medium</span>
+              <input
+                type="checkbox"
+                value="1"
+                name="difficulty"
+                id="difficulty1"
+                onChange={e => handleInputCheckBox(e)}
+              />
+            </label>
+            <label htmlFor="difficulty2">
+              <span>moeilijk</span>
+              <input
+                type="checkbox"
+                value="2"
+                name="difficulty"
+                id="difficulty2"
+                onChange={e => handleInputCheckBox(e)}
+              />
+            </label>
+          </div>
+          <div className="ageFilter">
+            <label htmlFor="kinderen">
+              <span>kinderen</span>
+              <input
+                type="checkbox"
+                value="0-12"
+                name="kinderen"
+                id="kinderen"
+                onChange={e => handleInputCheckBox(e)}
+              />
+            </label>
+            <label htmlFor="tieners">
+              <span>tieners</span>
+              <input
+                type="checkbox"
+                value="13-18"
+                name="tieners"
+                id="tieners"
+                onChange={e => handleInputCheckBox(e)}
+              />
+            </label>
+            <label htmlFor="jongVolwassenen">
+              <span>jong volwassenen</span>
+              <input
+                type="checkbox"
+                value="19-25"
+                name="jongVolwassenen"
+                id="jongVolwassenen"
+                onChange={e => handleInputCheckBox(e)}
+              />
+            </label>
+          </div>
+          <BodySelector store={store} />
+          <button onClick={e => handleClearFilters(e)}>
+            Alle filters wissen
+          </button>
         </div>
-        <BodySelector store={store} />
-        <button onClick={e => handleClearFilters(e)}>
-          Alle filters wissen
-        </button>
       </form>
     </div>
   );
