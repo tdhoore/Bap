@@ -36,8 +36,8 @@ const RegisterMakerStep2 = ({ store }) => {
       </header>
       <form className="">
         <p className="">Wat zijn jouw hobby's?</p>
-        <div className="">
-          <label htmlFor="piano">Piano</label>
+        <label htmlFor="piano">
+          <span>Piano</span>
           <input
             type="checkbox"
             name="hobby"
@@ -45,9 +45,9 @@ const RegisterMakerStep2 = ({ store }) => {
             value="piano"
             onChange={e => handleMakerHobby(e)}
           />
-        </div>
-        <div className="">
-          <label htmlFor="tennis">Tennis</label>
+        </label>
+        <label htmlFor="tennis">
+          <span>Tennis</span>
           <input
             type="checkbox"
             name="hobby"
@@ -55,9 +55,9 @@ const RegisterMakerStep2 = ({ store }) => {
             value="tennis"
             onChange={e => handleMakerHobby(e)}
           />
-        </div>
-        <div className="">
-          <label htmlFor="pottenbakken">Pottenbakken</label>
+        </label>
+        <label htmlFor="pottenbakken">
+          <span>Pottenbakken</span>
           <input
             type="checkbox"
             name="hobby"
@@ -65,9 +65,9 @@ const RegisterMakerStep2 = ({ store }) => {
             value="pottenbakken"
             onChange={e => handleMakerHobby(e)}
           />
-        </div>
-        <div className="">
-          <label htmlFor="gitaar">Gitaar</label>
+        </label>
+        <label htmlFor="gitaar">
+          <span>Gitaar</span>
           <input
             type="checkbox"
             name="hobby"
@@ -75,10 +75,9 @@ const RegisterMakerStep2 = ({ store }) => {
             value="gitaar"
             onChange={e => handleMakerHobby(e)}
           />
-        </div>
-
-        <div className="">
-          <label htmlFor="andereCheckbox">Andere:</label>
+        </label>
+        <label htmlFor="andereCheckbox">
+          <span>Andere:</span>
           <input
             type="checkbox"
             name="hobby"
@@ -92,7 +91,7 @@ const RegisterMakerStep2 = ({ store }) => {
             disabled
             ref={andereInputRef}
           />
-        </div>
+        </label>
         <button onClick={e => handlePreviousPage(e)}>Vorige</button>
         <button onClick={e => handleNextPage(e)}>Volgende</button>
       </form>
