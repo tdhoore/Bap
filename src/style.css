@@ -1,13 +1,11 @@
-@import './css/reset.css';
-@import './css/vars.css';
+@import "./css/reset.css";
+@import "./css/vars.css";
 
 body {
   font-family: Montserrat, sans-serif;
   padding: 1rem;
   height: 100vh;
   overflow: auto;
-  position: relative;
-  display: flex;
 }
 
 #root {
@@ -27,7 +25,6 @@ button {
 }
 
 nav {
-
   & ul {
     display: flex;
   }
@@ -53,7 +50,7 @@ main {
 }
 
 progress {
-  height: .4rem;
+  height: 0.4rem;
   width: 100%;
   background-color: var(--backgroundColor);
 }
@@ -142,20 +139,20 @@ progress::-moz-progress-bar {
   & header {
     display: flex;
     align-items: center;
-    padding: .5rem;
+    padding: 0.5rem;
 
     & h3 {
       font-size: 2rem;
       order: 1;
       flex: 2;
-      margin-left: .5rem;
+      margin-left: 0.5rem;
     }
   }
 
   & .contributorsData {
     display: flex;
     align-items: center;
-    padding: .5rem;
+    padding: 0.5rem;
 
     & .contributors {
       display: flex;
@@ -163,7 +160,7 @@ progress::-moz-progress-bar {
     }
 
     & p {
-      margin-left: .5rem;
+      margin-left: 0.5rem;
     }
   }
 }
@@ -314,7 +311,7 @@ progress::-moz-progress-bar {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, .5);
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .videoTrimmer {
@@ -416,16 +413,10 @@ progress::-moz-progress-bar {
 }
 
 .login-div {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 1rem;
 }
 
 .login-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 }
 
 .login-field {
@@ -442,7 +433,7 @@ progress::-moz-progress-bar {
 }
 
 .form-input {
-  width: 32rem;
+  width: 100%;
   height: 4.5rem;
   background: transparent;
   background-color: var(--color-white);
@@ -463,7 +454,7 @@ progress::-moz-progress-bar {
 }
 
 .login-btn {
-  width: 32rem;
+  width: 100%;
   height: 4.5rem;
   color: var(--color-white);
   text-transform: uppercase;
@@ -481,20 +472,16 @@ progress::-moz-progress-bar {
 
 .orange-background {
   background-color: var(--color-orange);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  padding: 1rem;
 }
 
 .register-btn {
-  width: 32rem;
   height: 4.5rem;
   text-transform: uppercase;
   font-weight: var(--weight-bold);
   font-size: var(--titlesize);
   background-color: transparent;
-  border: .3rem solid var(--color-purple);
+  border: 0.3rem solid var(--color-purple);
   border-radius: var(--borderRadius);
 }
 
