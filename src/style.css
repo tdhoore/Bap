@@ -1,11 +1,13 @@
-@import "./css/reset.css";
-@import "./css/vars.css";
+@import './css/reset.css';
+@import './css/vars.css';
 
 body {
   font-family: Montserrat, sans-serif;
   padding: 1rem;
   height: 100vh;
   overflow: auto;
+  position: relative;
+  display: flex;
 }
 
 #root {
@@ -25,6 +27,7 @@ button {
 }
 
 nav {
+
   & ul {
     display: flex;
   }
@@ -50,7 +53,7 @@ main {
 }
 
 progress {
-  height: 0.4rem;
+  height: .4rem;
   width: 100%;
   background-color: var(--backgroundColor);
 }
@@ -139,20 +142,20 @@ progress::-moz-progress-bar {
   & header {
     display: flex;
     align-items: center;
-    padding: 0.5rem;
+    padding: .5rem;
 
     & h3 {
       font-size: 2rem;
       order: 1;
       flex: 2;
-      margin-left: 0.5rem;
+      margin-left: .5rem;
     }
   }
 
   & .contributorsData {
     display: flex;
     align-items: center;
-    padding: 0.5rem;
+    padding: .5rem;
 
     & .contributors {
       display: flex;
@@ -160,14 +163,9 @@ progress::-moz-progress-bar {
     }
 
     & p {
-      margin-left: 0.5rem;
+      margin-left: .5rem;
     }
   }
-}
-
-.progressBarHolder {
-  position: relative;
-  display: flex;
 }
 
 .contentHolder {
@@ -316,7 +314,7 @@ progress::-moz-progress-bar {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, .5);
 }
 
 .videoTrimmer {
@@ -377,10 +375,6 @@ progress::-moz-progress-bar {
   opacity: 1;
 }
 
-.hide {
-  display: none;
-}
-
 .btn,
 .btn-success {
   margin-left: 2.5rem;
@@ -408,6 +402,111 @@ progress::-moz-progress-bar {
     font-size: 100vw;
     opacity: 0;
   }
+}
+
+/* LOGIN */
+
+.titleCSS {
+  color: var(--color-black);
+  font-size: var(--titlesize);
+  font-weight: var(--weight-bold);
+  align-self: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.login-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  margin-top: 3rem;
+}
+
+.form-label {
+  align-self: flex-start;
+  color: var(--color-white);
+  font-size: var(--titlesize);
+  font-weight: var(--weight-bold);
+}
+
+.form-input {
+  width: 32rem;
+  height: 4.5rem;
+  background: transparent;
+  background-color: var(--color-white);
+  border: none;
+  border-radius: var(--borderRadius);
+  font-family: Montserrat, sans-serif;
+  font-size: 2.2rem;
+  color: var(--backgroundColor);
+  margin-top: 1rem;
+}
+
+.ww-vergeten {
+  text-transform: uppercase;
+  color: var(--color-purple);
+  font-size: var(--broodtekst);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+}
+
+.login-btn {
+  width: 32rem;
+  height: 4.5rem;
+  color: var(--color-white);
+  text-transform: uppercase;
+  font-weight: var(--weight-bold);
+  font-size: var(--titlesize);
+  background-color: var(--activeColor);
+  border-radius: var(--borderRadius);
+}
+
+.vraag {
+  font-weight: var(--weight-semibold);
+  font-size: 2rem;
+  align-self: center;
+}
+
+.orange-background {
+  background-color: var(--color-orange);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.register-btn {
+  width: 32rem;
+  height: 4.5rem;
+  text-transform: uppercase;
+  font-weight: var(--weight-bold);
+  font-size: var(--titlesize);
+  background-color: transparent;
+  border: .3rem solid var(--color-purple);
+  border-radius: var(--borderRadius);
+}
+
+.register-link {
+  color: var(--color-purple);
+  text-decoration: none;
+}
+
+.redirect-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hide {

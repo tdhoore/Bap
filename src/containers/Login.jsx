@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React, {Component} from 'react';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Link} from 'react-router-dom';
 import * as firebase from 'firebase';
 import {observer} from 'mobx-react';
 
@@ -18,28 +18,36 @@ const Login = ({store}) =>  {
     return <Redirect to='/'/>
   } else {
   return (
-    <div className=''>
-      <form onSubmit={e => handleLogin(e)}>
-      <p className="auth-feedback">{store.feedback}</p>
-        <div className=''>
-          <label htmlFor='emailaddress'>Email address</label>
-          <input 
-            type='email' 
-            name='email' 
-            id='emailaddress' 
-            placeholder='Enter email'/>
+    <div className='login-div'>
+      <h2 className='titleCSS'>Inloggen</h2>
+<div className='orange-background'>
+        <form onSubmit={e => handleLogin(e)} className='login-form'>
+          <div className='login-field'>
+            <label htmlFor='emailaddress' className='form-label'>E-mail</label>
+            <input 
+              type='email' 
+              name='email' 
+              id='emailaddress'
+              className='form-input' 
+              placeholder='croissant@baguette.fr'/>
+          </div>
+          <div className='login-field'>
+            <label htmlFor='passwordinput' className='form-label'>Wachtwoord</label>
+            <input 
+              type='password' 
+              name='password' 
+              className='form-input'
+              id='passwordinput' 
+              placeholder='wachtwoord' />
+          </div>
+          <span><Link to="/register" className='ww-vergeten'>Wachtwoord vergeten?</Link></span>
+          <button type='submit' className='login-btn'>Inloggen</button>
+        </form>
+        <div className='redirect-div'>
+          <p className='vraag'>Nog geen account?</p>
+          <button className='register-btn'><Link to="/register" className='register-link'>Registreer</Link></button>
         </div>
-        <div className=''>
-          <label htmlFor='passwordinput'>Password</label>
-          <input 
-            type='password' 
-            name='password' 
-            className=''
-            id='passwordinput' 
-            placeholder='Password' />
-        </div>
-        <button type='submit'>Login</button>
-      </form>
+</div>
     </div>
   );}
 };
