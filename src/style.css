@@ -717,6 +717,11 @@ progress::-moz-progress-bar {
 }
 
 /* videoEditor */
+.videoEditor {
+  display: flex;
+  flex-direction: column;
+  flex: 2;
+}
 
 .videoEditor header {
   margin-bottom: 4rem;
