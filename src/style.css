@@ -17,6 +17,11 @@ h1 {
   display: none;
 }
 
+h2 {
+  font-size: 2.5rem;
+  font-size: var(--titlesize);
+}
+
 button {
   border: none;
   background: none;
@@ -426,7 +431,6 @@ progress::-moz-progress-bar {
 
 .titleCSS {
   color: var(--color-black);
-  font-size: var(--titlesize);
   font-weight: var(--weight-bold);
   align-self: center;
   margin-top: 2rem;

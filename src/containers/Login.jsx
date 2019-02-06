@@ -18,51 +18,60 @@ const Login = ({ store }) => {
     return <Redirect to="/" />;
   } else {
     return (
-      <div className="login-div">
-        <h2 className="titleCSS">Inloggen</h2>
+      <section className="login-div">
+        <header>
+          <h2 className="titleCSS">Inloggen</h2>
+        </header>
         <div className="orange-background">
-          <form onSubmit={e => handleLogin(e)} className="login-form">
-            <div className="login-field">
-              <label htmlFor="emailaddress" className="form-label">
-                E-mail
-              </label>
-              <input
-                type="email"
-                name="email"
-                id="emailaddress"
-                className="form-input"
-                placeholder="croissant@baguette.fr"
-              />
-            </div>
-            <div className="login-field">
-              <label htmlFor="passwordinput" className="form-label">
-                Wachtwoord
-              </label>
-              <input
-                type="password"
-                name="password"
-                className="form-input"
-                id="passwordinput"
-                placeholder="wachtwoord"
-              />
-            </div>
-            <span>
-              <Link to="/register" className="ww-vergeten">
-                Wachtwoord vergeten?
-              </Link>
-            </span>
-            <button type="submit" className="btn">
-              Inloggen
-            </button>
-          </form>
-          <div className="redirect-div">
-            <p className="vraag">Nog geen account?</p>
+          <article>
+            <header>
+              <h3 className="hide">login</h3>
+            </header>
+            <form onSubmit={e => handleLogin(e)} className="login-form">
+              <div className="login-field">
+                <label htmlFor="emailaddress" className="form-label">
+                  E-mail
+                </label>
+                <input
+                  type="email"
+                  name="email"
+                  id="emailaddress"
+                  className="form-input"
+                  placeholder="croissant@baguette.fr"
+                />
+              </div>
+              <div className="login-field">
+                <label htmlFor="passwordinput" className="form-label">
+                  Wachtwoord
+                </label>
+                <input
+                  type="password"
+                  name="password"
+                  className="form-input"
+                  id="passwordinput"
+                  placeholder="wachtwoord"
+                />
+              </div>
+              <span>
+                <Link to="/register" className="ww-vergeten">
+                  Wachtwoord vergeten?
+                </Link>
+              </span>
+              <button type="submit" className="btn">
+                Inloggen
+              </button>
+            </form>
+          </article>
+          <article className="redirect-div">
+            <header>
+              <h3 className="vraag">Nog geen account?</h3>
+            </header>
             <Link to="/register" className="ghostBtn">
               Registreer
             </Link>
-          </div>
+          </article>
         </div>
-      </div>
+      </section>
     );
   }
 };
