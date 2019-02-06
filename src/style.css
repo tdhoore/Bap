@@ -636,6 +636,81 @@ progress::-moz-progress-bar {
   color: transparent;
 }
 
+/* Prototype viewer */
+.prototypeViewer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  & header {
+    margin: 2rem 0;
+    padding: 0 1rem;
+  }
+
+  & p {
+    font-size: var(--broodtekst);
+    line-height: 2.2rem;
+    padding: 0 1rem;
+  }
+
+  & .verifieerBtn {
+    position: static;
+  }
+}
+
+.makerInfo {
+  display: flex;
+
+  padding: 0 1rem;
+  margin: 0 0 2rem;
+
+  & .textInfo {
+    flex: 2;
+    margin-left: 0.5rem;
+  }
+
+  & p:first-of-type {
+    font-weight: 400;
+    font-size: 2rem;
+    padding: 0;
+  }
+
+  & p:last-of-type {
+    font-weight: 300;
+    padding: 0;
+  }
+
+  & img {
+    display: block;
+    width: 4.5rem;
+    height: 4.5rem;
+    background-color: red;
+    order: -1;
+    border-radius: 50%;
+  }
+}
+
+.instructieBtn {
+  margin: 2rem 1rem 0;
+  width: calc(100% - 2rem);
+}
+
+.closeBtn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: var(--cardColor);
+  color: transparent;
+}
+
+.bigVideoHolder {
+  order: -1;
+}
+
 /* JUNK */
 .timeLine {
   display: flex;
