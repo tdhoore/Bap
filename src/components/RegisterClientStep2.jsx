@@ -28,8 +28,8 @@ const RegisterClientStep2 = ({ store }) => {
         <h2>registreer</h2>
       </header>
       <form>
-        <div className="">
-          <label htmlFor="stad">Stad</label>
+        <label htmlFor="stad">
+          <span>Stad</span>
           <input
             type="text"
             name="stad"
@@ -37,26 +37,24 @@ const RegisterClientStep2 = ({ store }) => {
             placeholder="Stad"
             onChange={e => handleLocation(e)}
           />
-        </div>
-        <div className="">
-          <label htmlFor="birthday">Leeftijd</label>
+        </label>
+        <label htmlFor="birthday">
+          <span>Leeftijd</span>
           <input
             type="date"
             name="birthday"
             id="birthday"
             onChange={e => handleBirthday(e)}
           />
-        </div>
-        <div className="">
-          <label htmlFor="algemenevoorwaarden">
-            Ik ga akkoord met de algemene voorwaarden
-          </label>
+        </label>
+        <label htmlFor="algemenevoorwaarden">
+          <span>Ik ga akkoord met de algemene voorwaarden</span>
           <input
             type="checkbox"
             name="algemenevoorwaarden"
             id="algemenevoorwaarden"
           />
-        </div>
+        </label>
         <button onClick={e => handlePreviousPage(e)}>Vorige</button>
         <button onClick={e => handleSumbitForm(e)}>Registreer</button>
       </form>

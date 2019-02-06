@@ -69,8 +69,8 @@ const RegisterClientStep1 = ({ store }) => {
             <img src={showPicture()} alt="profielfoto" />
           </div>
         </div>
-        <div className="">
-          <label htmlFor="naam">Naam</label>
+        <label htmlFor="naam">
+          <span>Naam</span>
           <input
             type="text"
             name="name"
@@ -79,30 +79,34 @@ const RegisterClientStep1 = ({ store }) => {
             onChange={e => handleClientStep1(e)}
             required
           />
-        </div>
+        </label>
         <div className="">
-          <label htmlFor="emailaddress">E-mailadres</label>
-          <input
-            type="email"
-            name="email"
-            id="emailaddress"
-            placeholder="billie@mail.com"
-            onChange={e => handleClientStep1(e)}
-            required
-          />
+          <label htmlFor="emailaddress">
+            <span>E-mailadres</span>
+            <input
+              type="email"
+              name="email"
+              id="emailaddress"
+              placeholder="billie@mail.com"
+              onChange={e => handleClientStep1(e)}
+              required
+            />
+          </label>
           <p className="">We delen jouw e-mailadres nooit met iemand anders.</p>
         </div>
         <div className="">
-          <label htmlFor="passwordinput">Wachtwoord</label>
-          <input
-            type="password"
-            name="password"
-            className=""
-            id="passwordinput"
-            placeholder="Wachtwoord"
-            onChange={e => handleClientStep1(e)}
-            required
-          />
+          <label htmlFor="passwordinput">
+            <span>Wachtwoord</span>
+            <input
+              type="password"
+              name="password"
+              className=""
+              id="passwordinput"
+              placeholder="Wachtwoord"
+              onChange={e => handleClientStep1(e)}
+              required
+            />
+          </label>
         </div>
         <button onClick={e => handlePreviousPage(e)}>Vorige</button>
         <button onClick={e => handleNextPage(e)}>Volgende</button>

@@ -22,7 +22,6 @@ const RegisterErgoStep1 = ({ store }) => {
       <form className="">
         <p>Klik op het lichaamsdeel die jouw specialisatie omvat</p>
         <BodySelector store={store} />
-
         <button onClick={e => handlePreviousPage(e)}>Vorige</button>
         <button onClick={e => handleNextPage(e)}>Volgende</button>
       </form>

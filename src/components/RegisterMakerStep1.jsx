@@ -32,8 +32,8 @@ const RegisterMakerStep1 = ({ store }) => {
       </header>
       <form className="">
         <p className="">Wat zijn jouw vaardigheden?</p>
-        <div className="">
-          <label htmlFor="lasercutten">Lasercutten</label>
+        <label htmlFor="lasercutten">
+          <span>Lasercutten</span>
           <input
             type="checkbox"
             name="skills"
@@ -41,9 +41,9 @@ const RegisterMakerStep1 = ({ store }) => {
             value="lasercutten"
             onChange={e => handleMakerSkills(e)}
           />
-        </div>
-        <div className="">
-          <label htmlFor="3dprinten">3D printen</label>
+        </label>
+        <label htmlFor="3dprinten">
+          <span>3D printen</span>
           <input
             type="checkbox"
             name="skills"
@@ -51,9 +51,9 @@ const RegisterMakerStep1 = ({ store }) => {
             value="3dprinten"
             onChange={e => handleMakerSkills(e)}
           />
-        </div>
-        <div className="">
-          <label htmlFor="houtbewerking">Houtbewerking</label>
+        </label>
+        <label htmlFor="houtbewerking">
+          <span>Houtbewerking</span>
           <input
             type="checkbox"
             name="skills"
@@ -61,9 +61,9 @@ const RegisterMakerStep1 = ({ store }) => {
             value="houtbewerking"
             onChange={e => handleMakerSkills(e)}
           />
-        </div>
-        <div className="">
-          <label htmlFor="metaalbewerking">Metaalbewerking</label>
+        </label>
+        <label htmlFor="metaalbewerking">
+          <span>Metaalbewerking</span>
           <input
             type="checkbox"
             name="skills"
@@ -71,10 +71,9 @@ const RegisterMakerStep1 = ({ store }) => {
             value="metaalbewerking"
             onChange={e => handleMakerSkills(e)}
           />
-        </div>
-
-        <div className="">
-          <label htmlFor="andereCheckbox">Andere:</label>
+        </label>
+        <label htmlFor="andereCheckbox">
+          <span>Andere:</span>
           <input
             type="checkbox"
             name="skills"
@@ -88,8 +87,7 @@ const RegisterMakerStep1 = ({ store }) => {
             disabled
             ref={andereInputRef}
           />
-        </div>
-
+        </label>
         <button onClick={e => handleNextPage(e)}>Volgende</button>
       </form>
     </article>

@@ -36,8 +36,8 @@ const RegisterErgoStep2 = ({ store }) => {
       </header>
       <form className="">
         <p>Wat houdt je specialisatie in?</p>
-        <div className="">
-          <label htmlFor="specialisatie">Amputatie</label>
+        <label htmlFor="specialisatie">
+          <span>Amputatie</span>
           <input
             type="checkbox"
             name="specialisatie"
@@ -45,9 +45,9 @@ const RegisterErgoStep2 = ({ store }) => {
             value="amputatie"
             onChange={e => handleErgoSpecialisation(e)}
           />
-        </div>
-        <div className="">
-          <label htmlFor="parkinson">Ziekte van Parkinson</label>
+        </label>
+        <label htmlFor="parkinson">
+          <span>Ziekte van Parkinson</span>
           <input
             type="checkbox"
             name="specialisatie"
@@ -55,9 +55,9 @@ const RegisterErgoStep2 = ({ store }) => {
             value="parkinson"
             onChange={e => handleErgoSpecialisation(e)}
           />
-        </div>
-        <div className="">
-          <label htmlFor="als">ALS</label>
+        </label>
+        <label htmlFor="als">
+          <span>ALS</span>
           <input
             type="checkbox"
             name="specialisatie"
@@ -65,9 +65,9 @@ const RegisterErgoStep2 = ({ store }) => {
             value="als"
             onChange={e => handleErgoSpecialisation(e)}
           />
-        </div>
-        <div className="">
-          <label htmlFor="spierdystrofie">Spierdystrofie</label>
+        </label>
+        <label htmlFor="spierdystrofie">
+          <span>Spierdystrofie</span>
           <input
             type="checkbox"
             name="specialisatie"
@@ -75,10 +75,9 @@ const RegisterErgoStep2 = ({ store }) => {
             value="spierdystrofie"
             onChange={e => handleErgoSpecialisation(e)}
           />
-        </div>
-
-        <div className="">
-          <label htmlFor="andereCheckbox">Andere:</label>
+        </label>
+        <label htmlFor="andereCheckbox">
+          <span>Andere:</span>
           <input
             type="checkbox"
             name="specialisatie"
@@ -92,8 +91,7 @@ const RegisterErgoStep2 = ({ store }) => {
             disabled
             ref={andereInputRef}
           />
-        </div>
-
+        </label>
         <button onClick={e => handlePreviousPage(e)}>Vorige</button>
         <button onClick={e => handleNextPage(e)}>Volgende</button>
       </form>

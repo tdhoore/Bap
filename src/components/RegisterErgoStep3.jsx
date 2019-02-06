@@ -24,8 +24,8 @@ const RegisterErgoStep3 = ({ store }) => {
       </header>
       <form className="">
         <p>Welke leeftijd van klant vergt je voorkeur?</p>
-        <div className="">
-          <label htmlFor="kinderen">Kinderen (0 - 12 jaar)</label>
+        <label htmlFor="kinderen">
+          <span>Kinderen (0 - 12 jaar)</span>
           <input
             type="radio"
             name="ageCategory"
@@ -33,9 +33,9 @@ const RegisterErgoStep3 = ({ store }) => {
             value="kinderen"
             onChange={e => handleErgoClientAge(e)}
           />
-        </div>
-        <div className="">
-          <label htmlFor="jongeren">Jongeren (13 - 17 jaar)</label>
+        </label>
+        <label htmlFor="jongeren">
+          <span>Jongeren (13 - 17 jaar)</span>
           <input
             type="radio"
             name="ageCategory"
@@ -43,9 +43,9 @@ const RegisterErgoStep3 = ({ store }) => {
             value="jongeren"
             onChange={e => handleErgoClientAge(e)}
           />
-        </div>
-        <div className="">
-          <label htmlFor="volwassenen">Volwassenen (18 - 60 jaar)</label>
+        </label>
+        <label htmlFor="volwassenen">
+          <span>Volwassenen (18 - 60 jaar)</span>
           <input
             type="radio"
             name="ageCategory"
@@ -53,9 +53,9 @@ const RegisterErgoStep3 = ({ store }) => {
             value="volwassenen"
             onChange={e => handleErgoClientAge(e)}
           />
-        </div>
-        <div className="">
-          <label htmlFor="ouderen">Ouderen (60+ jaar)</label>
+        </label>
+        <label htmlFor="ouderen">
+          <span>Ouderen (60+ jaar)</span>
           <input
             type="radio"
             name="ageCategory"
@@ -63,7 +63,7 @@ const RegisterErgoStep3 = ({ store }) => {
             value="ouderen"
             onChange={e => handleErgoClientAge(e)}
           />
-        </div>
+        </label>
         <button onClick={e => handlePreviousPage(e)}>Vorige</button>
         <button onClick={e => handleNextPage(e)}>Volgende</button>
       </form>
