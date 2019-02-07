@@ -69,6 +69,7 @@ const VideoEditor = ({ store, editorType, props }) => {
               <span>Jouw verhaal</span>
               <textarea name="description" id="description" required />
             </label>
+            <button className="btn">upload</button>
           </div>
         </div>
       );
@@ -128,6 +129,7 @@ const VideoEditor = ({ store, editorType, props }) => {
                   value="2"
                 />
               </label>
+              <button className="btn">upload</button>
             </div>
           </div>
         </div>
@@ -161,10 +163,7 @@ const VideoEditor = ({ store, editorType, props }) => {
             videos={store.clips}
             editorType={editorType}
           />
-          <form onSubmit={e => handleUpload(e)}>
-            {displayCorrectForm()}
-            <button className="btn">upload</button>
-          </form>
+          <form onSubmit={e => handleUpload(e)}>{displayCorrectForm()}</form>
           <div className="timeLine">
             <Track store={store} trackId={1} />
             {displayExtraTrack()}

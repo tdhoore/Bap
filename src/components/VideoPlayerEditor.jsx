@@ -231,46 +231,41 @@ const VideoPlayerEditor = ({ store, videos, editorType }) => {
   };
 
   return (
-    <div className="videoPlayer">
-      <div className="videoHolder">
-        {videos.map((video, index) => {
-          return (
-            <video
-              key={`${video.fileUrl}mainClip`}
-              height="240"
-              ref={setvideoRef(video)}
-              onTimeUpdate={e => handleUpdateTime(e)}
-              src={video.fileUrl}
-              className={isActiveVideo(video)}
-              onEnded={e => addEndedEvent(index, video)}
-              muted
-            />
-          );
-        })}
-        <div className="cssOutroVid" ref={cssOutroVidRef}>
-          {store.message}
+    <div className="videoPlayerHolder">
+      <div className="videoPlayer">
+        <div className="videoHolder">
+          {videos.map((video, index) => {
+            return (
+              <video
+                key={`${video.fileUrl}mainClip`}
+                ref={setvideoRef(video)}
+                onTimeUpdate={e => handleUpdateTime(e)}
+                src={video.fileUrl}
+                className={isActiveVideo(video)}
+                onEnded={e => addEndedEvent(index, video)}
+                muted
+              />
+            );
+          })}
+          <div className="cssOutroVid" ref={cssOutroVidRef}>
+            {store.message}
+          </div>
         </div>
-      </div>
-      <div className="videoControls">
-        <button className="playBtn" onClick={e => handleStartStop(e)}>
-          Play/pause
-        </button>
-        <div className="progressBarHolder">
-          <progress
-            value="0"
-            max="100"
-            ref={progressRef}
-            onMouseDown={e => handleProgressBarDown(e)}
-            onMouseUp={e => handleProgressBarUp(e)}
-            onMouseMove={e => handleMoveMouseProgressBar(e)}
-            onClick={e => handleProgressBarClick(e)}
-          />
-          <button
-            className="fullScreenBtn"
-            onClick={e => handleGoFullscreen(e)}
-          >
-            Fullscreen
+        <div className="videoControls">
+          <button className="playBtn" onClick={e => handleStartStop(e)}>
+            Play/pause
           </button>
+          <div className="progressBarHolder">
+            <progress
+              value="0"
+              max="100"
+              ref={progressRef}
+              onMouseDown={e => handleProgressBarDown(e)}
+              onMouseUp={e => handleProgressBarUp(e)}
+              onMouseMove={e => handleMoveMouseProgressBar(e)}
+              onClick={e => handleProgressBarClick(e)}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -87,7 +87,8 @@ const Track = ({ store, trackId, editorType }) => {
         })}
       </div>
       <div className={renderUploadBarClasses()}>
-        <label htmlFor="uploadFile">
+        <label htmlFor="uploadFile" className="uploadLabel">
+          <span>Selecteer je video’s</span>
           <input
             type="file"
             accept="video/mp4"

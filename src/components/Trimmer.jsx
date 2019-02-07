@@ -267,37 +267,47 @@ const Trimmer = ({ store }) => {
   };
 
   return (
-    <div className="trimmerWindow">
+    <article className="trimmerWindow">
+      <header>
+        <h3>Trim je video</h3>
+      </header>
       <div className="videoTrimmer">
+        <button className="closeBtn">close</button>
         <video
           src={activeClip.fileUrl}
           muted
-          height="240"
           ref={videoRef}
           onTimeUpdate={e => handleTimeUpdate(e)}
         />
-        <button onClick={e => handlePlayClip(e)}>play</button>
-        <button onClick={e => handleComfirmTrim(e)}>confirm</button>
-        <div className="trimmerTimeLine" ref={trimmerTimeLineRef}>
-          <div
-            className="videoLength"
-            style={{
-              marginLeft: `${clacMarginLeft()}%`,
-              marginRight: `${clacMarginRight()}%`
-            }}
-          >
+        <div className="trimmerTimelineAndPlay">
+          <button onClick={e => handlePlayClip(e)}>play</button>
+          <div className="trimmerTimeLine" ref={trimmerTimeLineRef}>
             <div
-              className="trimer trimerStart"
-              onMouseDown={e => handleMouseDown(e, true)}
-            />
-            <div
-              className="trimer trimerEnd"
-              onMouseDown={e => handleMouseDown(e, false)}
-            />
+              className="videoLength"
+              style={{
+                marginLeft: `${clacMarginLeft()}%`,
+                marginRight: `${clacMarginRight()}%`
+              }}
+            >
+              <div
+                className="trimer trimerStart"
+                onMouseDown={e => handleMouseDown(e, true)}
+              />
+              <div
+                className="trimer trimerEnd"
+                onMouseDown={e => handleMouseDown(e, false)}
+              />
+            </div>
           </div>
         </div>
+        <div className="trimmerBtns">
+          <button className="ghostBtn">verwijderen</button>
+          <button onClick={e => handleComfirmTrim(e)} className="btn">
+            Trim
+          </button>
+        </div>
       </div>
-    </div>
+    </article>
   );
 };
 
