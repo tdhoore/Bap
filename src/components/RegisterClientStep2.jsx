@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
 import { observer } from "mobx-react";
+import StepCounter from "./StepCounter.jsx";
 
 const RegisterClientStep2 = ({ store }) => {
   const handleSumbitForm = e => {
@@ -58,6 +58,7 @@ const RegisterClientStep2 = ({ store }) => {
             <span className="customCheckBox" />
           </label>
         </div>
+        <StepCounter store={store} />
         <div className="prevAndNextHolder">
           <button onClick={e => handlePreviousPage(e)} className="ghostBtn">
             Vorige

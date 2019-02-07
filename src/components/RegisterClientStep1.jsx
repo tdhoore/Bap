@@ -5,27 +5,16 @@ import defaultPic from "../assets/img/pic.jpg";
 import StepCounter from "./StepCounter.jsx";
 
 const RegisterClientStep1 = ({ store }) => {
-  const handleRegister = e => {
-    e.preventDefault();
-    // store.register({
-    //   email: e.target.email.value,
-    //   password: e.target.password.value,
-    //   feedback: store.feedback
-    // });
-  };
-
   const handleClientStep1 = e => {
     const input = e.currentTarget;
     if (input.name === "name") {
       store.formObject.name = input.value;
-      console.log(`store.formObject.name:`, input.value);
     } else if (input.name === "email") {
       store.formObject.email = input.value;
     } else if (input.name === "profilepic") {
       const file = input.files[0];
       store.formObject.profilepicfile = file;
       store.formObject.profilepicurl = URL.createObjectURL(file);
-      console.log(`PROFILEPICURL:`, store.formObject.profilepicurl);
     } else if (input.name === "password") {
       store.formObject.password = input.value;
     }
@@ -52,10 +41,7 @@ const RegisterClientStep1 = ({ store }) => {
       <header>
         <h2>registreer</h2>
       </header>
-      <form
-        onSubmit={e => handleRegister(e)}
-        className="colorBg colorBgTop lastSection"
-      >
+      <form className="colorBg colorBgTop lastSection">
         <div className="formContentHolder">
           <div className="profilePicHolder">
             <label htmlFor="profilepic" className="hide">
