@@ -12,7 +12,7 @@ import PrototypeViewer from "./PrototypeViewer.jsx";
 
 class App extends Component {
   displayVideoEditor(store) {
-    return <VideoEditor store={store} editorType={0} />;
+    return <VideoEditor store={store} editorType={1} />;
   }
 
   render() {

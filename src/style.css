@@ -1028,6 +1028,64 @@ progress::-moz-progress-bar {
   }
 }
 
+.track2 {
+  margin-left: 2rem;
+}
+
+.titleAndStoryHolder .prototypetextarea {
+  height: 15rem;
+}
+
+.difficultySelector {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: auto 1fr;
+  grid-row-gap: 1rem;
+  margin-top: 2rem;
+
+  & p {
+    grid-column: 1 / -1;
+    color: var(--secondColorBgTextColor);
+    font-size: 2rem;
+  }
+
+  & label:last-of-type {
+    margin-top: 0;
+  }
+
+  & label {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+
+  & label span {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-size: var(--broodtekst);
+  }
+
+  & .selectedBox {
+    content: "";
+    display: block;
+    width: 6rem;
+    height: 6rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--backgroundColor);
+    border-radius: 50%;
+  }
+
+  & label input {
+    display: none;
+  }
+
+  & input:checked ~ .selectedBox {
+    background-color: var(--activeColor);
+  }
+}
+
 /* JUNK */
 
 .scrubber {

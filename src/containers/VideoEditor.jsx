@@ -74,9 +74,11 @@ const VideoEditor = ({ store, editorType, props }) => {
         </div>
       );
     } else if (editorType === 1) {
-      console.log("props", props.match.params);
-      const fase = props.match.params.fase;
-      const projectId = props.match.params.projectId;
+      //console.log("props", props.match.params);
+      //const fase = props.match.params.fase;
+      //const projectId = props.match.params.projectId;
+      const fase = 1;
+      const projectId = "firstproject";
 
       //upload voor de maker
       return (
@@ -85,7 +87,7 @@ const VideoEditor = ({ store, editorType, props }) => {
             <input type="hidden" name="fase" value={fase} />
             <input type="hidden" name="projectId" value={projectId} />
             <label htmlFor="title">
-              <span>Wat is je doel?</span>
+              <span>Titel</span>
               <input
                 type="text"
                 id="title"
@@ -95,10 +97,16 @@ const VideoEditor = ({ store, editorType, props }) => {
               />
             </label>
             <label htmlFor="description">
-              <span>Jouw verhaal</span>
-              <textarea name="description" id="description" required />
+              <span>Extra uitleg</span>
+              <textarea
+                name="description"
+                id="description"
+                required
+                className="prototypetextarea"
+              />
             </label>
             <div className="difficultySelector">
+              <p>Moeilijkheidsgraad product</p>
               <label htmlFor="beginner">
                 <span>Beginner</span>
                 <input
@@ -108,6 +116,7 @@ const VideoEditor = ({ store, editorType, props }) => {
                   required
                   value="0"
                 />
+                <span className="selectedBox" />
               </label>
               <label htmlFor="hobbyist">
                 <span>Hobbyist</span>
@@ -118,6 +127,7 @@ const VideoEditor = ({ store, editorType, props }) => {
                   required
                   value="1"
                 />
+                <span className="selectedBox" />
               </label>
               <label htmlFor="expert">
                 <span>Expert</span>
@@ -128,9 +138,10 @@ const VideoEditor = ({ store, editorType, props }) => {
                   required
                   value="2"
                 />
+                <span className="selectedBox" />
               </label>
-              <button className="btn">upload</button>
             </div>
+            <button className="btn">upload</button>
           </div>
         </div>
       );
