@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 import defaultPic from "../assets/img/pic.jpg";
+import StepCounter from "./StepCounter.jsx";
 
 const RegisterClientStep1 = ({ store }) => {
   const handleRegister = e => {
@@ -47,40 +48,44 @@ const RegisterClientStep1 = ({ store }) => {
   };
 
   return (
-    <article className="">
+    <article className="loginHolder">
       <header>
         <h2>registreer</h2>
       </header>
-      <form onSubmit={e => handleRegister(e)}>
-        <p className="auth-feedback">{store.feedback}</p>
-        <div className="">
-          <label htmlFor="profilepic" className="hide">
-            profilepic
-          </label>
-          <div className="profilePictureDiv">
+      <form
+        onSubmit={e => handleRegister(e)}
+        className="colorBg colorBgTop lastSection"
+      >
+        <div className="formContentHolder">
+          <div className="profilePicHolder">
+            <label htmlFor="profilepic" className="hide">
+              profilepic
+            </label>
+            <div className="inputHolder">
+              <input
+                type="file"
+                name="profilepic"
+                id="profilepic"
+                accept="image/png,image/jpg"
+                onChange={e => handleClientStep1(e)}
+                required
+              />
+            </div>
+            <div className="imageHolder">
+              <img src={showPicture()} alt="profielfoto" />
+            </div>
+          </div>
+          <label htmlFor="naam">
+            <span>Naam</span>
             <input
-              type="file"
-              name="profilepic"
-              id="profilepic"
-              accept="image/png,image/jpg"
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Voornaam Familienaam"
               onChange={e => handleClientStep1(e)}
               required
             />
-            <img src={showPicture()} alt="profielfoto" />
-          </div>
-        </div>
-        <label htmlFor="naam">
-          <span>Naam</span>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            placeholder="Voornaam Familienaam"
-            onChange={e => handleClientStep1(e)}
-            required
-          />
-        </label>
-        <div className="">
+          </label>
           <label htmlFor="emailaddress">
             <span>E-mailadres</span>
             <input
@@ -92,24 +97,30 @@ const RegisterClientStep1 = ({ store }) => {
               required
             />
           </label>
-          <p className="">We delen jouw e-mailadres nooit met iemand anders.</p>
+          <div className="">
+            <label htmlFor="passwordinput">
+              <span>Wachtwoord</span>
+              <input
+                type="password"
+                name="password"
+                className=""
+                id="passwordinput"
+                placeholder="Wachtwoord"
+                onChange={e => handleClientStep1(e)}
+                required
+              />
+            </label>
+          </div>
         </div>
-        <div className="">
-          <label htmlFor="passwordinput">
-            <span>Wachtwoord</span>
-            <input
-              type="password"
-              name="password"
-              className=""
-              id="passwordinput"
-              placeholder="Wachtwoord"
-              onChange={e => handleClientStep1(e)}
-              required
-            />
-          </label>
+        <StepCounter store={store} />
+        <div className="prevAndNextHolder">
+          <button onClick={e => handlePreviousPage(e)} className="ghostBtn">
+            Vorige
+          </button>
+          <button onClick={e => handleNextPage(e)} className="btn">
+            Volgende
+          </button>
         </div>
-        <button onClick={e => handlePreviousPage(e)}>Vorige</button>
-        <button onClick={e => handleNextPage(e)}>Volgende</button>
       </form>
     </article>
   );

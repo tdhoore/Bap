@@ -23,40 +23,49 @@ const RegisterClientStep2 = ({ store }) => {
   };
 
   return (
-    <article className="">
+    <article className="loginHolder">
       <header>
         <h2>registreer</h2>
       </header>
-      <form>
-        <label htmlFor="stad">
-          <span>Stad</span>
-          <input
-            type="text"
-            name="stad"
-            id="stad"
-            placeholder="Stad"
-            onChange={e => handleLocation(e)}
-          />
-        </label>
-        <label htmlFor="birthday">
-          <span>Leeftijd</span>
-          <input
-            type="date"
-            name="birthday"
-            id="birthday"
-            onChange={e => handleBirthday(e)}
-          />
-        </label>
-        <label htmlFor="algemenevoorwaarden">
-          <span>Ik ga akkoord met de algemene voorwaarden</span>
-          <input
-            type="checkbox"
-            name="algemenevoorwaarden"
-            id="algemenevoorwaarden"
-          />
-        </label>
-        <button onClick={e => handlePreviousPage(e)}>Vorige</button>
-        <button onClick={e => handleSumbitForm(e)}>Registreer</button>
+      <form className="colorBg colorBgTop lastSection">
+        <div className="formContentHolder">
+          <label htmlFor="stad">
+            <span>Stad</span>
+            <input
+              type="text"
+              name="stad"
+              id="stad"
+              placeholder="Stad"
+              onChange={e => handleLocation(e)}
+            />
+          </label>
+          <label htmlFor="birthday">
+            <span>Leeftijd</span>
+            <input
+              type="date"
+              name="birthday"
+              id="birthday"
+              onChange={e => handleBirthday(e)}
+            />
+          </label>
+          <label htmlFor="algemenevoorwaarden" className="labelWithCheckbox">
+            <span>Ik ga akkoord met de algemene voorwaarden</span>
+            <input
+              type="checkbox"
+              name="algemenevoorwaarden"
+              id="algemenevoorwaarden"
+            />
+            <span className="customCheckBox" />
+          </label>
+        </div>
+        <div className="prevAndNextHolder">
+          <button onClick={e => handlePreviousPage(e)} className="ghostBtn">
+            Vorige
+          </button>
+          <button onClick={e => handleSumbitForm(e)} className="btn">
+            Registreer
+          </button>
+        </div>
       </form>
     </article>
   );

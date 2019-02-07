@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
-import { Link } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 import { observer } from "mobx-react";
 import Home from "./Home.jsx";
 import RegisterClientStep1 from "../components/RegisterClientStep1.jsx";
@@ -27,7 +27,7 @@ const Registration = ({ store }) => {
           case 2:
             return <RegisterErgoStep1 store={store} />;
           default:
-            return <Home store={store} />;
+            return <Redirect to="/" />;
         }
       case 3:
         switch (store.formObject.type) {
@@ -38,7 +38,7 @@ const Registration = ({ store }) => {
           case 2:
             return <RegisterErgoStep2 store={store} />;
           default:
-            return <Home store={store} />;
+            return <Redirect to="/" />;
         }
       case 4:
         switch (store.formObject.type) {
@@ -49,7 +49,7 @@ const Registration = ({ store }) => {
           case 2:
             return <RegisterErgoStep3 store={store} />;
           default:
-            return <Home store={store} />;
+            return <Redirect to="/" />;
         }
       case 5:
         switch (store.formObject.type) {
@@ -60,10 +60,10 @@ const Registration = ({ store }) => {
           // case 2:
           //     return <RegisterErgo store={store}/>
           default:
-            return <Home store={store} />;
+            return <Redirect to="/" />;
         }
       default:
-        return <Home store={store} />;
+        return <Redirect to="/" />;
     }
   };
 

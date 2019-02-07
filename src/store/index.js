@@ -73,6 +73,7 @@ class Store {
 
     //register
     this.step = 1;
+    this.maxSteps = 3;
     this.formObject = {};
   }
 
@@ -856,7 +857,8 @@ decorate(Store, {
   totalTrackLengths: observable,
   allProjects: observable,
   formObject: observable,
-  step: observable
+  step: observable,
+  maxSteps: observable
 });
 
 const store = new Store();

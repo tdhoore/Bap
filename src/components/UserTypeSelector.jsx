@@ -1,63 +1,77 @@
 /* eslint-disable no-unused-vars */
 import React from "react";
 import { observer } from "mobx-react";
-import { Link } from "react-router-dom";
+import StepCounter from "./StepCounter.jsx";
 
 const UserTypeSelector = ({ store }) => {
   const handleUserType = e => {
-    store.formObject.type = parseInt(e.currentTarget.value);
-    console.log("type:", store.formObject.type);
+    const value = parseInt(e.currentTarget.value);
+    store.formObject.type = value;
+
+    //update stepCounter
+    if (value === 0) {
+      //klant
+      store.maxSteps = 3;
+    } else if (value === 1) {
+      //maker
+      store.maxSteps = 5;
+    } else {
+      //ergo
+      store.maxSteps = 8;
+    }
   };
 
   const handleNextPage = e => {
     e.preventDefault();
     store.step++;
-    console.log(store.step);
   };
 
   return (
-    <article className="">
+    <article className="loginHolder">
       <header>
-        <h3>Registreer</h3>
+        <h2>Registreer</h2>
       </header>
-      <form>
-        <p>Wat voor gebruiker ben je?</p>
-        <label htmlFor="klant">
-          <span>Klant</span>
-          <input
-            type="radio"
-            id="klant"
-            value="0"
-            name="usertype"
-            onChange={e => handleUserType(e)}
-          />
-          <span className="selectedType" />
-        </label>
-
-        <label htmlFor="maker">
-          <span>maker</span>
-          <input
-            type="radio"
-            id="maker"
-            value="1"
-            name="usertype"
-            onChange={e => handleUserType(e)}
-          />
-          <span className="selectedType" />
-        </label>
-
-        <label htmlFor="ergo">
-          <span>ergo</span>
-          <input
-            type="radio"
-            id="ergo"
-            value="2"
-            name="usertype"
-            onChange={e => handleUserType(e)}
-          />
-          <span className="selectedType" />
-        </label>
-        <button onClick={e => handleNextPage(e)}>Volgende</button>
+      <form className="colorBg colorBgTop lastSection">
+        <legend>Wat voor gebruiker ben je?</legend>
+        <div className="typeHolder">
+          <label htmlFor="klant">
+            <span>Klant</span>
+            <input
+              type="radio"
+              id="klant"
+              value="0"
+              name="usertype"
+              onChange={e => handleUserType(e)}
+            />
+            <span className="selectedType" />
+          </label>
+          <label htmlFor="maker">
+            <span>maker</span>
+            <input
+              type="radio"
+              id="maker"
+              value="1"
+              name="usertype"
+              onChange={e => handleUserType(e)}
+            />
+            <span className="selectedType" />
+          </label>
+          <label htmlFor="ergo">
+            <span>ergo</span>
+            <input
+              type="radio"
+              id="ergo"
+              value="2"
+              name="usertype"
+              onChange={e => handleUserType(e)}
+            />
+            <span className="selectedType" />
+          </label>
+        </div>
+        <StepCounter store={store} />
+        <button onClick={e => handleNextPage(e)} className="btn">
+          Volgende
+        </button>
       </form>
     </article>
   );
