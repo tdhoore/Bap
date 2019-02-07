@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { observer } from "mobx-react";
+import StepCounter from "./StepCounter.jsx";
 
 const RegisterErgoStep2 = ({ store }) => {
   const andereInputRef = React.createRef();
@@ -30,70 +31,84 @@ const RegisterErgoStep2 = ({ store }) => {
   };
 
   return (
-    <article className="">
+    <article className="loginHolder">
       <header>
         <h2>registreer</h2>
       </header>
-      <form className="">
-        <p>Wat houdt je specialisatie in?</p>
-        <label htmlFor="specialisatie">
-          <span>Amputatie</span>
-          <input
-            type="checkbox"
-            name="specialisatie"
-            id="amputatie"
-            value="amputatie"
-            onChange={e => handleErgoSpecialisation(e)}
-          />
-        </label>
-        <label htmlFor="parkinson">
-          <span>Ziekte van Parkinson</span>
-          <input
-            type="checkbox"
-            name="specialisatie"
-            id="parkinson"
-            value="parkinson"
-            onChange={e => handleErgoSpecialisation(e)}
-          />
-        </label>
-        <label htmlFor="als">
-          <span>ALS</span>
-          <input
-            type="checkbox"
-            name="specialisatie"
-            id="als"
-            value="als"
-            onChange={e => handleErgoSpecialisation(e)}
-          />
-        </label>
-        <label htmlFor="spierdystrofie">
-          <span>Spierdystrofie</span>
-          <input
-            type="checkbox"
-            name="specialisatie"
-            id="spierdystrofie"
-            value="spierdystrofie"
-            onChange={e => handleErgoSpecialisation(e)}
-          />
-        </label>
-        <label htmlFor="andereCheckbox">
-          <span>Andere:</span>
-          <input
-            type="checkbox"
-            name="specialisatie"
-            id="andereCheckbox"
-            onChange={e => handleErgoSpecialisation(e)}
-          />
-          <input
-            type="text"
-            name="specialisatie"
-            onChange={e => handleErgoSpecialisation(e)}
-            disabled
-            ref={andereInputRef}
-          />
-        </label>
-        <button onClick={e => handlePreviousPage(e)}>Vorige</button>
-        <button onClick={e => handleNextPage(e)}>Volgende</button>
+      <form className="colorBg colorBgTop lastSection">
+        <div className="formContentHolder">
+          <legend>Wat houdt je specialisatie in?</legend>
+          <label htmlFor="specialisatie" className="labelWithCheckbox">
+            <span>Amputatie</span>
+            <input
+              type="checkbox"
+              name="specialisatie"
+              id="amputatie"
+              value="amputatie"
+              onChange={e => handleErgoSpecialisation(e)}
+            />
+            <span className="customCheckBox" />
+          </label>
+          <label htmlFor="parkinson" className="labelWithCheckbox">
+            <span>Ziekte van Parkinson</span>
+            <input
+              type="checkbox"
+              name="specialisatie"
+              id="parkinson"
+              value="parkinson"
+              onChange={e => handleErgoSpecialisation(e)}
+            />
+            <span className="customCheckBox" />
+          </label>
+          <label htmlFor="als" className="labelWithCheckbox">
+            <span>ALS</span>
+            <input
+              type="checkbox"
+              name="specialisatie"
+              id="als"
+              value="als"
+              onChange={e => handleErgoSpecialisation(e)}
+            />
+            <span className="customCheckBox" />
+          </label>
+          <label htmlFor="spierdystrofie" className="labelWithCheckbox">
+            <span>Spierdystrofie</span>
+            <input
+              type="checkbox"
+              name="specialisatie"
+              id="spierdystrofie"
+              value="spierdystrofie"
+              onChange={e => handleErgoSpecialisation(e)}
+            />
+            <span className="customCheckBox" />
+          </label>
+          <label htmlFor="andereCheckbox" className="labelWithCheckbox">
+            <span>Andere:</span>
+            <input
+              type="checkbox"
+              name="specialisatie"
+              id="andereCheckbox"
+              onChange={e => handleErgoSpecialisation(e)}
+            />
+            <input
+              type="text"
+              name="specialisatie"
+              onChange={e => handleErgoSpecialisation(e)}
+              disabled
+              ref={andereInputRef}
+            />
+            <span className="customCheckBox" />
+          </label>
+        </div>
+        <StepCounter store={store} />
+        <div className="prevAndNextHolder">
+          <button onClick={e => handlePreviousPage(e)} className="ghostBtn">
+            Vorige
+          </button>
+          <button onClick={e => handleNextPage(e)} className="btn">
+            Volgende
+          </button>
+        </div>
       </form>
     </article>
   );

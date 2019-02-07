@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 import BodySelector from "./BodySelector.jsx";
+import StepCounter from "./StepCounter.jsx";
 
 const RegisterErgoStep1 = ({ store }) => {
   const handleNextPage = e => {
@@ -15,15 +16,24 @@ const RegisterErgoStep1 = ({ store }) => {
   };
 
   return (
-    <article className="">
+    <article className="loginHolder">
       <header>
         <h2>registreer</h2>
       </header>
-      <form className="">
-        <p>Klik op het lichaamsdeel die jouw specialisatie omvat</p>
-        <BodySelector store={store} />
-        <button onClick={e => handlePreviousPage(e)}>Vorige</button>
-        <button onClick={e => handleNextPage(e)}>Volgende</button>
+      <form className="colorBg colorBgTop lastSection">
+        <legend>Klik op het lichaamsdeel die jouw specialisatie omvat</legend>
+        <div className="formContentHolder">
+          <BodySelector store={store} />
+        </div>
+        <StepCounter store={store} />
+        <div className="prevAndNextHolder">
+          <button onClick={e => handlePreviousPage(e)} className="ghostBtn">
+            Vorige
+          </button>
+          <button onClick={e => handleNextPage(e)} className="btn">
+            Volgende
+          </button>
+        </div>
       </form>
     </article>
   );

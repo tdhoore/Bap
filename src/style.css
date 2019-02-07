@@ -1367,6 +1367,44 @@ legend {
   }
 }
 
+.leeftijdHolder {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto repeat(2, 1fr);
+  grid-column-gap: 2rem;
+
+  & legend {
+    grid-column: 1 / -1;
+    grid-row: 1 / 2;
+  }
+
+  & label {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    text-align: center;
+  }
+
+  & label span {
+    font-size: var(--broodtekst);
+  }
+
+  & .leeftijdCheckbox {
+    width: 8rem;
+    height: 8rem;
+    background-color: var(--backgroundColor);
+    border-radius: 50%;
+  }
+
+  & input[type="checkbox"] {
+    opacity: 0;
+  }
+
+  & input[type="checkbox"]:checked ~ .leeftijdCheckbox {
+    background-color: var(--activeColor);
+  }
+}
+
 .hide {
   display: none;
 }

@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { observer } from "mobx-react";
+import StepCounter from "./StepCounter.jsx";
 
 const RegisterErgoStep3 = ({ store }) => {
   const handleErgoClientAge = e => {
@@ -18,54 +19,81 @@ const RegisterErgoStep3 = ({ store }) => {
   };
 
   return (
-    <article className="">
+    <article className="loginHolder">
       <header>
         <h2>registreer</h2>
       </header>
-      <form className="">
-        <p>Welke leeftijd van klant vergt je voorkeur?</p>
-        <label htmlFor="kinderen">
-          <span>Kinderen (0 - 12 jaar)</span>
-          <input
-            type="radio"
-            name="ageCategory"
-            id="kinderen"
-            value="kinderen"
-            onChange={e => handleErgoClientAge(e)}
-          />
-        </label>
-        <label htmlFor="jongeren">
-          <span>Jongeren (13 - 17 jaar)</span>
-          <input
-            type="radio"
-            name="ageCategory"
-            id="jongeren"
-            value="jongeren"
-            onChange={e => handleErgoClientAge(e)}
-          />
-        </label>
-        <label htmlFor="volwassenen">
-          <span>Volwassenen (18 - 60 jaar)</span>
-          <input
-            type="radio"
-            name="ageCategory"
-            id="volwassenen"
-            value="volwassenen"
-            onChange={e => handleErgoClientAge(e)}
-          />
-        </label>
-        <label htmlFor="ouderen">
-          <span>Ouderen (60+ jaar)</span>
-          <input
-            type="radio"
-            name="ageCategory"
-            id="ouderen"
-            value="ouderen"
-            onChange={e => handleErgoClientAge(e)}
-          />
-        </label>
-        <button onClick={e => handlePreviousPage(e)}>Vorige</button>
-        <button onClick={e => handleNextPage(e)}>Volgende</button>
+      <form className="colorBg colorBgTop lastSection">
+        <div className="formContentHolder leeftijdHolder">
+          <legend>Welke leeftijd van klant vergt je voorkeur?</legend>
+          <label htmlFor="kinderen">
+            <span>
+              Kinderen <br />0 - 12
+            </span>
+            <input
+              type="checkbox"
+              name="ageCategory"
+              id="kinderen"
+              value="kinderen"
+              onChange={e => handleErgoClientAge(e)}
+            />
+            <span className="leeftijdCheckbox" />
+          </label>
+          <label htmlFor="jongeren">
+            <span>
+              Jongeren
+              <br />
+              13 - 17
+            </span>
+            <input
+              type="checkbox"
+              name="ageCategory"
+              id="jongeren"
+              value="jongeren"
+              onChange={e => handleErgoClientAge(e)}
+            />
+            <span className="leeftijdCheckbox" />
+          </label>
+          <label htmlFor="volwassenen">
+            <span>
+              Volwassenen
+              <br />
+              18 - 60
+            </span>
+            <input
+              type="checkbox"
+              name="ageCategory"
+              id="volwassenen"
+              value="volwassenen"
+              onChange={e => handleErgoClientAge(e)}
+            />
+            <span className="leeftijdCheckbox" />
+          </label>
+          <label htmlFor="ouderen">
+            <span>
+              Ouderen
+              <br />
+              60+
+            </span>
+            <input
+              type="checkbox"
+              name="ageCategory"
+              id="ouderen"
+              value="ouderen"
+              onChange={e => handleErgoClientAge(e)}
+            />
+            <span className="leeftijdCheckbox" />
+          </label>
+        </div>
+        <StepCounter store={store} />
+        <div className="prevAndNextHolder">
+          <button onClick={e => handlePreviousPage(e)} className="ghostBtn">
+            Vorige
+          </button>
+          <button onClick={e => handleNextPage(e)} className="btn">
+            Volgende
+          </button>
+        </div>
       </form>
     </article>
   );

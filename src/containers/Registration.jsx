@@ -57,8 +57,30 @@ const Registration = ({ store }) => {
             return;
           case 1:
             return <RegisterClientStep2 store={store} />;
-          // case 2:
-          //     return <RegisterErgo store={store}/>
+          case 2:
+            return <RegisterMakerStep2 store={store} />;
+          default:
+            return <Redirect to="/" />;
+        }
+      case 6:
+        switch (store.formObject.type) {
+          case 0:
+            return;
+          case 1:
+            return;
+          case 2:
+            return <RegisterClientStep1 store={store} />;
+          default:
+            return <Redirect to="/" />;
+        }
+      case 7:
+        switch (store.formObject.type) {
+          case 0:
+            return;
+          case 1:
+            return;
+          case 2:
+            return <RegisterClientStep2 store={store} />;
           default:
             return <Redirect to="/" />;
         }
