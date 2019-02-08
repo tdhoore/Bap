@@ -313,12 +313,62 @@ progress::-moz-progress-bar {
 }
 
 .commentsHolder {
-  display: none;
+  position: absolute;
+  top: -2.9rem;
+  left: 0;
+  width: 100%;
+  font-size: 1.4rem;
+
+  & .comment {
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    padding-left: 0;
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  & .commentShow {
+    opacity: 1;
+  }
+
+  & .comment::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 0.5rem);
+    background-color: var(--backgroundColor);
+    opacity: 0.6;
+    border-top-right-radius: 50%;
+  }
+
+  & .commentImg {
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    width: 2.4rem;
+    height: 2.4rem;
+    overflow: hidden;
+    background-color: red;
+    margin-right: 0.5rem;
+  }
+
+  & .commentImg img {
+    width: 100%;
+    height: 100%;
+  }
 }
 
 .miniComment {
   position: absolute;
-  top: -4.4rem;
+  top: -3.8rem;
   left: 0;
   display: flex;
   align-items: center;
@@ -339,9 +389,9 @@ progress::-moz-progress-bar {
 
   & .commentImg {
     display: block;
-    height: 4.4rem;
-    min-width: 4.4rem;
-    max-width: 4.4rem;
+    height: 3.8rem;
+    min-width: 3.8rem;
+    max-width: 3.8rem;
     background-color: red;
     overflow: hidden;
     border-top-left-radius: 50%;
@@ -358,6 +408,7 @@ progress::-moz-progress-bar {
     margin: 0 0.5rem;
     padding: 1rem 0;
     background-color: transparent;
+    font-size: 1.4rem;
   }
 
   & input[type="submit"] {

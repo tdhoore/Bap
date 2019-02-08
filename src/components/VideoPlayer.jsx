@@ -206,7 +206,10 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
           <div className="commentsHolder" ref={commentsHolderRef}>
             {comments.map((commentData, index) => {
               return (
-                <div key={`comment${index}`} className="comment hide">
+                <div key={`comment${index}`} className="comment  hide">
+                  <div className="commentImg">
+                    <img src="" alt="profiel foto" />
+                  </div>
                   {commentData.comment}
                 </div>
               );
