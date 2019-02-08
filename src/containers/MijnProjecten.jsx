@@ -15,17 +15,17 @@ const MijnProjecten = ({ store }) => {
     if (!store.user) {
       return (
         <div>
-          <section>
+          <section className="highLightedSection">
             <header>
-              <h2>Updates</h2>
+              <h2 className="mainHeader">Updates</h2>
               <CardHolder store={store} content={store.allProjects} />
             </header>
           </section>
-          <section>
+          <section className="lastSection mijnProjectenSection">
             <header>
               <h2>Mijn projecten</h2>
-              <CardHolder store={store} content={store.allProjects} />
             </header>
+            <CardHolder store={store} content={store.allProjects} />
           </section>
         </div>
       );

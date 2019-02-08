@@ -258,6 +258,7 @@ footer {
 }
 
 progress {
+  display: block;
   height: 0.4rem;
   width: 100%;
   background-color: var(--backgroundColor);
@@ -280,12 +281,9 @@ progress::-moz-progress-bar {
   }
 
   & .videoHolder video {
-    max-width: 100%;
+    width: 100%;
     border-radius: var(--borderRadius);
   }
-}
-
-.contentHolder {
 }
 
 .videoControls {
@@ -308,8 +306,66 @@ progress::-moz-progress-bar {
 
   & .progressBarHolder {
     position: relative;
-    margin-top: -0.4rem;
+    align-self: flex-start;
+    height: 0.2rem;
     flex: 2;
+  }
+}
+
+.commentsHolder {
+  display: none;
+}
+
+.miniComment {
+  position: absolute;
+  top: -4.4rem;
+  left: 0;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--backgroundColor);
+    opacity: 0.6;
+  }
+
+  & .commentImg {
+    display: block;
+    height: 4.4rem;
+    min-width: 4.4rem;
+    max-width: 4.4rem;
+    background-color: red;
+    overflow: hidden;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+
+    & img {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  & input[type="text"] {
+    margin: 0 0.5rem;
+    padding: 1rem 0;
+    background-color: transparent;
+  }
+
+  & input[type="submit"] {
+    padding: 0;
+    width: 3rem;
+    height: 3rem;
+    color: transparent;
+    background-color: red;
   }
 }
 
@@ -1403,6 +1459,12 @@ legend {
   & input[type="checkbox"]:checked ~ .leeftijdCheckbox {
     background-color: var(--activeColor);
   }
+}
+
+/* Mijn projecten */
+
+.mijnProjectenSection header {
+  margin-bottom: 2rem;
 }
 
 .hide {

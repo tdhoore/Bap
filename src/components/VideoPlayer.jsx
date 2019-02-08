@@ -191,6 +191,18 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
             ref={scrubberRef}
             onClick={e => handleClickScrubber(e)}
           />
+          <form className="miniComment hide" ref={commentFormRef}>
+            <div className="commentImg">
+              <img src="" alt="profiel foto" />
+            </div>
+            <input
+              type="text"
+              className="timeStamp"
+              ref={commentInputRef}
+              placeholder="comment"
+            />
+            <input type="submit" onClick={e => handleSubmitComment(e)} />
+          </form>
           <div className="commentsHolder" ref={commentsHolderRef}>
             {comments.map((commentData, index) => {
               return (
@@ -209,14 +221,13 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
             onMouseMove={e => handleMoveMouseProgressBar(e)}
           />
         </div>
-        <button className="fullScreenBtn" onClick={e => handleGoFullscreen(e)}>
+        <button
+          className="fullScreenBtn hide"
+          onClick={e => handleGoFullscreen(e)}
+        >
           Fullscreen
         </button>
       </div>
-      <form className="miniComment hide" ref={commentFormRef}>
-        <input type="text" className="timeStamp" ref={commentInputRef} />
-        <input type="submit" onClick={e => handleSubmitComment(e)} />
-      </form>
     </div>
   );
 };
