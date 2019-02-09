@@ -22,7 +22,7 @@ const Login = ({ store }) => {
             <h2>Inloggen</h2>
           </header>
           <div className="colorBg colorBgTop lastSection">
-            <article>
+            <article className="loginFormHolder">
               <header>
                 <h3 className="hide">login</h3>
               </header>

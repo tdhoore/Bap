@@ -1325,7 +1325,8 @@ progress::-moz-progress-bar {
 
 /* LOGIN/register */
 
-.loginHolder {
+.loginHolder,
+.mainRegisterHolder {
   display: flex;
   flex-direction: column;
   flex: 2;
@@ -1393,11 +1394,10 @@ legend {
   text-align: center;
   color: var(--secondColorBgTextColor);
   font-size: var(--broodtekst);
-  margin: 4rem 0 4rem;
+  margin: 0 0 4rem;
 }
 
-.typeHolder,
-.formContentHolder {
+.typeHolder {
   flex: 2;
 }
 
@@ -1405,6 +1405,7 @@ legend {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  flex: 2;
 }
 
 .profilePicHolder {
@@ -1504,7 +1505,7 @@ legend {
 .leeftijdHolder {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto repeat(2, 1fr);
+  grid-template-rows: auto 1fr;
   grid-column-gap: 2rem;
 
   & legend {
@@ -1625,6 +1626,149 @@ legend {
 
     & li button {
       font-size: var(--titlesize);
+    }
+  }
+
+  /* LOGIN */
+
+  .loginHolder .colorBg {
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0 3rem;
+
+    & .loginFormHolder {
+      display: flex;
+      align-items: center;
+      max-width: 32rem;
+
+      & form {
+        margin-top: -5vh;
+        flex: 2;
+      }
+
+      & button {
+        margin-top: 3rem;
+      }
+    }
+
+    & .registerHolder {
+      margin-top: -5vh;
+      margin-bottom: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      & header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      & header::after {
+        content: "";
+        display: block;
+        width: 13rem;
+        height: 18rem;
+        background-color: blue;
+        margin: 2rem 0;
+      }
+
+      & a {
+        width: 32rem;
+      }
+    }
+  }
+
+  /* REGISTRATION */
+
+  .mainRegisterHolder {
+    & legend {
+      margin-top: 0;
+    }
+  }
+
+  .mainRegisterHolder .formContentHolder {
+    width: 32rem;
+    margin: 0 auto;
+  }
+
+  .prevAndNextHolder {
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 52rem;
+
+    & button {
+      width: auto;
+      margin: 0;
+    }
+  }
+
+  .userSelector {
+    & .formContentHolder {
+      width: auto;
+    }
+
+    & legend {
+      margin: 0;
+    }
+
+    & .typeHolder {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0 auto;
+    }
+
+    & .typeHolder label {
+      margin-left: 8rem;
+    }
+
+    & .typeHolder label:first-of-type {
+      margin-left: 0;
+    }
+
+    & .typeHolder .selectedType {
+      width: 8rem;
+      height: 8rem;
+    }
+
+    & .btn {
+      margin: 0 auto;
+      width: 32rem;
+    }
+  }
+
+  .mainRegisterHolder .leeftijdHolder {
+    width: 52rem;
+  }
+
+  .mainRegisterHolder .withAge {
+    width: auto;
+  }
+
+  .leeftijdHolder {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+
+    & legend {
+      display: block;
+      width: 100%;
+      height: 5.6rem;
+    }
+
+    & label {
+      //width: auto;
+      justify-self: center;
+      align-self: center;
+      flex: 2;
+    }
+
+    & .leeftijdCheckbox {
+      width: 8rem;
+      height: 8rem;
     }
   }
 }

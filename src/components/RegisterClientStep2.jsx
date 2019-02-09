@@ -23,7 +23,7 @@ const RegisterClientStep2 = ({ store }) => {
   };
 
   return (
-    <article className="loginHolder">
+    <article className="mainRegisterHolder">
       <header>
         <h2>registreer</h2>
       </header>

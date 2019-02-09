@@ -19,71 +19,73 @@ const RegisterErgoStep3 = ({ store }) => {
   };
 
   return (
-    <article className="loginHolder">
+    <article className="mainRegisterHolder">
       <header>
         <h2>registreer</h2>
       </header>
       <form className="colorBg colorBgTop lastSection">
-        <div className="formContentHolder leeftijdHolder">
+        <div className="formContentHolder withAge">
           <legend>Welke leeftijd van klant vergt je voorkeur?</legend>
-          <label htmlFor="kinderen">
-            <span>
-              Kinderen <br />0 - 12
-            </span>
-            <input
-              type="checkbox"
-              name="ageCategory"
-              id="kinderen"
-              value="kinderen"
-              onChange={e => handleErgoClientAge(e)}
-            />
-            <span className="leeftijdCheckbox" />
-          </label>
-          <label htmlFor="jongeren">
-            <span>
-              Jongeren
-              <br />
-              13 - 17
-            </span>
-            <input
-              type="checkbox"
-              name="ageCategory"
-              id="jongeren"
-              value="jongeren"
-              onChange={e => handleErgoClientAge(e)}
-            />
-            <span className="leeftijdCheckbox" />
-          </label>
-          <label htmlFor="volwassenen">
-            <span>
-              Volwassenen
-              <br />
-              18 - 60
-            </span>
-            <input
-              type="checkbox"
-              name="ageCategory"
-              id="volwassenen"
-              value="volwassenen"
-              onChange={e => handleErgoClientAge(e)}
-            />
-            <span className="leeftijdCheckbox" />
-          </label>
-          <label htmlFor="ouderen">
-            <span>
-              Ouderen
-              <br />
-              60+
-            </span>
-            <input
-              type="checkbox"
-              name="ageCategory"
-              id="ouderen"
-              value="ouderen"
-              onChange={e => handleErgoClientAge(e)}
-            />
-            <span className="leeftijdCheckbox" />
-          </label>
+          <div className="leeftijdHolder">
+            <label htmlFor="kinderen">
+              <span>
+                Kinderen <br />0 - 12
+              </span>
+              <input
+                type="checkbox"
+                name="ageCategory"
+                id="kinderen"
+                value="kinderen"
+                onChange={e => handleErgoClientAge(e)}
+              />
+              <span className="leeftijdCheckbox" />
+            </label>
+            <label htmlFor="jongeren">
+              <span>
+                Jongeren
+                <br />
+                13 - 17
+              </span>
+              <input
+                type="checkbox"
+                name="ageCategory"
+                id="jongeren"
+                value="jongeren"
+                onChange={e => handleErgoClientAge(e)}
+              />
+              <span className="leeftijdCheckbox" />
+            </label>
+            <label htmlFor="volwassenen">
+              <span>
+                Volwassenen
+                <br />
+                18 - 60
+              </span>
+              <input
+                type="checkbox"
+                name="ageCategory"
+                id="volwassenen"
+                value="volwassenen"
+                onChange={e => handleErgoClientAge(e)}
+              />
+              <span className="leeftijdCheckbox" />
+            </label>
+            <label htmlFor="ouderen">
+              <span>
+                Ouderen
+                <br />
+                60+
+              </span>
+              <input
+                type="checkbox"
+                name="ageCategory"
+                id="ouderen"
+                value="ouderen"
+                onChange={e => handleErgoClientAge(e)}
+              />
+              <span className="leeftijdCheckbox" />
+            </label>
+          </div>
         </div>
         <StepCounter store={store} />
         <div className="prevAndNextHolder">

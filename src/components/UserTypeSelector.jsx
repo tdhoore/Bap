@@ -27,7 +27,7 @@ const UserTypeSelector = ({ store }) => {
   };
 
   return (
-    <article className="loginHolder">
+    <article className="mainRegisterHolder userSelector">
       <header>
         <h2>Registreer</h2>
       </header>
