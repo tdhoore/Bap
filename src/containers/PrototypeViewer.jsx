@@ -30,7 +30,7 @@ const PrototypeViewer = ({ store, props }) => {
             <img src="" alt="" />
             <button className="verifieerBtn">verifieer</button>
           </div>
-          <p>
+          <p className="prototypeDescription">
             Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptates
             iure repellendus fuga voluptate? Fugit, fuga eum cupiditate dolorem
             aliquam voluptate. Sed vitae aliquam nobis! At, modi. Id architecto

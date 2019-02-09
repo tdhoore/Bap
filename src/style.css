@@ -878,7 +878,7 @@ progress::-moz-progress-bar {
 }
 
 .instructieBtn {
-  margin: 2rem 1rem 0;
+  margin: 2rem 1rem;
   width: calc(100% - 2rem);
 }
 
@@ -1820,6 +1820,8 @@ legend {
     margin-right: 1rem;
   }
 
+  /* PROTOTYPE */
+
   .prototypeFase {
     padding: 0 3rem;
   }
@@ -1835,6 +1837,34 @@ legend {
   .addPrototypeBtn {
     min-width: 0;
     margin: 0;
+  }
+
+  .prototypeViewer {
+    & .makerInfo,
+    & .prototypeDescription {
+      width: 44rem;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  .verifieerBtn {
+    min-width: 3.5rem;
+    min-height: 3.5rem;
+    max-width: 3.5rem;
+    max-height: 3.5rem;
+  }
+  .makerInfo img {
+    min-width: 4.5rem;
+    min-height: 4.5rem;
+    max-width: 4.5rem;
+    max-height: 4.5rem;
+  }
+
+  .instructieBtn {
+    margin-left: auto;
+    margin-right: auto;
+    width: 31rem;
   }
 }
 
