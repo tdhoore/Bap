@@ -72,11 +72,13 @@ const ProjectDetail = ({ store, props }) => {
             </header>
             <button className="like">like</button>
           </div>
-          <VideoPlayer
-            store={store}
-            comments={store.commentsCurrentProject}
-            video={data.mainvid}
-          />
+          <div className="playerHolder">
+            <VideoPlayer
+              store={store}
+              comments={store.commentsCurrentProject}
+              video={data.mainvid}
+            />
+          </div>
           <ul className="projectStats">
             <li className="likes">{/*data.likes*/}text</li>
             <li className="numMakers">{numbOfX(1)}</li>

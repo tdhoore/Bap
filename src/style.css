@@ -1771,6 +1771,71 @@ legend {
       height: 8rem;
     }
   }
+
+  /* PROJECT DETAIL */
+
+  .projectDetailInfo {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-column-gap: 2rem;
+
+    & .headerWithLikes {
+      grid-column: 3 / 4;
+      grid-row: 1 / 2;
+    }
+
+    & .playerHolder {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      grid-column: 1 / 2;
+      grid-row: 1 / -1;
+    }
+
+    & .playerHolder .videoPlayer {
+      width: 100%;
+    }
+
+    & .bobyPart {
+      grid-column: 2 / 3;
+      grid-row: 1 / -1;
+    }
+
+    & .projectStats {
+      grid-column: 3 / 4;
+      grid-row: 2 / 3;
+      justify-content: flex-start;
+    }
+
+    & .links {
+      display: flex;
+      grid-column: 3 / 4;
+      grid-row: -2 / -1;
+    }
+  }
+
+  .projectDetailInfo .links a:first-of-type {
+    margin-bottom: 0;
+    margin-right: 1rem;
+  }
+
+  .prototypeFase {
+    padding: 0 3rem;
+  }
+
+  .prototypeArticleHolder {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-column-gap: 3rem;
+    width: 100%;
+  }
+
+  .protoTypeCard,
+  .addPrototypeBtn {
+    min-width: 0;
+    margin: 0;
+  }
 }
 
 .hide {
