@@ -18,7 +18,7 @@ const Home = ({ store }) => {
           </header>
           <CardHolder store={store} content={store.allProjects} />
         </section>
-        <section className="lastSection">
+        <section>
           <div className="filterAndHeader">
             <header>
               <h2>Ontdek</h2>

@@ -156,6 +156,7 @@ nav {
     align-items: center;
     text-decoration: none;
     color: var(--defaultFontColor);
+    font-weight: lighter;
   }
 
   & ul li a::before {
@@ -164,12 +165,13 @@ nav {
     width: 3.5rem;
     height: 3.5rem;
     margin: 1rem;
-    background-color: red;
+    background-color: blue;
   }
 }
 
 .activeLink a {
   color: var(--activeColor);
+  font-weight: bold;
 }
 
 footer {
@@ -218,17 +220,17 @@ footer {
   flex: 2;
   background-color: var(--secondColorBg);
   padding: 0 1rem;
-  margin-top: 2rem;
+  margin-top: 4.9rem;
 }
 
 .colorBgTop::before {
   content: "";
   display: block;
   position: absolute;
-  top: -2rem;
+  top: -4.9rem;
   left: 0;
   width: 100%;
-  height: 2rem;
+  height: 5rem;
   background-image: url(./assets/img/tileableWave.svg);
   background-size: auto 100%;
   background-repeat: repeat-x;
@@ -356,7 +358,7 @@ progress::-moz-progress-bar {
     width: 2.4rem;
     height: 2.4rem;
     overflow: hidden;
-    background-color: red;
+    background-color: blue;
     margin-right: 0.5rem;
   }
 
@@ -392,7 +394,7 @@ progress::-moz-progress-bar {
     height: 3.8rem;
     min-width: 3.8rem;
     max-width: 3.8rem;
-    background-color: red;
+    background-color: blue;
     overflow: hidden;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
@@ -416,15 +418,26 @@ progress::-moz-progress-bar {
     width: 3rem;
     height: 3rem;
     color: transparent;
-    background-color: red;
+    background-color: blue;
   }
 }
 
 .videoPlayerInfo {
   margin: 0 1rem;
 
+  & header {
+    margin-bottom: 1rem;
+  }
+
   & video {
     width: 100%;
+  }
+
+  & p {
+    margin-top: 1rem;
+    font-size: var(--broodtekst);
+    text-align: center;
+    line-height: 2.2rem;
   }
 }
 
@@ -433,7 +446,9 @@ progress::-moz-progress-bar {
 }
 
 .card {
+  display: block;
   text-decoration: none;
+  margin-bottom: 2rem;
 }
 
 .card article {
@@ -502,7 +517,7 @@ progress::-moz-progress-bar {
     display: inline-block;
     width: 1.4rem;
     height: 1.4rem;
-    background-color: red;
+    background-color: blue;
     margin-right: 0.2rem;
   }
 }
@@ -512,14 +527,25 @@ progress::-moz-progress-bar {
   border-bottom: solid 0.5rem var(--backgroundColorDark);
   margin: 0 1rem 1rem;
 
+  & li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 2;
+  }
+
   & li button {
     padding: 0.5rem;
     font-size: 1.4rem;
-    font-weight: bold;
+    font-weight: lighter;
   }
 
   & .activeSort {
     position: relative;
+  }
+
+  & .activeSort button {
+    font-weight: bold;
   }
 
   & .activeSort::after {
@@ -540,7 +566,7 @@ progress::-moz-progress-bar {
 
 .highLightedSection {
   position: relative;
-  margin: 11.5rem 0;
+  margin: 7rem 0;
   background-color: var(--secondColorBg);
 
   &::before,
@@ -550,7 +576,7 @@ progress::-moz-progress-bar {
     position: absolute;
     left: 0;
     width: 100%;
-    height: 11.5rem;
+    height: 5rem;
     background-image: url(./assets/img/tileableWave.svg);
     background-size: auto 100%;
 
@@ -558,12 +584,12 @@ progress::-moz-progress-bar {
   }
 
   &::before {
-    top: -11.5rem;
+    top: -4.9rem;
     background-position: center bottom;
   }
 
   &::after {
-    bottom: -11.5rem;
+    bottom: -4.9rem;
     background-position: center top;
     transform: rotate(180deg);
   }
@@ -611,7 +637,7 @@ progress::-moz-progress-bar {
     display: block;
     height: 2rem;
     width: 2rem;
-    background-color: red;
+    background-color: blue;
   }
 }
 
@@ -627,6 +653,7 @@ progress::-moz-progress-bar {
 
   & .projectStats {
     justify-content: center;
+    align-items: center;
     margin: 1rem 0;
   }
 
@@ -661,7 +688,7 @@ progress::-moz-progress-bar {
     display: block;
     width: 4.5rem;
     height: 4.5rem;
-    background-color: red;
+    background-color: blue;
     order: -1;
     border-radius: 50%;
   }
@@ -693,12 +720,12 @@ progress::-moz-progress-bar {
     }
 
     &::before {
-      top: -5rem;
+      top: -4.9rem;
       background-position: center bottom;
     }
 
     &::after {
-      bottom: -5rem;
+      bottom: -4.9rem;
       background-position: center top;
       transform: rotate(180deg);
     }
@@ -844,7 +871,7 @@ progress::-moz-progress-bar {
     display: block;
     width: 4.5rem;
     height: 4.5rem;
-    background-color: red;
+    background-color: blue;
     order: -1;
     border-radius: 50%;
   }
@@ -1251,14 +1278,14 @@ progress::-moz-progress-bar {
   left: -10px;
   height: 20px;
   width: 20px;
-  background-color: red;
+  background-color: blue;
 }
 
 .bodyPart {
   display: block;
   width: 100px;
   height: 100px;
-  background-color: red;
+  background-color: blue;
 
   & .selectedBox {
     display: block;
@@ -1272,7 +1299,7 @@ progress::-moz-progress-bar {
   }
 
   & input:checked ~ .selectedBox {
-    background-color: red;
+    background-color: blue;
   }
 }
 
@@ -1516,6 +1543,90 @@ legend {
 
 .mijnProjectenSection header {
   margin-bottom: 2rem;
+}
+
+/* TABLET */
+
+@media (--md) {
+  /* NAV */
+  .topHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2rem 3rem;
+  }
+
+  nav {
+    margin: 0;
+
+    & ul li {
+      margin-left: 4rem;
+    }
+  }
+
+  h1 {
+    display: block;
+    width: 11rem;
+    height: 3.6rem;
+    background-color: blue;
+
+    & span {
+      display: none;
+    }
+  }
+
+  .videoPlayerInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5rem 0;
+
+    & header {
+      margin-bottom: 2rem;
+    }
+
+    & .videoPlayer {
+      max-width: 46rem;
+    }
+
+    & p {
+      margin-top: 2rem;
+      max-width: 65rem;
+    }
+  }
+
+  .cardHolder {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    margin: 0 3rem 2rem;
+
+    & .card {
+      margin: 0;
+    }
+  }
+
+  .filterAndHeader {
+    margin-top: 4rem;
+  }
+
+  .filter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .zoekFilterHolder {
+    width: 36rem;
+  }
+
+  .sorter {
+    margin: 0 3rem 2rem;
+
+    & li button {
+      font-size: var(--titlesize);
+    }
+  }
 }
 
 .hide {

@@ -107,8 +107,8 @@ const VideoPlayer = ({ store }) => {
 
   return (
     <article className="videoPlayerInfo">
-      <header className="hide">
-        <h2>info video</h2>
+      <header>
+        <h2>Design For Everyone</h2>
       </header>
       <div className="videoPlayer">
         <div className="videoHolder">
@@ -139,6 +139,10 @@ const VideoPlayer = ({ store }) => {
           </button>
         </div>
       </div>
+      <p>
+        Door middel van video het proces vastleggen met als eindresultaat een
+        instrument die het leven van de klant verbetert.
+      </p>
     </article>
   );
 };

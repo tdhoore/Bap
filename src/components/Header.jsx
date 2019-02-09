@@ -44,7 +44,7 @@ const Header = ({ store, activeLink }) => {
   };
 
   return (
-    <header>
+    <header className="topHeader">
       <h1>
         <span>D4E1</span>
       </h1>

@@ -1,13 +1,13 @@
 :root {
   --color-black: black;
   --cardColor: white;
-  --backgroundColor: #dad8df;
-  --backgroundColorDark: #c4c4c4;
-  --secondColorBg: #fd7166;
+  --backgroundColor: #e5f6e5;
+  --backgroundColorDark: #b0c9b0;
+  --secondColorBg: #4ecdc4;
   --secondColorBgTextColor: white;
-  --activeColor: #6a32ef;
-  --activeTextColor: #fff;
-  --videoPlayerColor: yellow;
+  --activeColor: #ee4266;
+  --activeTextColor: white;
+  --videoPlayerColor: #ffe66d;
   --weight-regular: 400;
   --weight-bold: 700;
   --weight-semibold: 600;
