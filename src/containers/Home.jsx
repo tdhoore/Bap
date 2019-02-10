@@ -8,6 +8,7 @@ import Sorter from "../components/Sorter.jsx";
 import Filter from "../components/Filter.jsx";
 
 const Home = ({ store }) => {
+  console.log(store.user);
   const displayHome = () => {
     return (
       <main>

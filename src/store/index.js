@@ -594,17 +594,6 @@ class Store {
       //go throug clips and add the data
       this.clips.forEach((clip, index) => {
         //append data to form
-        //use the users UID!!!!!
-        /*  
-
-
-        !!!!!!!!!!TODO!!!!!!!
-
-        */
-
-        /*
-         - name
-        */
         data.append(`clip`, clip.file, `clip${index}.mp4`);
         data.append(`index`, index);
 
@@ -636,17 +625,12 @@ class Store {
                   const toSendData = {};
 
                   //add user data to toSendData
-                  /*
-                  
-                  
-                  
-                  
-                  TODO
-                  
-                  
-                  
-                  
-                  */
+                  toSendData.profilepic = this.user.doc.profilepic;
+                  toSendData.created = new Date();
+                  toSendData.likes = 0;
+                  toSendData.owner = this.user.doc.name;
+                  toSendData.user_id = this.user.id;
+                  toSendData.stad = this.user.doc.stad;
 
                   //add form data
                   for (const key in store.formContent) {
@@ -824,33 +808,34 @@ class Store {
   }
 
   getAllProjects() {
-    this.database
-      .collection("projects")
-      .orderBy("created")
-      .onSnapshot(snapshot => {
-        const changes = snapshot.docChanges();
+    //.orderBy("created")
+    this.database.collection("projects").onSnapshot(snapshot => {
+      const changes = snapshot.docChanges();
+      console.log(snapshot);
+      changes.forEach(change => {
+        if (change.type === "added") {
+          let exists = false;
 
-        changes.forEach(change => {
-          if (change.type === "added") {
-            let exists = false;
-
-            //check if exists already
-            this.allProjects.forEach(project => {
-              if (project.id === change.doc.id) {
-                exists = true;
-              }
-            });
-
-            //add to array
-            if (!exists) {
-              this.allProjects.push(change.doc);
+          //check if exists already
+          this.allProjects.forEach(project => {
+            if (project.id === change.doc.id) {
+              exists = true;
             }
-          } else if (change.type === "removed") {
-            //remove from array
-            this.allProjects = this.allProjects.filter(elem => elem !== change);
+          });
+
+          //add to array
+          if (!exists) {
+            this.allProjects.push({
+              id: change.doc.id,
+              doc: change.doc.data()
+            });
           }
-        });
+        } else if (change.type === "removed") {
+          //remove from array
+          this.allProjects = this.allProjects.filter(elem => elem !== change);
+        }
       });
+    });
   }
 
   setCurrentPrototype(id) {

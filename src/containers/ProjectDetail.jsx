@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 import VideoPlayer from "../components/VideoPlayer.jsx";
 
 const ProjectDetail = ({ store, props }) => {
-  //const id = props.match.params.id;
-  const id = "firstproject";
+  const id = props.match.params.id;
+  //const id = "firstproject";
   //set new current project if needed
   store.setCurrentProject(id);
 
@@ -20,9 +20,11 @@ const ProjectDetail = ({ store, props }) => {
 
   store.allProjects.forEach(project => {
     if (project.id === id) {
-      data = project.data();
+      data = project.doc;
     }
   });
+
+  console.log(data);
 
   const numbOfX = type => {
     if (data.contributors === undefined) {
