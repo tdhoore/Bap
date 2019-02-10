@@ -54,9 +54,8 @@ class App extends Component {
         <Route
           path="/mijnprojecten"
           render={props => {
-            if (store.user) {
-              //return <Redirect to="/" />;
-              return <MijnProjecten store={store} />;
+            if (!store.user) {
+              return <Redirect to="/" />;
             }
             return <MijnProjecten store={store} />;
           }}

@@ -9,7 +9,7 @@ const Header = ({ store, activeLink }) => {
   ];
   const logedInNav = [
     { name: "ontdek", link: "/" },
-    { name: "projecten", link: "/mijnprojecten" },
+    { name: "mijn projecten", link: "/mijnprojecten" },
     { name: "upload", link: "/upload" }
   ];
 

@@ -6,13 +6,7 @@ import CardHolder from "../components/CardHolder.jsx";
 
 const MijnProjecten = ({ store }) => {
   const displayMijnProjecten = () => {
-    /* 
-    
-    testing
-    
-    
-    */
-    if (!store.user) {
+    if (store.user) {
       return (
         <div>
           <section className="highLightedSection">

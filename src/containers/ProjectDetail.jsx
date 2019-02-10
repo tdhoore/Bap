@@ -7,8 +7,8 @@ import { Link } from "react-router-dom";
 import VideoPlayer from "../components/VideoPlayer.jsx";
 
 const ProjectDetail = ({ store, props }) => {
-  const id = props.match.params.id;
-  //const id = "firstproject";
+  //const id = props.match.params.id;
+  const id = "firstproject";
   //set new current project if needed
   store.setCurrentProject(id);
 
@@ -23,8 +23,6 @@ const ProjectDetail = ({ store, props }) => {
       data = project.doc;
     }
   });
-
-  console.log(data);
 
   const numbOfX = type => {
     if (data.contributors === undefined) {
@@ -55,8 +53,6 @@ const ProjectDetail = ({ store, props }) => {
     }
   };
 
-  console.log(data);
-
   const displayProjectDetail = () => {
     return (
       <section className="projectDetailSection">
@@ -70,7 +66,7 @@ const ProjectDetail = ({ store, props }) => {
                 <h3>{data.owner}</h3>
                 <p>{data.stad}, 4km</p>
               </div>
-              <img src="d" alt="" />
+              <img src={data.profilepic} alt="" />
             </header>
             <button className="like">like</button>
           </div>

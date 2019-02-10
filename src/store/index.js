@@ -19,7 +19,10 @@ class Store {
     firebase.initializeApp(config);
     this.auth = firebase.auth();
 
-    this.user = false;
+    this.user =
+      localStorage.getItem("authUser") === undefined
+        ? false
+        : JSON.parse(localStorage.getItem("authUser"));
     this.authenticated = false;
     this.history = null;
 
@@ -658,17 +661,9 @@ class Store {
                   const toSendData = {};
 
                   //add user data to toSendData
-                  /*
-                  
-                  
-                  
-                  
-                  TODO
-                  
-                  
-                  
-                  
-                  */
+                  toSendData.owner = this.user.doc.name;
+                  toSendData.ownerLocation = this.user.doc.stad;
+                  toSendData.ownerProfilePic = this.user.doc.profilepic;
 
                   //add form data
                   for (const key in store.formContent) {
@@ -743,7 +738,7 @@ class Store {
         queryString += `/${lastId}/prototype${i}`;
       }
     }
-
+    console.log("query", queryString);
     //send request
     this.database
       .collection(`projects`)
@@ -752,13 +747,15 @@ class Store {
       .get()
       .then(querySnapshot => {
         let isFirst = true;
-
+        console.log("docs", querySnapshot);
         //check if there is anything here
         if (querySnapshot.docs.length > 0) {
           //setup docs for this level
-          querySnapshot.forEach(doc => {
+          querySnapshot.docs.forEach(doc => {
             //push data to correct level
-            this.prototypeLevels[level] = [];
+            if (this.prototypeLevels[level] === undefined) {
+              this.prototypeLevels[level] = [];
+            }
 
             //create data object
             const protoData = { id: doc.id, doc: doc.data() };

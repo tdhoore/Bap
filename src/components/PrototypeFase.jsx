@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import PrototypeArticle from "./PrototypeArticle.jsx";
 
 const PrototypeFase = ({ store, faseKey }) => {
+  //console.log("prototypes", store.prototypeLevels);
   return (
     <section className="prototypeFase">
       <header>

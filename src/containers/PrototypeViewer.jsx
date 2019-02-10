@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 import VideoPlayer from "../components/VideoPlayer.jsx";
 
 const PrototypeViewer = ({ store, props }) => {
-  //const id = props.match.params.id;
-  const id = `rqIcxMhToSIr2tK8cPM7`;
+  const id = props.match.params.id;
+  //const id = `rqIcxMhToSIr2tK8cPM7`;
 
   //get data
   store.setCurrentPrototype(id);
