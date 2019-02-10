@@ -57,7 +57,7 @@ const ProjectDetail = ({ store, props }) => {
 
   const displayProjectDetail = () => {
     return (
-      <section>
+      <section className="projectDetailSection">
         <header>
           <h2>Jan wilt bowlen</h2>
         </header>

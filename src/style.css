@@ -97,6 +97,7 @@ label span {
   justify-content: flex-end;
   align-items: center;
   font-weight: lighter;
+  cursor: pointer;
 
   & span {
     display: block;
@@ -110,6 +111,7 @@ label span {
     left: 0;
     width: auto;
     opacity: 0;
+    cursor: pointer;
   }
 
   & input[type="text"] {
@@ -135,6 +137,7 @@ label span {
   border-radius: 0.2rem;
   margin: 0;
   margin-right: 1rem;
+  cursor: pointer;
 }
 
 nav {
@@ -426,6 +429,7 @@ progress::-moz-progress-bar {
   margin: 0 1rem;
 
   & header {
+    text-transform: uppercase;
     margin-bottom: 1rem;
   }
 
@@ -461,7 +465,8 @@ progress::-moz-progress-bar {
   background-color: var(--cardColor);
 
   & .cardVideoHolder {
-    border-radius: var(--borderRadius);
+    border-top-right-radius: var(--borderRadius);
+    border-top-left-radius: var(--borderRadius);
     overflow: hidden;
     order: -1;
   }
@@ -644,6 +649,7 @@ progress::-moz-progress-bar {
 /* Project detail */
 .projectDetailInfo {
   padding: 0 1rem;
+  margin: 2rem 0 10rem;
 
   & p {
     font-size: var(--broodtekst);
@@ -1239,6 +1245,7 @@ progress::-moz-progress-bar {
     display: flex;
     flex-direction: column-reverse;
     align-items: center;
+    cursor: pointer;
   }
 
   & label span {
@@ -1529,6 +1536,7 @@ legend {
     height: 8rem;
     background-color: var(--backgroundColor);
     border-radius: 50%;
+    cursor: pointer;
   }
 
   & input[type="checkbox"] {
@@ -1599,7 +1607,7 @@ legend {
   .cardHolder {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
+    grid-gap: 2rem;
     margin: 0 3rem 2rem;
 
     & .card {
@@ -1760,10 +1768,13 @@ legend {
     }
 
     & label {
-      //width: auto;
       justify-self: center;
       align-self: center;
       flex: 2;
+    }
+
+    & input {
+      display: none;
     }
 
     & .leeftijdCheckbox {
@@ -1865,6 +1876,85 @@ legend {
     margin-left: auto;
     margin-right: auto;
     width: 31rem;
+  }
+}
+
+/* DESKTOP */
+
+@media (--lg) {
+  h2 {
+    font-size: 3.5rem;
+  }
+
+  /* HOME */
+  .videoPlayerInfo h2 {
+  }
+
+  .videoPlayerInfo {
+    & header {
+      margin-bottom: 3rem;
+    }
+
+    & h2 {
+      font-size: 4rem;
+    }
+
+    & p {
+      margin-top: 3rem;
+    }
+  }
+
+  .filterAndHeader {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin: 5rem 0 4rem;
+    padding: 0 3rem;
+
+    & header {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0;
+    }
+
+    & .zoekFilterHolder {
+      margin: 0;
+    }
+  }
+
+  .cardHolder,
+  .sorter {
+    max-width: 110rem;
+  }
+
+  .cardHolder {
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 4rem;
+    padding: 0 3rem;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* LOGIN */
+  .loginHolder .colorBg {
+    justify-content: center;
+
+    & .registerHolder {
+      margin-left: 12rem;
+    }
+  }
+
+  /* PROJECT DETAIL */
+  .projectDetailInfo {
+    margin: 5rem auto 15rem;
+    max-width: 110rem;
+  }
+
+  .prototypeArticleHolder {
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
