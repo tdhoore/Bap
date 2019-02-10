@@ -133,7 +133,6 @@ class Store {
           .where("email", "==", res.email)
           .get()
           .then(querySnapshot => {
-            console.log(querySnapshot.docs[0]);
             //set new current prototype
             this.user = {
               id: querySnapshot.docs[0].id,
@@ -738,7 +737,7 @@ class Store {
         queryString += `/${lastId}/prototype${i}`;
       }
     }
-    console.log("query", queryString);
+
     //send request
     this.database
       .collection(`projects`)
@@ -747,7 +746,7 @@ class Store {
       .get()
       .then(querySnapshot => {
         let isFirst = true;
-        console.log("docs", querySnapshot);
+
         //check if there is anything here
         if (querySnapshot.docs.length > 0) {
           //setup docs for this level
@@ -760,7 +759,20 @@ class Store {
             //create data object
             const protoData = { id: doc.id, doc: doc.data() };
 
-            this.prototypeLevels[level].push(protoData);
+            //check for doubles
+            let isDouble = false;
+
+            this.prototypeLevels[level].forEach(protoType => {
+              if (protoType.id === protoData.id) {
+                //already exists
+                isDouble = true;
+              }
+            });
+
+            //if no double add to array
+            if (!isDouble) {
+              this.prototypeLevels[level].push(protoData);
+            }
 
             //check if ther is a selected id at the current level AND check if first id
             if (this.selectedPrototypeIds[level - 1] === undefined && isFirst) {
@@ -808,7 +820,7 @@ class Store {
     //.orderBy("created")
     this.database.collection("projects").onSnapshot(snapshot => {
       const changes = snapshot.docChanges();
-      console.log(snapshot);
+
       changes.forEach(change => {
         if (change.type === "added") {
           let exists = false;

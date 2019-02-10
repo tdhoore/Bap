@@ -12,12 +12,12 @@ const PrototypeFase = ({ store, faseKey }) => {
         <h3>Protoypes fase {faseKey}</h3>
       </header>
       <div className="prototypeArticleHolder">
-        {store.prototypeLevels[faseKey].map(prototype => {
+        {store.prototypeLevels[faseKey].map((prototype, index) => {
           return (
             <PrototypeArticle
               store={store}
               prototype={prototype}
-              key={`individualPrototypes${prototype.id}`}
+              key={`individualPrototypes${prototype.id}${index}`}
             />
           );
         })}
