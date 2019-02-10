@@ -59,14 +59,14 @@ const ProjectDetail = ({ store, props }) => {
     return (
       <section className="projectDetailSection">
         <header>
-          <h2>Jan wilt bowlen</h2>
+          <h2>{data.title}</h2>
         </header>
         <article className="projectDetailInfo">
           <div className="headerWithLikes">
             <header>
               <div className="projectDetailTitle">
-                <h3>{/*data.title*/}text</h3>
-                <p>{/*data.stad*/}text, 4km</p>
+                <h3>{data.owner}</h3>
+                <p>{data.stad}, 4km</p>
               </div>
               <img src="d" alt="" />
             </header>
@@ -80,7 +80,7 @@ const ProjectDetail = ({ store, props }) => {
             />
           </div>
           <ul className="projectStats">
-            <li className="likes">{/*data.likes*/}text</li>
+            <li className="likes">{data.likes}</li>
             <li className="numMakers">{numbOfX(1)}</li>
             <li className="numErgo">{numbOfX(2)}</li>
           </ul>

@@ -37,6 +37,7 @@ class Store {
     //prototype data
     this.currentPrototypePath = ``;
     this.commentsCurrentPrototype = [];
+    this.currentPrototype = false;
 
     //project branches
     this.prototypeLevels = {};
@@ -831,6 +832,19 @@ class Store {
         });
       });
   }
+
+  setCurrentPrototype(id) {
+    this.database
+      .collection(`prototypes`)
+      .doc(id)
+      .get()
+      .then(querySnapshot => {
+        //set new current prototype
+        const protoData = { id: querySnapshot.id, doc: querySnapshot.data() };
+        this.currentPrototype = protoData;
+      })
+      .catch(e => console.log(e));
+  }
 }
 
 decorate(Store, {
@@ -858,7 +872,8 @@ decorate(Store, {
   allProjects: observable,
   formObject: observable,
   step: observable,
-  maxSteps: observable
+  maxSteps: observable,
+  currentPrototype: observable
 });
 
 const store = new Store();
