@@ -13,6 +13,8 @@ import Outro from "../components/Outro.jsx";
 import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 
 const VideoEditor = ({ store, editorType, props }) => {
+  console.log(store.user);
+
   const renderTrimmerWindow = () => {
     if (store.isTrimmerOpen) {
       return <Trimmer store={store} />;

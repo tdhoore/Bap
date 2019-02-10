@@ -11,10 +11,6 @@ import ProjectDetail from "./ProjectDetail.jsx";
 import PrototypeViewer from "./PrototypeViewer.jsx";
 
 class App extends Component {
-  displayVideoEditor(store) {
-    return <VideoEditor store={store} editorType={1} />;
-  }
-
   render() {
     const { store } = this.props;
     //get initial comments
@@ -49,8 +45,8 @@ class App extends Component {
         <Route
           path="/upload"
           render={props => {
-            if (!store.user) {
-              return this.displayVideoEditor(store);
+            if (store.user) {
+              return <VideoEditor store={store} editorType={0} />;
             }
             return <Redirect to="/login" />;
           }}

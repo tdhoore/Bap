@@ -122,9 +122,25 @@ class Store {
       .auth()
       .signInWithEmailAndPassword(email, password)
       .then(result => {
-        this.user = result.user;
-        localStorage.setItem("authUser", JSON.stringify(this.user));
-        console.log("user:", this.user);
+        const res = result.user;
+        console.log(res.email);
+        //get rest of user data
+        this.database
+          .collection(`users`)
+          .where("email", "==", res.email)
+          .get()
+          .then(querySnapshot => {
+            console.log(querySnapshot.docs[0]);
+            //set new current prototype
+            this.user = {
+              id: querySnapshot.docs[0].id,
+              doc: querySnapshot.docs[0].data()
+            };
+
+            localStorage.setItem("authUser", JSON.stringify(this.user));
+            console.log("user:", this.user);
+          })
+          .catch(e => console.log(e));
       })
       .catch(error => {
         error.message = feedback;
@@ -584,6 +600,10 @@ class Store {
 
         !!!!!!!!!!TODO!!!!!!!
 
+        */
+
+        /*
+         - name
         */
         data.append(`clip`, clip.file, `clip${index}.mp4`);
         data.append(`index`, index);
