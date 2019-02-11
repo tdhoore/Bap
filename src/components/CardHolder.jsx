@@ -44,11 +44,17 @@ const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
     return !(counter * amount < content.length - 1) || counterName === "";
   };
 
+  const removeBtns = () => {
+    if (counterName === "") {
+      return "hide";
+    }
+  };
+
   return (
     <div className="cardHolderBtns">
       <button
         onClick={e => handleMoveCounter(e, -1)}
-        className="sliderBtn"
+        className={`sliderBtn ${removeBtns()}`}
         disabled={enableLeftBtn()}
       >
         prev
@@ -68,7 +74,7 @@ const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
       </TransitionGroup>
       <button
         onClick={e => handleMoveCounter(e, 1)}
-        className="sliderBtn"
+        className={`sliderBtn ${removeBtns()}`}
         disabled={enableRightBtn()}
       >
         prev

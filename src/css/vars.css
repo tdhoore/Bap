@@ -12,8 +12,8 @@
   --weight-bold: 700;
   --weight-semibold: 600;
   --defaultFontColor: black;
-  --borderRadius: 0.5rem;
-  --border: 0.3rem;
+  --borderRadius: .5rem;
+  --border: .3rem;
   --titlesize: 2.5rem;
   --broodtekst: 1.6rem;
 }

@@ -30,7 +30,7 @@ const Clip = ({ store, data, index, totalClips, editorType }) => {
       );
     }
     //is image
-    return <img src={data.fileUrl} />;
+    return <img src={data.fileUrl} alt='fileUrl'/>;
   };
 
   const handleClickNextAndPrevBtns = (e, counter) => {

@@ -153,23 +153,63 @@ nav {
     font-size: 1.6rem;
   }
 
-  & ul li a {
+  & ul li a,
+  & ul li button {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
     color: var(--defaultFontColor);
     font-weight: lighter;
+    font-family: Montserrat, sans-serif;
+    font-size: var(--broodtekst);
   }
 
-  & ul li a::before {
+  & ul li a::before,
+  & ul li button::before {
     content: "";
     display: block;
     width: 3.5rem;
     height: 3.5rem;
     margin: 1rem;
-    background-color: blue;
+    background-repeat: no-repeat;
   }
+}
+
+.ontdek_icon::before {
+  background-image: url(assets/img/ontdek_icon.svg);
+}
+
+.ontdek_icon_active::before {
+  background-image: url(assets/img/ontdek_icon_active.svg);
+}
+
+.login_icon::before {
+  background-image: url(assets/img/login_icon.svg);
+}
+
+.login_icon_active::before {
+  background-image: url(assets/img/login_icon_active.svg);
+}
+
+.projecten_icon::before {
+  background-image: url(assets/img/projecten_icon.svg);
+  background-size: contain;
+  background-position: center center;
+}
+
+.projecten_icon_active::before {
+  background-image: url(assets/img/projecten_icon_active.svg);
+  background-size: contain;
+  background-position: center center;
+}
+
+.upload_icon::before {
+  background-image: url(assets/img/upload_icon.svg);
+}
+
+.upload_icon_active::before {
+  background-image: url(assets/img/upload_icon_active.svg);
 }
 
 .activeLink a {
@@ -187,7 +227,7 @@ footer {
   & p {
     width: 19rem;
     height: 6.6rem;
-    background-color: blue;
+    background-image: url(assets/img/howest.svg);
   }
 
   & .socialLinks {
@@ -209,9 +249,30 @@ footer {
       height: 3.5rem;
       overflow: hidden;
       color: transparent;
-      background-color: blue;
     }
   }
+}
+
+.facebook {
+  background-image: url(assets/img/fb.svg);
+}
+
+.insta {
+  background-image: url(assets/img/insta.svg);
+}
+
+.twitter {
+  background-image: url(assets/img/twitter.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.sm_mail {
+  background-image: url(assets/img/mail.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .lastSection {
@@ -245,7 +306,7 @@ footer {
   width: 100%;
   display: block;
   padding: 1rem;
-  color: var(--color-white);
+  color: var(--secondColorBgTextColor);
   text-transform: uppercase;
   font-weight: var(--weight-bold);
   font-size: var(--titlesize);
@@ -253,7 +314,6 @@ footer {
   border-radius: var(--borderRadius);
   text-decoration: none;
   text-align: center;
-  color: #fff;
 }
 
 .ghostBtn {
@@ -272,11 +332,11 @@ progress {
 }
 
 progress::-webkit-progress-value {
-  background: #ff9e2c;
+  background: var(--videoPlayerColor);
 }
 
 progress::-moz-progress-bar {
-  background: #ff9e2c;
+  background: var(--videoPlayerColor);
 }
 
 .videoPlayer {
@@ -303,12 +363,19 @@ progress::-moz-progress-bar {
   padding: 1rem;
 
   & .playBtn {
-    background-color: yellow;
+    background-image: url(assets/img/play.svg);
     width: 2rem;
     height: 2rem;
     overflow: hidden;
     color: transparent;
     margin-right: 1rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+
+  & .pauseBtn {
+    background-image: url(assets/img/pause.svg);
   }
 
   & .progressBarHolder {
@@ -316,6 +383,16 @@ progress::-moz-progress-bar {
     align-self: flex-start;
     height: 0.2rem;
     flex: 2;
+  }
+
+  & .fullScreenBtn {
+    width: 2rem;
+    height: 2rem;
+    background-image: url(assets/img/fullscreen.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    margin-left: 1rem;
   }
 }
 
@@ -557,11 +634,25 @@ progress::-moz-progress-bar {
   & li::before {
     content: "";
     display: inline-block;
-    width: 1.4rem;
-    height: 1.4rem;
-    background-color: blue;
+    width: 1.7rem;
+    height: 1.5rem;
     margin-right: 0.2rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
+}
+
+.likes::before {
+  background-image: url(assets/img/like.svg);
+}
+
+.numMakers::before {
+  background-image: url(assets/img/hamer.svg);
+}
+
+.numErgo::before {
+  background-image: url(assets/img/ergomuts.svg);
 }
 
 .sorter {
@@ -679,7 +770,10 @@ progress::-moz-progress-bar {
     display: block;
     height: 2rem;
     width: 2rem;
-    background-color: blue;
+    background-image: url(assets/img/filter.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
   }
 }
 
@@ -1302,8 +1396,10 @@ progress::-moz-progress-bar {
     width: 6rem;
     height: 6rem;
     margin-bottom: 0.5rem;
-    background-color: var(--backgroundColor);
+    background-color: #dad8df;
     border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 
   & label input {
@@ -1316,7 +1412,21 @@ progress::-moz-progress-bar {
   }
 }
 
-.scrubber {
+<<<<<<< head .klantType {
+  background-image: url(assets/img/krukken.svg);
+}
+
+.makerType {
+  background-image: url(assets/img/spijker.svg);
+}
+
+.ergoType {
+  background-image: url(assets/img/ergokapje.svg);
+}
+
+/* JUNK */
+
+=======>>>>>>>27a6852806c093b2afacceb08a81be4cfba753 .scrubber {
   position: absolute;
   z-index: 50;
   top: -2rem;
@@ -1618,11 +1728,14 @@ legend {
     display: block;
     width: 11rem;
     height: 3.6rem;
-    background-color: blue;
 
     & span {
       display: none;
     }
+  }
+
+  .logo {
+    background-image: url(assets/img/logo.svg);
   }
 
   .videoPlayerInfo {
@@ -1662,6 +1775,10 @@ legend {
     & .sliderBtn:disabled {
       cursor: default;
       background-color: transparent;
+    }
+
+    & .sliderBtn.hide {
+      display: none;
     }
   }
 
@@ -1761,7 +1878,9 @@ legend {
         display: block;
         width: 13rem;
         height: 18rem;
-        background-color: blue;
+        background-image: url(assets/img/accountloos.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
         margin: 2rem 0;
       }
 
@@ -1820,8 +1939,8 @@ legend {
     }
 
     & .typeHolder .selectedType {
-      width: 8rem;
-      height: 8rem;
+      width: 8.8rem;
+      height: 8.8rem;
     }
 
     & .btn {
@@ -1948,6 +2067,7 @@ legend {
     max-width: 3.5rem;
     max-height: 3.5rem;
   }
+
   .makerInfo img {
     min-width: 4.5rem;
     min-height: 4.5rem;
@@ -1970,7 +2090,10 @@ legend {
   }
 
   /* HOME */
-  .videoPlayerInfo {
+  <<<<<<< head ======= .videoPlayerInfo h2 {
+  }
+
+  >>>>>>>da84f9a1e24c4f20b50c2bd99fe54386a8a5cf2e .videoPlayerInfo {
     & header {
       margin-bottom: 3rem;
     }
@@ -2022,8 +2145,8 @@ legend {
     margin-left: auto;
     margin-right: auto;
   }
-
   /* LOGIN */
+
   .loginHolder .colorBg {
     justify-content: center;
 
@@ -2033,6 +2156,7 @@ legend {
   }
 
   /* PROJECT DETAIL */
+
   .projectDetailInfo {
     margin: 5rem auto 15rem;
     max-width: 110rem;

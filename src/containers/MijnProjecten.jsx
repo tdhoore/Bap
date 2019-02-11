@@ -33,7 +33,7 @@ const MijnProjecten = ({ store }) => {
     }
   };
 
-  return <DefaultPageHolder store={store} main={displayMijnProjecten()} />;
+  return <DefaultPageHolder activeLink='/mijnprojecten' store={store} main={displayMijnProjecten()} />;
 };
 
 export default observer(MijnProjecten);
