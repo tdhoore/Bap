@@ -378,6 +378,10 @@ progress::-moz-progress-bar {
   display: flex;
   align-items: center;
   width: 100%;
+  border-top-left-radius: 1.9rem;
+  border-top-right-radius: 1.9rem;
+  background-color: var(--backgroundColorDark);
+  transition: all 0.3s;
 
   &::before {
     content: "";
@@ -420,9 +424,16 @@ progress::-moz-progress-bar {
     padding: 0;
     width: 3rem;
     height: 3rem;
+    border-radius: 50%;
     color: transparent;
     background-color: blue;
+    margin-right: 0.5rem;
+    cursor: pointer;
   }
+}
+
+.hideComment {
+  opacity: 0;
 }
 
 .videoPlayerInfo {
@@ -1279,16 +1290,17 @@ progress::-moz-progress-bar {
   }
 }
 
-/* JUNK */
-
 .scrubber {
   position: absolute;
-  top: -20px;
-  left: -10px;
-  height: 20px;
-  width: 20px;
+  z-index: 50;
+  top: -2rem;
+  left: -1rem;
+  height: 2rem;
+  width: 2rem;
   background-color: blue;
 }
+
+/* JUNK */
 
 .bodyPart {
   display: block;
@@ -1930,6 +1942,11 @@ legend {
   .cardHolder,
   .sorter {
     max-width: 110rem;
+  }
+
+  .sorter {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .cardHolder {

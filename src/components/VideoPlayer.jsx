@@ -108,7 +108,10 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
     videoElem.pause();
 
     //show the comment option
-    commentFormElem.classList.toggle(`hide`);
+    commentFormElem.classList.toggle(`hideComment`);
+
+    //hide scrubber
+    e.currentTarget.classList.add(`hide`);
   };
 
   const handleSubmitComment = e => {
@@ -125,21 +128,30 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
       timeStamp: ""
     };
 
-    //collect comment
-    data.comment = commentInput.value;
+    if (commentInput.value !== "") {
+      //collect comment
+      data.comment = commentInput.value;
 
-    //collect timeStamp
-    data.timeStamp = videoElem.currentTime;
+      //collect timeStamp
+      data.timeStamp = videoElem.currentTime;
 
-    //send comment
-    console.log(`send ${data.comment} at ${data.timeStamp}`);
-    //check if prototype or project
-    if (!prototypeId) {
-      //is project comment
-      store.uploadComment(data.comment, data.timeStamp);
+      //send comment
+      console.log(`send ${data.comment} at ${data.timeStamp}`);
+      //check if prototype or project
+      if (!prototypeId) {
+        //is project comment
+        store.uploadComment(data.comment, data.timeStamp);
+      } else {
+        //is prototype comment
+        store.uploadPrototypeComment(data.comment, data.timeStamp, prototypeId);
+      }
     } else {
-      //is prototype comment
-      store.uploadPrototypeComment(data.comment, data.timeStamp, prototypeId);
+      //close comment section
+      const commentFormElem = commentFormRef.current;
+      const scrubber = scrubberRef.current;
+
+      commentFormElem.classList.add(`hideComment`);
+      scrubber.classList.remove(`hide`);
     }
 
     return false;
@@ -163,10 +175,10 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
         commentElems.forEach((commentElem, indexElems) => {
           if (indexElems === index) {
             //show this
-            commentElem.classList.remove(`hide`);
+            commentElem.classList.remove(`hideComment`);
           } else {
             //hide this
-            commentElem.classList.add(`hide`);
+            commentElem.classList.add(`hideComment`);
           }
         });
       }
@@ -191,7 +203,7 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
             ref={scrubberRef}
             onClick={e => handleClickScrubber(e)}
           />
-          <form className="miniComment hide" ref={commentFormRef}>
+          <form className="miniComment hideComment" ref={commentFormRef}>
             <div className="commentImg">
               <img src="" alt="profiel foto" />
             </div>
