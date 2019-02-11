@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { observer } from "mobx-react";
-//import video from "../assets/video/vid.mp4";
+import videoTest from "../assets/video/vid.mp4";
 
 const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
   const videoRef = React.createRef();
@@ -70,6 +70,11 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
 
     //set new value on video
     videoElem.currentTime = videoElem.duration * (progressElem.value / 100);
+
+    //remove comment class
+    commentElems.forEach(commentElem => {
+      commentElem.classList.remove(`commentShow`);
+    });
   };
 
   const handleProgressBarDown = e => {
@@ -163,7 +168,6 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
     store.commentsCurrentProject.forEach((commentData, index) => {
       if (commentData.timeStamp < dur + 1 && commentData.timeStamp > dur - 1) {
         //there is a comment here
-
         //check if there are comment elemets
         if (!commentElems) {
           //no so create them
@@ -175,10 +179,10 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
         commentElems.forEach((commentElem, indexElems) => {
           if (indexElems === index) {
             //show this
-            commentElem.classList.remove(`hideComment`);
+            commentElem.classList.remove(`commentShow`);
           } else {
             //hide this
-            commentElem.classList.add(`hideComment`);
+            commentElem.classList.add(`commentShow`);
           }
         });
       }
@@ -189,7 +193,7 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
     <div className="videoPlayer">
       <div className="videoHolder">
         <video ref={videoRef} onTimeUpdate={e => handleUpdateTime(e)}>
-          <source src={video} type="video/mp4" />
+          <source src={videoTest} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
@@ -218,11 +222,11 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
           <div className="commentsHolder" ref={commentsHolderRef}>
             {comments.map((commentData, index) => {
               return (
-                <div key={`comment${index}`} className="comment  hide">
+                <div key={`comment${index}`} className="comment">
                   <div className="commentImg">
                     <img src="" alt="profiel foto" />
                   </div>
-                  {commentData.comment}
+                  <p>{commentData.comment}</p>
                 </div>
               );
             })}

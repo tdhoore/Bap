@@ -263,6 +263,8 @@ footer {
 }
 
 progress {
+  position: relative;
+  z-index: 60;
   display: block;
   height: 0.4rem;
   width: 100%;
@@ -319,6 +321,7 @@ progress::-moz-progress-bar {
 
 .commentsHolder {
   position: absolute;
+  z-index: 30;
   top: -2.9rem;
   left: 0;
   width: 100%;
@@ -334,11 +337,16 @@ progress::-moz-progress-bar {
     padding: 0.5rem;
     padding-left: 0;
     opacity: 0;
-    transition: opacity 300ms;
+  }
+
+  & .comment p {
+    padding-top: 0.3rem;
+    margin-bottom: 0;
   }
 
   & .commentShow {
     opacity: 1;
+    //animation: showComment 2.5s;
   }
 
   & .comment::before {
@@ -346,13 +354,14 @@ progress::-moz-progress-bar {
     display: block;
     position: absolute;
     z-index: -1;
-    top: 0;
+    top: 0.5rem;
     left: 0;
     width: 100%;
-    height: calc(100% - 0.5rem);
+    height: calc(100% - 1rem);
     background-color: var(--backgroundColor);
     opacity: 0.6;
-    border-top-right-radius: 50%;
+    border-top-right-radius: 1.2rem;
+    border-top-left-radius: 1.2rem;
   }
 
   & .commentImg {
@@ -371,16 +380,30 @@ progress::-moz-progress-bar {
   }
 }
 
+@keyframes showComment {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 .miniComment {
   position: absolute;
+  z-index: 40;
   top: -3.8rem;
   left: 0;
   display: flex;
   align-items: center;
   width: 100%;
-  border-top-left-radius: 1.9rem;
-  border-top-right-radius: 1.9rem;
-  background-color: var(--backgroundColorDark);
+
   transition: all 0.3s;
 
   &::before {
@@ -392,6 +415,8 @@ progress::-moz-progress-bar {
     left: 0;
     width: 100%;
     height: 100%;
+    border-top-left-radius: 1.9rem;
+    border-top-right-radius: 1.9rem;
     background-color: var(--backgroundColor);
     opacity: 0.6;
   }
@@ -1294,9 +1319,10 @@ progress::-moz-progress-bar {
   position: absolute;
   z-index: 50;
   top: -2rem;
-  left: -1rem;
+  left: 0;
   height: 2rem;
   width: 2rem;
+  cursor: pointer;
   background-color: blue;
 }
 

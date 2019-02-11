@@ -556,7 +556,21 @@ class Store {
             this.commentsCurrentProject = [];
           }
 
-          this.commentsCurrentProject.push(doc.data());
+          //data
+          const currentComment = doc.data();
+          let timeStampExists = false;
+
+          //check if time code already exists
+          this.commentsCurrentProject.forEach(comment => {
+            //timeStamp;
+            if (comment.timeStamp === currentComment.timeStamp) {
+              timeStampExists = true;
+            }
+          });
+
+          if (!timeStampExists) {
+            this.commentsCurrentProject.push(doc.data());
+          }
         });
       })
       .catch(error => {
