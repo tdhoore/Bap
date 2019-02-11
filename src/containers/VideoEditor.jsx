@@ -186,7 +186,7 @@ const VideoEditor = ({ store, editorType, props }) => {
     );
   };
 
-  return <DefaultPageHolder store={store} main={displayEditor()} />;
+  return <DefaultPageHolder activeLink='/upload' store={store} main={displayEditor()} />;
 };
 
 export default observer(VideoEditor);

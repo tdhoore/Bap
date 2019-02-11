@@ -134,9 +134,7 @@ const VideoPlayer = ({ store }) => {
           <button
             className="fullScreenBtn"
             onClick={e => handleGoFullscreen(e)}
-          >
-            Fullscreen
-          </button>
+          ></button>
         </div>
       </div>
       <p>

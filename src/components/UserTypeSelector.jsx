@@ -43,7 +43,7 @@ const UserTypeSelector = ({ store }) => {
               name="usertype"
               onChange={e => handleUserType(e)}
             />
-            <span className="selectedType" />
+            <span className="selectedType klantType" />
           </label>
           <label htmlFor="maker">
             <span>maker</span>
@@ -54,7 +54,7 @@ const UserTypeSelector = ({ store }) => {
               name="usertype"
               onChange={e => handleUserType(e)}
             />
-            <span className="selectedType" />
+            <span className="selectedType makerType" />
           </label>
           <label htmlFor="ergo">
             <span>ergo</span>
@@ -65,7 +65,7 @@ const UserTypeSelector = ({ store }) => {
               name="usertype"
               onChange={e => handleUserType(e)}
             />
-            <span className="selectedType" />
+            <span className="selectedType ergoType" />
           </label>
         </div>
         <StepCounter store={store} />

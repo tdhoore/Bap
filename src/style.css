@@ -1,5 +1,5 @@
-@import "./css/reset.css";
-@import "./css/vars.css";
+@import './css/reset.css';
+@import './css/vars.css';
 
 body {
   display: flex;
@@ -87,7 +87,7 @@ label span {
   display: block;
   font-size: 2rem;
   color: var(--secondColorBgTextColor);
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
 }
 
 .labelWithCheckbox {
@@ -105,7 +105,7 @@ label span {
     font-size: var(--broodtekst);
   }
 
-  & input[type="checkbox"] {
+  & input[type='checkbox'] {
     position: absolute;
     top: 0;
     left: 0;
@@ -114,16 +114,16 @@ label span {
     cursor: pointer;
   }
 
-  & input[type="text"] {
+  & input[type='text'] {
     order: -1;
     margin-left: 1rem;
   }
 
-  & input[type="text"]:disabled {
-    opacity: 0.5;
+  & input[type='text']:disabled {
+    opacity: .5;
   }
 
-  & input[type="checkbox"]:checked ~ .customCheckBox {
+  & input[type='checkbox']:checked ~ .customCheckBox {
     background-color: var(--activeColor);
   }
 }
@@ -134,7 +134,7 @@ label span {
   min-width: 2.4rem;
   max-width: 2.4rem;
   height: 2.4rem;
-  border-radius: 0.2rem;
+  border-radius: .2rem;
   margin: 0;
   margin-right: 1rem;
   cursor: pointer;
@@ -153,23 +153,61 @@ nav {
     font-size: 1.6rem;
   }
 
-  & ul li a {
+  & ul li a, & ul li button {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
     color: var(--defaultFontColor);
     font-weight: lighter;
+    font-family: Montserrat, sans-serif;
+    font-size: var(--broodtekst);
   }
 
-  & ul li a::before {
-    content: "";
+  & ul li a::before, & ul li button::before {
+    content: '';
     display: block;
     width: 3.5rem;
     height: 3.5rem;
     margin: 1rem;
-    background-color: blue;
+    background-repeat: no-repeat;
   }
+}
+
+.ontdek_icon::before {
+  background-image: url(assets/img/ontdek_icon.svg);
+}
+
+.ontdek_icon_active::before {
+  background-image: url(assets/img/ontdek_icon_active.svg);
+}
+
+.login_icon::before {
+  background-image: url(assets/img/login_icon.svg);
+}
+
+.login_icon_active::before {
+  background-image: url(assets/img/login_icon_active.svg);
+}
+
+.projecten_icon::before {
+  background-image: url(assets/img/projecten_icon.svg);
+  background-size: contain;
+  background-position: center center;
+}
+
+.projecten_icon_active::before {
+  background-image: url(assets/img/projecten_icon_active.svg);
+  background-size: contain;
+  background-position: center center;
+}
+
+.upload_icon::before {
+  background-image: url(assets/img/upload_icon.svg);
+}
+
+.upload_icon_active::before {
+  background-image: url(assets/img/upload_icon_active.svg);
 }
 
 .activeLink a {
@@ -187,7 +225,7 @@ footer {
   & p {
     width: 19rem;
     height: 6.6rem;
-    background-color: blue;
+    background-image: url(assets/img/howest.svg);
   }
 
   & .socialLinks {
@@ -209,9 +247,30 @@ footer {
       height: 3.5rem;
       overflow: hidden;
       color: transparent;
-      background-color: blue;
     }
   }
+}
+
+.facebook {
+  background-image: url(assets/img/fb.svg);
+}
+
+.insta {
+  background-image: url(assets/img/insta.svg);
+}
+
+.twitter {
+  background-image: url(assets/img/twitter.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.sm_mail {
+  background-image: url(assets/img/mail.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .lastSection {
@@ -227,7 +286,7 @@ footer {
 }
 
 .colorBgTop::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: -4.9rem;
@@ -245,7 +304,7 @@ footer {
   width: 100%;
   display: block;
   padding: 1rem;
-  color: var(--color-white);
+  color: var(--secondColorBgTextColor);
   text-transform: uppercase;
   font-weight: var(--weight-bold);
   font-size: var(--titlesize);
@@ -253,28 +312,27 @@ footer {
   border-radius: var(--borderRadius);
   text-decoration: none;
   text-align: center;
-  color: #fff;
 }
 
 .ghostBtn {
   color: var(--activeColor);
   background: none;
-  border: solid 0.3rem var(--activeColor);
+  border: solid .3rem var(--activeColor);
 }
 
 progress {
   display: block;
-  height: 0.4rem;
+  height: .4rem;
   width: 100%;
   background-color: var(--backgroundColor);
 }
 
 progress::-webkit-progress-value {
-  background: #ff9e2c;
+  background: var(--videoPlayerColor);
 }
 
 progress::-moz-progress-bar {
-  background: #ff9e2c;
+  background: var(--videoPlayerColor);
 }
 
 .videoPlayer {
@@ -301,19 +359,36 @@ progress::-moz-progress-bar {
   padding: 1rem;
 
   & .playBtn {
-    background-color: yellow;
+    background-image: url(assets/img/play.svg);
     width: 2rem;
     height: 2rem;
     overflow: hidden;
     color: transparent;
     margin-right: 1rem;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+  }
+
+  & .pauseBtn {
+    background-image: url(assets/img/pause.svg);
   }
 
   & .progressBarHolder {
     position: relative;
     align-self: flex-start;
-    height: 0.2rem;
+    height: .2rem;
     flex: 2;
+  }
+
+  & .fullScreenBtn {
+    width: 2rem;
+    height: 2rem;
+    background-image: url(assets/img/fullscreen.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    margin-left: 1rem;
   }
 }
 
@@ -331,7 +406,7 @@ progress::-moz-progress-bar {
     left: 0;
     display: flex;
     align-items: center;
-    padding: 0.5rem;
+    padding: .5rem;
     padding-left: 0;
     opacity: 0;
     transition: opacity 300ms;
@@ -342,16 +417,16 @@ progress::-moz-progress-bar {
   }
 
   & .comment::before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     z-index: -1;
     top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% - 0.5rem);
+    height: calc(100% - .5rem);
     background-color: var(--backgroundColor);
-    opacity: 0.6;
+    opacity: .6;
     border-top-right-radius: 50%;
   }
 
@@ -362,7 +437,7 @@ progress::-moz-progress-bar {
     height: 2.4rem;
     overflow: hidden;
     background-color: blue;
-    margin-right: 0.5rem;
+    margin-right: .5rem;
   }
 
   & .commentImg img {
@@ -380,7 +455,7 @@ progress::-moz-progress-bar {
   width: 100%;
 
   &::before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     z-index: -1;
@@ -389,7 +464,7 @@ progress::-moz-progress-bar {
     width: 100%;
     height: 100%;
     background-color: var(--backgroundColor);
-    opacity: 0.6;
+    opacity: .6;
   }
 
   & .commentImg {
@@ -409,14 +484,14 @@ progress::-moz-progress-bar {
     }
   }
 
-  & input[type="text"] {
-    margin: 0 0.5rem;
+  & input[type='text'] {
+    margin: 0 .5rem;
     padding: 1rem 0;
     background-color: transparent;
     font-size: 1.4rem;
   }
 
-  & input[type="submit"] {
+  & input[type='submit'] {
     padding: 0;
     width: 3rem;
     height: 3rem;
@@ -487,21 +562,21 @@ progress::-moz-progress-bar {
   & header {
     display: flex;
     align-items: center;
-    padding: 0.5rem;
+    padding: .5rem;
 
     & h3 {
       font-weight: normal;
       font-size: 2rem;
       order: 1;
       flex: 2;
-      margin-left: 0.5rem;
+      margin-left: .5rem;
     }
   }
 
   & .contributorsData {
     display: flex;
     align-items: center;
-    padding: 0.5rem;
+    padding: .5rem;
 
     & .contributors {
       display: flex;
@@ -514,22 +589,36 @@ progress::-moz-progress-bar {
   display: flex;
 
   & li {
-    margin-left: 0.5rem;
+    margin-left: .5rem;
   }
 
   & li::before {
-    content: "";
+    content: '';
     display: inline-block;
-    width: 1.4rem;
-    height: 1.4rem;
-    background-color: blue;
-    margin-right: 0.2rem;
+    width: 1.7rem;
+    height: 1.5rem;
+    margin-right: .2rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
+}
+
+.likes::before {
+  background-image: url(assets/img/like.svg);
+}
+
+.numMakers::before {
+  background-image: url(assets/img/hamer.svg);
+}
+
+.numErgo::before {
+  background-image: url(assets/img/ergomuts.svg);
 }
 
 .sorter {
   display: flex;
-  border-bottom: solid 0.5rem var(--backgroundColorDark);
+  border-bottom: solid .5rem var(--backgroundColorDark);
   margin: 0 1rem 1rem;
 
   & li {
@@ -629,7 +718,7 @@ progress::-moz-progress-bar {
 .openFilterBtn {
   display: flex;
   flex-direction: column;
-  padding: 0.5rem;
+  padding: .5rem;
   align-items: center;
   background-color: var(--activeColor);
   border-top-right-radius: var(--borderRadius);
@@ -638,11 +727,14 @@ progress::-moz-progress-bar {
   color: var(--activeTextColor);
 
   &::before {
-    content: "";
+    content: '';
     display: block;
     height: 2rem;
     width: 2rem;
-    background-color: blue;
+    background-image: url(assets/img/filter.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
   }
 }
 
@@ -1205,7 +1297,7 @@ progress::-moz-progress-bar {
   }
 
   & span::before {
-    content: "";
+    content: '';
     display: block;
     height: 5rem;
     width: 5rem;
@@ -1213,7 +1305,7 @@ progress::-moz-progress-bar {
     min-width: 5rem;
     background-color: var(--activeColor);
     border-radius: 50%;
-    margin-right: 0.5rem;
+    margin-right: .5rem;
   }
 }
 
@@ -1260,13 +1352,15 @@ progress::-moz-progress-bar {
 
   & .selectedBox,
   & .selectedType {
-    content: "";
+    content: '';
     display: block;
     width: 6rem;
     height: 6rem;
-    margin-bottom: 0.5rem;
-    background-color: var(--backgroundColor);
+    margin-bottom: .5rem;
+    background-color: #dad8df;
     border-radius: 50%;
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 
   & label input {
@@ -1277,6 +1371,18 @@ progress::-moz-progress-bar {
   & input:checked ~ .selectedType {
     background-color: var(--activeColor);
   }
+}
+
+.klantType {
+  background-image: url(assets/img/krukken.svg);
+}
+
+.makerType {
+  background-image: url(assets/img/spijker.svg);
+}
+
+.ergoType {
+  background-image: url(assets/img/ergokapje.svg);
 }
 
 /* JUNK */
@@ -1380,12 +1486,12 @@ progress::-moz-progress-bar {
   margin-bottom: 2rem;
 
   &::after {
-    content: "";
+    content: '';
     position: absolute;
-    bottom: -0.3rem;
+    bottom: -.3rem;
     display: block;
     width: 100%;
-    height: 0.3rem;
+    height: .3rem;
     background-color: var(--activeColor);
   }
 }
@@ -1426,7 +1532,7 @@ legend {
   border-radius: 50%;
 
   &::after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     bottom: 0;
@@ -1579,11 +1685,14 @@ legend {
     display: block;
     width: 11rem;
     height: 3.6rem;
-    background-color: blue;
 
     & span {
       display: none;
     }
+  }
+
+  .logo {
+    background-image: url(assets/img/logo.svg);
   }
 
   .videoPlayerInfo {
@@ -1676,11 +1785,13 @@ legend {
       }
 
       & header::after {
-        content: "";
+        content: '';
         display: block;
         width: 13rem;
         height: 18rem;
-        background-color: blue;
+        background-image: url(assets/img/accountloos.svg);
+        background-repeat: no-repeat;
+        background-position: center center;
         margin: 2rem 0;
       }
 
@@ -1715,6 +1826,7 @@ legend {
   }
 
   .userSelector {
+
     & .formContentHolder {
       width: auto;
     }
@@ -1739,8 +1851,8 @@ legend {
     }
 
     & .typeHolder .selectedType {
-      width: 8rem;
-      height: 8rem;
+      width: 8.8rem;
+      height: 8.8rem;
     }
 
     & .btn {
@@ -1867,6 +1979,7 @@ legend {
     max-width: 3.5rem;
     max-height: 3.5rem;
   }
+
   .makerInfo img {
     min-width: 4.5rem;
     min-height: 4.5rem;
@@ -1884,15 +1997,18 @@ legend {
 /* DESKTOP */
 
 @media (--lg) {
+
   h2 {
     font-size: 3.5rem;
   }
 
   /* HOME */
+
   .videoPlayerInfo h2 {
   }
 
   .videoPlayerInfo {
+
     & header {
       margin-bottom: 3rem;
     }
@@ -1939,8 +2055,8 @@ legend {
     margin-left: auto;
     margin-right: auto;
   }
-
   /* LOGIN */
+
   .loginHolder .colorBg {
     justify-content: center;
 
@@ -1950,6 +2066,7 @@ legend {
   }
 
   /* PROJECT DETAIL */
+
   .projectDetailInfo {
     margin: 5rem auto 15rem;
     max-width: 110rem;
