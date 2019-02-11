@@ -345,8 +345,7 @@ progress::-moz-progress-bar {
   }
 
   & .commentShow {
-    opacity: 1;
-    //animation: showComment 2.5s;
+    animation: showComment 2.5s;
   }
 
   & .comment::before {
