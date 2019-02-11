@@ -7,24 +7,29 @@ const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
   const amount = 2;
 
   const setVisibleCards = () => {
-    let endIndex = amount;
-    const array = [];
+    //if no counterName specified == no slider pressend
+    if (counterName !== "") {
+      let endIndex = amount;
+      const array = [];
 
-    //if bigger than 0
-    if (counter > 0) {
-      endIndex = amount * counter + amount;
-    }
-
-    //for desktop
-    for (let i = amount * counter; i < endIndex; i++) {
-      //get the correct elements
-      //check if exists
-      if (i < content.length) {
-        array.push(content[i]);
+      //if bigger than 0
+      if (counter > 0) {
+        endIndex = amount * counter + amount;
       }
-    }
 
-    return array;
+      //for desktop
+      for (let i = amount * counter; i < endIndex; i++) {
+        //get the correct elements
+        //check if exists
+        if (i < content.length) {
+          array.push(content[i]);
+        }
+      }
+
+      return array;
+    } else {
+      return content;
+    }
   };
 
   const handleMoveCounter = (e, count) => {
@@ -32,11 +37,11 @@ const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
   };
 
   const enableLeftBtn = () => {
-    return counter === 0;
+    return (counter === 0 && amount < content.length) || counterName === "";
   };
 
   const enableRightBtn = () => {
-    return !(counter * amount < content.length - 1);
+    return !(counter * amount < content.length - 1) || counterName === "";
   };
 
   return (

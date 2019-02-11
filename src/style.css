@@ -485,12 +485,14 @@ progress::-moz-progress-bar {
 }
 
 .card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   margin-bottom: 2rem;
 }
 
 .card article {
+  flex: 2;
   display: flex;
   flex-direction: column;
   font-size: 1.4rem;

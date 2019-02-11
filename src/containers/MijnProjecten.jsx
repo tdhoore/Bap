@@ -12,7 +12,12 @@ const MijnProjecten = ({ store }) => {
           <section className="highLightedSection">
             <header>
               <h2 className="mainHeader">Updates</h2>
-              <CardHolder store={store} content={store.allProjects} />
+              <CardHolder
+                store={store}
+                content={store.allProjects}
+                counter={store.projectUpdatesCounter}
+                counterName={`projectUpdatesCounter`}
+              />
             </header>
           </section>
           <section className="lastSection mijnProjectenSection">
