@@ -1926,9 +1926,6 @@ legend {
   }
 
   /* HOME */
-  .videoPlayerInfo h2 {
-  }
-
   .videoPlayerInfo {
     & header {
       margin-bottom: 3rem;
@@ -1947,9 +1944,9 @@ legend {
     position: relative;
     display: flex;
     justify-content: flex-end;
-    width: 100%;
-    margin: 5rem 0 4rem;
-    padding: 0 3rem;
+    max-width: 110rem;
+    margin: 5rem auto 4rem;
+    padding: 0;
 
     & header {
       position: absolute;
@@ -1998,6 +1995,11 @@ legend {
   }
 
   .prototypeArticleHolder {
+    max-width: 110rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
     grid-template-columns: repeat(3, 1fr);
   }
 }

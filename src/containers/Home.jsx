@@ -16,7 +16,12 @@ const Home = ({ store }) => {
           <header className="mainHeader">
             <h2>Projecten in je buurt</h2>
           </header>
-          <CardHolder store={store} content={store.allProjects} />
+          <CardHolder
+            store={store}
+            content={store.allProjects}
+            counter={store.buurtCounter}
+            counterName={`buurtCounter`}
+          />
         </section>
         <section>
           <div className="filterAndHeader">

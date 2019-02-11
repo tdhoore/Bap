@@ -37,7 +37,7 @@ const ProjectDetail = ({ store, props }) => {
   };
 
   const ontmoetingsfase = () => {
-    if (store.user) {
+    /*if (store.user) {
       if (store.user.id === data.user_id) {
         //user is owner so allow acces to changes
         //security eigelijk op server zelf doen maar geen tijd
@@ -50,7 +50,7 @@ const ProjectDetail = ({ store, props }) => {
           </section>
         );
       }
-    }
+    }*/
   };
 
   const displayProjectDetail = () => {

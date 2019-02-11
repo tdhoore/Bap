@@ -71,6 +71,7 @@ class Store {
 
     //projects
     this.allProjects = [];
+    this.buurtCounter = 0;
 
     //sorter
     this.currentSortType = ``;
@@ -79,6 +80,10 @@ class Store {
     this.step = 1;
     this.maxSteps = 3;
     this.formObject = {};
+  }
+
+  updateCounter(countername, counter) {
+    this[countername] += counter;
   }
 
   setCurrentProject(id) {
@@ -898,6 +903,7 @@ decorate(Store, {
   message: observable,
   totalTrackLengths: observable,
   allProjects: observable,
+  buurtCounter: observable,
   formObject: observable,
   step: observable,
   maxSteps: observable,
