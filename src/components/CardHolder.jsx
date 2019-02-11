@@ -1,6 +1,7 @@
 import { observer } from "mobx-react";
 import React from "react";
 import Card from "./Card.jsx";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
   const amount = 2;
@@ -13,8 +14,6 @@ const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
     if (counter > 0) {
       endIndex = amount * counter + amount;
     }
-    console.log("start index", amount * counter);
-    console.log("end index", endIndex);
 
     //for desktop
     for (let i = amount * counter; i < endIndex; i++) {
@@ -29,37 +28,46 @@ const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
   };
 
   const handleMoveCounter = (e, count) => {
-    setVisibleCards();
     store.updateCounter(counterName, count);
   };
 
-  const displayRightBtn = () => {
-    if (counter > 0) {
-      return <button onClick={e => handleMoveCounter(e, -1)}>prev</button>;
-    }
+  const enableLeftBtn = () => {
+    return counter === 0;
   };
 
-  const displayLeftBtn = () => {
-    if (counter * amount < content.length - 1) {
-      return <button onClick={e => handleMoveCounter(e, 1)}>next</button>;
-    }
+  const enableRightBtn = () => {
+    return !(counter * amount < content.length - 1);
   };
 
   return (
     <div className="cardHolderBtns">
-      {displayRightBtn()}
-      <div className="cardHolder">
+      <button
+        onClick={e => handleMoveCounter(e, -1)}
+        className="sliderBtn"
+        disabled={enableLeftBtn()}
+      >
+        prev
+      </button>
+      <TransitionGroup className="cardHolder">
         {setVisibleCards().map(cardData => {
           return (
-            <Card
-              store={store}
-              cardData={cardData}
+            <CSSTransition
               key={`projectLink${cardData.id}`}
-            />
+              timeout={300}
+              classNames="fade"
+            >
+              <Card store={store} cardData={cardData} />
+            </CSSTransition>
           );
         })}
-      </div>
-      {displayLeftBtn()}
+      </TransitionGroup>
+      <button
+        onClick={e => handleMoveCounter(e, 1)}
+        className="sliderBtn"
+        disabled={enableRightBtn()}
+      >
+        prev
+      </button>
     </div>
   );
 };

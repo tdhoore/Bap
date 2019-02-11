@@ -38,7 +38,6 @@ const Home = ({ store }) => {
   };
 
   const displayInfoVideo = () => {
-    console.log(store.user);
     if (!store.user) {
       return <VideoPlayerInfo store={store} />;
     }

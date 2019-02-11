@@ -1643,11 +1643,53 @@ legend {
     }
   }
 
+  .cardHolderBtns {
+    margin: 0 3rem 2rem;
+    display: flex;
+    align-items: center;
+
+    & .sliderBtn {
+      display: block;
+      min-width: 4rem;
+      height: 4rem;
+      background-color: blue;
+      overflow: hidden;
+      color: transparent;
+    }
+
+    & .sliderBtn:disabled {
+      cursor: default;
+      background-color: transparent;
+    }
+  }
+
+  .fade-enter {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .fade-enter.fade-enter-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  .fade-exit {
+    opacity: 1;
+  }
+
+  .fade-exit.fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  .fade-exit-done {
+    opacity: 0;
+  }
+
   .cardHolder {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
-    margin: 0 3rem 2rem;
 
     & .card {
       margin: 0;
