@@ -32,6 +32,7 @@ class Store {
 
     //database
     this.database = firebase.firestore();
+    this.storage = firebase.storage();
 
     //project
     this.currentProjectId = ``;
@@ -234,7 +235,7 @@ class Store {
         this.formObject.profilepicfile.name.split(".").pop()
       );
       const extension = this.formObject.profilepicfile.name.split(".").pop();
-      const imgLocation = this.storage.child(
+      const imgLocation = this.storage.ref().child(
         `profilePics/${this.formObject.email}.${extension}`
       );
       console.log(
@@ -247,7 +248,9 @@ class Store {
         .put(this.formObject.profilepicfile)
         .then(snapshot => {
           console.log("SNAPSHOT FULLPATH:", snapshot);
-          this.registerUser(snapshot.metadata.fullPath);
+          snapshot.ref.getDownloadURL().then(url => {
+            this.registerUser(url);
+          })
         })
         .catch(error => {
           console.log(error.message);

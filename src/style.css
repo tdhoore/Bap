@@ -958,6 +958,10 @@ progress::-moz-progress-bar {
   }
 }
 
+.active_difficulty {
+  background-color: var(--secondColorBg);
+}
+
 .addPrototypeBtn {
   display: flex;
   justify-content: center;
