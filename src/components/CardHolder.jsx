@@ -56,9 +56,7 @@ const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
         onClick={e => handleMoveCounter(e, -1)}
         className={`sliderBtn sliderBtnLeft ${removeBtns()}`}
         disabled={enableLeftBtn()}
-      >
-        prev
-      </button>
+      ></button>
       <TransitionGroup className="cardHolder">
         {setVisibleCards().map(cardData => {
           return (
@@ -76,9 +74,7 @@ const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
         onClick={e => handleMoveCounter(e, 1)}
         className={`sliderBtn ${removeBtns()}`}
         disabled={enableRightBtn()}
-      >
-        prev
-      </button>
+      ></button>
     </div>
   );
 };

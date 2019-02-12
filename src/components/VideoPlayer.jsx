@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { observer } from "mobx-react";
-import videoTest from "../assets/video/vid.mp4";
+import videoTest from "../assets/video/explainer.mp4";
 
 const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
   const videoRef = React.createRef();

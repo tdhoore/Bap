@@ -45,7 +45,7 @@ const Card = ({ store, cardData }) => {
       });
     }
   };
-
+  console.log(`profilepic:`, data.profilePic);
   return (
     <Link to={`projectdetail/${id}`} className="card">
       <article>

@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { observer } from "mobx-react";
-import video from "../assets/video/vid.mp4";
+import video from "../assets/video/explainer.mp4";
 
 const VideoPlayer = ({ store }) => {
   const videoRef = React.createRef();
@@ -139,8 +139,7 @@ const VideoPlayer = ({ store }) => {
       </div>
       <p>
         Welkom bij <strong className='strong'>D4E1</strong>: Design for Everyone!<br/>
-        Hier wordt door middel van video het proces vastgelegd met als eindresultaat een
-        product die het leven van een hulpbehoevende verbetert. <br/>
+        D4E1 is het videoplatform waar deze community samen producten ontwikkelen die de levenskwaliteit verbeteren van mensen met een beperking. <br/>
         Maak ook deel uit van deze community!
       </p>
     </article>
