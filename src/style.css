@@ -618,8 +618,10 @@ progress::-moz-progress-bar {
 
   & .contributorsData {
     display: flex;
+    justify-content: center;
     align-items: center;
     padding: .5rem;
+    height: 5rem;
 
     & .contributors {
       display: flex;
