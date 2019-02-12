@@ -138,8 +138,10 @@ const VideoPlayer = ({ store }) => {
         </div>
       </div>
       <p>
-        Door middel van video het proces vastleggen met als eindresultaat een
-        instrument die het leven van de klant verbetert.
+        Welkom bij <strong className='strong'>D4E1</strong>: Design for Everyone!<br/>
+        Hier wordt door middel van video het proces vastgelegd met als eindresultaat een
+        product die het leven van een hulpbehoevende verbetert. <br/>
+        Maak ook deel uit van deze community!
       </p>
     </article>
   );

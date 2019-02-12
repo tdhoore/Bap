@@ -68,7 +68,7 @@ const ProjectDetail = ({ store, props }) => {
               </div>
               <img src={data.profilepic} alt="" />
             </header>
-            <button className="like">like</button>
+            <button className="like"></button>
           </div>
           <div className="playerHolder">
             <VideoPlayer
