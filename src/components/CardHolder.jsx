@@ -4,7 +4,7 @@ import Card from "./Card.jsx";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
-  const amount = 2;
+  const amount = store.sliderAmount;
 
   const setVisibleCards = () => {
     //if no counterName specified == no slider pressend

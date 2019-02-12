@@ -11,10 +11,38 @@ import ProjectDetail from "./ProjectDetail.jsx";
 import PrototypeViewer from "./PrototypeViewer.jsx";
 
 class App extends Component {
+  calcAmountForSlider(store) {
+    //add event listener to window
+    window.addEventListener("resize", e => this.handleResizeWindow(store));
+  }
+
+  handleResizeWindow(store) {
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth >= 768 && windowWidth < 992) {
+      //is tablet
+      store.sliderAmount = 2;
+    } else if (windowWidth >= 992) {
+      //is desktop
+      store.sliderAmount = 3;
+    } else {
+      //is mobile
+      store.sliderAmount = 1;
+    }
+
+    console.log(store.sliderAmount);
+  }
+
   render() {
     const { store } = this.props;
     //setup listener to data base
     store.getAllProjects();
+
+    //set initial size
+    this.handleResizeWindow(store);
+
+    //add event listener
+    this.calcAmountForSlider(store);
 
     return (
       <Switch>

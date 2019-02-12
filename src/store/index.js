@@ -71,6 +71,7 @@ class Store {
 
     //projects
     this.allProjects = [];
+    this.sliderAmount = 1;
     this.buurtCounter = 0;
     this.projectUpdatesCounter = 0;
 
