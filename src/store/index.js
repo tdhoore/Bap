@@ -235,9 +235,9 @@ class Store {
         this.formObject.profilepicfile.name.split(".").pop()
       );
       const extension = this.formObject.profilepicfile.name.split(".").pop();
-      const imgLocation = this.storage.ref().child(
-        `profilePics/${this.formObject.email}.${extension}`
-      );
+      const imgLocation = this.storage
+        .ref()
+        .child(`profilePics/${this.formObject.email}.${extension}`);
       console.log(
         "PROFILEPIC:",
         `profilePics/${this.formObject.email}.${
@@ -250,7 +250,7 @@ class Store {
           console.log("SNAPSHOT FULLPATH:", snapshot);
           snapshot.ref.getDownloadURL().then(url => {
             this.registerUser(url);
-          })
+          });
         })
         .catch(error => {
           console.log(error.message);
@@ -777,6 +777,7 @@ class Store {
   }
 
   getProjectBranches(level = 1, lastId = ``) {
+    console.log("run");
     let queryString = ``;
 
     //create query
@@ -787,7 +788,7 @@ class Store {
         queryString += `/${lastId}/prototype${i}`;
       }
     }
-
+    console.log(queryString);
     //send request
     this.database
       .collection(`projects`)
@@ -801,13 +802,20 @@ class Store {
         if (querySnapshot.docs.length > 0) {
           //setup docs for this level
           querySnapshot.docs.forEach(doc => {
+            let isActive = false;
+
             //push data to correct level
             if (this.prototypeLevels[level] === undefined) {
               this.prototypeLevels[level] = [];
+              isActive = true;
             }
 
             //create data object
-            const protoData = { id: doc.id, doc: doc.data() };
+            const protoData = {
+              id: doc.id,
+              doc: doc.data(),
+              isActive: isActive
+            };
 
             //check for doubles
             let isDouble = false;

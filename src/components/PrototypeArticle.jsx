@@ -3,11 +3,11 @@ import React from "react";
 import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 
-const PrototypeArticle = ({ store, prototype }) => { 
+const PrototypeArticle = ({ store, prototype, level }) => {
   const displayDifficulty = () => {
     const array = [];
-    for(let i = 0; i < 3; i++){
-      if(i <= displayData(`difficulty`)){
+    for (let i = 0; i < 3; i++) {
+      if (i <= displayData(`difficulty`)) {
         array.push(`active_difficulty`);
       } else {
         array.push(``);
@@ -26,11 +26,41 @@ const PrototypeArticle = ({ store, prototype }) => {
     return null;
   };
 
-  console.log(prototype);
+  const isActiveClass = () => {
+    console.log(prototype);
+    if (prototype.isActive) {
+      return "card protoTypeCard";
+    } else {
+      return "card protoTypeCard inActiveCard";
+    }
+  };
+
+  const handleClickLink = e => {
+    if (!prototype.isActive) {
+      e.preventDefault();
+
+      //update isActive
+      store.prototypeLevels[level].map(proto => {
+        if (prototype.id === proto.id) {
+          proto.isActive = true;
+        } else {
+          proto.isActive = false;
+        }
+      });
+
+      //set new active id
+      store.selectedPrototypeIds[level] = prototype.id;
+
+      //get new branches
+      store.getProjectBranches(parseInt(level) + 1, prototype.id);
+    }
+  };
+
   return (
     <Link
-      className="card protoTypeCard"
+      className={isActiveClass()}
       to={`/prototype/${prototype.doc.prototype_id}`}
+      onClick={e => handleClickLink(e)}
     >
       <article>
         <header>
@@ -43,9 +73,14 @@ const PrototypeArticle = ({ store, prototype }) => {
         <div className="difficulty">
           <p>Moeilijkheid</p>
           <ul>
-          {displayDifficulty().map((a, index) => {
-            return <li className={a} key={`difficultyHolder${prototype.doc.prototype_id}${index}`}></li>
-          })}
+            {displayDifficulty().map((a, index) => {
+              return (
+                <li
+                  className={a}
+                  key={`difficultyHolder${prototype.doc.prototype_id}${index}`}
+                />
+              );
+            })}
           </ul>
         </div>
         <button className="verifieerBtn">verifieer</button>

@@ -606,6 +606,7 @@ progress::-moz-progress-bar {
     display: block;
     width: 4rem;
     height: 4rem;
+    min-width: 4rem;
     overflow: hidden;
   }
 
@@ -956,6 +957,10 @@ progress::-moz-progress-bar {
       margin-left: 0.5rem;
     }
   }
+}
+
+.inActiveCard {
+  opacity: 0.5;
 }
 
 .active_difficulty {
@@ -2103,7 +2108,7 @@ legend {
 
   .prototypeArticleHolder {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr 2fr 1fr;
     grid-column-gap: 3rem;
     width: 100%;
   }
@@ -2112,6 +2117,10 @@ legend {
   .addPrototypeBtn {
     min-width: 0;
     margin: 0;
+  }
+
+  .protoTypeCard {
+    align-self: center;
   }
 
   .prototypeViewer {
