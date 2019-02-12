@@ -212,6 +212,10 @@ nav {
   background-image: url(assets/img/upload_icon_active.svg);
 }
 
+.logout_icon::before {
+  background-image: url(assets/img/logout.svg);
+}
+
 .activeLink a {
   color: var(--activeColor);
   font-weight: bold;
@@ -505,7 +509,7 @@ progress::-moz-progress-bar {
     height: 3.8rem;
     min-width: 3.8rem;
     max-width: 3.8rem;
-    background-color: blue;
+    background-color: var(--activeColor);
     overflow: hidden;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
@@ -530,7 +534,11 @@ progress::-moz-progress-bar {
     height: 3rem;
     border-radius: 50%;
     color: transparent;
-    background-color: blue;
+    background-color: var(--activeColor);
+    background-image: url(assets/img/comment.svg);
+    background-size: 2rem;
+    background-repeat: no-repeat;
+    background-position: center center;
     margin-right: 0.5rem;
     cursor: pointer;
   }
@@ -801,6 +809,10 @@ progress::-moz-progress-bar {
   & .links a:first-of-type {
     margin-bottom: 1rem;
   }
+}
+
+.data_description {
+  min-height: 8rem;
 }
 
 .headerWithLikes {
@@ -1448,7 +1460,9 @@ progress::-moz-progress-bar {
   height: 2rem;
   width: 2rem;
   cursor: pointer;
-  background-color: blue;
+  background-image: url(assets/img/scrubber.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 /* JUNK */
@@ -1599,6 +1613,10 @@ legend {
     height: 2rem;
     background-color: var(--activeColor);
     border-radius: 50%;
+    background-image: url(assets/img/plus.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 60%;
   }
 
   & .inputHolder {
@@ -1801,7 +1819,9 @@ legend {
       display: block;
       min-width: 4rem;
       height: 4rem;
-      background-color: blue;
+      background-image: url(assets/img/arrow.svg);
+      background-repeat: no-repeat;
+      background-position: center center;
       overflow: hidden;
       color: transparent;
     }
@@ -1813,6 +1833,10 @@ legend {
 
     & .sliderBtn.hide {
       display: none;
+    }
+
+    & .sliderBtnLeft {
+      transform: scaleX(-1);
     }
   }
 

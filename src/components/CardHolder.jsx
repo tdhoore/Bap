@@ -31,7 +31,7 @@ const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
     <div className="cardHolderBtns">
       <button
         onClick={e => handleMoveCounter(e, -1)}
-        className={`sliderBtn ${removeBtns()}`}
+        className={`sliderBtn sliderBtnLeft ${removeBtns()}`}
         disabled={enableLeftBtn()}
       >
         prev

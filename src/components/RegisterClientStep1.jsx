@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { Component } from "react";
 import { observer } from "mobx-react";
-import defaultPic from "../assets/img/pic.jpg";
+import defaultPic from "../assets/img/placeholder_profilepic.svg";
 import StepCounter from "./StepCounter.jsx";
 
 const RegisterClientStep1 = ({ store }) => {

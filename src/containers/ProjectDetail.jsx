@@ -82,7 +82,7 @@ const ProjectDetail = ({ store, props }) => {
             <li className="numMakers">{numbOfX(1)}</li>
             <li className="numErgo">{numbOfX(2)}</li>
           </ul>
-          <p>{data.description}</p>
+          <p className='data_description'>{data.description}</p>
           <div className="bobyPart" />
           <div className="links">
             <a href="#" className="ghostBtn">

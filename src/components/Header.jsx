@@ -15,7 +15,7 @@ const Header = ({ store, activeLink }) => {
 
   const displayLogout = () => {
     if(store.user){
-      return <li><NavLink to='/' onClick={e => store.logout()}>Uitloggen</NavLink></li>
+      return <li><NavLink to='/' className='logout_icon' onClick={e => store.logout()}>uitloggen</NavLink></li>
     }
   };
 
