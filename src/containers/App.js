@@ -29,8 +29,6 @@ class App extends Component {
       //is mobile
       store.sliderAmount = 1;
     }
-
-    console.log(store.sliderAmount);
   }
 
   render() {

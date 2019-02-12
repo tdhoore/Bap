@@ -4,44 +4,21 @@ import Card from "./Card.jsx";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
-  const amount = store.sliderAmount;
-
-  const setVisibleCards = () => {
-    //if no counterName specified == no slider pressend
-    if (counterName !== "") {
-      let endIndex = amount;
-      const array = [];
-
-      //if bigger than 0
-      if (counter > 0) {
-        endIndex = amount * counter + amount;
-      }
-
-      //for desktop
-      for (let i = amount * counter; i < endIndex; i++) {
-        //get the correct elements
-        //check if exists
-        if (i < content.length) {
-          array.push(content[i]);
-        }
-      }
-
-      return array;
-    } else {
-      return content;
-    }
-  };
-
   const handleMoveCounter = (e, count) => {
     store.updateCounter(counterName, count);
   };
 
   const enableLeftBtn = () => {
-    return (counter === 0 && amount < content.length) || counterName === "";
+    return (
+      (counter === 0 && store.sliderAmount < content.length) ||
+      counterName === ""
+    );
   };
 
   const enableRightBtn = () => {
-    return !(counter * amount < content.length - 1) || counterName === "";
+    return (
+      !(counter * store.sliderAmount < content.length - 1) || counterName === ""
+    );
   };
 
   const removeBtns = () => {
@@ -58,7 +35,7 @@ const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
         disabled={enableLeftBtn()}
       ></button>
       <TransitionGroup className="cardHolder">
-        {setVisibleCards().map(cardData => {
+        {store.setVisibleCards(counterName, counter, content).map(cardData => {
           return (
             <CSSTransition
               key={`projectLink${cardData.id}`}

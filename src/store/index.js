@@ -85,6 +85,32 @@ class Store {
     this.formObject = {};
   }
 
+  setVisibleCards(counterName, counter, content) {
+    //if no counterName specified == no slider pressend
+    if (counterName !== "") {
+      let endIndex = store.sliderAmount;
+      const array = [];
+
+      //if bigger than 0
+      if (counter > 0) {
+        endIndex = store.sliderAmount * counter + store.sliderAmount;
+      }
+
+      //for desktop
+      for (let i = store.sliderAmount * counter; i < endIndex; i++) {
+        //get the correct elements
+        //check if exists
+        if (i < content.length) {
+          array.push(content[i]);
+        }
+      }
+
+      return array;
+    } else {
+      return content;
+    }
+  }
+
   updateCounter(countername, counter) {
     this[countername] += counter;
   }
@@ -913,7 +939,9 @@ decorate(Store, {
   step: observable,
   maxSteps: observable,
   currentPrototype: observable,
-  projectUpdatesCounter: observable
+  projectUpdatesCounter: observable,
+  setVisibleCards: observable,
+  sliderAmount: observable
 });
 
 const store = new Store();
