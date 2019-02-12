@@ -38,7 +38,7 @@ const RegisterErgoStep3 = ({ store }) => {
                 value="kinderen"
                 onChange={e => handleErgoClientAge(e)}
               />
-              <span className="leeftijdCheckbox" />
+              <span className="leeftijdCheckbox kinderenType" />
             </label>
             <label htmlFor="jongeren">
               <span>
@@ -53,7 +53,7 @@ const RegisterErgoStep3 = ({ store }) => {
                 value="jongeren"
                 onChange={e => handleErgoClientAge(e)}
               />
-              <span className="leeftijdCheckbox" />
+              <span className="leeftijdCheckbox jongerenType" />
             </label>
             <label htmlFor="volwassenen">
               <span>
@@ -68,7 +68,7 @@ const RegisterErgoStep3 = ({ store }) => {
                 value="volwassenen"
                 onChange={e => handleErgoClientAge(e)}
               />
-              <span className="leeftijdCheckbox" />
+              <span className="leeftijdCheckbox volwassenenType" />
             </label>
             <label htmlFor="ouderen">
               <span>
@@ -83,7 +83,7 @@ const RegisterErgoStep3 = ({ store }) => {
                 value="ouderen"
                 onChange={e => handleErgoClientAge(e)}
               />
-              <span className="leeftijdCheckbox" />
+              <span className="leeftijdCheckbox ouderenType" />
             </label>
           </div>
         </div>
