@@ -105,7 +105,7 @@ label span {
     font-size: var(--broodtekst);
   }
 
-  & input[type='checkbox'] {
+  & input[type=checkbox] {
     position: absolute;
     top: 0;
     left: 0;
@@ -114,16 +114,16 @@ label span {
     cursor: pointer;
   }
 
-  & input[type='text'] {
+  & input[type=text] {
     order: -1;
     margin-left: 1rem;
   }
 
-  & input[type='text']:disabled {
+  & input[type=text]:disabled {
     opacity: .5;
   }
 
-  & input[type='checkbox']:checked ~ .customCheckBox {
+  & input[type=checkbox]:checked ~ .customCheckBox {
     background-color: var(--activeColor);
   }
 }
@@ -153,7 +153,8 @@ nav {
     font-size: 1.6rem;
   }
 
-  & ul li a, & ul li button {
+  & ul li a,
+  & ul li button {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -164,7 +165,8 @@ nav {
     font-size: var(--broodtekst);
   }
 
-  & ul li a::before, & ul li button::before {
+  & ul li a::before,
+  & ul li button::before {
     content: '';
     display: block;
     width: 3.5rem;
@@ -415,7 +417,7 @@ progress::-moz-progress-bar {
   }
 
   & .comment p {
-    padding-top: 0.3rem;
+    padding-top: .3rem;
     margin-bottom: 0;
   }
 
@@ -455,15 +457,19 @@ progress::-moz-progress-bar {
 }
 
 @keyframes showComment {
+
   0% {
     opacity: 0;
   }
+
   20% {
     opacity: 1;
   }
+
   80% {
     opacity: 1;
   }
+
   100% {
     opacity: 0;
   }
@@ -478,7 +484,7 @@ progress::-moz-progress-bar {
   align-items: center;
   width: 100%;
 
-  transition: all 0.3s;
+  transition: all .3s;
 
   &::before {
     content: '';
@@ -512,21 +518,21 @@ progress::-moz-progress-bar {
     }
   }
 
-  & input[type='text'] {
+  & input[type=text] {
     margin: 0 .5rem;
     padding: 1rem 0;
     background-color: transparent;
     font-size: 1.4rem;
   }
 
-  & input[type='submit'] {
+  & input[type=submit] {
     padding: 0;
     width: 3rem;
     height: 3rem;
     border-radius: 50%;
     color: transparent;
     background-color: blue;
-    margin-right: 0.5rem;
+    margin-right: .5rem;
     cursor: pointer;
   }
 }
@@ -560,12 +566,14 @@ progress::-moz-progress-bar {
 }
 
 .card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   text-decoration: none;
   margin-bottom: 2rem;
 }
 
 .card article {
+  flex: 2;
   display: flex;
   flex-direction: column;
   font-size: 1.4rem;
@@ -664,7 +672,7 @@ progress::-moz-progress-bar {
   }
 
   & li button {
-    padding: 0.5rem;
+    padding: .5rem;
     font-size: 1.4rem;
     font-weight: lighter;
   }
@@ -675,21 +683,18 @@ progress::-moz-progress-bar {
 
   & .activeSort button {
     font-weight: bold;
+    color: var(--activeColor);
   }
 
   & .activeSort::after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     left: 0;
-    bottom: -0.5rem;
+    bottom: -.5rem;
     width: 100%;
-    height: 0.5rem;
+    height: .5rem;
     background-color: var(--activeColor);
-  }
-
-  & .activeSort button {
-    color: var(--activeColor);
   }
 }
 
@@ -700,7 +705,7 @@ progress::-moz-progress-bar {
 
   &::before,
   &::after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     left: 0;
@@ -731,6 +736,7 @@ progress::-moz-progress-bar {
 }
 
 /* HOME */
+
 .filterAndHeader header {
   margin-bottom: 2rem;
 }
@@ -774,6 +780,7 @@ progress::-moz-progress-bar {
 }
 
 /* Project detail */
+
 .projectDetailInfo {
   padding: 0 1rem;
   margin: 2rem 0 10rem;
@@ -834,6 +841,7 @@ progress::-moz-progress-bar {
 }
 
 .protoTypes {
+
   & .prototypeFase:nth-of-type(2n + 1),
   & .prototypeFase:first-of-type {
     position: relative;
@@ -907,7 +915,7 @@ progress::-moz-progress-bar {
     font-size: var(--titlesize);
     font-weight: 400;
     order: 1;
-    margin-left: 0.5rem;
+    margin-left: .5rem;
   }
 
   & .cardVideoHolder {
@@ -916,7 +924,7 @@ progress::-moz-progress-bar {
 
   & .difficulty {
     display: flex;
-    margin: 0.5rem 0.5rem 1rem;
+    margin: .5rem .5rem 1rem;
 
     & p {
       font-weight: 300;
@@ -929,11 +937,11 @@ progress::-moz-progress-bar {
     & ul li {
       width: var(--broodtekst);
       height: var(--broodtekst);
-      border: solid 0.05rem var(--secondColorBg);
+      border: solid .05rem var(--secondColorBg);
       border-radius: 50%;
       overflow: hidden;
       color: transparent;
-      margin-left: 0.5rem;
+      margin-left: .5rem;
     }
   }
 }
@@ -963,6 +971,7 @@ progress::-moz-progress-bar {
 }
 
 /* Prototype viewer */
+
 .prototypeViewer {
   position: relative;
   display: flex;
@@ -992,7 +1001,7 @@ progress::-moz-progress-bar {
 
   & .textInfo {
     flex: 2;
-    margin-left: 0.5rem;
+    margin-left: .5rem;
   }
 
   & p:first-of-type {
@@ -1038,6 +1047,7 @@ progress::-moz-progress-bar {
 }
 
 /* videoEditor */
+
 .videoEditor {
   display: flex;
   flex-direction: column;
@@ -1166,7 +1176,6 @@ progress::-moz-progress-bar {
 .clip {
   position: relative;
   display: flex;
-  position: relative;
   height: 100%;
   border-radius: var(--borderRadius);
   overflow: hidden;
@@ -1190,7 +1199,7 @@ progress::-moz-progress-bar {
     left: 50%;
     transform: translateX(-50%);
     color: var(--activeTextColor);
-    text-shadow: 0.1rem 0.1rem rgba(0, 0, 0, 0.5);
+    text-shadow: .1rem .1rem rgba(0, 0, 0, .5);
   }
 }
 
@@ -1217,7 +1226,7 @@ progress::-moz-progress-bar {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, .8);
 
   & header {
     font-size: 4rem;
@@ -1270,7 +1279,7 @@ progress::-moz-progress-bar {
     display: block;
     height: 4rem;
     width: 4rem;
-    margin-right: 0.2rem;
+    margin-right: .2rem;
     border-radius: 50%;
     color: transparent;
     background-color: var(--activeColor);
@@ -1553,6 +1562,7 @@ progress::-moz-progress-bar {
 }
 
 /* Registration */
+
 legend {
   text-align: center;
   color: var(--secondColorBgTextColor);
@@ -1653,11 +1663,11 @@ legend {
   }
 
   & .activeStep::before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
-    top: -0.1rem;
-    left: -0.1rem;
+    top: -.1rem;
+    left: -.1rem;
     width: 1.2rem;
     height: 1.2rem;
     background-color: var(--activeColor);
@@ -1732,6 +1742,7 @@ legend {
 
 @media (--md) {
   /* NAV */
+
   .topHeader {
     display: flex;
     align-items: center;
@@ -1781,11 +1792,57 @@ legend {
     }
   }
 
+  .cardHolderBtns {
+    margin: 0 3rem 2rem;
+    display: flex;
+    align-items: center;
+
+    & .sliderBtn {
+      display: block;
+      min-width: 4rem;
+      height: 4rem;
+      background-color: blue;
+      overflow: hidden;
+      color: transparent;
+    }
+
+    & .sliderBtn:disabled {
+      cursor: default;
+      background-color: transparent;
+    }
+
+    & .sliderBtn.hide {
+      display: none;
+    }
+  }
+
+  .fade-enter {
+    position: absolute;
+    opacity: 0;
+  }
+
+  .fade-enter.fade-enter-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  .fade-exit {
+    opacity: 1;
+  }
+
+  .fade-exit.fade-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+
+  .fade-exit-done {
+    opacity: 0;
+  }
+
   .cardHolder {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 2rem;
-    margin: 0 3rem 2rem;
 
     & .card {
       margin: 0;
@@ -1870,6 +1927,7 @@ legend {
   /* REGISTRATION */
 
   .mainRegisterHolder {
+
     & legend {
       margin-top: 0;
     }
@@ -2031,6 +2089,7 @@ legend {
   }
 
   .prototypeViewer {
+
     & .makerInfo,
     & .prototypeDescription {
       width: 44rem;
@@ -2070,9 +2129,6 @@ legend {
 
   /* HOME */
 
-  .videoPlayerInfo h2 {
-  }
-
   .videoPlayerInfo {
 
     & header {
@@ -2092,9 +2148,9 @@ legend {
     position: relative;
     display: flex;
     justify-content: flex-end;
-    width: 100%;
-    margin: 5rem 0 4rem;
-    padding: 0 3rem;
+    max-width: 110rem;
+    margin: 5rem auto 4rem;
+    padding: 0;
 
     & header {
       position: absolute;
@@ -2144,6 +2200,11 @@ legend {
   }
 
   .prototypeArticleHolder {
+    max-width: 110rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: auto;
+    margin-right: auto;
     grid-template-columns: repeat(3, 1fr);
   }
 }

@@ -13,8 +13,6 @@ import Outro from "../components/Outro.jsx";
 import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 
 const VideoEditor = ({ store, editorType, props }) => {
-  console.log(store.user);
-
   const renderTrimmerWindow = () => {
     if (store.isTrimmerOpen) {
       return <Trimmer store={store} />;
@@ -186,7 +184,13 @@ const VideoEditor = ({ store, editorType, props }) => {
     );
   };
 
-  return <DefaultPageHolder activeLink='/upload' store={store} main={displayEditor()} />;
+  return (
+    <DefaultPageHolder
+      activeLink="/upload"
+      store={store}
+      main={displayEditor()}
+    />
+  );
 };
 
 export default observer(VideoEditor);
