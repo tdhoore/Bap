@@ -18,8 +18,9 @@ const Loading = ({ store, link }) => {
     } else if (store.loadingReady){
         return (
             <Redirect to={link}></Redirect>
-        )
+        ) 
     }
-    
+    return <div></div>  
 }
+
 export default observer(Loading);
