@@ -167,7 +167,8 @@ nav {
 
   & ul li a::before,
   & ul li button::before {
-    content: "";
+
+    content: '';
     display: block;
     width: 3.5rem;
     height: 3.5rem;
@@ -1421,13 +1422,14 @@ progress::-moz-progress-bar {
 
   & .selectedBox,
   & .selectedType {
-    content: "";
+    content: '';
     display: block;
     width: 6rem;
     height: 6rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: .5rem;
     background-color: #dad8df;
     border-radius: 50%;
+    background-size: 80%;
     background-repeat: no-repeat;
     background-position: center center;
   }
@@ -2167,10 +2169,21 @@ legend {
     }
   }
 
+  .videoPlayerInfo::after {
+    content: '';
+    width: 20rem;
+    height: 14rem;
+    background-image: url(assets/img/peter.svg);
+    background-repeat: no-repeat;
+    transform: rotate(-90deg);
+    position: relative;
+    right: 0;
+  }
+
   .filterAndHeader {
     position: relative;
     display: flex;
-    justify-content: flex-end;
+    content: flex-end;
     max-width: 110rem;
     margin: 5rem auto 4rem;
     padding: 0 2rem;
