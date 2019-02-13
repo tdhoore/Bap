@@ -31,13 +31,17 @@ class App extends Component {
     }
   }
 
+  componentDidMount() {
+    const { store } = this.props;
+
+    //set initial size
+    this.handleResizeWindow(store);
+  }
+
   render() {
     const { store } = this.props;
     //setup listener to data base
     store.getAllProjects();
-
-    //set initial size
-    this.handleResizeWindow(store);
 
     //add event listener
     this.calcAmountForSlider(store);

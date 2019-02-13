@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import PrototypeArticle from "./PrototypeArticle.jsx";
 
 const PrototypeFase = ({ store, faseKey }) => {
-  console.log("prototypes", faseKey);
+  // console.log("prototypes", faseKey);
 
   const getIndexActive = () => {
     const array = store.prototypeLevels[faseKey];

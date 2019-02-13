@@ -27,7 +27,6 @@ const PrototypeArticle = ({ store, prototype, level }) => {
   };
 
   const isActiveClass = () => {
-    console.log(prototype);
     if (prototype.isActive) {
       return "card protoTypeCard";
     } else {
