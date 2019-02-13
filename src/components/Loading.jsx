@@ -1,12 +1,25 @@
 import { observer } from "mobx-react";
 import React from "react";
-import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 import { Redirect } from "react-router-dom";
-import Branches from "../components/Branches.jsx";
-import { Link } from "react-router-dom";
 
 
-const Loading = ({ store, props }) => {
-
+const Loading = ({ store, link }) => {
+    const showTitle = () => {
+        const username = store.user.doc.name.split(" ")[0];
+        return username;
+      };
+    
+    if(store.loading){
+        return (
+            <div>
+                loading...
+            </div>
+        );
+    } else if (store.loadingReady){
+        return (
+            <Redirect to={link}></Redirect>
+        )
+    }
+    
 }
 export default observer(Loading);

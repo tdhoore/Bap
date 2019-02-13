@@ -83,6 +83,10 @@ class Store {
     this.step = 1;
     this.maxSteps = 3;
     this.formObject = {};
+
+    //loading
+    this.loading = false;
+    this.loadingReady = false;
   }
 
   setVisibleCards(counterName, counter, content) {
@@ -222,7 +226,8 @@ class Store {
       .createUserWithEmailAndPassword(
         this.formObject.email,
         this.formObject.password
-      );
+      )
+      .then()
   }
 
   register() {
