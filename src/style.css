@@ -451,7 +451,7 @@ progress::-moz-progress-bar {
     width: 2.4rem;
     height: 2.4rem;
     overflow: hidden;
-    background-color: blue;
+    background-color: var(--activeColor);
     margin-right: 0.5rem;
   }
 
@@ -843,7 +843,7 @@ progress::-moz-progress-bar {
     display: block;
     width: 4.5rem;
     height: 4.5rem;
-    background-color: blue;
+    background-color: var(--activeColor);
     order: -1;
     border-radius: 50%;
   }
@@ -1041,7 +1041,7 @@ progress::-moz-progress-bar {
     display: block;
     width: 4.5rem;
     height: 4.5rem;
-    background-color: blue;
+    background-color: var(--activeColor);
     order: -1;
     border-radius: 50%;
   }
@@ -1187,7 +1187,17 @@ progress::-moz-progress-bar {
   margin-left: 2rem;
   max-width: 20%;
   cursor: pointer;
-  background-color: yellow;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-image: url(assets/img/outro-bg.svg);
+  background-size: 100%;
+  border: 1rem solid var(--backgroundColor);
 }
 
 .clipsHolder {
@@ -1482,13 +1492,13 @@ progress::-moz-progress-bar {
   display: block;
   width: 100px;
   height: 100px;
-  background-color: blue;
+  background-color: var(--activeColor);
 
   & .selectedBox {
     display: block;
     width: 100%;
     height: 100%;
-    background-color: blue;
+    background-color: var(--activeColor);
   }
 
   & input {
@@ -1496,28 +1506,43 @@ progress::-moz-progress-bar {
   }
 
   & input:checked ~ .selectedBox {
-    background-color: blue;
+    background-color: var(--activeColor);
   }
 }
 
 .activeBodyPart {
-  background-color: blue;
+  background-color: var(--activeColor);
 }
 
 .cssOutroVid {
   position: absolute;
-  z-index: 5;
+  z-index: 5; 
   top: 0;
   left: 0;
-  background-color: orange;
+  /* background-color: var(--cardColor); */
+  background-image: url(assets/img/outro-bg.svg);
+  background-repeat: no-repeat;
+  background-position: bottom;
   width: 100%;
   height: 100%;
   opacity: 0;
-  transition: opacity 300ms;
+  transform: translateY(100%);
+  /* transition: opacity 300ms; */
+  transition: transform 500ms ease-in-out;
+  
+  font-weight: bold;
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  text-align: center;
+  color: var(--activeTextColor);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cssOutroVidShow {
   opacity: 1;
+  transform: translateY(0%);
 }
 
 /* LOGIN/register */
@@ -2102,6 +2127,32 @@ legend {
     margin-right: 1rem;
   }
 
+  .delen_icon, .contacteren_icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .delen_icon::before {
+    content: '';
+    display: block;
+    width: 1.6rem;
+    height: 2rem;
+    background-image: url(assets/img/delen.svg);
+    margin-right: 1rem;
+  }
+
+  .contacteren_icon::before {
+    content: '';
+    width: 2rem;
+    height: 2.3rem;
+    background-image: url(assets/img/contacteren.svg);
+    margin-right: 1rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+
   /* PROTOTYPE */
 
   .prototypeFase {
@@ -2165,6 +2216,8 @@ legend {
   /* HOME */
 
   .videoPlayerInfo {
+    position: relative;
+
     & header {
       margin-bottom: 3rem;
     }
@@ -2185,8 +2238,21 @@ legend {
     background-image: url(assets/img/peter.svg);
     background-repeat: no-repeat;
     transform: rotate(-90deg);
-    position: relative;
-    right: 0;
+    position: absolute;
+    right: calc(50% - 44rem);
+    top: 10rem;
+  }
+
+  .videoPlayerInfo::before {
+    content: '';
+    width: 17rem;
+    height: 17rem;
+    background-image: url(assets/img/gloria.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: calc(50% - 44rem);
+    bottom: 8rem;
   }
 
   .filterAndHeader {

@@ -44,8 +44,8 @@ const VideoEditor = ({ store, editorType, props }) => {
     const input = e.currentTarget;
 
     //set the store message
-    //TODO get username
-    store.message = `user wilt ${input.value}`;
+    const username = store.user.doc.name
+    store.message = `${username.split(" ")[0]} wil ${input.value}`;
   };
 
   const displayCorrectForm = () => {
