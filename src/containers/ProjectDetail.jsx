@@ -85,10 +85,10 @@ const ProjectDetail = ({ store, props }) => {
           <p className='data_description'>{data.description}</p>
           <div className="bobyPart" />
           <div className="links">
-            <a href="#" className="ghostBtn">
+            <a href="#" className="ghostBtn delen_icon">
               Delen
             </a>
-            <a href="#" className="btn">
+            <a href="#" className="btn contacteren_icon">
               Contacteren
             </a>
           </div>
