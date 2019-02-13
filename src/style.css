@@ -638,6 +638,29 @@ progress::-moz-progress-bar {
   }
 }
 
+.fade-enter {
+  position: absolute;
+  opacity: 0;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+.fade-exit-done {
+  opacity: 0;
+}
+
 .projectStats {
   display: flex;
 
@@ -1913,29 +1936,6 @@ legend {
     & .sliderBtnLeft {
       transform: scaleX(-1);
     }
-  }
-
-  .fade-enter {
-    position: absolute;
-    opacity: 0;
-  }
-
-  .fade-enter.fade-enter-active {
-    opacity: 0;
-    transition: opacity 300ms;
-  }
-
-  .fade-exit {
-    opacity: 1;
-  }
-
-  .fade-exit.fade-exit-active {
-    opacity: 0;
-    transition: opacity 300ms;
-  }
-
-  .fade-exit-done {
-    opacity: 0;
   }
 
   .cardHolder {
