@@ -36,20 +36,19 @@ const Card = ({ store, cardData }) => {
   };
 
   const displayProfilepic = () => {
-    if(data.profilePic === null){
-      return 'assets/img/placeholder_profilepic.svg';
+    if (data.profilePic === null) {
+      return "assets/img/placeholder_profilepic.svg";
     } else {
       return displayData(`profilepic`);
-    };
+    }
   };
 
-
   const displayProfilepicContributor = contributor => {
-    if(contributor.profilePic === null || contributor.profilePic === ''){
-      return 'assets/img/placeholder_profilepic.svg';
+    if (contributor.profilePic === null || contributor.profilePic === "") {
+      return "assets/img/placeholder_profilepic.svg";
     } else {
       return contributor.profilePic;
-    };
+    }
   };
 
   const displayContributors = () => {
@@ -57,13 +56,16 @@ const Card = ({ store, cardData }) => {
       return data.contributors.map((contributor, index) => {
         return (
           <li key={`contributor${id}${index}`}>
-            <img src={displayProfilepicContributor(contributor)} alt="medewerker profiel foto" />
+            <img
+              src={displayProfilepicContributor(contributor)}
+              alt="medewerker profiel foto"
+            />
           </li>
         );
       });
     }
   };
-  console.log(`profilepic:`, data.profilePic);
+
   return (
     <Link to={`projectdetail/${id}`} className="card">
       <article>
