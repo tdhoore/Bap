@@ -68,6 +68,8 @@
     "path": "^0.12.7",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-hot-loader": "^4.6.5",
+    "react-pure-lifecycle": "^3.0.0",
     "react-router-dom": "^4.3.1",
     "react-touch": "^0.4.4",
     "react-transition-group": "^2.5.3",

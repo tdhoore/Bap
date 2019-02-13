@@ -48,6 +48,7 @@ class CreateVideo {
 
   cutVideo(clipName, startDur, dur, isLastCLip, totalVideoCount) {
     const dir = __dirname.replace(`/classes`, ``);
+    const finalDir = dir.replace(`/server`, ``) + "/src/assets";
 
     //if one clip  this is final video name approperiatly
     let clipFinalName = `${clipName}Edited`;
@@ -74,9 +75,22 @@ class CreateVideo {
         //delete old clip
         fs.unlinkSync(`${dir}/uploads/${clipName}.mp4`);
 
+        //move final result to assets
+        fs.rename(
+          `${dir}/uploads/${clipFinalName}.mp4`,
+          `${finalDir}/uploads/${clipFinalName}.mp4`,
+          err => {
+            if (err) {
+              console.log(err);
+            } else {
+              console.log("video moved");
+            }
+          }
+        );
+
         //if one clip then send result
         if (this.isOneClip) {
-          this.res.send(`server/uploads/${clipFinalName}.mp4`);
+          this.res.send(`assets/uploads/${clipFinalName}.mp4`);
         }
 
         //add to the counter
@@ -103,6 +117,7 @@ class CreateVideo {
 
   mergeClips(isLastCLip, totalVideoCount) {
     const dir = __dirname.replace(`/classes`, ``);
+    const finalDir = dir.replace(`/server`, ``) + "/src/assets";
 
     //merge files if needed
     if (isLastCLip && totalVideoCount > 0) {
@@ -132,8 +147,21 @@ class CreateVideo {
             fs.unlinkSync(`${dir}/uploads/clip${i}Edited.mp4`);
           }
 
+          //move final result to assets
+          fs.rename(
+            `${dir}/uploads/${vidName}.mp4`,
+            `${finalDir}/uploads/${vidName}.mp4`,
+            err => {
+              if (err) {
+                console.log(err);
+              } else {
+                console.log("video moved");
+              }
+            }
+          );
+
           //send back message of completion
-          this.res.send(`server/uploads/${vidName}.mp4`);
+          this.res.send(`assets/uploads/${vidName}.mp4`);
         })
         .on("error", function(err) {
           console.log(err);

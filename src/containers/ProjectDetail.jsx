@@ -1,10 +1,24 @@
-import { observer } from "mobx-react";
+import { observer, mobx } from "mobx-react";
+//import mobx from "mobx";
 import React from "react";
 import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 import { Redirect } from "react-router-dom";
 import Branches from "../components/Branches.jsx";
-import { Link } from "react-router-dom";
 import VideoPlayer from "../components/VideoPlayer.jsx";
+import lifecycle from "react-pure-lifecycle";
+
+const componentDidMount = props => {
+  console.log("props", props);
+  props.store.updateLoading();
+};
+
+const methods = {
+  componentDidMount
+};
+
+const options = {
+  usePureComponent: false
+};
 
 const ProjectDetail = ({ store, props }) => {
   //const id = props.match.params.id;
@@ -15,10 +29,13 @@ const ProjectDetail = ({ store, props }) => {
   //get comments from project if needed
   store.getComments();
 
+  //store update loading ready
+  //
+
   //get data from selected project
   let data = false;
-
-  store.allProjects.forEach(project => {
+  //console.log("project", mobx.toJS(store.allProjects));
+  store.allProjects.map(project => {
     if (project.id === id) {
       data = project.doc;
     }
@@ -68,7 +85,7 @@ const ProjectDetail = ({ store, props }) => {
               </div>
               <img src={data.profilepic} alt="" />
             </header>
-            <button className="like"></button>
+            <button className="like" />
           </div>
           <div className="playerHolder">
             <VideoPlayer
@@ -82,7 +99,7 @@ const ProjectDetail = ({ store, props }) => {
             <li className="numMakers">{numbOfX(1)}</li>
             <li className="numErgo">{numbOfX(2)}</li>
           </ul>
-          <p className='data_description'>{data.description}</p>
+          <p className="data_description">{data.description}</p>
           <div className="bobyPart" />
           <div className="links">
             <a href="#" className="ghostBtn delen_icon">
@@ -113,4 +130,4 @@ const ProjectDetail = ({ store, props }) => {
   return <DefaultPageHolder store={store} main={checkId()} />;
 };
 
-export default observer(ProjectDetail);
+export default lifecycle(methods, options)(observer(ProjectDetail));

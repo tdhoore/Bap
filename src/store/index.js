@@ -89,7 +89,11 @@ class Store {
     this.loadingReady = false;
 
     // new project
-    this.newProjectId = '';
+    this.newProjectId = "";
+  }
+
+  updateLoading() {
+    this.loadingReady = false;
   }
 
   setVisibleCards(counterName, counter, content) {
@@ -233,17 +237,20 @@ class Store {
         this.formObject.password
       )
       .then(() => {
-        this.database.collection(`users`).add(toSendData).then(user => {
-          console.log(`USER naar collection user:`, user);
-          this.user = {
-            id: user.id, 
-            doc: toSendData
-          }
-          localStorage.setItem("authUser", JSON.stringify(this.user));
-          this.loading = false;
-          this.loadingReady = true;
-        });
-      })
+        this.database
+          .collection(`users`)
+          .add(toSendData)
+          .then(user => {
+            console.log(`USER naar collection user:`, user);
+            this.user = {
+              id: user.id,
+              doc: toSendData
+            };
+            localStorage.setItem("authUser", JSON.stringify(this.user));
+            this.loading = false;
+            this.loadingReady = true;
+          });
+      });
   }
 
   register() {
@@ -724,7 +731,7 @@ class Store {
 
                   // set title
                   toSendData.title = this.message;
-                  console.log('TOSENDDATE', toSendData);
+                  console.log("TOSENDDATE", toSendData);
 
                   //send data to server
                   this.database
@@ -735,7 +742,7 @@ class Store {
                       this.newProjectId = project.id;
                       this.loading = false;
                       this.loadingReady = true;
-                      console.log('PROJECT:', project.id);
+                      console.log("PROJECT:", project.id);
                     })
                     .catch(error => {
                       console.error("Error writing document: ", error);
@@ -989,7 +996,7 @@ decorate(Store, {
   sliderAmount: observable,
   loading: observable,
   loadingReady: observable,
-  newProjectId: observable,
+  newProjectId: observable
 });
 
 const store = new Store();
