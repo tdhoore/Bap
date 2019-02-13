@@ -24,35 +24,46 @@ const PrototypeFase = ({ store, faseKey }) => {
 
   const getContent = () => {
     const input = store.prototypeLevels[faseKey];
-    const content = ["", "", ""];
-
     //get active index
     const activeIndex = getIndexActive();
+    let content = ["", "", ""];
 
-    input.map((proto, index) => {
-      //get prev elem if exist
-      if (index === activeIndex - 1) {
-        if (activeIndex > 0) {
-          content[0] = proto;
-        } else {
-          content[0] = "";
+    if (store.sliderAmount > 1) {
+      input.map((proto, index) => {
+        //get prev elem if exist
+        if (index === activeIndex - 1) {
+          if (activeIndex > 0) {
+            content[0] = proto;
+          } else {
+            content[0] = "";
+          }
         }
-      }
 
-      //set the active elem
-      if (index === activeIndex) {
-        content[1] = proto;
-      }
-
-      //get next elem if exist
-      if (index === activeIndex + 1) {
-        if (activeIndex < store.prototypeLevels[faseKey].length) {
-          content[2] = proto;
-        } else {
-          content[2] = "";
+        //set the active elem
+        if (index === activeIndex) {
+          content[1] = proto;
         }
-      }
-    });
+
+        //get next elem if exist
+        if (index === activeIndex + 1) {
+          if (activeIndex < store.prototypeLevels[faseKey].length) {
+            content[2] = proto;
+          } else {
+            content[2] = "";
+          }
+        }
+      });
+    } else {
+      content = [];
+
+      input.map((proto, index) => {
+        //set the active elem
+        if (index === activeIndex) {
+          content.push(proto);
+        }
+      });
+    }
+
     return content;
   };
 

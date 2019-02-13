@@ -69,6 +69,7 @@
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
     "react-router-dom": "^4.3.1",
+    "react-touch": "^0.4.4",
     "react-transition-group": "^2.5.3",
     "uniqid": "^5.0.3",
     "video-stitch": "^1.6.0"
