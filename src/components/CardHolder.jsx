@@ -21,10 +21,12 @@ const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
     );
   };
 
-  const removeBtns = () => {
+  const removeBtns = isActive => {
     if (counterName === "") {
       return "hide";
     }
+
+    return "";
   };
 
   return (
@@ -33,7 +35,7 @@ const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
         onClick={e => handleMoveCounter(e, -1)}
         className={`sliderBtn sliderBtnLeft ${removeBtns()}`}
         disabled={enableLeftBtn()}
-      ></button>
+      />
       <TransitionGroup className="cardHolder">
         {store.setVisibleCards(counterName, counter, content).map(cardData => {
           return (
@@ -51,7 +53,7 @@ const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
         onClick={e => handleMoveCounter(e, 1)}
         className={`sliderBtn ${removeBtns()}`}
         disabled={enableRightBtn()}
-      ></button>
+      />
     </div>
   );
 };

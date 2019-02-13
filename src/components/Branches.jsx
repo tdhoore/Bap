@@ -2,6 +2,7 @@
 import React from "react";
 import { observer } from "mobx-react";
 import PrototypeFase from "./PrototypeFase.jsx";
+import AfterFase from "./AfterFase.jsx";
 
 const Branches = ({ store }) => {
   //get branches
@@ -28,12 +29,19 @@ const Branches = ({ store }) => {
     }
   };
 
+  const afterFase = () => {
+    const key = Object.keys(store.prototypeLevels).length + 1;
+
+    return <AfterFase store={store} faseKey={key} />;
+  };
+
   return (
     <section className="protoTypes">
       <header>
         <h2 className="hide">Protoypes</h2>
       </header>
       {mapProtoTypes()}
+      {afterFase()}
     </section>
   );
 };

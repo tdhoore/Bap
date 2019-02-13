@@ -898,6 +898,10 @@ progress::-moz-progress-bar {
   & .prototypeFase:last-of-type {
     margin-bottom: 7rem;
   }
+
+  & .prototypeFase:nth-of-type(2n) {
+    margin-top: 9rem;
+  }
 }
 
 .prototypeFase {
@@ -912,6 +916,11 @@ progress::-moz-progress-bar {
   & .protoTypeCard:first-of-type {
     margin-left: 0;
   }
+}
+
+.afterFase a {
+  min-height: 23rem;
+  margin: 0;
 }
 
 .protoTypeCard {
@@ -961,6 +970,10 @@ progress::-moz-progress-bar {
 
 .inActiveCard {
   opacity: 0.5;
+
+  & article header h4 {
+    font-size: 1.6rem;
+  }
 }
 
 .active_difficulty {
@@ -1837,7 +1850,7 @@ legend {
 
     & .sliderBtn:disabled {
       cursor: default;
-      background-color: transparent;
+      opacity: 0;
     }
 
     & .sliderBtn.hide {
@@ -2243,6 +2256,10 @@ legend {
     margin-left: auto;
     margin-right: auto;
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .inActiveCard article header h4 {
+    font-size: 2.5rem;
   }
 }
 
