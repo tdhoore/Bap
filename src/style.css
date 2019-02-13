@@ -167,8 +167,7 @@ nav {
 
   & ul li a::before,
   & ul li button::before {
-
-    content: '';
+    content: "";
     display: block;
     width: 3.5rem;
     height: 3.5rem;
@@ -1450,11 +1449,11 @@ progress::-moz-progress-bar {
 
   & .selectedBox,
   & .selectedType {
-    content: '';
+    content: "";
     display: block;
     width: 6rem;
     height: 6rem;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
     background-color: #dad8df;
     border-radius: 50%;
     background-size: 80%;
@@ -1529,7 +1528,7 @@ progress::-moz-progress-bar {
 
 .cssOutroVid {
   position: absolute;
-  z-index: 5; 
+  z-index: 5;
   top: 0;
   left: 0;
   /* background-color: var(--cardColor); */
@@ -1542,7 +1541,7 @@ progress::-moz-progress-bar {
   transform: translateY(100%);
   /* transition: opacity 300ms; */
   transition: transform 500ms ease-in-out;
-  
+
   font-weight: bold;
   font-size: 2.5rem;
   text-transform: uppercase;
@@ -1805,7 +1804,8 @@ legend {
   margin-bottom: 2rem;
 }
 
-.delen_icon, .contacteren_icon {
+.delen_icon,
+.contacteren_icon {
   position: relative;
   display: flex;
   align-items: center;
@@ -1813,7 +1813,7 @@ legend {
 }
 
 .delen_icon::before {
-  content: '';
+  content: "";
   display: block;
   width: 1.6rem;
   height: 2rem;
@@ -1822,7 +1822,7 @@ legend {
 }
 
 .contacteren_icon::before {
-  content: '';
+  content: "";
   width: 2rem;
   height: 2.3rem;
   background-image: url(assets/img/contacteren.svg);
@@ -2245,7 +2245,7 @@ legend {
   }
 
   .videoPlayerInfo::after {
-    content: '';
+    content: "";
     width: 20rem;
     height: 14rem;
     background-image: url(assets/img/peter.svg);
@@ -2257,7 +2257,7 @@ legend {
   }
 
   .videoPlayerInfo::before {
-    content: '';
+    content: "";
     width: 17rem;
     height: 17rem;
     background-image: url(assets/img/gloria.svg);
@@ -2306,6 +2306,8 @@ legend {
   }
 
   .cardHolderBtns {
+    display: flex;
+    justify-content: center;
     padding: 0 3rem;
     margin-left: auto;
     margin-right: auto;
