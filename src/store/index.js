@@ -788,7 +788,7 @@ class Store {
         queryString += `/${lastId}/prototype${i}`;
       }
     }
-    console.log(queryString);
+
     //send request
     this.database
       .collection(`projects`)

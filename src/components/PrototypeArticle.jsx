@@ -2,6 +2,7 @@
 import React from "react";
 import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
+import { Swipeable } from "react-touch";
 
 const PrototypeArticle = ({ store, prototype, level }) => {
   const displayDifficulty = () => {
@@ -55,36 +56,99 @@ const PrototypeArticle = ({ store, prototype, level }) => {
     }
   };
 
+  const getIndexOfPrototype = () => {
+    let index = 0;
+
+    store.prototypeLevels[level].map((proto, id) => {
+      if (prototype.id === proto.id) {
+        index = id;
+      }
+    });
+
+    return index;
+  };
+
+  const setNewActive = direction => {
+    const index = getIndexOfPrototype();
+
+    if (
+      (index > 0 && direction === "right") ||
+      (index < store.prototypeLevels[level].length - 1 && direction === "left")
+    ) {
+      let nextIndex = -5;
+
+      //update isActive
+      store.prototypeLevels[level].map((proto, index) => {
+        if (prototype.id === proto.id) {
+          if (direction === "right") {
+            nextIndex = index - 1;
+          } else {
+            nextIndex = index + 1;
+          }
+        }
+      });
+
+      store.prototypeLevels[level].map((proto, index) => {
+        if (nextIndex === index) {
+          proto.isActive = true;
+        } else {
+          proto.isActive = false;
+        }
+      });
+
+      //set new active id
+      store.selectedPrototypeIds[level] = prototype.id;
+
+      //get new branches
+      store.getProjectBranches(parseInt(level) + 1, prototype.id);
+    }
+  };
+
+  const handleSwipeLeft = () => {
+    console.log("left");
+
+    setNewActive("left");
+  };
+
+  const handleSwipeRight = () => {
+    console.log("right");
+    setNewActive("right");
+  };
+
   return (
-    <Link
-      className={isActiveClass()}
-      to={`/prototype/${prototype.doc.prototype_id}`}
-      onClick={e => handleClickLink(e)}
-    >
-      <article>
-        <header>
-          <h4>{displayData(`title`)}</h4>
-          <img src={displayData(`profilepic`)} alt="maker profiel foto" />
-        </header>
-        <div className="cardVideoHolder">
-          <video src={displayData(`video`)} />
-        </div>
-        <div className="difficulty">
-          <p>Moeilijkheid</p>
-          <ul>
-            {displayDifficulty().map((a, index) => {
-              return (
-                <li
-                  className={a}
-                  key={`difficultyHolder${prototype.doc.prototype_id}${index}`}
-                />
-              );
-            })}
-          </ul>
-        </div>
-        <button className="verifieerBtn">verifieer</button>
-      </article>
-    </Link>
+    <Swipeable onSwipeLeft={handleSwipeLeft} onSwipeRight={handleSwipeRight}>
+      <Link
+        className={isActiveClass()}
+        to={`/prototype/${prototype.doc.prototype_id}`}
+        onClick={e => handleClickLink(e)}
+      >
+        <article>
+          <header>
+            <h4>{displayData(`title`)}</h4>
+            <img src={displayData(`profilepic`)} alt="maker profiel foto" />
+          </header>
+          <div className="cardVideoHolder">
+            <video src={displayData(`video`)} />
+          </div>
+          <div className="difficulty">
+            <p>Moeilijkheid</p>
+            <ul>
+              {displayDifficulty().map((a, index) => {
+                return (
+                  <li
+                    className={a}
+                    key={`difficultyHolder${
+                      prototype.doc.prototype_id
+                    }${index}`}
+                  />
+                );
+              })}
+            </ul>
+          </div>
+          <button className="verifieerBtn">verifieer</button>
+        </article>
+      </Link>
+    </Swipeable>
   );
 };
 
