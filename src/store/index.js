@@ -548,6 +548,8 @@ class Store {
   }
 
   uploadComment(comment, timeStamp) {
+    this.loading = true;
+    this.loadingReady = false;
     //get user name and profile picture
     /*
     
@@ -572,6 +574,8 @@ class Store {
   }
 
   uploadPrototypeComment(comment, timeStamp, protoTypeId) {
+    this.loading = true;
+    this.loadingReady = false;
     //get user name and profile picture
     /*
     
@@ -654,6 +658,8 @@ class Store {
   }
 
   uploadClips() {
+    this.loading = true;
+    this.loadingReady = false;
     //check if there are clips
     if (this.clips.length > 0) {
       //create form data
@@ -717,8 +723,9 @@ class Store {
                   this.database
                     .collection(`projects`)
                     .add(toSendData)
-                    .then(() => {
+                    .then(project => {
                       console.log("Document successfully written!");
+                      this.currentProjectId = project.id;
                     })
                     .catch(error => {
                       console.error("Error writing document: ", error);
@@ -767,6 +774,8 @@ class Store {
   }
 
   uploadPrototype(data, id) {
+    this.loading = true;
+    this.loadingReady = false;
     //set prototype id
     data.prototype_id = id;
 

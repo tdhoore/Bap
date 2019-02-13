@@ -11,6 +11,7 @@ import Track from "../components/Track.jsx";
 // eslint-disable-next-line no-unused-vars
 import Outro from "../components/Outro.jsx";
 import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
+import Loading from "../components/Loading.jsx";
 
 const VideoEditor = ({ store, editorType, props }) => {
   const renderTrimmerWindow = () => {
@@ -167,6 +168,8 @@ const VideoEditor = ({ store, editorType, props }) => {
         <header>
           <h2>Nieuw project</h2>
         </header>
+        <Loading store={store} link={`/projectdetail/${store.currentProjectId}`}/>
+        {console.log(`CURRENT PROJECT`, store.currentProjectId)}
         {renderTrimmerWindow()}
         <div className="videoEditorHolder colorBg colorBgTop">
           <VideoPlayerEditor

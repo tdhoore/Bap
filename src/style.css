@@ -461,6 +461,50 @@ progress::-moz-progress-bar {
   }
 }
 
+.loading-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--secondColorBg);
+  z-index: 1000;
+
+  & h3 {
+    font-size: var(--titlesize);
+    font-weight: var(--weight-bold);
+  }
+
+  & p {
+    font-size: var(--broodtekst);
+    font-weight: var(--weight-bold);
+    color: var(--backgroundColor);
+    text-align: center;
+  }
+
+  & img {
+    animation: showPeter 5s infinite;
+  }
+}
+
+@keyframes showPeter {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
 @keyframes showComment {
   0% {
     opacity: 0;

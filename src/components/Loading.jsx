@@ -3,16 +3,13 @@ import React from "react";
 import { Redirect } from "react-router-dom";
 
 
-const Loading = ({ store, link }) => {
-    const showTitle = () => {
-        const username = store.user.doc.name.split(" ")[0];
-        return username;
-      };
-    
+const Loading = ({ store, link }) => {    
     if(store.loading){
         return (
-            <div>
-                loading...
+            <div className='loading-wrapper'>
+                <h3>{store.message}</h3> 
+                <img src="assets/img/peter.svg" alt="peter"/>
+                <p>Wist je dat.. <br/> D4E1 al sinds 2009 geweldige projecten produceert?</p>
             </div>
         );
     } else if (store.loadingReady){
