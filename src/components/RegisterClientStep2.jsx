@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 import StepCounter from "./StepCounter.jsx";
+import Loading from "./Loading.jsx";
 
 const RegisterClientStep2 = ({ store }) => {
   const handleSumbitForm = e => {
@@ -27,6 +28,7 @@ const RegisterClientStep2 = ({ store }) => {
       <header>
         <h2>registreer</h2>
       </header>
+      <Loading store={store} link='/'/>
       <form className="colorBg colorBgTop lastSection">
         <div className="formContentHolder">
           <label htmlFor="stad">

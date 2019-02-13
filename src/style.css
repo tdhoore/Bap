@@ -1805,6 +1805,32 @@ legend {
   margin-bottom: 2rem;
 }
 
+.delen_icon, .contacteren_icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.delen_icon::before {
+  content: '';
+  display: block;
+  width: 1.6rem;
+  height: 2rem;
+  background-image: url(assets/img/delen.svg);
+  margin-right: 1rem;
+}
+
+.contacteren_icon::before {
+  content: '';
+  width: 2rem;
+  height: 2.3rem;
+  background-image: url(assets/img/contacteren.svg);
+  margin-right: 1rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 /* TABLET */
 
 @media (--md) {
@@ -2138,32 +2164,6 @@ legend {
   .projectDetailInfo .links a:first-of-type {
     margin-bottom: 0;
     margin-right: 1rem;
-  }
-
-  .delen_icon, .contacteren_icon {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .delen_icon::before {
-    content: '';
-    display: block;
-    width: 1.6rem;
-    height: 2rem;
-    background-image: url(assets/img/delen.svg);
-    margin-right: 1rem;
-  }
-
-  .contacteren_icon::before {
-    content: '';
-    width: 2rem;
-    height: 2.3rem;
-    background-image: url(assets/img/contacteren.svg);
-    margin-right: 1rem;
-    background-size: contain;
-    background-repeat: no-repeat;
   }
 
   /* PROTOTYPE */

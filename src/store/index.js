@@ -83,6 +83,10 @@ class Store {
     this.step = 1;
     this.maxSteps = 3;
     this.formObject = {};
+
+    //loading
+    this.loading = false;
+    this.loadingReady = false;
   }
 
   setVisibleCards(counterName, counter, content) {
@@ -198,6 +202,8 @@ class Store {
   }
 
   registerUser(fileurl = "") {
+    this.loading = true;
+    this.loadingReady = false;
     console.log(this.formObject);
     const toSendData = {
       email: this.formObject.email,
@@ -222,7 +228,19 @@ class Store {
       .createUserWithEmailAndPassword(
         this.formObject.email,
         this.formObject.password
-      );
+      )
+      .then(() => {
+        this.database.collection(`users`).add(toSendData).then(user => {
+          console.log(`USER naar collection user:`, user);
+          this.user = {
+            id: user.id, 
+            doc: toSendData
+          }
+          localStorage.setItem("authUser", JSON.stringify(this.user));
+          this.loading = false;
+          this.loadingReady = true;
+        });
+      })
   }
 
   register() {
@@ -949,7 +967,9 @@ decorate(Store, {
   currentPrototype: observable,
   projectUpdatesCounter: observable,
   setVisibleCards: observable,
-  sliderAmount: observable
+  sliderAmount: observable,
+  loading: observable,
+  loadingReady: observable,
 });
 
 const store = new Store();
