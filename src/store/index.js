@@ -87,6 +87,9 @@ class Store {
     //loading
     this.loading = false;
     this.loadingReady = false;
+
+    // new project
+    this.newProjectId = '';
   }
 
   setVisibleCards(counterName, counter, content) {
@@ -719,13 +722,20 @@ class Store {
                   //delete editorType
                   delete toSendData.editorType;
 
+                  // set title
+                  toSendData.title = this.message;
+                  console.log('TOSENDDATE', toSendData);
+
                   //send data to server
                   this.database
                     .collection(`projects`)
                     .add(toSendData)
                     .then(project => {
                       console.log("Document successfully written!");
-                      this.currentProjectId = project.id;
+                      this.newProjectId = project.id;
+                      this.loading = false;
+                      this.loadingReady = true;
+                      console.log('PROJECT:', project.id);
                     })
                     .catch(error => {
                       console.error("Error writing document: ", error);
@@ -979,6 +989,7 @@ decorate(Store, {
   sliderAmount: observable,
   loading: observable,
   loadingReady: observable,
+  newProjectId: observable,
 });
 
 const store = new Store();

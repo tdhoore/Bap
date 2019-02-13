@@ -168,8 +168,8 @@ const VideoEditor = ({ store, editorType, props }) => {
         <header>
           <h2>Nieuw project</h2>
         </header>
-        <Loading store={store} link={`/projectdetail/${store.currentProjectId}`}/>
-        {console.log(`CURRENT PROJECT`, store.currentProjectId)}
+        <Loading store={store} link={`/projectdetail/${store.newProjectId}`}/>
+        {console.log(`CURRENT PROJECT`, store.newProjectId)}
         {renderTrimmerWindow()}
         <div className="videoEditorHolder colorBg colorBgTop">
           <VideoPlayerEditor
