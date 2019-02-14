@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { observer } from "mobx-react";
-import videoTest from "../assets/video/explainer.mp4";
 
 const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
   const videoRef = React.createRef();
@@ -152,14 +151,14 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
         //is prototype comment
         store.uploadPrototypeComment(data.comment, data.timeStamp, prototypeId);
       }
-    } else {
-      //close comment section
-      const commentFormElem = commentFormRef.current;
-      const scrubber = scrubberRef.current;
-
-      commentFormElem.classList.add(`hideComment`);
-      scrubber.classList.remove(`hide`);
     }
+
+    //close comment section
+    const commentFormElem = commentFormRef.current;
+    const scrubber = scrubberRef.current;
+
+    commentFormElem.classList.add(`hideComment`);
+    scrubber.classList.remove(`hide`);
 
     return false;
   };
@@ -178,7 +177,6 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
 
         //hide all other comments and display this one
         commentElems.forEach((commentElem, indexElems) => {
-          console.log("index", indexElems === index);
           if (indexElems === index) {
             //show this
             commentElem.classList.remove(`commentShow`);
