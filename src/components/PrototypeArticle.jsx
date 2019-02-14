@@ -35,6 +35,16 @@ const PrototypeArticle = ({ store, prototype, level }) => {
     }
   };
 
+  const displayProfilepicMaker = () => {
+    const pic = displayData(`profilepic`);
+    console.log(`PIC`, pic);
+    if (pic === null || pic === "") {
+      return "http://localhost:8080/assets/img/placeholder_profilepic.svg";
+    } else {
+      return pic;
+    }
+  };
+
   const handleClickLink = e => {
     if (!prototype.isActive) {
       e.preventDefault();
@@ -125,7 +135,7 @@ const PrototypeArticle = ({ store, prototype, level }) => {
         <article>
           <header>
             <h4>{displayData(`title`)}</h4>
-            <img src={displayData(`profilepic`)} alt="maker profiel foto" />
+            <img src={displayProfilepicMaker()} alt="maker profiel foto" />
           </header>
           <div className="cardVideoHolder">
             <video src={`http://localhost:8080/${displayData(`video`)}`} />

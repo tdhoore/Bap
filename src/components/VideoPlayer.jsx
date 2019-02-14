@@ -210,13 +210,16 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
           />
           <form className="miniComment hideComment" ref={commentFormRef}>
             <div className="commentImg">
-              <img src="" alt="profiel foto" />
+              <img
+                src="http://localhost:8080/assets/img/placeholder_profilepic.svg"
+                alt="profiel foto"
+              />
             </div>
             <input
               type="text"
               className="timeStamp"
               ref={commentInputRef}
-              placeholder="comment"
+              placeholder="plaats een reactie.."
             />
             <input type="submit" onClick={e => handleSubmitComment(e)} />
           </form>

@@ -1529,10 +1529,12 @@ progress::-moz-progress-bar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: auto 1fr;
-  grid-row-gap: 1rem;
+  grid-row-gap: 2rem;
   margin-top: 2rem;
+  margin-bottom: 2rem;
 
   & p {
+    text-align: center;
     grid-column: 1 / -1;
     color: var(--secondColorBgTextColor);
     font-size: 2rem;
@@ -1557,16 +1559,15 @@ progress::-moz-progress-bar {
     font-size: var(--broodtekst);
   }
 
-  & .selectedBox,
+  & .selectedCheckBox,
   & .selectedType {
     content: "";
     display: block;
     width: 6rem;
     height: 6rem;
     margin-bottom: 0.5rem;
-    background-color: #dad8df;
+    background-color: var(--backgroundColor);
     border-radius: 50%;
-    background-size: 80%;
     background-repeat: no-repeat;
     background-position: center center;
   }
@@ -1575,10 +1576,22 @@ progress::-moz-progress-bar {
     display: none;
   }
 
-  & input:checked ~ .selectedBox,
+  & input:checked ~ .selectedCheckBox,
   & input:checked ~ .selectedType {
     background-color: var(--activeColor);
   }
+}
+
+.difficulty_beginner {
+  background-image: url(assets/img/egg.svg);
+}
+
+.difficulty_hobbyist {
+  background-image: url(assets/img/hobbyist.svg);
+}
+
+.difficulty_expert {
+  background-image: url(assets/img/expert.svg);
 }
 
 .klantType {
