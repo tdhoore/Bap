@@ -1337,6 +1337,8 @@ progress::-moz-progress-bar {
   background-image: url(assets/img/outro-bg.svg);
   background-size: 100%;
   border: 1rem solid var(--backgroundColor);
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .outroTrack .extraText {
