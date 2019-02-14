@@ -2256,9 +2256,14 @@ legend {
       width: 100%;
     }
 
-    & .bobyPart {
+    & .bodyPartViewer {
+      align-self: center;
       grid-column: 2 / 3;
       grid-row: 1 / -1;
+    }
+
+    & .bodyPartViewer::after {
+      background-image: url(assets/img/body_other.svg);
     }
 
     & .projectStats {
