@@ -10,7 +10,7 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
   const commentFormRef = React.createRef();
   const commentInputRef = React.createRef();
   const commentsHolderRef = React.createRef();
-  let commentElems = false;
+  let commentElems = [];
 
   let isMouseDownOverProgressBar = false;
 
