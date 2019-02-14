@@ -75,21 +75,21 @@ class CreateVideo {
         //delete old clip
         fs.unlinkSync(`${dir}/uploads/${clipName}.mp4`);
 
-        //move final result to assets
-        fs.rename(
-          `${dir}/uploads/${clipFinalName}.mp4`,
-          `${finalDir}/uploads/${clipFinalName}.mp4`,
-          err => {
-            if (err) {
-              console.log(err);
-            } else {
-              console.log("video moved");
-            }
-          }
-        );
-
         //if one clip then send result
         if (this.isOneClip) {
+          //move final result to assets
+          fs.rename(
+            `${dir}/uploads/${clipFinalName}.mp4`,
+            `${finalDir}/uploads/${clipFinalName}.mp4`,
+            err => {
+              if (err) {
+                console.log(err);
+              } else {
+                console.log("video moved");
+              }
+            }
+          );
+
           this.res.send(`assets/uploads/${clipFinalName}.mp4`);
         }
 
