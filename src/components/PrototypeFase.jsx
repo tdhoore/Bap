@@ -83,7 +83,7 @@ const PrototypeFase = ({ store, faseKey }) => {
                 level={faseKey}
               />
             );
-          } else if (index === 0) {
+          } else if (index === 0 || !store.user) {
             return <div key={`individualPrototypes${prototype.id}${index}`} />;
           } else {
             //is link btn

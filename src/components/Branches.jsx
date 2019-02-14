@@ -31,8 +31,9 @@ const Branches = ({ store }) => {
 
   const afterFase = () => {
     const key = Object.keys(store.prototypeLevels).length + 1;
-
-    return <AfterFase store={store} faseKey={key} />;
+    if (store.user) {
+      return <AfterFase store={store} faseKey={key} />;
+    }
   };
 
   return (
