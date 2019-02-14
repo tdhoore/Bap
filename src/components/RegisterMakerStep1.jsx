@@ -7,7 +7,7 @@ const RegisterMakerStep1 = ({ store }) => {
   // referentie aangemaakt om inputveld 'andere' aan te spreken en te kunnen disablen of enablen
   const andereInputRef = React.createRef();
   const handleMakerSkills = e => {
-    if (e.currentTarget.name === "andereCheckbox") {
+    if (e.currentTarget.name === "andereSkills") {
       if (e.currentTarget.checked) {
         andereInputRef.current.disabled = false;
       } else {
@@ -87,7 +87,7 @@ const RegisterMakerStep1 = ({ store }) => {
             <span>Andere:</span>
             <input
               type="checkbox"
-              name="skills"
+              name="andereSkills"
               id="andereCheckbox"
               onChange={e => handleMakerSkills(e)}
             />

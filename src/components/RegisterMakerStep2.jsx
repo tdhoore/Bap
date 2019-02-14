@@ -6,7 +6,7 @@ import StepCounter from "./StepCounter.jsx";
 const RegisterMakerStep2 = ({ store }) => {
   const andereInputRef = React.createRef();
   const handleMakerHobby = e => {
-    if (e.currentTarget.name === "andereCheckbox") {
+    if (e.currentTarget.name === "andereHobby") {
       if (e.currentTarget.checked) {
         andereInputRef.current.disabled = false;
       } else {
@@ -86,7 +86,7 @@ const RegisterMakerStep2 = ({ store }) => {
             <span>Andere:</span>
             <input
               type="checkbox"
-              name="hobby"
+              name="andereHobby"
               id="andereCheckbox"
               onChange={e => handleMakerHobby(e)}
             />
