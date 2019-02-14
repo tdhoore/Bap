@@ -14,13 +14,15 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
 
   let isMouseDownOverProgressBar = false;
 
-  const togglePlay = () => {
+  const togglePlay = e => {
     const $videoElem = videoRef.current;
 
     if ($videoElem.paused) {
       $videoElem.play();
+      e.currentTarget.classList.add(`pauseBtn`);
     } else {
       $videoElem.pause();
+      e.currentTarget.classList.remove(`pauseBtn`);
     }
   };
 
@@ -49,9 +51,9 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
     displayComment($videoElem.currentTime);
   };
 
-  const handleStartStop = () => {
+  const handleStartStop = e => {
     //start and stop the video
-    togglePlay();
+    togglePlay(e);
   };
 
   const changeVideosCurrentTime = e => {
@@ -163,13 +165,12 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
   };
 
   const displayComment = dur => {
-    console.log(dur);
     //is there a comment here
-    store.commentsCurrentProject.forEach((commentData, index) => {
+    comments.forEach((commentData, index) => {
       if (commentData.timeStamp < dur + 1 && commentData.timeStamp > dur - 1) {
         //there is a comment here
         //check if there are comment elemets
-        if (!commentElems) {
+        if (commentElems.length === 0) {
           //no so create them
           const commentsHolder = commentsHolderRef.current;
           commentElems = [...commentsHolder.querySelectorAll(`.comment`)];
@@ -177,6 +178,7 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
 
         //hide all other comments and display this one
         commentElems.forEach((commentElem, indexElems) => {
+          console.log("index", indexElems === index);
           if (indexElems === index) {
             //show this
             commentElem.classList.remove(`commentShow`);

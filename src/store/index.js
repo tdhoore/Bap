@@ -656,21 +656,23 @@ class Store {
       });
   }
 
-  getPrototypeComments() {
-    //empty old comments
-    this.commentsCurrentPrototype = [];
-    console.log(this.currentPrototypePath);
-
+  getPrototypeComments(id) {
     this.database
-      .collection(`projects`)
-      .doc(this.currentProjectId)
-      .collection(`${this.currentPrototypePath}/comments`)
+      .collection(`prototypes`)
+      .doc(id)
+      .collection(`comments`)
       .get()
       .then(querySnapshot => {
         console.log("Document got!");
+
+        //empty first
+        this.commentsCurrentPrototype = [];
+
         querySnapshot.forEach(doc => {
           this.commentsCurrentPrototype.push(doc.data());
         });
+
+        console.log(querySnapshot);
       })
       .catch(error => {
         console.error("Error getting document: ", error);
