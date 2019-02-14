@@ -31,6 +31,7 @@ const PrototypeViewer = ({ store, props }) => {
               store={store}
               comments={store.commentsCurrentPrototype}
               prototypeId={id}
+              video={displayData("video")}
             />
           </div>
           <div className="makerInfo">

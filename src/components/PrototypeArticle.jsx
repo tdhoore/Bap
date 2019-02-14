@@ -128,7 +128,7 @@ const PrototypeArticle = ({ store, prototype, level }) => {
             <img src={displayData(`profilepic`)} alt="maker profiel foto" />
           </header>
           <div className="cardVideoHolder">
-            <video src={displayData(`video`)} />
+            <video src={`http://localhost:8080/${displayData(`video`)}`} />
           </div>
           <div className="difficulty">
             <p>Moeilijkheid</p>

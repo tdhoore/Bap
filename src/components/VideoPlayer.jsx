@@ -193,7 +193,7 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
     <div className="videoPlayer">
       <div className="videoHolder">
         <video ref={videoRef} onTimeUpdate={e => handleUpdateTime(e)}>
-          <source src={video} type="video/mp4" />
+          <source src={`http://localhost:8080/${video}`} type="video/mp4" />
           Your browser does not support the video tag.
         </video>
       </div>
