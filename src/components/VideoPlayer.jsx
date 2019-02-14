@@ -166,7 +166,10 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
   const displayComment = dur => {
     //is there a comment here
     comments.forEach((commentData, index) => {
-      if (commentData.timeStamp < dur + 1 && commentData.timeStamp > dur - 1) {
+      if (
+        commentData.timeStamp < dur + 0.5 &&
+        commentData.timeStamp > dur - 0.5
+      ) {
         //there is a comment here
         //check if there are comment elemets
         if (commentElems.length === 0) {
@@ -187,6 +190,14 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
         });
       }
     });
+  };
+
+  const displayProfilepic = url => {
+    if (url === null || url === undefined) {
+      return "http://localhost:8080/assets/img/placeholder_profilepic.svg";
+    } else {
+      return url;
+    }
   };
 
   return (
@@ -228,7 +239,10 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
               return (
                 <div key={`comment${index}`} className="comment">
                   <div className="commentImg">
-                    <img src="" alt="profiel foto" />
+                    <img
+                      src={displayProfilepic(commentData.profilepic)}
+                      alt="profiel foto"
+                    />
                   </div>
                   <p>{commentData.comment}</p>
                 </div>
