@@ -31,12 +31,10 @@ const CardHolder = ({ store, content = [], counter = 0, counterName = "" }) => {
   };
 
   const handleSwipeLeft = () => {
-    console.log("left");
     handleMoveCounter(false, 1);
   };
 
   const handleSwipeRight = () => {
-    console.log("right");
     handleMoveCounter(false, -1);
   };
 

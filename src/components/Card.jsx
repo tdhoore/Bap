@@ -75,7 +75,7 @@ const Card = ({ store, cardData }) => {
           <p>{calcDistance()}</p>
         </header>
         <div className="cardVideoHolder">
-          <video src={video} />
+          <video src={data.mainvid} />
         </div>
         <div className="contributorsData">
           <ul className="contributors">{displayContributors()}</ul>

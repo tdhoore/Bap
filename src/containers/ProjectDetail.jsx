@@ -1,14 +1,13 @@
-import { observer, mobx } from "mobx-react";
-//import mobx from "mobx";
+import { observer } from "mobx-react";
 import React from "react";
 import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 import { Redirect } from "react-router-dom";
 import Branches from "../components/Branches.jsx";
 import VideoPlayer from "../components/VideoPlayer.jsx";
 import lifecycle from "react-pure-lifecycle";
+import BodyPartViewer from "../components/BodyPartViewer.jsx";
 
 const componentDidMount = props => {
-  console.log("props", props);
   props.store.updateLoading();
 };
 
@@ -21,16 +20,12 @@ const options = {
 };
 
 const ProjectDetail = ({ store, props }) => {
-  //const id = props.match.params.id;
-  const id = "firstproject";
+  const id = props.match.params.id;
   //set new current project if needed
   store.setCurrentProject(id);
 
   //get comments from project if needed
   store.getComments();
-
-  //store update loading ready
-  //
 
   //get data from selected project
   let data = false;
@@ -100,7 +95,7 @@ const ProjectDetail = ({ store, props }) => {
             <li className="numErgo">{numbOfX(2)}</li>
           </ul>
           <p className="data_description">{data.description}</p>
-          <div className="bobyPart" />
+          <BodyPartViewer store={store} content={data.bodyparts} />
           <div className="links">
             <a href="#" className="ghostBtn delen_icon">
               Delen
