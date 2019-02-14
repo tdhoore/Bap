@@ -1643,6 +1643,12 @@ progress::-moz-progress-bar {
   width: 4rem;
   height: 4rem;
 }
+.bodyPartViewer {
+  margin: 0 auto 2rem;
+}
+.bodyPartViewer::after {
+  background-image: url(assets/img/body_other.svg);
+}
 
 .cssOutroVid {
   position: absolute;
@@ -2257,13 +2263,10 @@ legend {
     }
 
     & .bodyPartViewer {
+      margin: 0;
       align-self: center;
       grid-column: 2 / 3;
       grid-row: 1 / -1;
-    }
-
-    & .bodyPartViewer::after {
-      background-image: url(assets/img/body_other.svg);
     }
 
     & .projectStats {

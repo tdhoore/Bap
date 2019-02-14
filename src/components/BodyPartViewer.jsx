@@ -6,8 +6,14 @@ const bodyPartViewer = ({ store, content }) => {
   const displayBodyParts = () => {
     if (content !== undefined) {
       //display parts
-      return content.map(partName => {
-        return <div className="selectedBox activeBox" data-id={partName} />;
+      return content.map((partName, index) => {
+        return (
+          <div
+            className="selectedBox activeBox"
+            data-id={partName}
+            key={`selectedBodypart${partName}${index}`}
+          />
+        );
       });
     }
   };
