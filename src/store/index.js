@@ -807,9 +807,6 @@ class Store {
       }
     }
 
-    console.log("data", data);
-    console.log("queryString", queryString);
-
     this.database
       .collection(`projects`)
       .doc(data.projectId)
@@ -818,7 +815,7 @@ class Store {
       .then(r => {
         console.log("Document successfully written!");
         this.loading = false;
-        this.loadingReady = false;
+        this.loadingReady = true;
       })
       .catch(error => {
         console.error("Error writing document: ", error);

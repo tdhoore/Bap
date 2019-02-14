@@ -159,6 +159,15 @@ const VideoEditor = ({ store, editorType, props }) => {
       return <Track store={store} trackId={2} editorType={editorType} />;
     }
   };
+  const getRightLink = () => {
+    if (editorType === 0) {
+      return `/projectdetail/${store.newProjectId}`;
+    } else if (editorType === 1) {
+      return `/projectdetail/${store.currentProjectId}`;
+    }
+
+    return `/`;
+  };
 
   const displayEditor = () => {
     return (
@@ -166,8 +175,7 @@ const VideoEditor = ({ store, editorType, props }) => {
         <header>
           <h2>Nieuw project</h2>
         </header>
-        <Loading store={store} link={`/projectdetail/${store.newProjectId}`} />
-        {console.log(`CURRENT PROJECT`, store.newProjectId)}
+        <Loading store={store} link={getRightLink()} />
         {renderTrimmerWindow()}
         <div className="videoEditorHolder colorBg colorBgTop">
           <VideoPlayerEditor
