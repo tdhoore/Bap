@@ -4,7 +4,7 @@ import { observer } from "mobx-react";
 // eslint-disable-next-line no-unused-vars
 import Clip from "../components/Clip.jsx";
 
-const Track = ({ store, trackId, editorType }) => {
+const Track = ({ store, trackId, editorType, infoText }) => {
   const clipsHolder = React.createRef();
 
   const handleAddClip = e => {
@@ -70,6 +70,7 @@ const Track = ({ store, trackId, editorType }) => {
 
   return (
     <div className={`track track${trackId}`}>
+      <p className="extraText">{infoText}</p>
       <div className={renderClipsHolderClasses()} ref={clipsHolder}>
         {store.clips.map((clip, index) => {
           if (clip.trackId === trackId) {

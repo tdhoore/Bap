@@ -76,10 +76,8 @@ const VideoEditor = ({ store, editorType, props }) => {
       );
     } else if (editorType === 1) {
       //console.log("props", props.match.params);
-      //const fase = props.match.params.fase;
-      //const projectId = props.match.params.projectId;
-      const fase = 1;
-      const projectId = "firstproject";
+      const fase = props.match.params.fase;
+      const projectId = props.match.params.projectId;
 
       //upload voor de maker
       return (
@@ -179,7 +177,7 @@ const VideoEditor = ({ store, editorType, props }) => {
           />
           <form onSubmit={e => handleUpload(e)}>{displayCorrectForm()}</form>
           <div className="timeLine">
-            <Track store={store} trackId={1} />
+            <Track store={store} trackId={1} infoText="help mij" />
             {displayExtraTrack()}
           </div>
         </div>
