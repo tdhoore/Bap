@@ -1340,7 +1340,9 @@ progress::-moz-progress-bar {
 }
 
 .outroTrack .extraText {
-  margin-bottom: 2rem;
+  left: -1rem;
+  right: -1rem;
+  margin-bottom: 1.5rem;
 }
 
 .clipsHolder {

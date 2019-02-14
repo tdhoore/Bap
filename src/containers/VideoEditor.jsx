@@ -153,7 +153,7 @@ const VideoEditor = ({ store, editorType, props }) => {
     if (editorType === 0) {
       //add to total time
       //de gebruiker krijgt een extra css track
-      return <Outro store={store} infoText={setInfoTextSecondElem} />;
+      return <Outro store={store} infoText={setInfoTextSecondElem()} />;
     } else if (editorType === 1) {
       //de maker heeft 2 gewone tracks
       return (
@@ -161,7 +161,7 @@ const VideoEditor = ({ store, editorType, props }) => {
           store={store}
           trackId={2}
           editorType={editorType}
-          infoText={setInfoTextSecondElem}
+          infoText={setInfoTextSecondElem()}
         />
       );
     }
@@ -177,19 +177,25 @@ const VideoEditor = ({ store, editorType, props }) => {
   };
 
   const setInfoTextFirstElem = () => {
+    console.log(editorType);
     if (editorType === 0) {
       return "1. Toon waar je hulp nodig hebt";
     } else if (editorType === 1) {
       return "1. Toon wat je hebt gemaakt";
     }
+
+    return "";
   };
 
   const setInfoTextSecondElem = () => {
+    console.log(editorType);
     if (editorType === 0) {
-      return "1. Toon waar je hulp nodig hebt";
+      return "2. Wat wil je opnieuw kunnen doen?";
     } else if (editorType === 1) {
-      return "1. Toon wat je hebt gemaakt";
+      return "2. Laat zien hoe het werkt";
     }
+
+    return "";
   };
 
   const displayEditor = () => {
@@ -208,7 +214,11 @@ const VideoEditor = ({ store, editorType, props }) => {
           />
           <form onSubmit={e => handleUpload(e)}>{displayCorrectForm()}</form>
           <div className="timeLine">
-            <Track store={store} trackId={1} infoText={setInfoTextFirstElem} />
+            <Track
+              store={store}
+              trackId={1}
+              infoText={setInfoTextFirstElem()}
+            />
             {displayExtraTrack()}
           </div>
         </div>
