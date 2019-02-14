@@ -112,7 +112,6 @@ const ProjectDetail = ({ store, props }) => {
   };
 
   const checkId = () => {
-    return displayProjectDetail();
     if (data) {
       //id found
       return displayProjectDetail();
