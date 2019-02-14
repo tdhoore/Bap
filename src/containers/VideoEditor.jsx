@@ -45,7 +45,7 @@ const VideoEditor = ({ store, editorType, props }) => {
     const input = e.currentTarget;
 
     //set the store message
-    const username = store.user.doc.name
+    const username = store.user.doc.name;
     store.message = `${username.split(" ")[0]} wil ${input.value}`;
   };
 
@@ -168,7 +168,7 @@ const VideoEditor = ({ store, editorType, props }) => {
         <header>
           <h2>Nieuw project</h2>
         </header>
-        <Loading store={store} link={`/projectdetail/${store.newProjectId}`}/>
+        <Loading store={store} link={`/projectdetail/${store.newProjectId}`} />
         {console.log(`CURRENT PROJECT`, store.newProjectId)}
         {renderTrimmerWindow()}
         <div className="videoEditorHolder colorBg colorBgTop">
@@ -179,7 +179,7 @@ const VideoEditor = ({ store, editorType, props }) => {
           />
           <form onSubmit={e => handleUpload(e)}>{displayCorrectForm()}</form>
           <div className="timeLine">
-            <Track store={store} trackId={1} />
+            <Track store={store} trackId={1} infoText="help mij" />
             {displayExtraTrack()}
           </div>
         </div>

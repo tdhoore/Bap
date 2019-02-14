@@ -814,6 +814,9 @@ class Store {
       .add(data)
       .then(r => {
         console.log("Document successfully written!");
+        //help me
+        this.loading = false;
+        this.loadingReady = false;
       })
       .catch(error => {
         console.error("Error writing document: ", error);
