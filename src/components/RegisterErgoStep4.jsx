@@ -4,10 +4,6 @@ import { observer } from "mobx-react";
 import StepCounter from "./StepCounter.jsx";
 
 const RegisterErgoStep3 = ({ store }) => {
-  const handleErgoClientAge = e => {
-    store.formObject.ageCategory = e.currentTarget.value;
-  };
-
   const handleNextPage = e => {
     e.preventDefault();
     store.step++;
@@ -25,66 +21,10 @@ const RegisterErgoStep3 = ({ store }) => {
       </header>
       <form className="colorBg colorBgTop lastSection">
         <div className="formContentHolder withAge">
-          <legend>Welke leeftijd van klant vergt je voorkeur?</legend>
-          <div className="leeftijdHolder">
-            <label htmlFor="kinderen">
-              <span>
-                Kinderen <br />0 - 12
-              </span>
-              <input
-                type="checkbox"
-                name="ageCategory"
-                id="kinderen"
-                value="kinderen"
-                onChange={e => handleErgoClientAge(e)}
-              />
-              <span className="leeftijdCheckbox kinderenType" />
-            </label>
-            <label htmlFor="jongeren">
-              <span>
-                Jongeren
-                <br />
-                13 - 17
-              </span>
-              <input
-                type="checkbox"
-                name="ageCategory"
-                id="jongeren"
-                value="jongeren"
-                onChange={e => handleErgoClientAge(e)}
-              />
-              <span className="leeftijdCheckbox jongerenType" />
-            </label>
-            <label htmlFor="volwassenen">
-              <span>
-                Volwassenen
-                <br />
-                18 - 60
-              </span>
-              <input
-                type="checkbox"
-                name="ageCategory"
-                id="volwassenen"
-                value="volwassenen"
-                onChange={e => handleErgoClientAge(e)}
-              />
-              <span className="leeftijdCheckbox volwassenenType" />
-            </label>
-            <label htmlFor="ouderen">
-              <span>
-                Ouderen
-                <br />
-                60+
-              </span>
-              <input
-                type="checkbox"
-                name="ageCategory"
-                id="ouderen"
-                value="ouderen"
-                onChange={e => handleErgoClientAge(e)}
-              />
-              <span className="leeftijdCheckbox ouderenType" />
-            </label>
+          <legend>Upload je diploma</legend>
+          <div className="upload-diploma">
+            <img src="assets/img/diploma.svg" alt="upload diploma"/>
+            <p className='diploma-uitleg'>We vragen dit voor de credibiliteit van D4E1, zodat niet iedereen zich als ergotherapeut kan profileren.</p>
           </div>
         </div>
         <StepCounter store={store} />
