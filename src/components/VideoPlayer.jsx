@@ -1,7 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { observer } from "mobx-react";
-import videoTest from "../assets/video/explainer.mp4";
 
 const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
   const videoRef = React.createRef();
@@ -14,13 +13,15 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
 
   let isMouseDownOverProgressBar = false;
 
-  const togglePlay = () => {
+  const togglePlay = e => {
     const $videoElem = videoRef.current;
 
     if ($videoElem.paused) {
       $videoElem.play();
+      e.currentTarget.classList.add(`pauseBtn`);
     } else {
       $videoElem.pause();
+      e.currentTarget.classList.remove(`pauseBtn`);
     }
   };
 
@@ -49,9 +50,9 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
     displayComment($videoElem.currentTime);
   };
 
-  const handleStartStop = () => {
+  const handleStartStop = e => {
     //start and stop the video
-    togglePlay();
+    togglePlay(e);
   };
 
   const changeVideosCurrentTime = e => {
@@ -150,26 +151,28 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
         //is prototype comment
         store.uploadPrototypeComment(data.comment, data.timeStamp, prototypeId);
       }
-    } else {
-      //close comment section
-      const commentFormElem = commentFormRef.current;
-      const scrubber = scrubberRef.current;
-
-      commentFormElem.classList.add(`hideComment`);
-      scrubber.classList.remove(`hide`);
     }
+
+    //close comment section
+    const commentFormElem = commentFormRef.current;
+    const scrubber = scrubberRef.current;
+
+    commentFormElem.classList.add(`hideComment`);
+    scrubber.classList.remove(`hide`);
 
     return false;
   };
 
   const displayComment = dur => {
-    console.log(dur);
     //is there a comment here
-    store.commentsCurrentProject.forEach((commentData, index) => {
-      if (commentData.timeStamp < dur + 1 && commentData.timeStamp > dur - 1) {
+    comments.forEach((commentData, index) => {
+      if (
+        commentData.timeStamp < dur + 0.5 &&
+        commentData.timeStamp > dur - 0.5
+      ) {
         //there is a comment here
         //check if there are comment elemets
-        if (!commentElems) {
+        if (commentElems.length === 0) {
           //no so create them
           const commentsHolder = commentsHolderRef.current;
           commentElems = [...commentsHolder.querySelectorAll(`.comment`)];
@@ -187,6 +190,14 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
         });
       }
     });
+  };
+
+  const displayProfilepic = url => {
+    if (url === null || url === undefined) {
+      return "http://localhost:8080/assets/img/placeholder_profilepic.svg";
+    } else {
+      return url;
+    }
   };
 
   return (
@@ -228,7 +239,10 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
               return (
                 <div key={`comment${index}`} className="comment">
                   <div className="commentImg">
-                    <img src="" alt="profiel foto" />
+                    <img
+                      src={displayProfilepic(commentData.profilepic)}
+                      alt="profiel foto"
+                    />
                   </div>
                   <p>{commentData.comment}</p>
                 </div>

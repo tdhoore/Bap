@@ -570,23 +570,22 @@ class Store {
   uploadComment(comment, timeStamp) {
     this.loading = true;
     this.loadingReady = false;
-    //get user name and profile picture
-    /*
-    
-    
-    TODO!!!!!!!!!!!!!!
-    
-    
-    */
 
     //send data
     this.database
       .collection(`projects`)
       .doc(this.currentProjectId)
       .collection(`comments`)
-      .add({ comment: comment, timeStamp: timeStamp })
+      .add({
+        comment: comment,
+        timeStamp: timeStamp,
+        profilepic: this.user.doc.profilepic
+      })
       .then(() => {
         console.log("Document successfully written!");
+
+        //update comments
+        this.getComments();
       })
       .catch(error => {
         console.error("Error writing document: ", error);
@@ -596,21 +595,17 @@ class Store {
   uploadPrototypeComment(comment, timeStamp, protoTypeId) {
     this.loading = true;
     this.loadingReady = false;
-    //get user name and profile picture
-    /*
-    
-    
-    TODO!!!!!!!!!!!!!!
-    
-    
-    */
 
     //send data
     this.database
       .collection(`prototypes`)
       .doc(protoTypeId)
       .collection(`comments`)
-      .add({ comment: comment, timeStamp: timeStamp })
+      .add({
+        comment: comment,
+        timeStamp: timeStamp,
+        profilepic: this.user.doc.profilepic
+      })
       .then(e => {
         console.log("Document successfully written!");
         console.log(e);
@@ -656,21 +651,23 @@ class Store {
       });
   }
 
-  getPrototypeComments() {
-    //empty old comments
-    this.commentsCurrentPrototype = [];
-    console.log(this.currentPrototypePath);
-
+  getPrototypeComments(id) {
     this.database
-      .collection(`projects`)
-      .doc(this.currentProjectId)
-      .collection(`${this.currentPrototypePath}/comments`)
+      .collection(`prototypes`)
+      .doc(id)
+      .collection(`comments`)
       .get()
       .then(querySnapshot => {
         console.log("Document got!");
+
+        //empty first
+        this.commentsCurrentPrototype = [];
+
         querySnapshot.forEach(doc => {
           this.commentsCurrentPrototype.push(doc.data());
         });
+
+        console.log(querySnapshot);
       })
       .catch(error => {
         console.error("Error getting document: ", error);

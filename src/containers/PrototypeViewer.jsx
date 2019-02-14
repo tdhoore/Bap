@@ -2,6 +2,22 @@ import { observer } from "mobx-react";
 import React from "react";
 import { Link } from "react-router-dom";
 import VideoPlayer from "../components/VideoPlayer.jsx";
+import lifecycle from "react-pure-lifecycle";
+
+const componentDidMount = props => {
+  const id = props.props.match.params.id;
+
+  //remove editor files
+  props.store.getPrototypeComments(id);
+};
+
+const methods = {
+  componentDidMount
+};
+
+const options = {
+  usePureComponent: false
+};
 
 const PrototypeViewer = ({ store, props }) => {
   const id = props.match.params.id;
@@ -72,4 +88,4 @@ const PrototypeViewer = ({ store, props }) => {
   return displayPrototypeViewer();
 };
 
-export default observer(PrototypeViewer);
+export default lifecycle(methods, options)(observer(PrototypeViewer));
