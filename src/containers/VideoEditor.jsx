@@ -115,7 +115,7 @@ const VideoEditor = ({ store, editorType, props }) => {
                   required
                   value="0"
                 />
-                <span className="selectedBox" />
+                <span className="selectedCheckBox difficulty_beginner" />
               </label>
               <label htmlFor="hobbyist">
                 <span>Hobbyist</span>
@@ -126,7 +126,7 @@ const VideoEditor = ({ store, editorType, props }) => {
                   required
                   value="1"
                 />
-                <span className="selectedBox" />
+                <span className="selectedCheckBox difficulty_hobbyist" />
               </label>
               <label htmlFor="expert">
                 <span>Expert</span>
@@ -137,7 +137,7 @@ const VideoEditor = ({ store, editorType, props }) => {
                   required
                   value="2"
                 />
-                <span className="selectedBox" />
+                <span className="selectedCheckBox difficulty_expert" />
               </label>
             </div>
             <button className="btn">upload</button>
