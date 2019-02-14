@@ -86,7 +86,7 @@ const ProjectDetail = ({ store, props }) => {
             <VideoPlayer
               store={store}
               comments={store.commentsCurrentProject}
-              video={`http://localhost:8080/${data.mainvid}`}
+              video={`${data.mainvid}`}
             />
           </div>
           <ul className="projectStats">
