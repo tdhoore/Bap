@@ -18,6 +18,13 @@ const PrototypeViewer = ({ store, props }) => {
     }
   };
 
+  const handleVerifieer = e => {
+    if (store.user.doc.type === 2) {
+      const verifyBtn = e.currentTarget;
+      verifyBtn.classList.toggle(`verified`);
+    }
+  };
+
   const displayPrototypeViewer = () => {
     return (
       <main>
@@ -42,7 +49,9 @@ const PrototypeViewer = ({ store, props }) => {
               src={displayData(`ownerProfilePic`)}
               alt="maker profiel foto"
             />
-            <button className="verifieerBtn">verifieer</button>
+            <button className="verifieerBtn" onClick={e => handleVerifieer(e)}>
+              verifieer
+            </button>
           </div>
           <p className="prototypeDescription">{displayData(`description`)}</p>
           <Link

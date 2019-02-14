@@ -1104,6 +1104,10 @@ progress::-moz-progress-bar {
   color: transparent;
 }
 
+.verified {
+  background-image: url(assets/img/goedgekeurd.svg);
+}
+
 /* Prototype viewer */
 
 .prototypeViewer {
