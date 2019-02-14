@@ -125,6 +125,9 @@ label span {
 
   & input[type="checkbox"]:checked ~ .customCheckBox {
     background-color: var(--activeColor);
+    background-image: url(assets/img/checked.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 }
 
@@ -1535,6 +1538,9 @@ progress::-moz-progress-bar {
   & input:checked ~ .selectedBox,
   & input:checked ~ .selectedType {
     background-color: var(--activeColor);
+    background-image: url(assets/img/checked.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 }
 
@@ -1586,6 +1592,9 @@ progress::-moz-progress-bar {
 
   & input:checked ~ .selectedBox {
     background-color: var(--activeColor);
+    background-image: url(assets/img/checked.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 }
 
@@ -1846,6 +1855,9 @@ legend {
 
   & input[type="checkbox"]:checked ~ .leeftijdCheckbox {
     background-color: var(--activeColor);
+    background-image: url(assets/img/checked.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 }
 
