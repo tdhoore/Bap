@@ -92,6 +92,16 @@ class Store {
     this.newProjectId = "";
   }
 
+  resetUploader() {
+    this.activeClipIndex = 0;
+    this.clipId = 0;
+    this.clips = [];
+    this.totalClipsLength = 0;
+    this.totalTrackLengths = {};
+    this.notesCurrentProject = [];
+    this.formContent = {};
+  }
+
   updateLoading() {
     this.loadingReady = false;
   }
@@ -807,9 +817,6 @@ class Store {
       }
     }
 
-    console.log("data", data);
-    console.log("queryString", queryString);
-
     this.database
       .collection(`projects`)
       .doc(data.projectId)
@@ -818,7 +825,7 @@ class Store {
       .then(r => {
         console.log("Document successfully written!");
         this.loading = false;
-        this.loadingReady = false;
+        this.loadingReady = true;
       })
       .catch(error => {
         console.error("Error writing document: ", error);

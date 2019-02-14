@@ -6,6 +6,19 @@ import VideoPlayerInfo from "../components/VideoPlayerInfo.jsx";
 import CardHolder from "../components/CardHolder.jsx";
 import Sorter from "../components/Sorter.jsx";
 import Filter from "../components/Filter.jsx";
+import lifecycle from "react-pure-lifecycle";
+
+const componentDidMount = props => {
+  props.store.updateLoading();
+};
+
+const methods = {
+  componentDidMount
+};
+
+const options = {
+  usePureComponent: false
+};
 
 const Home = ({ store }) => {
   const displayHome = () => {
@@ -46,4 +59,4 @@ const Home = ({ store }) => {
   return <DefaultPageHolder store={store} main={displayHome()} />;
 };
 
-export default observer(Home);
+export default lifecycle(methods, options)(observer(Home));

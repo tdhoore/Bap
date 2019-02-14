@@ -9,6 +9,9 @@ import BodyPartViewer from "../components/BodyPartViewer.jsx";
 
 const componentDidMount = props => {
   props.store.updateLoading();
+
+  //remove editor files
+  props.store.resetUploader();
 };
 
 const methods = {

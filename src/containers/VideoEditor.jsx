@@ -153,11 +153,49 @@ const VideoEditor = ({ store, editorType, props }) => {
     if (editorType === 0) {
       //add to total time
       //de gebruiker krijgt een extra css track
-      return <Outro store={store} />;
+      return <Outro store={store} infoText={setInfoTextSecondElem()} />;
     } else if (editorType === 1) {
       //de maker heeft 2 gewone tracks
-      return <Track store={store} trackId={2} editorType={editorType} />;
+      return (
+        <Track
+          store={store}
+          trackId={2}
+          editorType={editorType}
+          infoText={setInfoTextSecondElem()}
+        />
+      );
     }
+  };
+  const getRightLink = () => {
+    if (editorType === 0) {
+      return `/projectdetail/${store.newProjectId}`;
+    } else if (editorType === 1) {
+      return `/projectdetail/${store.currentProjectId}`;
+    }
+
+    return `/`;
+  };
+
+  const setInfoTextFirstElem = () => {
+    console.log(editorType);
+    if (editorType === 0) {
+      return "1. Toon waar je hulp nodig hebt";
+    } else if (editorType === 1) {
+      return "1. Toon wat je hebt gemaakt";
+    }
+
+    return "";
+  };
+
+  const setInfoTextSecondElem = () => {
+    console.log(editorType);
+    if (editorType === 0) {
+      return "2. Wat wil je opnieuw kunnen doen?";
+    } else if (editorType === 1) {
+      return "2. Laat zien hoe het werkt";
+    }
+
+    return "";
   };
 
   const displayEditor = () => {
@@ -166,8 +204,7 @@ const VideoEditor = ({ store, editorType, props }) => {
         <header>
           <h2>Nieuw project</h2>
         </header>
-        <Loading store={store} link={`/projectdetail/${store.newProjectId}`} />
-        {console.log(`CURRENT PROJECT`, store.newProjectId)}
+        <Loading store={store} link={getRightLink()} />
         {renderTrimmerWindow()}
         <div className="videoEditorHolder colorBg colorBgTop">
           <VideoPlayerEditor
@@ -177,7 +214,11 @@ const VideoEditor = ({ store, editorType, props }) => {
           />
           <form onSubmit={e => handleUpload(e)}>{displayCorrectForm()}</form>
           <div className="timeLine">
-            <Track store={store} trackId={1} infoText="help mij" />
+            <Track
+              store={store}
+              trackId={1}
+              infoText={setInfoTextFirstElem()}
+            />
             {displayExtraTrack()}
           </div>
         </div>
