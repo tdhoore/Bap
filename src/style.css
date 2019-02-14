@@ -1687,9 +1687,11 @@ progress::-moz-progress-bar {
   width: 4rem;
   height: 4rem;
 }
+
 .bodyPartViewer {
   margin: 0 auto 2rem;
 }
+
 .bodyPartViewer::after {
   background-image: url(assets/img/body_other.svg);
 }
