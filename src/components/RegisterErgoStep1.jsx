@@ -22,7 +22,7 @@ const RegisterErgoStep1 = ({ store }) => {
       </header>
       <form className="colorBg colorBgTop lastSection">
         <legend>Klik op het lichaamsdeel die jouw specialisatie omvat</legend>
-        <div className="formContentHolder">
+        <div className="formContentHolder formBodyHolder">
           <BodySelector store={store} />
         </div>
         <StepCounter store={store} />
