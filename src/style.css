@@ -2315,7 +2315,7 @@ legend {
   .filterAndHeader {
     position: relative;
     display: flex;
-    content: flex-end;
+    justify-content: flex-end;
     max-width: 110rem;
     margin: 5rem auto 4rem;
     padding: 0 2rem;
