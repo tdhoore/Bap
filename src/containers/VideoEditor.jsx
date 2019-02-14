@@ -76,10 +76,8 @@ const VideoEditor = ({ store, editorType, props }) => {
       );
     } else if (editorType === 1) {
       //console.log("props", props.match.params);
-      //const fase = props.match.params.fase;
-      //const projectId = props.match.params.projectId;
-      const fase = 1;
-      const projectId = "firstproject";
+      const fase = props.match.params.fase;
+      const projectId = props.match.params.projectId;
 
       //upload voor de maker
       return (
