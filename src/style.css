@@ -2223,6 +2223,10 @@ legend {
     width: 100%;
   }
 
+  .afterFase .addPrototypeBtn {
+    grid-column: 2 / 3;
+  }
+
   .protoTypeCard,
   .addPrototypeBtn {
     min-width: 0;
