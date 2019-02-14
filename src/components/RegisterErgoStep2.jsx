@@ -6,7 +6,7 @@ import StepCounter from "./StepCounter.jsx";
 const RegisterErgoStep2 = ({ store }) => {
   const andereInputRef = React.createRef();
   const handleErgoSpecialisation = e => {
-    if (e.currentTarget.name === "andereCheckbox") {
+    if (e.currentTarget.name === "andereSpecialisatie") {
       if (e.currentTarget.checked) {
         andereInputRef.current.disabled = false;
       } else {
@@ -86,13 +86,13 @@ const RegisterErgoStep2 = ({ store }) => {
             <span>Andere:</span>
             <input
               type="checkbox"
-              name="specialisatie"
+              name="andereSpecialisatie"
               id="andereCheckbox"
               onChange={e => handleErgoSpecialisation(e)}
             />
             <input
               type="text"
-              name="specialisatie"
+              name="andereSpecialisatie"
               onChange={e => handleErgoSpecialisation(e)}
               disabled
               ref={andereInputRef}
