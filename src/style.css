@@ -992,6 +992,7 @@ progress::-moz-progress-bar {
 
 .prototypeFase {
   padding: 0 1rem;
+  margin-bottom: 9rem;
 
   & header h3 {
     font-size: var(--titlesize);

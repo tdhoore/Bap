@@ -62,7 +62,8 @@ const PrototypeArticle = ({ store, prototype, level }) => {
       store.selectedPrototypeIds[level] = prototype.id;
 
       //get new branches
-      store.getProjectBranches(parseInt(level) + 1, prototype.id);
+      store.getProjectBranches(parseInt(level) + 1, prototype.id, true);
+      console.log(store.prototypeLevels);
     }
   };
 
@@ -110,7 +111,7 @@ const PrototypeArticle = ({ store, prototype, level }) => {
       store.selectedPrototypeIds[level] = prototype.id;
 
       //get new branches
-      store.getProjectBranches(parseInt(level) + 1, prototype.id);
+      store.getProjectBranches(parseInt(level) + 1, prototype.id, true);
     }
   };
 

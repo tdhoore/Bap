@@ -830,8 +830,12 @@ class Store {
       });
   }
 
-  getProjectBranches(level = 1, lastId = ``) {
-    console.log("run");
+  getProjectBranches(level = 1, lastId = ``, whipLevel = false) {
+    //whipLevel if needed
+    if (whipLevel) {
+      delete this.prototypeLevels[level];
+    }
+
     let queryString = ``;
 
     //create query

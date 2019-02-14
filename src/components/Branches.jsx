@@ -3,11 +3,22 @@ import React from "react";
 import { observer } from "mobx-react";
 import PrototypeFase from "./PrototypeFase.jsx";
 import AfterFase from "./AfterFase.jsx";
+import lifecycle from "react-pure-lifecycle";
+
+const componentDidMount = props => {
+  //get branches
+  props.store.getProjectBranches(1, ``, true);
+};
+
+const methods = {
+  componentDidMount
+};
+
+const options = {
+  usePureComponent: false
+};
 
 const Branches = ({ store }) => {
-  //get branches
-  store.getProjectBranches();
-
   const createMovie = e => {
     store.createAfterMovie();
   };
@@ -47,4 +58,4 @@ const Branches = ({ store }) => {
   );
 };
 
-export default observer(Branches);
+export default lifecycle(methods, options)(observer(Branches));
