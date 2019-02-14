@@ -10,6 +10,7 @@ import RegisterMakerStep2 from "../components/RegisterMakerStep2.jsx";
 import RegisterErgoStep1 from "../components/RegisterErgoStep1.jsx";
 import RegisterErgoStep2 from "../components/RegisterErgoStep2.jsx";
 import RegisterErgoStep3 from "../components/RegisterErgoStep3.jsx";
+import RegisterErgoStep4 from "../components/RegisterErgoStep4.jsx";
 import UserTypeSelector from "../components/UserTypeSelector.jsx";
 import DefaultPageHolder from "../components/DefaultPageHolder.jsx";
 
@@ -52,17 +53,28 @@ const Registration = ({ store }) => {
             return <Redirect to="/" />;
         }
       case 5:
+      switch (store.formObject.type) {
+         case 0:
+          return;
+        case 1:
+          return <RegisterClientStep2 store={store} />;
+        case 2:
+          return <RegisterMakerStep2 store={store} />;
+        default:
+           return <Redirect to="/" />;
+        }
+      case 6:
         switch (store.formObject.type) {
           case 0:
             return;
           case 1:
-            return <RegisterClientStep2 store={store} />;
+            return;
           case 2:
-            return <RegisterMakerStep2 store={store} />;
+            return <RegisterErgoStep4 store={store} />;
           default:
             return <Redirect to="/" />;
         }
-      case 6:
+      case 7:
         switch (store.formObject.type) {
           case 0:
             return;
@@ -73,7 +85,7 @@ const Registration = ({ store }) => {
           default:
             return <Redirect to="/" />;
         }
-      case 7:
+      case 8:
         switch (store.formObject.type) {
           case 0:
             return;

@@ -1538,9 +1538,6 @@ progress::-moz-progress-bar {
   & input:checked ~ .selectedBox,
   & input:checked ~ .selectedType {
     background-color: var(--activeColor);
-    background-image: url(assets/img/checked.svg);
-    background-repeat: no-repeat;
-    background-position: center center;
   }
 }
 
@@ -1855,9 +1852,6 @@ legend {
 
   & input[type="checkbox"]:checked ~ .leeftijdCheckbox {
     background-color: var(--activeColor);
-    background-image: url(assets/img/checked.svg);
-    background-repeat: no-repeat;
-    background-position: center center;
   }
 }
 
@@ -1908,6 +1902,20 @@ legend {
   margin-right: 1rem;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+.diploma-uitleg {
+  text-align: center;
+  color: var(--cardColor);
+  font-size: var(--broodtekst);
+  width: 29rem;
+  line-height: 2rem;
+  margin-top: 3rem;
+}
+
+.upload-diploma {
+  display: flex;
+  flex-direction: column;
 }
 
 /* TABLET */
