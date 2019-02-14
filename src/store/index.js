@@ -777,6 +777,7 @@ class Store {
                   //delete editorType
                   delete toSendData.editorType;
 
+                  console.log(toSendData);
                   //send data to server
                   this.database
                     .collection(`prototypes`)
