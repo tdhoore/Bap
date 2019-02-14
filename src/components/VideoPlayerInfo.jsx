@@ -12,13 +12,15 @@ const VideoPlayer = ({ store }) => {
   const timeStamp = 1;
   let hasAskedForLocation = false;
 
-  const togglePlay = () => {
+  const togglePlay = e => {
     const $videoElem = videoRef.current;
 
     if ($videoElem.paused) {
       $videoElem.play();
+      e.currentTarget.classList.add(`pauseBtn`);
     } else {
       $videoElem.pause();
+      e.currentTarget.classList.remove(`pauseBtn`);
     }
   };
 
@@ -54,9 +56,9 @@ const VideoPlayer = ({ store }) => {
     console.log(position);
   };
 
-  const handleStartStop = () => {
+  const handleStartStop = (e) => {
     //start and stop the video
-    togglePlay();
+    togglePlay(e);
   };
 
   const changeVideosCurrentTime = e => {
