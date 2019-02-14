@@ -20,8 +20,7 @@ const options = {
 };
 
 const ProjectDetail = ({ store, props }) => {
-  //const id = props.match.params.id;
-  const id = "firstproject";
+  const id = props.match.params.id;
   //set new current project if needed
   store.setCurrentProject(id);
 
