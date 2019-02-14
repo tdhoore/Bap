@@ -92,6 +92,16 @@ class Store {
     this.newProjectId = "";
   }
 
+  resetUploader() {
+    this.activeClipIndex = 0;
+    this.clipId = 0;
+    this.clips = [];
+    this.totalClipsLength = 0;
+    this.totalTrackLengths = {};
+    this.notesCurrentProject = [];
+    this.formContent = {};
+  }
+
   updateLoading() {
     this.loadingReady = false;
   }

@@ -1284,12 +1284,16 @@ progress::-moz-progress-bar {
 .extraText {
   position: absolute;
   z-index: 2;
-  top: 0;
+  bottom: 100%;
   left: 0;
   right: 0;
-  border-bottom: solid 0.3rem white;
+  border-bottom: solid 0.3rem var(--secondColorBgTextColor);
+  color: var(--secondColorBgTextColor);
   font-size: 2rem;
   text-align: center;
+  margin-bottom: 0.5rem;
+  padding-bottom: 1rem;
+  font-weight: bold;
 }
 
 .uploadBar {
@@ -1318,6 +1322,7 @@ progress::-moz-progress-bar {
 }
 
 .outroTrack {
+  position: relative;
   margin-left: 2rem;
   max-width: 20%;
   cursor: pointer;
@@ -1332,6 +1337,10 @@ progress::-moz-progress-bar {
   background-image: url(assets/img/outro-bg.svg);
   background-size: 100%;
   border: 1rem solid var(--backgroundColor);
+}
+
+.outroTrack .extraText {
+  margin-bottom: 2rem;
 }
 
 .clipsHolder {

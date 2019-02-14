@@ -153,10 +153,17 @@ const VideoEditor = ({ store, editorType, props }) => {
     if (editorType === 0) {
       //add to total time
       //de gebruiker krijgt een extra css track
-      return <Outro store={store} />;
+      return <Outro store={store} infoText={setInfoTextSecondElem} />;
     } else if (editorType === 1) {
       //de maker heeft 2 gewone tracks
-      return <Track store={store} trackId={2} editorType={editorType} />;
+      return (
+        <Track
+          store={store}
+          trackId={2}
+          editorType={editorType}
+          infoText={setInfoTextSecondElem}
+        />
+      );
     }
   };
   const getRightLink = () => {
@@ -167,6 +174,22 @@ const VideoEditor = ({ store, editorType, props }) => {
     }
 
     return `/`;
+  };
+
+  const setInfoTextFirstElem = () => {
+    if (editorType === 0) {
+      return "1. Toon waar je hulp nodig hebt";
+    } else if (editorType === 1) {
+      return "1. Toon wat je hebt gemaakt";
+    }
+  };
+
+  const setInfoTextSecondElem = () => {
+    if (editorType === 0) {
+      return "1. Toon waar je hulp nodig hebt";
+    } else if (editorType === 1) {
+      return "1. Toon wat je hebt gemaakt";
+    }
   };
 
   const displayEditor = () => {
@@ -185,7 +208,7 @@ const VideoEditor = ({ store, editorType, props }) => {
           />
           <form onSubmit={e => handleUpload(e)}>{displayCorrectForm()}</form>
           <div className="timeLine">
-            <Track store={store} trackId={1} infoText="help mij" />
+            <Track store={store} trackId={1} infoText={setInfoTextFirstElem} />
             {displayExtraTrack()}
           </div>
         </div>

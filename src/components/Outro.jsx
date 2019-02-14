@@ -2,7 +2,7 @@
 import React from "react";
 import { observer } from "mobx-react";
 
-const Outro = ({ store }) => {
+const Outro = ({ store, infoText }) => {
   const handleClickOurtro = e => {
     //display outro
     document.querySelector(`.cssOutroVid`).classList.toggle(`cssOutroVidShow`);
@@ -10,6 +10,7 @@ const Outro = ({ store }) => {
 
   return (
     <div className="track outroTrack" onClick={e => handleClickOurtro(e)}>
+      <p className="extraText">{infoText}</p>
       <p>{store.message}</p>
     </div>
   );
