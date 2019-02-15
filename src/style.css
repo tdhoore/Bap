@@ -1186,6 +1186,7 @@ progress::-moz-progress-bar {
     width: 100%;
     height: 100%;
     top: 0;
+    left: 0;
     background-image: url(assets/img/close.svg);
   }
 }
@@ -1446,7 +1447,6 @@ progress::-moz-progress-bar {
   & .closeBtn {
     top: -4rem;
     right: -4rem;
-    background-color: var(--activeColor);
   }
 }
 
@@ -1468,6 +1468,9 @@ progress::-moz-progress-bar {
     border-radius: 50%;
     color: transparent;
     background-color: var(--activeColor);
+    background-image: url(assets/img/play_trimmer.svg);
+    background-repeat: no-repeat;
+    background-position: center center;
   }
 }
 
