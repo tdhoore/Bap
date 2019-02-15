@@ -1,7 +1,7 @@
 import { observer } from "mobx-react";
 import React from "react";
 import { Redirect } from "react-router-dom";
-import peter from "assets/img/peter.svg";
+import peter from "../assets/img/peter.svg";
 
 const Loading = ({ store, link }) => {
   if (store.loading) {
