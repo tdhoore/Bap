@@ -78,6 +78,7 @@ const VideoEditor = ({ store, editorType, props }) => {
       //console.log("props", props.match.params);
       const fase = props.match.params.fase;
       const projectId = props.match.params.projectId;
+      const parentPrototypeId = props.match.params.parentPrototypeId;
 
       //upload voor de maker
       return (
@@ -85,6 +86,16 @@ const VideoEditor = ({ store, editorType, props }) => {
           <div className="titleAndStoryHolder">
             <input type="hidden" name="fase" value={fase} />
             <input type="hidden" name="projectId" value={projectId} />
+            <input
+              type="hidden"
+              name="parentPrototypeId"
+              value={parentPrototypeId}
+            />
+            <input
+              type="hidden"
+              name="parentPrototypeId"
+              value={parentPrototypeId}
+            />
             <label htmlFor="title">
               <span>Titel</span>
               <input

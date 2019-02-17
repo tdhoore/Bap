@@ -39,7 +39,7 @@ class Store {
     this.commentsCurrentProject = [];
 
     //prototype data
-    this.currentPrototypePath = ``;
+    //this.currentPrototypePath = ``;
     this.commentsCurrentPrototype = [];
     this.currentPrototype = false;
 
@@ -782,8 +782,17 @@ class Store {
                     .then(r => {
                       console.log("Document successfully written!");
                       //write data to correct part of the project
-                      const id = r.id;
-                      this.uploadPrototype(toSendData, id);
+
+                      /*
+                      
+
+                      TODO
+
+                      remove me
+                      
+                      */
+                      //const id = r.id;
+                      //this.uploadPrototype(toSendData, id);
                     })
                     .catch(error => {
                       console.error("Error writing document: ", error);
@@ -798,7 +807,7 @@ class Store {
     }
   }
 
-  uploadPrototype(data, id) {
+  /*uploadPrototype(data, id) {
     this.loading = true;
     this.loadingReady = false;
     //set prototype id
@@ -828,15 +837,15 @@ class Store {
       .catch(error => {
         console.error("Error writing document: ", error);
       });
-  }
+  }*/
 
-  getProjectBranches(level = 1, lastId = ``, whipLevel = false) {
+  getProjectBranches(level = 0, parentPrototypeId = "0", whipLevel = false) {
     //whipLevel if needed
     if (whipLevel) {
       delete this.prototypeLevels[level];
     }
 
-    let queryString = ``;
+    /*let queryString = ``;
 
     //create query
     for (let i = 1; i <= level; i++) {
@@ -906,6 +915,17 @@ class Store {
             this.selectedPrototypeIds[level - 1]
           );
         }
+      })
+      .catch(e => console.log(e));*/
+
+    this.database
+      .collection(`prototypes`)
+      .where("projectId", "==", this.currentProjectId)
+      .where("parentPrototypeId", "==", parentPrototypeId)
+      .get()
+      .then(querySnapshot => {
+        console.log(querySnapshot);
+        //get the next layer if present
       })
       .catch(e => console.log(e));
   }

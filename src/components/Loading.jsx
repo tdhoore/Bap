@@ -8,7 +8,7 @@ const Loading = ({ store, link }) => {
     return (
       <div className="loading-wrapper">
         <h3>{store.message}</h3>
-        <img src={peter} alt="peter" />
+        <img src="http://localhost:8080/assets/img/peter.svg" alt="peter" />
         <p>
           Wist je dat.. <br /> D4E1 al sinds 2009 geweldige projecten
           produceert?

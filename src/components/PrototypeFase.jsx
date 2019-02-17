@@ -89,7 +89,7 @@ const PrototypeFase = ({ store, faseKey }) => {
             //is link btn
             return (
               <Link
-                to={`/createprototype/${store.currentProjectId}/${faseKey}`}
+                to={`/createprototype/${store.currentProjectId}/${faseKey}/0`}
                 className="addPrototypeBtn btn"
                 key={`individualPrototypes${prototype.id}${index}`}
               >

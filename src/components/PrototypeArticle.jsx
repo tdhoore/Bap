@@ -117,7 +117,6 @@ const PrototypeArticle = ({ store, prototype, level }) => {
 
   const handleSwipeLeft = () => {
     console.log("left");
-
     setNewActive("left");
   };
 

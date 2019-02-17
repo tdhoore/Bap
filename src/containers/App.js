@@ -94,7 +94,7 @@ class App extends Component {
           render={props => <PrototypeViewer store={store} props={props} />}
         />
         <Route
-          path="/createprototype/:projectId/:fase"
+          path="/createprototype/:projectId/:fase/:parentPrototypeId"
           render={props => (
             <VideoEditor store={store} props={props} editorType={1} />
           )}

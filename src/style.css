@@ -1344,7 +1344,7 @@ progress::-moz-progress-bar {
   background-size: 100%;
   border: 1rem solid var(--backgroundColor);
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: top center;
 }
 
 .outroTrack .extraText {
@@ -1398,7 +1398,7 @@ progress::-moz-progress-bar {
 }
 
 .activeClip {
-  border: solid var(--border) var(--activeColor);
+  border: solid var(--border) var(--secondColorBg);
 }
 
 .trimmerWindow {
