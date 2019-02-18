@@ -91,11 +91,6 @@ const VideoEditor = ({ store, editorType, props }) => {
               name="parentPrototypeId"
               value={parentPrototypeId}
             />
-            <input
-              type="hidden"
-              name="parentPrototypeId"
-              value={parentPrototypeId}
-            />
             <label htmlFor="title">
               <span>Titel</span>
               <input

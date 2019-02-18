@@ -7,7 +7,7 @@ import lifecycle from "react-pure-lifecycle";
 
 const componentDidMount = props => {
   //get branches
-  props.store.getProjectBranches(1, ``, true);
+  props.store.getProjectBranches(1, "0", true);
 };
 
 const methods = {

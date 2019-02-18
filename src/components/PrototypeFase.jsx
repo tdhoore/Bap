@@ -67,6 +67,20 @@ const PrototypeFase = ({ store, faseKey }) => {
     return content;
   };
 
+  const getActivePrototype = () => {
+    let result = "0";
+
+    if (store.prototypeLevels[faseKey - 1] !== undefined) {
+      store.prototypeLevels[faseKey - 1].forEach(prototype => {
+        if (prototype.isActive) {
+          result = prototype.id;
+        }
+      });
+    }
+
+    return result;
+  };
+
   return (
     <section className="prototypeFase">
       <header>
@@ -89,7 +103,9 @@ const PrototypeFase = ({ store, faseKey }) => {
             //is link btn
             return (
               <Link
-                to={`/createprototype/${store.currentProjectId}/${faseKey}/0`}
+                to={`/createprototype/${
+                  store.currentProjectId
+                }/${faseKey}/${getActivePrototype()}`}
                 className="addPrototypeBtn btn"
                 key={`individualPrototypes${prototype.id}${index}`}
               >

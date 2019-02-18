@@ -181,7 +181,7 @@ class Store {
       .signInWithEmailAndPassword(email, password)
       .then(result => {
         const res = result.user;
-        console.log(res.email);
+
         //get rest of user data
         this.database
           .collection(`users`)
@@ -195,7 +195,6 @@ class Store {
             };
 
             localStorage.setItem("authUser", JSON.stringify(this.user));
-            console.log("user:", this.user);
           })
           .catch(e => console.log(e));
       })
@@ -221,11 +220,12 @@ class Store {
   registerUser(fileurl = "") {
     this.loading = true;
     this.loadingReady = false;
-    console.log(this.formObject);
+
     const toSendData = {
       email: this.formObject.email,
       name: this.formObject.name,
       type: this.formObject.type,
+      ownerLocation: this.formObject.stad,
       birthday: this.formObject.birthday,
       skills: this.formObject.skills,
       hobby: this.formObject.hobby,
@@ -239,7 +239,7 @@ class Store {
         delete toSendData[key];
       }
     }
-    console.log(toSendData);
+
     firebase
       .auth()
       .createUserWithEmailAndPassword(
@@ -251,11 +251,11 @@ class Store {
           .collection(`users`)
           .add(toSendData)
           .then(user => {
-            console.log(`USER naar collection user:`, user);
             this.user = {
               id: user.id,
               doc: toSendData
             };
+
             localStorage.setItem("authUser", JSON.stringify(this.user));
             this.loading = false;
             this.loadingReady = true;
@@ -268,24 +268,14 @@ class Store {
     if (this.formObject.profilepicfile === undefined) {
       this.registerUser();
     } else {
-      console.log(
-        "PROFILE FILE:",
-        this.formObject.profilepicfile.name.split(".").pop()
-      );
       const extension = this.formObject.profilepicfile.name.split(".").pop();
       const imgLocation = this.storage
         .ref()
         .child(`profilePics/${this.formObject.email}.${extension}`);
-      console.log(
-        "PROFILEPIC:",
-        `profilePics/${this.formObject.email}.${
-          this.formObject.profilepicfile.type
-        }`
-      );
+
       imgLocation
         .put(this.formObject.profilepicfile)
         .then(snapshot => {
-          console.log("SNAPSHOT FULLPATH:", snapshot);
           snapshot.ref.getDownloadURL().then(url => {
             this.registerUser(url);
           });
@@ -608,7 +598,6 @@ class Store {
       })
       .then(e => {
         console.log("Document successfully written!");
-        console.log(e);
       })
       .catch(error => {
         console.error("Error writing document: ", error);
@@ -666,8 +655,6 @@ class Store {
         querySnapshot.forEach(doc => {
           this.commentsCurrentPrototype.push(doc.data());
         });
-
-        console.log(querySnapshot);
       })
       .catch(error => {
         console.error("Error getting document: ", error);
@@ -699,9 +686,7 @@ class Store {
           method: "POST",
           body: data
         }).then(r => {
-          console.log(r);
           if (index === this.clips.length - 1) {
-            console.log(JSON.stringify(metaData));
             //all videos have been send
             //send the metha data from all the clips
             fetch("http://localhost:5000/postclipsmetadata", {
@@ -710,7 +695,6 @@ class Store {
             })
               .then(r => r.text())
               .then(videoUrl => {
-                console.log(videoUrl);
                 //video done loading
                 //save data to server
                 if (this.formContent.editorType === 0) {
@@ -738,7 +722,6 @@ class Store {
 
                   // set title
                   toSendData.title = this.message;
-                  console.log("TOSENDDATE", toSendData);
 
                   //send data to server
                   this.database
@@ -749,7 +732,6 @@ class Store {
                       this.newProjectId = project.id;
                       this.loading = false;
                       this.loadingReady = true;
-                      console.log("PROJECT:", project.id);
                     })
                     .catch(error => {
                       console.error("Error writing document: ", error);
@@ -774,7 +756,6 @@ class Store {
                   //delete editorType
                   delete toSendData.editorType;
 
-                  console.log(toSendData);
                   //send data to server
                   this.database
                     .collection(`prototypes`)
@@ -782,17 +763,8 @@ class Store {
                     .then(r => {
                       console.log("Document successfully written!");
                       //write data to correct part of the project
-
-                      /*
-                      
-
-                      TODO
-
-                      remove me
-                      
-                      */
-                      //const id = r.id;
-                      //this.uploadPrototype(toSendData, id);
+                      this.loading = false;
+                      this.loadingReady = true;
                     })
                     .catch(error => {
                       console.error("Error writing document: ", error);
@@ -807,60 +779,17 @@ class Store {
     }
   }
 
-  /*uploadPrototype(data, id) {
-    this.loading = true;
-    this.loadingReady = false;
-    //set prototype id
-    data.prototype_id = id;
-
-    let queryString = ``;
-
-    //create query
-    for (let i = 1; i <= data.fase; i++) {
-      if (i === 1) {
-        queryString += `prototype${i}`;
-      } else {
-        queryString += `/prototype${i}`;
-      }
-    }
-
-    this.database
-      .collection(`projects`)
-      .doc(data.projectId)
-      .collection(queryString)
-      .add(data)
-      .then(r => {
-        console.log("Document successfully written!");
-        this.loading = false;
-        this.loadingReady = true;
-      })
-      .catch(error => {
-        console.error("Error writing document: ", error);
-      });
-  }*/
-
-  getProjectBranches(level = 0, parentPrototypeId = "0", whipLevel = false) {
+  getProjectBranches(level = 1, parentPrototypeId = "0", whipLevel = false) {
     //whipLevel if needed
     if (whipLevel) {
       delete this.prototypeLevels[level];
     }
 
-    /*let queryString = ``;
-
-    //create query
-    for (let i = 1; i <= level; i++) {
-      if (i === 1) {
-        queryString += `prototype${i}`;
-      } else {
-        queryString += `/${lastId}/prototype${i}`;
-      }
-    }
-
-    //send request
     this.database
-      .collection(`projects`)
-      .doc(this.currentProjectId)
-      .collection(queryString)
+      .collection(`prototypes`)
+      .where("projectId", "==", this.currentProjectId)
+      .where("fase", "==", level.toString())
+      .where("parentPrototypeId", "==", parentPrototypeId)
       .get()
       .then(querySnapshot => {
         let isFirst = true;
@@ -915,17 +844,6 @@ class Store {
             this.selectedPrototypeIds[level - 1]
           );
         }
-      })
-      .catch(e => console.log(e));*/
-
-    this.database
-      .collection(`prototypes`)
-      .where("projectId", "==", this.currentProjectId)
-      .where("parentPrototypeId", "==", parentPrototypeId)
-      .get()
-      .then(querySnapshot => {
-        console.log(querySnapshot);
-        //get the next layer if present
       })
       .catch(e => console.log(e));
   }
