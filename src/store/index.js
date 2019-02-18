@@ -39,7 +39,6 @@ class Store {
     this.commentsCurrentProject = [];
 
     //prototype data
-    //this.currentPrototypePath = ``;
     this.commentsCurrentPrototype = [];
     this.currentPrototype = false;
 
@@ -59,6 +58,7 @@ class Store {
     this.totalTrackLengths = {};
     this.notesCurrentProject = [];
     this.formContent = {};
+
     //gebruiker message
     this.message = ``;
     this.messageDuration = 10;
@@ -141,6 +141,41 @@ class Store {
       //set current project id
       this.currentProjectId = id;
     }
+  }
+
+  deleteClip() {
+    //remove this clip from the list
+    let setNewActive = true;
+    const toDeleteIndex = this.activeClipIndex;
+
+    this.clips.forEach((clip, index) => {
+      //get video before this one and set it active
+      if (
+        this.activeClipIndex - 1 === index &&
+        this.activeClipIndex - 1 >= 0 &&
+        setNewActive
+      ) {
+        //set as previous as active
+        clip.isActiveClip = true;
+        this.activeClipIndex = index;
+
+        //active ahas been set
+        setNewActive = false;
+      } else if (setNewActive && this.activeClipIndex + 1 < this.clips.length) {
+        //set next one as active
+        clip.isActiveClip = true;
+        this.activeClipIndex = index;
+      } else {
+        this.activeClipIndex = 0;
+      }
+    });
+
+    //delete clip
+    this.clips.splice(toDeleteIndex, 1);
+
+    //update total length
+    this.updateTotalClipsLength();
+    console.log(this.totalClipsLength);
   }
 
   getContentByFilter() {

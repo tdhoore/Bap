@@ -38,6 +38,9 @@ const Track = ({ store, trackId, editorType, infoText }) => {
 
     //open trimmer window
     store.isTrimmerOpen = true;
+
+    //empty files from input
+    e.currentTarget.value = "";
   };
 
   const checkIfClipPresentInThisTrack = () => {

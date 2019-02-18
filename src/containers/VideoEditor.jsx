@@ -35,8 +35,6 @@ const VideoEditor = ({ store, editorType, props }) => {
     //save data to store
     store.formContent = data;
 
-    console.log(store.formContent);
-
     //upload clips
     store.uploadClips();
   };
@@ -75,7 +73,6 @@ const VideoEditor = ({ store, editorType, props }) => {
         </div>
       );
     } else if (editorType === 1) {
-      //console.log("props", props.match.params);
       const fase = props.match.params.fase;
       const projectId = props.match.params.projectId;
       const parentPrototypeId = props.match.params.parentPrototypeId;
@@ -183,7 +180,6 @@ const VideoEditor = ({ store, editorType, props }) => {
   };
 
   const setInfoTextFirstElem = () => {
-    console.log(editorType);
     if (editorType === 0) {
       return "1. Toon waar je hulp nodig hebt";
     } else if (editorType === 1) {
@@ -194,7 +190,6 @@ const VideoEditor = ({ store, editorType, props }) => {
   };
 
   const setInfoTextSecondElem = () => {
-    console.log(editorType);
     if (editorType === 0) {
       return "2. Wat wil je opnieuw kunnen doen?";
     } else if (editorType === 1) {

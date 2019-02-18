@@ -266,13 +266,23 @@ const Trimmer = ({ store }) => {
     store.isTrimmerOpen = false;
   };
 
+  const handleDeleteClip = e => {
+    //delete clip
+    store.deleteClip();
+
+    //close window
+    store.isTrimmerOpen = false;
+  };
+
   return (
     <article className="trimmerWindow">
       <header>
         <h3>Trim je video</h3>
       </header>
       <div className="videoTrimmer">
-        <button className="closeBtn">close</button>
+        <button className="closeBtn" onClick={e => handleComfirmTrim()}>
+          close
+        </button>
         <video
           src={activeClip.fileUrl}
           muted
@@ -301,7 +311,9 @@ const Trimmer = ({ store }) => {
           </div>
         </div>
         <div className="trimmerBtns">
-          <button className="ghostBtn">verwijderen</button>
+          <button className="ghostBtn" onClick={e => handleDeleteClip(e)}>
+            verwijderen
+          </button>
           <button onClick={e => handleComfirmTrim(e)} className="btn">
             Trim
           </button>
