@@ -734,6 +734,7 @@ class Store {
                 //save data to server
                 if (this.formContent.editorType === 0) {
                   //add project to file
+
                   const toSendData = {};
 
                   //add user data to toSendData
@@ -804,6 +805,50 @@ class Store {
                     .catch(error => {
                       console.error("Error writing document: ", error);
                     });
+
+                  //add user to contributors if not already present
+                  let constributorExists = false;
+                  let activeProject = false;
+
+                  this.allProjects.forEach(project => {
+                    if (this.currentProjectId === project.id) {
+                      //set active project
+                      activeProject = project;
+                      if (project.doc.contributors !== undefined) {
+                        project.doc.contributors.forEach(contributor => {
+                          if (
+                            contributor.profilePic !== this.user.doc.profilepic
+                          ) {
+                            constributorExists = true;
+                          }
+                        });
+                      }
+                    }
+                  });
+                  console.log(
+                    "contributer exist",
+                    this.user.doc.profilepic,
+                    this.user.doc.type
+                  );
+                  if (!constributorExists) {
+                    //add contributor
+                    activeProject.doc.contributors.push({
+                      profilePic: this.user.doc.profilepic,
+                      type: this.user.doc.type
+                    });
+
+                    //add contributors if he doesn't exist jet
+                    this.database
+                      .collection(`projects`)
+                      .doc(this.currentProjectId)
+                      .set(activeProject)
+                      .then(r => {
+                        console.log("Document successfully written!");
+                      })
+                      .catch(error => {
+                        console.error("Error writing document: ", error);
+                      });
+                  }
                 }
               });
           }
