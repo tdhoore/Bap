@@ -1,0 +1,25 @@
+:root {
+  --color-black: black;
+  --cardColor: white;
+  --backgroundColor: #e5f6e5;
+  --backgroundColorDark: #b0c9b0;
+  --secondColorBg: #4ecdc4;
+  --secondColorBgTextColor: white;
+  --activeColor: #ee4266;
+  --activeTextColor: white;
+  --videoPlayerColor: #ffe66d;
+  --weight-regular: 400;
+  --weight-bold: 700;
+  --weight-semibold: 600;
+  --defaultFontColor: black;
+  --borderRadius: .5rem;
+  --border: .3rem;
+  --titlesize: 2.5rem;
+  --broodtekst: 1.6rem;
+}
+
+@custom-media --xs screen and (min-width: 0);
+@custom-media --sm screen and (min-width: 36em); /* 576px */
+@custom-media --md screen and (min-width: 48em); /* 768px */
+@custom-media --lg screen and (min-width: 62em); /* 992px */
+@custom-media --xl screen and (min-width: 78.75em); /* 1260px */
