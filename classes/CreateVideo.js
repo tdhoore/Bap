@@ -90,7 +90,7 @@ class CreateVideo {
             }
           );
 
-          this.res.send(`assets/uploads/${clipFinalName}.mp4`);
+          this.res.send(`/assets/uploads/${clipFinalName}.mp4`);
         }
 
         //add to the counter
@@ -117,7 +117,7 @@ class CreateVideo {
 
   mergeClips(isLastCLip, totalVideoCount) {
     const dir = __dirname.replace(`/classes`, ``);
-    const finalDir = dir + "/assets/";
+    const finalDir = dir + "/assets";
 
     //merge files if needed
     if (isLastCLip && totalVideoCount > 0) {
@@ -161,7 +161,7 @@ class CreateVideo {
           );
 
           //send back message of completion
-          this.res.send(`assets/uploads/${vidName}.mp4`);
+          this.res.send(`/assets/uploads/${vidName}.mp4`);
         })
         .on("error", function(err) {
           console.log(err);
@@ -182,7 +182,7 @@ class CreateVideo {
 
     //merge the videos
     toMergeVideo
-      .mergeToFile(`${dir}/uploads/finalVideo.mp4`, `${dir}/tmp`)
+      .mergeToFile(`${dir}/assets/uploads/finalVideo.mp4`, `${dir}/tmp`)
       .on("progress", function(progress) {
         console.log("In Progress !!" + Date());
       })
