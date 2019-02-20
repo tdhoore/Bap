@@ -3,6 +3,7 @@ import React from "react";
 import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 import { Swipeable } from "react-touch";
+import placeHolder from "../assets/img/placeholder_profilepic.svg";
 
 const PrototypeArticle = ({ store, prototype, level }) => {
   const displayDifficulty = () => {
@@ -37,9 +38,9 @@ const PrototypeArticle = ({ store, prototype, level }) => {
 
   const displayProfilepicMaker = () => {
     const pic = displayData(`profilepic`);
-    console.log(`PIC`, pic);
+
     if (pic === null || pic === "") {
-      return "http://localhost:8080/assets/img/placeholder_profilepic.svg";
+      return placeHolder;
     } else {
       return pic;
     }
@@ -63,7 +64,6 @@ const PrototypeArticle = ({ store, prototype, level }) => {
 
       //get new branches
       store.getProjectBranches(parseInt(level) + 1, prototype.id, true);
-      console.log(store.prototypeLevels);
     }
   };
 
@@ -138,7 +138,7 @@ const PrototypeArticle = ({ store, prototype, level }) => {
             <img src={displayProfilepicMaker()} alt="maker profiel foto" />
           </header>
           <div className="cardVideoHolder">
-            <video src={`http://localhost:8080/${displayData(`video`)}`} />
+            <video src={`../${displayData(`video`)}`} />
           </div>
           <div className="difficulty">
             <p>Moeilijkheid</p>

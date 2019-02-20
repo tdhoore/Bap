@@ -26,7 +26,11 @@ const Branches = ({ store }) => {
   const afterMovieLink = () => {};
 
   const mapProtoTypes = () => {
-    if (store.prototypeLevels !== {}) {
+    if (
+      store.prototypeLevels !== {} &&
+      store.prototypeLevels[1] !== undefined
+    ) {
+      console.log("prototypes", store.prototypeLevels);
       return Object.keys(store.prototypeLevels).map(key => {
         //check if prototype is approved by 2 people owner en ergo
         return (

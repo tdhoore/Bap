@@ -3,7 +3,7 @@ import React from "react";
 import { observer } from "mobx-react";
 import { Link } from "react-router-dom";
 
-const PrototypeArticle = ({ store, faseKey }) => {
+const AfterFase = ({ store, faseKey }) => {
   const getLastActivePrototype = () => {
     let result = "0";
 
@@ -37,4 +37,4 @@ const PrototypeArticle = ({ store, faseKey }) => {
   );
 };
 
-export default observer(PrototypeArticle);
+export default observer(AfterFase);

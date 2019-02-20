@@ -1,13 +1,14 @@
 import { observer } from "mobx-react";
 import React from "react";
 import { Redirect } from "react-router-dom";
+import loadingImage from "../assets/img/peter.svg";
 
 const Loading = ({ store, link }) => {
   if (store.loading) {
     return (
       <div className="loading-wrapper">
         <h3>{store.message}</h3>
-        <img src="http://localhost:8080/assets/img/peter.svg" alt="peter" />
+        <img src={loadingImage} alt="peter" />
         <p>
           Wist je dat.. <br /> D4E1 al sinds 2009 geweldige projecten
           produceert?

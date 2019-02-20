@@ -717,14 +717,14 @@ class Store {
         metaData.append(`durations`, clip.duration.toString());
 
         //post data to server
-        fetch("http://localhost:5000/postclips", {
+        fetch(`${window.location.origin}/postclips`, {
           method: "POST",
           body: data
         }).then(r => {
           if (index === this.clips.length - 1) {
             //all videos have been send
             //send the metha data from all the clips
-            fetch("http://localhost:5000/postclipsmetadata", {
+            fetch(`${window.location.origin}/postclipsmetadata`, {
               method: "POST",
               body: metaData
             })
@@ -826,11 +826,15 @@ class Store {
                     }
                   });
                   console.log(
-                    "contributer exist",
+                    "contributer",
                     this.user.doc.profilepic,
                     this.user.doc.type
                   );
                   if (!constributorExists) {
+                    if (activeProject.doc.contributors === undefined) {
+                      activeProject.doc.contributors = [];
+                    }
+
                     //add contributor
                     activeProject.doc.contributors.push({
                       profilePic: this.user.doc.profilepic,
@@ -873,7 +877,6 @@ class Store {
       .get()
       .then(querySnapshot => {
         let isFirst = true;
-
         //check if there is anything here
         if (querySnapshot.docs.length > 0) {
           //setup docs for this level
@@ -942,7 +945,7 @@ class Store {
     }
 
     //post data to server
-    fetch("http://localhost:5000/createaftermovie", {
+    fetch(`${window.location.origin}/createaftermovie`, {
       method: "POST",
       body: data
     }).then(r => {

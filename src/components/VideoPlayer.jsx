@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import { observer } from "mobx-react";
+import placeHolder from "../assets/img/placeholder_profilepic.svg";
 
 const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
   const videoRef = React.createRef();
@@ -194,7 +195,7 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
 
   const displayProfilepic = url => {
     if (url === null || url === undefined) {
-      return "http://localhost:8080/assets/img/placeholder_profilepic.svg";
+      return placeHolder;
     } else {
       return url;
     }
@@ -206,7 +207,7 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
         <video
           ref={videoRef}
           onTimeUpdate={e => handleUpdateTime(e)}
-          src={`http://localhost:8080/${video}`}
+          src={`../${video}`}
         />
       </div>
       <div className="videoControls">
@@ -221,10 +222,7 @@ const VideoPlayer = ({ store, comments, prototypeId = false, video }) => {
           />
           <form className="miniComment hideComment" ref={commentFormRef}>
             <div className="commentImg">
-              <img
-                src="http://localhost:8080/assets/img/placeholder_profilepic.svg"
-                alt="profiel foto"
-              />
+              <img src={placeHolder} alt="profiel foto" />
             </div>
             <input
               type="text"
