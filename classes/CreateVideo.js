@@ -48,7 +48,7 @@ class CreateVideo {
 
   cutVideo(clipName, startDur, dur, isLastCLip, totalVideoCount) {
     const dir = __dirname.replace(`/classes`, ``);
-    const finalDir = dir.replace(`/server`, ``) + "/src/assets";
+    const finalDir = dir + "/assets/";
 
     //if one clip  this is final video name approperiatly
     let clipFinalName = `${clipName}Edited`;
@@ -117,7 +117,7 @@ class CreateVideo {
 
   mergeClips(isLastCLip, totalVideoCount) {
     const dir = __dirname.replace(`/classes`, ``);
-    const finalDir = dir.replace(`/server`, ``) + "/src/assets";
+    const finalDir = dir + "/assets/";
 
     //merge files if needed
     if (isLastCLip && totalVideoCount > 0) {

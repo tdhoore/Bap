@@ -3,10 +3,11 @@ const express = require("express");
 const app = express();
 const multer = require("multer");
 const port = process.env.PORT || 5000;
+const path = require("path");
 
 //set up multer
 const storage = multer.diskStorage({
-  destination: "./server/uploads/",
+  destination: "./uploads/",
   filename: (req, file, cb) => {
     cb(null, `${file.originalname}`);
   }
@@ -21,7 +22,8 @@ if (process.env.PORT) {
   app.use(`/`, express.static(__dirname));
 } else {
   //is tester
-  app.use(express.static(`./src`));
+  app.use(`/`, express.static(__dirname));
+  //app.use(express.static(`./`));
 }
 
 app.use(function(req, res, next) {
@@ -57,7 +59,7 @@ app.post("/postclipsmetadata", upload.single(), (req, res) => {
 //fix empty links
 //TODO
 /*app.get("/*", (req, res) => {
-  res.sendFile(path.join(__dirname, "path/to/your/index.html"), err => {
+  res.sendFile(path.join(__dirname, "/index.html"), err => {
     if (err) {
       res.status(500).send(err);
     }
