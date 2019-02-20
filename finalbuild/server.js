@@ -20,7 +20,6 @@ const upload = multer({
 if (process.env.PORT === undefined) {
   //is real
   app.use(`/`, express.static(__dirname));
-  console.log("help");
 } else {
   //is tester
   app.use(express.static(`./src`));
